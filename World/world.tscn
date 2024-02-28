@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=6 format=3 uid="uid://6ry0faxenna3"]
 
-[ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_4dykf"]
-[ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://player.tscn" id="2_dbgs5"]
+[ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
+[ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
+[ext_resource type="PackedScene" uid="uid://didne6k2t8m24" path="res://Planting/growing_zone.tscn" id="3_wopvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dfma"]
-texture = ExtResource("1_4dykf")
+texture = ExtResource("1_nikri")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -338,5 +339,8 @@ layer_0/tile_data = PackedInt32Array(-65539, 0, 0, -3, 0, 1, 65533, 0, 2, 131069
 [node name="foreground" type="TileMap" parent="."]
 format = 2
 
-[node name="player" parent="." instance=ExtResource("2_dbgs5")]
+[node name="growingZone" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(41, 41)
+
+[node name="player" parent="." instance=ExtResource("2_3crqb")]
 position = Vector2(114, 79)

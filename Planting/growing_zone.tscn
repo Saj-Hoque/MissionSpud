@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://didne6k2t8m24"]
+
+[ext_resource type="Script" path="res://Planting/growingZone.gd" id="1_m7qxl"]
+[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_5y2os"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sospt"]
+atlas = ExtResource("2_5y2os")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrksc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sospt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r0d8"]
+size = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qok2"]
+atlas = ExtResource("2_5y2os")
+region = Rect2(160, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y00x"]
+atlas = ExtResource("2_5y2os")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2kri"]
+atlas = ExtResource("2_5y2os")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mglxd"]
+atlas = ExtResource("2_5y2os")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ni43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qok2")
+}],
+"loop": true,
+"name": &"none",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y00x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2kri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mglxd")
+}],
+"loop": true,
+"name": &"potato",
+"speed": 0.0
+}]
+
+[node name="growingZone" type="StaticBody2D"]
+script = ExtResource("1_m7qxl")
+
+[node name="hoedLand" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qrksc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_2r0d8")
+
+[node name="plant" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_1ni43")
+animation = &"none"
+
+[node name="potatoTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="potatoTimer" to="." method="_on_potato_timer_timeout"]

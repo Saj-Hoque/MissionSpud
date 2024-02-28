@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mhug5yj8mo5l"
-path="res://.godot/imported/Shadow.png-aa81c0b367b271e16efa81527c381593.ctex"
+uid="uid://desaiymp8br2y"
+path="res://.godot/imported/spaceman_sprit.png-280e3923d9ab79fc7550289378d55707.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel-RPG_Prototype_v003/Extras/Shadow.png"
-dest_files=["res://.godot/imported/Shadow.png-aa81c0b367b271e16efa81527c381593.ctex"]
+source_file="res://Player/spaceman_sprit.png"
+dest_files=["res://.godot/imported/spaceman_sprit.png-280e3923d9ab79fc7550289378d55707.ctex"]
 
 [params]
 

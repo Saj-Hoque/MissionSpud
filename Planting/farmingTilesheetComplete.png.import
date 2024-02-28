@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ifybyurtbyk8"
-path="res://.godot/imported/Prototype_Worksheet.png-df7e489ad3f0da8ba9f77e6b1e030cdb.ctex"
+uid="uid://de8l32i6b372a"
+path="res://.godot/imported/farmingTilesheetComplete.png-57985c0dd2f16eba22b6f8710da47938.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel-RPG_Prototype_v003/Sprites/Prototype/Prototype_Worksheet.png"
-dest_files=["res://.godot/imported/Prototype_Worksheet.png-df7e489ad3f0da8ba9f77e6b1e030cdb.ctex"]
+source_file="res://Planting/farmingTilesheetComplete.png"
+dest_files=["res://.godot/imported/farmingTilesheetComplete.png-57985c0dd2f16eba22b6f8710da47938.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
