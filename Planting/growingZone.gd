@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+var potato_scene = preload("res://Planting/potato.tscn")
+
 var plantGrowing = false
 var plantGrown = false
 
@@ -10,13 +12,14 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			$potatoTimer.start()
 			$plant.play("potato")
 		elif plantGrown:
-			Global.potatoCount += 1
+			var potato = potato_scene.instantiate()
+			potato.position = position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
+			get_parent().add_child(potato) 
 			plantGrowing = false
 			plantGrown = false
 			$plant.play("none")
-			print(str(Global.potatoCount))		
 		else:
-			print("PLANT IS ALREADY GROWING HERE FAM")
+			print("PLANT IS ALREADY GROWING HERE")
 
 func _on_potato_timer_timeout():
 	var plant = $plant	

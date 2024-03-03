@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvw37g4bvtwas"]
+
+[ext_resource type="Script" path="res://Planting/potato.gd" id="1_14gri"]
+[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_2u8l2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv0lm"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wfms"]
+atlas = ExtResource("2_2u8l2")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8q6v0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wfms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwody"]
+radius = 16.0
+
+[node name="potato" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_14gri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_tv0lm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8q6v0")
+
+[node name="pickup_range" type="Area2D" parent="." groups=["item"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_uwody")
+
+[connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]

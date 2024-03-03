@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=11 format=3 uid="uid://6ry0faxenna3"]
 
+[ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="PackedScene" uid="uid://didne6k2t8m24" path="res://Planting/growing_zone.tscn" id="3_wopvm"]
+[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="4_6qidl"]
+[ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Planting/potato.tscn" id="6_1nlxy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dfma"]
 texture = ExtResource("1_nikri")
@@ -329,7 +332,23 @@ texture = ExtResource("1_nikri")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7dfma")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ablod"]
+atlas = ExtResource("4_6qidl")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4xf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ablod")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
 [node name="world" type="Node2D"]
+script = ExtResource("1_2hjtr")
 
 [node name="background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gwf26")
@@ -339,8 +358,73 @@ layer_0/tile_data = PackedInt32Array(-65539, 0, 0, -3, 0, 1, 65533, 0, 2, 131069
 [node name="foreground" type="TileMap" parent="."]
 format = 2
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="potatoCounter" type="Label" parent="UI"]
+offset_left = 827.0
+offset_top = 3.0
+offset_right = 1062.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="AnimatedSprite2D" parent="UI"]
+position = Vector2(1107.56, 45.0625)
+scale = Vector2(5.42969, 5.11719)
+sprite_frames = SubResource("SpriteFrames_w4xf3")
+
 [node name="growingZone" parent="." instance=ExtResource("3_wopvm")]
-position = Vector2(41, 41)
+position = Vector2(40, 40)
+
+[node name="growingZone2" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(56, 40)
+
+[node name="growingZone3" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(72, 40)
+
+[node name="growingZone5" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(88, 40)
+
+[node name="growingZone4" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(40, 56)
+
+[node name="growingZone6" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(56, 56)
+
+[node name="growingZone7" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(72, 56)
+
+[node name="growingZone8" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(88, 56)
+
+[node name="growingZone9" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(40, 72)
+
+[node name="growingZone10" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(56, 72)
+
+[node name="growingZone11" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(72, 72)
+
+[node name="growingZone12" parent="." instance=ExtResource("3_wopvm")]
+position = Vector2(88, 72)
+
+[node name="potato" parent="." instance=ExtResource("6_1nlxy")]
+position = Vector2(145, 41)
+
+[node name="potato2" parent="." instance=ExtResource("6_1nlxy")]
+position = Vector2(169, 73)
+
+[node name="potato3" parent="." instance=ExtResource("6_1nlxy")]
+position = Vector2(174, 25)
+
+[node name="potato4" parent="." instance=ExtResource("6_1nlxy")]
+position = Vector2(195, 50)
+
+[node name="potato5" parent="." instance=ExtResource("6_1nlxy")]
+position = Vector2(116, 33)
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
-position = Vector2(114, 79)
+position = Vector2(59, 98)
