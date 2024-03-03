@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=14 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -360,6 +360,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8heb"]
+size = Vector2(599, 268)
+
 [node name="world" type="Node2D"]
 script = ExtResource("1_2hjtr")
 
@@ -405,6 +408,17 @@ scale = Vector2(6.90235, 6.05859)
 sprite_frames = SubResource("SpriteFrames_w4xf3")
 animation = &"scrap"
 
+[node name="scrapSpawnZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="area" type="CollisionShape2D" parent="scrapSpawnZone"]
+position = Vector2(127.5, 389)
+shape = SubResource("RectangleShape2D_l8heb")
+
+[node name="scrapSpawnTimer" type="Timer" parent="."]
+autostart = true
+
 [node name="plotA" parent="." instance=ExtResource("4_x37oa")]
 
 [node name="potatoes" type="Node2D" parent="."]
@@ -440,3 +454,5 @@ position = Vector2(162, 298)
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 position = Vector2(59, 98)
+
+[connection signal="timeout" from="scrapSpawnTimer" to="." method="_on_scrap_spawn_timer_timeout"]
