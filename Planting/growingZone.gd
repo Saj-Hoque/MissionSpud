@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-var potato_scene = preload("res://Planting/potato.tscn")
-
+var potato_scene = preload("res://Resources/potato.tscn")
+@onready var potatoes = get_node("/root/world/potatoes")
 var plantGrowing = false
 var plantGrown = false
 
@@ -14,7 +14,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		elif plantGrown:
 			var potato = potato_scene.instantiate()
 			potato.position = position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
-			get_parent().add_child(potato) 
+			potatoes.add_child(potato) 
 			plantGrowing = false
 			plantGrown = false
 			$plant.play("none")

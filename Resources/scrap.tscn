@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvxd414fn2c67"]
+
+[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_3ivtx"]
+[ext_resource type="Script" path="res://Resources/scrap.gd" id="3_bolrs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab2wq"]
+radius = 3.0
+height = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx32t"]
+atlas = ExtResource("2_3ivtx")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn1lx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx32t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf1ag"]
+radius = 14.0
+
+[node name="scrap" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+input_pickable = true
+script = ExtResource("3_bolrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ab2wq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fn1lx")
+
+[node name="pickup_range" type="Area2D" parent="." groups=["item"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
+shape = SubResource("CircleShape2D_lf1ag")
+
+[connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]

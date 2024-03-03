@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var world = get_node("/root/world")
 
 const MAX_SPEED = 15.0
 const ACCELERATION = 0.15
@@ -21,13 +22,11 @@ func _physics_process(delta):
 			_handle_picked_up_by_player()
 		
 func _handle_picked_up_by_player():
-	get_parent().update_potato_counter(value)
-	queue_free()
-
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.1)
+	tween.tween_callback(world.update_scrap_counter.bind(value))
+	tween.tween_callback(queue_free)
+	
 func _on_pickup_range_area_entered(area):
 	if area.is_in_group("player"):
 		is_being_picked_up_by_player = true
-		
-
-
-
