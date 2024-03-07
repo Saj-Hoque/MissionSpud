@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
 
 [sub_resource type="SystemFont" id="SystemFont_oe71b"]
-font_names = PackedStringArray("Cooper")
+font_names = PackedStringArray("Impact")
 
 [sub_resource type="Theme" id="Theme_8aapv"]
 default_font = SubResource("SystemFont_oe71b")
