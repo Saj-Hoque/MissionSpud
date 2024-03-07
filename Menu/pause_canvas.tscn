@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://tc3ps3hbo7d"]
+[gd_scene load_steps=4 format=3 uid="uid://tc3ps3hbo7d"]
 
 [ext_resource type="Script" path="res://Menu/PauseCanvas.gd" id="1_6rsrs"]
+
+[sub_resource type="SystemFont" id="SystemFont_bbmhc"]
+font_names = PackedStringArray("Yu Gothic", "Yu Gothic UI")
+
+[sub_resource type="Theme" id="Theme_tr7cw"]
+default_font = SubResource("SystemFont_bbmhc")
 
 [node name="PauseCanvas" type="CanvasLayer"]
 process_mode = 3
@@ -27,6 +33,7 @@ offset_right = 35.0
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_tr7cw")
 
 [node name="resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
