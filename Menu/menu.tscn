@@ -19,6 +19,40 @@ grow_vertical = 2
 theme = SubResource("Theme_yad5t")
 script = ExtResource("1_1ao13")
 
+[node name="titleMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="titleLabels" type="VBoxContainer" parent="titleMargin"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="titleMargin/titleLabels"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 48
+theme_override_font_sizes/font_size = 160
+text = "Mission Spudnik"
+
+[node name="subtitle" type="Label" parent="titleMargin/titleLabels"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 60
+text = "Grow or Die"
+horizontal_alignment = 1
+
 [node name="buttonsMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
