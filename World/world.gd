@@ -6,8 +6,9 @@ extends Node2D
 @onready var scrapAreaOrigin = scrapArea.global_position - scrapAreaDims
 var scrap_scene = preload("res://Resources/scrap.tscn")
 
-func _process(delta):
-	pass
+func _ready():
+	Global.potatoCount = 0
+	Global.scrapCount = 0
 
 func update_potato_counter(value):
 		Global.potatoCount += value

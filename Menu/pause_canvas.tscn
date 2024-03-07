@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.352941)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="buttons" type="VBoxContainer" parent="."]
 offset_left = 790.0
 offset_top = 351.0
 offset_right = 1150.0
@@ -32,19 +32,21 @@ grow_vertical = 2
 theme = SubResource("Theme_tr7cw")
 theme_override_constants/separation = 30
 
-[node name="resume" type="Button" parent="VBoxContainer"]
+[node name="resume" type="Button" parent="buttons"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
+focus_neighbor_top = NodePath("../exit")
 text = "Resume"
 
-[node name="save" type="Button" parent="VBoxContainer"]
+[node name="save" type="Button" parent="buttons"]
 layout_mode = 2
 text = "Save"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="exit" type="Button" parent="buttons"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../resume")
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="VBoxContainer/save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="buttons/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="buttons/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="buttons/exit" to="." method="_on_exit_pressed"]
