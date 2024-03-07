@@ -3,37 +3,17 @@
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
-[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="4_6qidl"]
+[ext_resource type="Script" path="res://World/UI.gd" id="2_8kypo"]
+[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_ax6na"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot.tscn" id="4_x37oa"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ablod"]
-atlas = ExtResource("4_6qidl")
-region = Rect2(80, 48, 16, 16)
+[sub_resource type="SystemFont" id="SystemFont_oe71b"]
+font_names = PackedStringArray("Cooper")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_klhby"]
-atlas = ExtResource("4_6qidl")
-region = Rect2(96, 32, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_w4xf3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ablod")
-}],
-"loop": true,
-"name": &"potato",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_klhby")
-}],
-"loop": true,
-"name": &"scrap",
-"speed": 5.0
-}]
+[sub_resource type="Theme" id="Theme_8aapv"]
+default_font = SubResource("SystemFont_oe71b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dfma"]
 texture = ExtResource("1_nikri")
@@ -368,38 +348,82 @@ process_mode = 1
 script = ExtResource("1_2hjtr")
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_8kypo")
 
-[node name="potatoCounter" type="Label" parent="UI"]
-offset_left = 437.0
-offset_top = 229.0
-offset_right = 480.0
-offset_bottom = 251.0
-theme_override_font_sizes/font_size = 15
+[node name="resourceMargin" type="MarginContainer" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -271.0
+offset_top = -194.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_8aapv")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="resourceContainer" type="GridContainer" parent="UI/resourceMargin"]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+
+[node name="potatoPanel" type="PanelContainer" parent="UI/resourceMargin/resourceContainer"]
+layout_mode = 2
+
+[node name="potatoMargin" type="MarginContainer" parent="UI/resourceMargin/resourceContainer/potatoPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="potato" type="HBoxContainer" parent="UI/resourceMargin/resourceContainer/potatoPanel/potatoMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="UI/resourceMargin/resourceContainer/potatoPanel/potatoMargin/potato"]
+layout_mode = 2
+texture = ExtResource("2_ax6na")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="potatoCounter" type="Label" parent="UI/resourceMargin/resourceContainer/potatoPanel/potatoMargin/potato"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="potatoIcon" type="AnimatedSprite2D" parent="UI"]
-position = Vector2(432, 239)
-scale = Vector2(1.03467, 1.08545)
-sprite_frames = SubResource("SpriteFrames_w4xf3")
-animation = &"potato"
+[node name="scrapPanel" type="PanelContainer" parent="UI/resourceMargin/resourceContainer"]
+layout_mode = 2
 
-[node name="scrapCounter" type="Label" parent="UI"]
-offset_left = 437.0
-offset_top = 248.0
-offset_right = 480.0
-offset_bottom = 270.0
-theme_override_font_sizes/font_size = 15
+[node name="scrapMargin" type="MarginContainer" parent="UI/resourceMargin/resourceContainer/scrapPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="scrap" type="HBoxContainer" parent="UI/resourceMargin/resourceContainer/scrapPanel/scrapMargin"]
+layout_mode = 2
+
+[node name="scrapIcon" type="TextureRect" parent="UI/resourceMargin/resourceContainer/scrapPanel/scrapMargin/scrap"]
+layout_mode = 2
+texture = ExtResource("2_ax6na")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapCounter" type="Label" parent="UI/resourceMargin/resourceContainer/scrapPanel/scrapMargin/scrap"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="scrapIcon" type="AnimatedSprite2D" parent="UI"]
-position = Vector2(431, 260)
-scale = Vector2(1.98779, 1.89795)
-sprite_frames = SubResource("SpriteFrames_w4xf3")
-animation = &"scrap"
 
 [node name="background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gwf26")
