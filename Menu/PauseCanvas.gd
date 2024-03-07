@@ -3,14 +3,15 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-func _input(event):
-	if event.is_action_pressed("escape"):
-		get_tree().paused = !get_tree().paused
-		visible = not visible
 	pass
 
+func _input(event):
+	if event.is_action_pressed("escape") and get_tree().current_scene.name != "menu":
+		get_tree().paused = !get_tree().paused
+		visible = not visible
+		
+		#if visible:
+			#$buttons/resume.grab_focus()
 
 func _on_resume_pressed():
 	get_tree().paused = false
@@ -21,5 +22,6 @@ func _on_save_pressed():
 	pass # Replace with function body.
 
 func _on_exit_pressed():
-	print("Replace this with change back to title screen")
-	get_tree().quit()
+	get_tree().paused = !get_tree().paused
+	visible = not visible
+	get_tree().change_scene_to_file("res://Menu/menu.tscn")

@@ -1,18 +1,14 @@
 extends Node2D
 
 @onready var scraps = get_node("/root/world/scraps")
-@onready var potatoCounter = $UI/potatoCounter
-@onready var scrapCounter = $UI/scrapCounter
-
 @onready var scrapArea = $scrapSpawnZone/area
 @onready var scrapAreaDims = scrapArea.shape.extents
 @onready var scrapAreaOrigin = scrapArea.global_position - scrapAreaDims
-
 var scrap_scene = preload("res://Resources/scrap.tscn")
 
-func _process(delta):
-	potatoCounter.text = (str(Global.potatoCount))
-	scrapCounter.text = (str(Global.scrapCount))
+func _ready():
+	Global.potatoCount = 0
+	Global.scrapCount = 0
 
 func update_potato_counter(value):
 		Global.potatoCount += value

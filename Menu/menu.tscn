@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://hnv53wnup2n3"]
+
+[ext_resource type="Script" path="res://Menu/menu.gd" id="1_1ao13"]
+
+[sub_resource type="SystemFont" id="SystemFont_rcryl"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_yad5t"]
+default_font = SubResource("SystemFont_rcryl")
+default_font_size = 60
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yad5t")
+script = ExtResource("1_1ao13")
+
+[node name="titleMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="titleLabels" type="VBoxContainer" parent="titleMargin"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="titleMargin/titleLabels"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 48
+theme_override_font_sizes/font_size = 160
+text = "Mission Spudnik"
+
+[node name="subtitle" type="Label" parent="titleMargin/titleLabels"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 60
+text = "Grow or Die"
+horizontal_alignment = 1
+
+[node name="buttonsMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -293.0
+offset_right = 301.0
+grow_vertical = 0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="buttons" type="VBoxContainer" parent="buttonsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="start" type="Button" parent="buttonsMargin/buttons"]
+custom_minimum_size = Vector2(360, 60)
+layout_mode = 2
+focus_neighbor_top = NodePath("../quit")
+text = "Start"
+
+[node name="load" type="Button" parent="buttonsMargin/buttons"]
+layout_mode = 2
+text = "Load Save"
+
+[node name="quit" type="Button" parent="buttonsMargin/buttons"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../start")
+text = "Quit"
+
+[connection signal="pressed" from="buttonsMargin/buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="buttonsMargin/buttons/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="buttonsMargin/buttons/quit" to="." method="_on_quit_pressed"]
