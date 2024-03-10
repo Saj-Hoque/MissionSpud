@@ -10,7 +10,7 @@ func _ready():
 	Global.potatoCount = 0
 	Global.scrapCount = 0
 	
-	TimeSystem.day = 0
+	TimeSystem.day = 1
 	TimeSystem.hour = 0
 	TimeSystem.minute = 0
 	TimeSystem.second = 15*60*24

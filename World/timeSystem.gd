@@ -2,7 +2,7 @@ extends Node2D
 
 var second = 0
 var minute = 0
-var hour = 6
+var hour = 0
 var day = 0
 
 const default_time_speed = 160
