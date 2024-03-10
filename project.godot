@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://World/global.gd"
 PauseCanvas="*res://Menu/pause_canvas.tscn"
+TimeSystem="*res://World/time_system.tscn"
 
 [display]
 

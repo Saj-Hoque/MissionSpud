@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=18 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -9,11 +9,26 @@
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
 
+[sub_resource type="SystemFont" id="SystemFont_vc7es"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_g8i20"]
+default_font = SubResource("SystemFont_vc7es")
+default_font_size = 40
+
+[sub_resource type="SystemFont" id="SystemFont_1u048"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_scn8i"]
+default_font = SubResource("SystemFont_1u048")
+default_font_size = 80
+
 [sub_resource type="SystemFont" id="SystemFont_oe71b"]
 font_names = PackedStringArray("Impact")
 
 [sub_resource type="Theme" id="Theme_8aapv"]
 default_font = SubResource("SystemFont_oe71b")
+default_font_size = 40
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dfma"]
 texture = ExtResource("1_nikri")
@@ -349,6 +364,65 @@ script = ExtResource("1_2hjtr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("2_8kypo")
+
+[node name="timeSystemMargin" type="MarginContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_g8i20")
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="timeSystemContainer" type="VBoxContainer" parent="UI/timeSystemMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="dayPanel" type="PanelContainer" parent="UI/timeSystemMargin/timeSystemContainer"]
+layout_mode = 2
+
+[node name="dayMargin" type="MarginContainer" parent="UI/timeSystemMargin/timeSystemContainer/dayPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="day" type="Label" parent="UI/timeSystemMargin/timeSystemContainer/dayPanel/dayMargin"]
+layout_mode = 2
+theme = SubResource("Theme_scn8i")
+text = "Sol 0"
+horizontal_alignment = 1
+
+[node name="timePanel" type="PanelContainer" parent="UI/timeSystemMargin/timeSystemContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="timeMargin" type="MarginContainer" parent="UI/timeSystemMargin/timeSystemContainer/timePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="timeContainer" type="HBoxContainer" parent="UI/timeSystemMargin/timeSystemContainer/timePanel/timeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="hour" type="Label" parent="UI/timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="seperator" type="Label" parent="UI/timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer"]
+layout_mode = 2
+text = ":"
+horizontal_alignment = 1
+
+[node name="minute" type="Label" parent="UI/timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
 
 [node name="resourceMargin" type="MarginContainer" parent="UI"]
 anchors_preset = 3
