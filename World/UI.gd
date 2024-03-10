@@ -15,5 +15,4 @@ func _process(delta):
 	day.text = ("Sol %d" % TimeSystem.day)
 	hour.text = ("%02d" % TimeSystem.hour)
 	minute.text = ("%02d" % ((TimeSystem.minute / 10) * 10))
-
 	
