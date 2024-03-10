@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=18 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -358,9 +358,6 @@ sources/0 = SubResource("TileSetAtlasSource_7dfma")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8heb"]
 size = Vector2(599, 268)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sket7"]
-radius = 32.0156
-
 [node name="world" type="Node2D"]
 process_mode = 1
 y_sort_enabled = true
@@ -368,7 +365,6 @@ script = ExtResource("1_2hjtr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 script = ExtResource("2_8kypo")
 
 [node name="timeSystemMargin" type="MarginContainer" parent="UI"]
@@ -564,13 +560,6 @@ position = Vector2(40, 271)
 
 [node name="scrap4" parent="scraps" instance=ExtResource("6_wvjoc")]
 position = Vector2(162, 298)
-
-[node name="doorway" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doorway"]
-position = Vector2(128, 228)
-shape = SubResource("CircleShape2D_sket7")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4
