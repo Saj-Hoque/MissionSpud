@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=19 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_ax6na"]
-[ext_resource type="PackedScene" uid="uid://xqlx26ht07gn" path="res://UI/shop.tscn" id="4_w5dgs"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot.tscn" id="4_x37oa"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
@@ -502,9 +501,6 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="shop" parent="." instance=ExtResource("4_w5dgs")]
-visible = false
 
 [node name="background" type="TileMap" parent="."]
 y_sort_enabled = true

@@ -21,6 +21,7 @@ Global="*res://World/global.gd"
 PauseCanvas="*res://Menu/pause_canvas.tscn"
 TimeSystem="*res://UI/time_system.tscn"
 InteractionManager="*res://Interaction/interactionManager.tscn"
+Shop="*res://UI/shop.tscn"
 
 [display]
 

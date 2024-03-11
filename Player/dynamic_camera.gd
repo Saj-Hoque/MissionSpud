@@ -1,14 +1,12 @@
 extends Camera2D
 
-@onready var shop = get_node("/root/world/shop") 
-
 const MAX_DISTANCE = 48
 
 var target_distance = 0
 var center_pos = position
 
 func _process(delta):
-	if not shop.visible:
+	if not Shop.visible:
 		var direction = center_pos.direction_to(get_local_mouse_position())
 		var target_pos = center_pos + direction * target_distance
 		

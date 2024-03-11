@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+func _ready():
+	close_shop()
+
 func open_shop():
 	visible = true
 	
