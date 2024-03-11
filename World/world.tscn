@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=19 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
-[ext_resource type="Script" path="res://World/UI.gd" id="2_8kypo"]
+[ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_ax6na"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot.tscn" id="4_x37oa"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
+[ext_resource type="PackedScene" uid="uid://drf4le7he70xx" path="res://Items/workbench.tscn" id="9_u78r3"]
 
 [sub_resource type="SystemFont" id="SystemFont_vc7es"]
 font_names = PackedStringArray("Impact")
@@ -560,6 +561,11 @@ position = Vector2(40, 271)
 
 [node name="scrap4" parent="scraps" instance=ExtResource("6_wvjoc")]
 position = Vector2(162, 298)
+
+[node name="workbench" parent="." instance=ExtResource("9_u78r3")]
+z_index = 4
+y_sort_enabled = true
+position = Vector2(14, 179)
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4

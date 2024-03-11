@@ -1,10 +1,5 @@
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
 func _input(event):
 	if event.is_action_pressed("escape") and get_tree().current_scene.name != "menu":
 		get_tree().paused = !get_tree().paused

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmvypxk38jfwm"]
-
-[ext_resource type="Script" path="res://World/timeSystem.gd" id="1_dgi5l"]
-
-[node name="timeSystem" type="Node2D"]
-script = ExtResource("1_dgi5l")
