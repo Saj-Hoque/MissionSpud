@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 Global="*res://World/global.gd"
 PauseCanvas="*res://Menu/pause_canvas.tscn"
-TimeSystem="*res://World/time_system.tscn"
+TimeSystem="*res://UI/time_system.tscn"
+InteractionManager="*res://Interaction/interactionManager.tscn"
 
 [display]
 
@@ -28,6 +29,10 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

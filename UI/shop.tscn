@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://xqlx26ht07gn"]
 
-[ext_resource type="Script" path="res://shop.gd" id="1_uw1f8"]
+[ext_resource type="Script" path="res://UI/shop.gd" id="1_uw1f8"]
 
 [sub_resource type="SystemFont" id="SystemFont_810cx"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="shop" type="CanvasLayer"]
 script = ExtResource("1_uw1f8")

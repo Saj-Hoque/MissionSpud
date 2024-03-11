@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://drf4le7he70xx"]
+[gd_scene load_steps=8 format=3 uid="uid://drf4le7he70xx"]
 
-[ext_resource type="Script" path="res://workbench.gd" id="1_3w5g3"]
+[ext_resource type="Script" path="res://Items/workbench.gd" id="1_3w5g3"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nipau"]
+[ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="3_grh7k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kquu0"]
 atlas = ExtResource("1_nipau")
@@ -21,8 +22,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmwg3"]
 size = Vector2(12, 6)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gqtuc"]
-radius = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2fyy"]
+radius = 39.0
 
 [node name="workbench" type="StaticBody2D"]
 collision_layer = 8
@@ -36,11 +37,9 @@ sprite_frames = SubResource("SpriteFrames_wo6k7")
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_hmwg3")
 
-[node name="range" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 2
+[node name="interactionArea" parent="." instance=ExtResource("3_grh7k")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
-shape = SubResource("CircleShape2D_gqtuc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
+shape = SubResource("CircleShape2D_i2fyy")
 
-[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
+[connection signal="body_exited" from="interactionArea" to="." method="_on_interaction_area_body_exited"]
