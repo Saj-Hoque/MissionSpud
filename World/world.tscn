@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=20 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
 [ext_resource type="PackedScene" uid="uid://drf4le7he70xx" path="res://Items/workbench.tscn" id="9_u78r3"]
+[ext_resource type="PackedScene" uid="uid://keeavkauuufy" path="res://Robots/Planter/planter.tscn" id="9_vrajd"]
 
 [sub_resource type="SystemFont" id="SystemFont_vc7es"]
 font_names = PackedStringArray("Impact")
@@ -567,9 +568,13 @@ z_index = 4
 y_sort_enabled = true
 position = Vector2(14, 179)
 
+[node name="planter" parent="." instance=ExtResource("9_vrajd")]
+collision_mask = 3
+
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4
 y_sort_enabled = true
 position = Vector2(59, 98)
+collision_mask = 25
 
 [connection signal="timeout" from="scrapSpawnTimer" to="." method="_on_scrap_spawn_timer_timeout"]

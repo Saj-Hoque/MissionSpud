@@ -9,6 +9,7 @@ extends CharacterBody2D
 func _physics_process(delta):
 
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+	direction = direction.normalized()
 	if Input.is_action_pressed("right"):
 		idle_direction = "sideidle"
 		anim_sprite.play("sidewalk")
