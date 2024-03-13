@@ -515,6 +515,11 @@ layer_1/y_sort_enabled = true
 layer_1/z_index = 4
 layer_1/tile_data = PackedInt32Array(-131067, 262144, 0, -131058, 65536, 0, -131057, 131072, 0, -131056, 196608, 0, -131055, 262144, 0, -131054, 327680, 0, -131062, 65536, 0, -131061, 131072, 0, -131060, 196608, 0, -131059, 262144, 0, -131070, 65536, 0, -131069, 131072, 0, -131068, 196608, 0, -65538, 65536, 0, -65537, 131072, 0, -131072, 196608, 0, -131071, 262144, 0, -65539, 0, 0)
 
+[node name="idleArea" parent="." instance=ExtResource("9_tw5w8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(83, 114)
+
 [node name="scrapSpawnZone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 0
@@ -569,9 +574,6 @@ position = Vector2(162, 298)
 z_index = 4
 y_sort_enabled = true
 position = Vector2(14, 179)
-
-[node name="idleArea" parent="." instance=ExtResource("9_tw5w8")]
-position = Vector2(83, 114)
 
 [node name="planter" parent="." instance=ExtResource("9_vrajd")]
 collision_mask = 3
