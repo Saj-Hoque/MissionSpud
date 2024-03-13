@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=22 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_ax6na"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_2aaxa"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot.tscn" id="4_x37oa"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
@@ -368,7 +369,6 @@ script = ExtResource("1_2hjtr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 script = ExtResource("2_8kypo")
 
 [node name="timeSystemMargin" type="MarginContainer" parent="UI"]
@@ -466,7 +466,7 @@ alignment = 1
 
 [node name="potatoIcon" type="TextureRect" parent="UI/resourceMargin/resourceContainer/potatoPanel/potatoMargin/potato"]
 layout_mode = 2
-texture = ExtResource("2_ax6na")
+texture = ExtResource("3_2aaxa")
 expand_mode = 3
 stretch_mode = 5
 

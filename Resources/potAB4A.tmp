@@ -16,7 +16,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle1",
-"speed": 1.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -24,7 +24,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle2",
-"speed": 2.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -32,7 +32,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle3",
-"speed": 2.0
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"range",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwody"]
@@ -45,6 +50,7 @@ input_pickable = true
 script = ExtResource("1_14gri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_tv0lm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -53,7 +59,6 @@ sprite_frames = SubResource("SpriteFrames_634jg")
 animation = &"idle3"
 
 [node name="pickup_range" type="Area2D" parent="." groups=["item"]]
-position = Vector2(1, -1)
 collision_layer = 4
 collision_mask = 2
 
