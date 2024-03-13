@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhii6b55hb4fl"]
+
+[ext_resource type="Script" path="res://World_Objects/idle_area.gd" id="1_vw7xc"]
+
+[node name="idleArea" type="Node2D"]
+script = ExtResource("1_vw7xc")
+total_docks = 16
+docks_per_row = 8
+
+[node name="docks" type="Node2D" parent="."]
