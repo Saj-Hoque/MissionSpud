@@ -1,8 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj5teyjk48mxi"]
+[gd_scene load_steps=7 format=3 uid="uid://cj5teyjk48mxi"]
 
+[ext_resource type="Texture2D" uid="uid://c3mhiscests3k" path="res://assets/idle_area/blue_light.png" id="1_4qlm6"]
 [ext_resource type="Script" path="res://World_Objects/idle_dock.gd" id="1_apsi4"]
-[ext_resource type="Texture2D" uid="uid://b840gbxmucqxm" path="res://assets/robot_dock.png" id="1_yw3ju"]
+[ext_resource type="Texture2D" uid="uid://byusp04m5vkc8" path="res://assets/idle_area/green_light.png" id="2_dtpss"]
+[ext_resource type="Texture2D" uid="uid://b840gbxmucqxm" path="res://assets/idle_area/robot_dock.png" id="2_e3ic8"]
+[ext_resource type="Texture2D" uid="uid://cqsspbob272h3" path="res://assets/idle_area/red_light.png" id="3_tjfpx"]
 
-[node name="idle_dock" type="Sprite2D"]
-texture = ExtResource("1_yw3ju")
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkyx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4qlm6")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dtpss")
+}],
+"loop": true,
+"name": &"green",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tjfpx")
+}],
+"loop": true,
+"name": &"red",
+"speed": 0.0
+}]
+
+[node name="idle_dock" type="Node2D"]
 script = ExtResource("1_apsi4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -2)
+sprite_frames = SubResource("SpriteFrames_dkyx1")
+animation = &"red"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.533333)
+texture = ExtResource("2_e3ic8")

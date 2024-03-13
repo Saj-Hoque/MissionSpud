@@ -1,11 +1,21 @@
-extends Sprite2D
+extends Node2D
 
+@export var taken = false
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	unoccupied()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func occupied():
+	taken = true
+	sprite.play("green")
+
+func unoccupied():
+	taken = false
+	sprite.play("blue")
+	
+func has_space():
+	if taken:
+		return false
+	return true

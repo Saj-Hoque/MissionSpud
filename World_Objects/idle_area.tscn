@@ -4,5 +4,7 @@
 
 [node name="idleArea" type="Node2D"]
 script = ExtResource("1_vw7xc")
+total_docks = 16
+docks_per_row = 8
 
 [node name="docks" type="Node2D" parent="."]

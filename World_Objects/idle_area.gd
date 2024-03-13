@@ -22,3 +22,19 @@ func _ready():
 		dock.position = pos
 		docks.add_child(dock)
 
+func get_next_available_dock():
+	for i in range(0, total_docks):
+		if docks.get_child(i).has_space():
+			return i
+	return -1
+	
+func get_next_full_dock():
+	for i in range(0, total_docks):
+		if not docks.get_child(i).has_space():
+			return i
+	return -1
+	
+func get_dock_position(dock):
+	return docks.get_child(dock).global_position
+
+

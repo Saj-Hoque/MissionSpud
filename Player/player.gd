@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var accel = 10
 @export var idle_direction = "downidle"
-@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D as AnimatedSprite2D
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta):
 
