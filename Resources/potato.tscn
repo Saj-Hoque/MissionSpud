@@ -15,7 +15,7 @@ animations = [{
 "texture": ExtResource("2_87ycv")
 }],
 "loop": true,
-"name": &"idle1",
+"name": &"idle0",
 "speed": 1.0
 }, {
 "frames": [{
@@ -23,7 +23,7 @@ animations = [{
 "texture": ExtResource("3_3l67c")
 }],
 "loop": true,
-"name": &"idle2",
+"name": &"idle1",
 "speed": 2.0
 }, {
 "frames": [{
@@ -31,7 +31,7 @@ animations = [{
 "texture": ExtResource("4_wlrk6")
 }],
 "loop": true,
-"name": &"idle3",
+"name": &"idle2",
 "speed": 2.0
 }]
 
@@ -50,7 +50,7 @@ shape = SubResource("CircleShape2D_tv0lm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_634jg")
-animation = &"idle3"
+animation = &"idle2"
 
 [node name="pickup_range" type="Area2D" parent="." groups=["item"]]
 position = Vector2(1, -1)

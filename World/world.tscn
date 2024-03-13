@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_ax6na"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_2aaxa"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot.tscn" id="4_x37oa"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="6_wvjoc"]
 [ext_resource type="PackedScene" uid="uid://bhii6b55hb4fl" path="res://World_Objects/idle_area.tscn" id="9_tw5w8"]
@@ -493,7 +493,7 @@ layout_mode = 2
 
 [node name="scrapIcon" type="TextureRect" parent="UI/resourceMargin/resourceContainer/scrapPanel/scrapMargin/scrap"]
 layout_mode = 2
-texture = ExtResource("2_ax6na")
+texture = ExtResource("4_xjtuv")
 expand_mode = 3
 stretch_mode = 5
 

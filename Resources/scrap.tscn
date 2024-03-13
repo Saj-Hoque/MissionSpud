@@ -1,29 +1,70 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvxd414fn2c67"]
+[gd_scene load_steps=11 format=3 uid="uid://dvxd414fn2c67"]
 
-[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_3ivtx"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="2_gr8b6"]
 [ext_resource type="Script" path="res://Resources/scrap.gd" id="3_bolrs"]
+[ext_resource type="Texture2D" uid="uid://cb1kn1b1kqt5k" path="res://assets/Resources/Scrap/scrap2.png" id="3_bs3kb"]
+[ext_resource type="Texture2D" uid="uid://tev1rbu2wvxq" path="res://assets/Resources/Scrap/scrap3.png" id="4_pfupg"]
+[ext_resource type="Texture2D" uid="uid://cri30htj6hay0" path="res://assets/Resources/Scrap/scrap4.png" id="5_bnobk"]
+[ext_resource type="Texture2D" uid="uid://p5g2vh5133ne" path="res://assets/Resources/Scrap/scrap5.png" id="6_teq5n"]
+[ext_resource type="Texture2D" uid="uid://tafi788kdc3o" path="res://assets/Resources/Scrap/scrap6.png" id="7_248is"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab2wq"]
-radius = 3.0
-height = 8.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bx32t"]
-atlas = ExtResource("2_3ivtx")
-region = Rect2(96, 32, 16, 16)
+radius = 6.0
+height = 12.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fn1lx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bx32t")
+"texture": ExtResource("2_gr8b6")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bs3kb")
+}],
+"loop": true,
+"name": &"idle1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pfupg")
+}],
+"loop": true,
+"name": &"idle2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bnobk")
+}],
+"loop": true,
+"name": &"idle3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_teq5n")
+}],
+"loop": true,
+"name": &"idle4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_248is")
+}],
+"loop": true,
+"name": &"idle5",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf1ag"]
-radius = 14.0
+radius = 15.0
 
 [node name="scrap" type="CharacterBody2D"]
 collision_layer = 4
@@ -32,11 +73,12 @@ input_pickable = true
 script = ExtResource("3_bolrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_ab2wq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_fn1lx")
+animation = &"idle5"
 
 [node name="pickup_range" type="Area2D" parent="." groups=["item"]]
 collision_layer = 4

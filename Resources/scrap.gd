@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var world = get_node("/root/world")
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const MAX_SPEED = 15.0
 const ACCELERATION = 0.15
@@ -9,6 +10,15 @@ const ACCELERATION = 0.15
 var speed = 0.0
 var value = 1
 var is_being_picked_up_by_player = false
+
+func _ready():
+	randomize()
+	var type = randi() % 6
+	var scraptype = "idle" + str(type)
+	var scale_xy = randf_range(0.6, 0.8)
+	anim_sprite.scale = Vector2(scale_xy, scale_xy)
+	anim_sprite.rotation_degrees = randf_range(-15, 15)
+	anim_sprite.play(scraptype)
 
 func _physics_process(delta):
 	if is_being_picked_up_by_player:

@@ -13,14 +13,12 @@ var is_being_picked_up_by_player = false
 
 func _ready():
 	randomize()
-	var type = 1 + randi() % 3
+	var type = randi() % 3
 	var potatotype = "idle" + str(type)
 	anim_sprite.scale = Vector2(randf_range(0.6, 0.8), randf_range(0.6, 0.8))
 	anim_sprite.rotation_degrees = randf_range(-15, 15)
 	anim_sprite.play(potatotype)
 	
-	
-
 func _physics_process(delta):
 	if is_being_picked_up_by_player:
 		speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
