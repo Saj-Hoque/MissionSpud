@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://drf4le7he70xx"]
 
-[ext_resource type="Script" path="res://Items/workbench.gd" id="1_3w5g3"]
+[ext_resource type="Script" path="res://World_Objects/workbench.gd" id="1_3w5g3"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nipau"]
 [ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="3_grh7k"]
 

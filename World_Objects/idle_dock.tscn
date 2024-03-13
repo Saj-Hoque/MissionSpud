@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj5teyjk48mxi"]
+
+[ext_resource type="Script" path="res://World_Objects/idle_dock.gd" id="1_apsi4"]
+[ext_resource type="Texture2D" uid="uid://b840gbxmucqxm" path="res://assets/robot_dock.png" id="1_yw3ju"]
+
+[node name="idle_dock" type="Sprite2D"]
+texture = ExtResource("1_yw3ju")
+script = ExtResource("1_apsi4")
