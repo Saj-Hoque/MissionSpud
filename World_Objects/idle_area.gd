@@ -20,6 +20,7 @@ func _ready():
 		
 		var dock = idleDock.instantiate()
 		dock.position = pos
+		dock.add_to_group("docks")
 		docks.add_child(dock)
 
 func get_next_available_dock():
@@ -36,5 +37,8 @@ func get_next_full_dock():
 	
 func get_dock_position(dock):
 	return docks.get_child(dock).global_position
+	
+func change_dock_status(dock):
+	docks.get_child(dock).occupied()
 
 

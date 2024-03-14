@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv812bg8ve5lg"]
+
+[ext_resource type="Script" path="res://ai/is_already_idle.gd" id="1_wtnhw"]
+
+[node name="is_already_idle" type="Node"]
+script = ExtResource("1_wtnhw")

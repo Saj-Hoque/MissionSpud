@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=23 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bhii6b55hb4fl" path="res://World_Objects/idle_area.tscn" id="9_tw5w8"]
 [ext_resource type="PackedScene" uid="uid://drf4le7he70xx" path="res://World_Objects/workbench.tscn" id="9_u78r3"]
 [ext_resource type="PackedScene" uid="uid://keeavkauuufy" path="res://Robots/Planter/planter.tscn" id="9_vrajd"]
+[ext_resource type="PackedScene" uid="uid://ok4nbf70k6mw" path="res://ai/Behavior_Trees/planter_ai.tscn" id="11_teud7"]
 
 [sub_resource type="SystemFont" id="SystemFont_vc7es"]
 font_names = PackedStringArray("Impact")
@@ -580,6 +581,9 @@ position = Vector2(14, 179)
 
 [node name="planter" parent="." instance=ExtResource("9_vrajd")]
 position = Vector2(48, 10)
+
+[node name="PlanterAI" parent="planter" instance=ExtResource("11_teud7")]
+idle_area_path = NodePath("../../idleArea")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4

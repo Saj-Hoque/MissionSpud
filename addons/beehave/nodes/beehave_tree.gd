@@ -148,6 +148,7 @@ func _ready() -> void:
 
 	# Randomize at what frames tick() will happen to avoid stutters
 	last_tick = randi_range(0, tick_rate - 1)
+	
 
 
 func _physics_process(_delta: float) -> void:

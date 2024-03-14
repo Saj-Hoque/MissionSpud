@@ -1,12 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://keeavkauuufy"]
+[gd_scene load_steps=5 format=3 uid="uid://keeavkauuufy"]
 
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="1_ceor2"]
 [ext_resource type="Script" path="res://Robots/Planter/planter.gd" id="1_rs33c"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_jxndl"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="4_h1cu7"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="4_kpni1"]
-[ext_resource type="PackedScene" uid="uid://bu4b8ntael1lv" path="res://ai/go_to_location.tscn" id="6_0mnie"]
-[ext_resource type="PackedScene" uid="uid://cuuvk71g2531q" path="res://ai/check_right_click.tscn" id="6_w34e1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vivhh"]
 animations = [{
@@ -43,21 +38,6 @@ sprite_frames = SubResource("SpriteFrames_vivhh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_gldqo")
-
-[node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
-script = ExtResource("3_jxndl")
-blackboard = NodePath("@Node@83991")
-actor = NodePath("..")
-
-[node name="Either" type="Node" parent="BeehaveTree"]
-script = ExtResource("4_h1cu7")
-
-[node name="player_direct" type="Node" parent="BeehaveTree/Either"]
-script = ExtResource("4_kpni1")
-
-[node name="check_right_click2" parent="BeehaveTree/Either/player_direct" instance=ExtResource("6_w34e1")]
-
-[node name="go_to_right_click" parent="BeehaveTree/Either/player_direct" instance=ExtResource("6_0mnie")]
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

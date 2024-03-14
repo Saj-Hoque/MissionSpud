@@ -4,19 +4,15 @@ signal target_reached
 
 @export var speed = 50
 @export var accel = 5
+
 var active: bool = false
 var right_click: bool = false
+var idle:bool = false
+var docked:bool = false
+
 var target_position = global_position
 
-
-
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-
-#func _unhandled_input(event):
-	#if event.is_action_pressed("rightClick"):
-		#navigation_agent.target_position = get_global_mouse_position()
-		#active = true
-
 		
 func _unhandled_input(event):
 	if event.is_action_pressed("rightClick"):
@@ -40,7 +36,13 @@ func enable_movement():
 	
 func disable_movement():
 	active = false
-	right_click = false
+
+
+func is_in_idle_area():
+	if not active and docked: # AND in an idle spot, check this somehow
+		idle = true
+	else:
+		idle = false
 
 func _on_navigation_agent_2d_target_reached():
 	emit_signal("target_reached")
