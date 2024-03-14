@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://dvxd414fn2c67"]
 
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="2_gr8b6"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="2_gr8b6"]
 [ext_resource type="Script" path="res://Resources/scrap.gd" id="3_bolrs"]
-[ext_resource type="Texture2D" uid="uid://cb1kn1b1kqt5k" path="res://assets/Resources/Scrap/scrap2.png" id="3_bs3kb"]
-[ext_resource type="Texture2D" uid="uid://tev1rbu2wvxq" path="res://assets/Resources/Scrap/scrap3.png" id="4_pfupg"]
-[ext_resource type="Texture2D" uid="uid://cri30htj6hay0" path="res://assets/Resources/Scrap/scrap4.png" id="5_bnobk"]
-[ext_resource type="Texture2D" uid="uid://p5g2vh5133ne" path="res://assets/Resources/Scrap/scrap5.png" id="6_teq5n"]
-[ext_resource type="Texture2D" uid="uid://tafi788kdc3o" path="res://assets/Resources/Scrap/scrap6.png" id="7_248is"]
+[ext_resource type="Texture2D" uid="uid://cb1kn1b1kqt5k" path="res://Assets/Resources/Scrap/scrap2.png" id="3_bs3kb"]
+[ext_resource type="Texture2D" uid="uid://tev1rbu2wvxq" path="res://Assets/Resources/Scrap/scrap3.png" id="4_pfupg"]
+[ext_resource type="Texture2D" uid="uid://cri30htj6hay0" path="res://Assets/Resources/Scrap/scrap4.png" id="5_bnobk"]
+[ext_resource type="Texture2D" uid="uid://p5g2vh5133ne" path="res://Assets/Resources/Scrap/scrap5.png" id="6_teq5n"]
+[ext_resource type="Texture2D" uid="uid://tafi788kdc3o" path="res://Assets/Resources/Scrap/scrap6.png" id="7_248is"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab2wq"]
 radius = 6.0
