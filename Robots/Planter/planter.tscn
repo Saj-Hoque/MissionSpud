@@ -1,40 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://keeavkauuufy"]
+[gd_scene load_steps=5 format=3 uid="uid://keeavkauuufy"]
 
-[ext_resource type="Texture2D" uid="uid://cfnwdi028ivi5" path="res://2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skeleton1/v1/skeleton_v1_3.png" id="1_vfgsn"]
-[ext_resource type="Texture2D" uid="uid://dba542s2ho1ta" path="res://2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skeleton1/v1/skeleton_v1_2.png" id="2_tm8mo"]
-[ext_resource type="Texture2D" uid="uid://byc0ahltb2j5x" path="res://2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skeleton1/v1/skeleton_v1_4.png" id="3_s6n2k"]
-[ext_resource type="Texture2D" uid="uid://be80j2kip04cv" path="res://2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skeleton1/v1/skeleton_v1_1.png" id="4_374g7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6vcm"]
-atlas = ExtResource("1_vfgsn")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pcbfm"]
-atlas = ExtResource("2_tm8mo")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0cwn"]
-atlas = ExtResource("3_s6n2k")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6iuq"]
-atlas = ExtResource("4_374g7")
-region = Rect2(0, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="1_ceor2"]
+[ext_resource type="Script" path="res://Robots/Planter/planter.gd" id="1_rs33c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vivhh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p6vcm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pcbfm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m0cwn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6iuq")
+"texture": ExtResource("1_ceor2")
 }],
 "loop": true,
 "name": &"default",
@@ -42,16 +15,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gldqo"]
-size = Vector2(9, 8)
+size = Vector2(16, 8)
 
 [node name="planter" type="CharacterBody2D"]
 z_index = 4
 y_sort_enabled = true
 collision_layer = 16
+script = ExtResource("1_rs33c")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+target_desired_distance = 1.0
+path_max_distance = 10.0
+radius = 30.0
+neighbor_distance = 50.0
+time_horizon_obstacles = 100.0
+debug_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_vivhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 3)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_gldqo")
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
