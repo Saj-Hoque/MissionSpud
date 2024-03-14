@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3mhiscests3k"
-path="res://.godot/imported/blue_light.png-65b3f011baa9dab9c78d8216c1a4e07c.ctex"
+uid="uid://tafi788kdc3o"
+path="res://.godot/imported/scrap6.png-f76ca187de819dc7e74bdfceff7231bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Idle_Area/blue_light.png"
-dest_files=["res://.godot/imported/blue_light.png-65b3f011baa9dab9c78d8216c1a4e07c.ctex"]
+source_file="res://Assets/Resources/Scrap/scrap6.png"
+dest_files=["res://.godot/imported/scrap6.png-f76ca187de819dc7e74bdfceff7231bb.ctex"]
 
 [params]
 

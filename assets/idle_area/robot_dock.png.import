@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b840gbxmucqxm"
-path="res://.godot/imported/robot_dock.png-e0a1be7967e4625e63065bc6449ece2b.ctex"
+path="res://.godot/imported/robot_dock.png-457827b0ebfeeb6b0296023cb23d9a16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/idle_area/robot_dock.png"
-dest_files=["res://.godot/imported/robot_dock.png-e0a1be7967e4625e63065bc6449ece2b.ctex"]
+source_file="res://Assets/Idle_Area/robot_dock.png"
+dest_files=["res://.godot/imported/robot_dock.png-457827b0ebfeeb6b0296023cb23d9a16.ctex"]
 
 [params]
 

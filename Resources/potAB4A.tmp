@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvw37g4bvtwas"]
 
 [ext_resource type="Script" path="res://Resources/potato.gd" id="1_14gri"]
-[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="2_87ycv"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_3l67c"]
-[ext_resource type="Texture2D" uid="uid://2rec27tf5b3u" path="res://Assets/Resources/Potato/potato3.png" id="4_wlrk6"]
+[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://assets/Resources/Potato/potato1.png" id="2_87ycv"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_3l67c"]
+[ext_resource type="Texture2D" uid="uid://2rec27tf5b3u" path="res://assets/Resources/Potato/potato3.png" id="4_wlrk6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv0lm"]
 radius = 6.0
@@ -15,24 +15,29 @@ animations = [{
 "texture": ExtResource("2_87ycv")
 }],
 "loop": true,
-"name": &"idle0",
-"speed": 1.0
+"name": &"idle1",
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_3l67c")
 }],
 "loop": true,
-"name": &"idle1",
-"speed": 2.0
+"name": &"idle2",
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_wlrk6")
 }],
 "loop": true,
-"name": &"idle2",
-"speed": 2.0
+"name": &"idle3",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"range",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwody"]
@@ -45,15 +50,15 @@ input_pickable = true
 script = ExtResource("1_14gri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_tv0lm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_634jg")
-animation = &"idle2"
+animation = &"idle3"
 
 [node name="pickup_range" type="Area2D" parent="." groups=["item"]]
-position = Vector2(1, -1)
 collision_layer = 4
 collision_mask = 2
 

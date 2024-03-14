@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3mhiscests3k"
-path="res://.godot/imported/blue_light.png-65b3f011baa9dab9c78d8216c1a4e07c.ctex"
+uid="uid://2rec27tf5b3u"
+path="res://.godot/imported/potato3.png-a08e0619f24376c7af1e9a14c6a9acaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Idle_Area/blue_light.png"
-dest_files=["res://.godot/imported/blue_light.png-65b3f011baa9dab9c78d8216c1a4e07c.ctex"]
+source_file="res://Assets/Resources/Potato/potato3.png"
+dest_files=["res://.godot/imported/potato3.png-a08e0619f24376c7af1e9a14c6a9acaf.ctex"]
 
 [params]
 
