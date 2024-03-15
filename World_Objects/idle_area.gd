@@ -38,7 +38,8 @@ func get_next_full_dock():
 func get_dock_position(dock):
 	return docks.get_child(dock).global_position
 	
-func change_dock_status(dock):
+func change_dock_status_occupied(dock):
 	docks.get_child(dock).occupied()
-
-
+	
+func change_dock_status_unoccupied(dock):
+	docks.get_child(dock).unoccupied()

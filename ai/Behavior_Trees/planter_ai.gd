@@ -5,7 +5,7 @@ extends BeehaveTree
 
 @onready var go_to_idle_spot = $"%go_to_idle_spot"
 @onready var sit_in_idle_dock = $"%sit_in_idle_dock"
-
+@onready var deoccupy_dock = $"%deoccupy_dock"
 
 func _ready() -> void:
 	#region default_ready_function
@@ -42,6 +42,8 @@ func _ready() -> void:
 	last_tick = randi_range(0, tick_rate - 1)
 	#endregion
 	
+	deoccupy_dock.idle_area = idle_area
 	go_to_idle_spot.idle_area = idle_area
 	sit_in_idle_dock.idle_area = idle_area
+
 	

@@ -26,7 +26,4 @@ func _on_scrap_spawn_timer_timeout():
 		var scrap = scrap_scene.instantiate()
 		scrap.position = Vector2(randi_range(scrapAreaOrigin.x, scrapAreaOrigin.x + (scrapAreaDims.x*2)), randi_range(scrapAreaOrigin.y, scrapAreaOrigin.y + (scrapAreaDims.y*2)))
 		scraps.add_child(scrap) 
-	print($idleArea.get_dock_position(0))
-	print($idleArea.get_dock_position(1))
-	print($idleArea.get_dock_position(2))
 	

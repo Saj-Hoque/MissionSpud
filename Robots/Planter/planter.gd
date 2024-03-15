@@ -10,6 +10,7 @@ var right_click: bool = false
 var idle:bool = false
 var docked:bool = false
 
+var docker_num:int
 var target_position = global_position
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D

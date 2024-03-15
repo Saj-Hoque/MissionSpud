@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ok4nbf70k6mw"]
+[gd_scene load_steps=11 format=3 uid="uid://ok4nbf70k6mw"]
 
 [ext_resource type="Script" path="res://ai/Behavior_Trees/planter_ai.gd" id="1_u2toq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_hip51"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_jsp6k"]
 [ext_resource type="PackedScene" uid="uid://cuuvk71g2531q" path="res://ai/check_right_click.tscn" id="4_l06i4"]
+[ext_resource type="PackedScene" uid="uid://via73r2ffqnw" path="res://ai/deoccupy_dock.tscn" id="5_58l6m"]
 [ext_resource type="PackedScene" uid="uid://bu4b8ntael1lv" path="res://ai/go_to_location.tscn" id="5_pnr3y"]
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="6_eud4b"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence_star.gd" id="7_jduxd"]
@@ -20,6 +21,9 @@ script = ExtResource("2_hip51")
 script = ExtResource("3_jsp6k")
 
 [node name="check_right_click" parent="Either/directed_by_player" instance=ExtResource("4_l06i4")]
+
+[node name="deoccupy_dock" parent="Either/directed_by_player" instance=ExtResource("5_58l6m")]
+unique_name_in_owner = true
 
 [node name="go_to_right_click" parent="Either/directed_by_player" instance=ExtResource("5_pnr3y")]
 

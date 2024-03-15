@@ -12,6 +12,9 @@ func tick(actor, blackboard: Blackboard):
 		actor.disable_movement()
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
 		return SUCCESS
+	if actor.right_click:
+		actor.disconnect("target_reached", Callable(self, "_target_reached"))
+		return FAILURE
 	var next_available_dock = idle_area.get_next_available_dock()
 	if next_available_dock > -1:
 		actor.target_position = idle_area.get_dock_position(next_available_dock)
