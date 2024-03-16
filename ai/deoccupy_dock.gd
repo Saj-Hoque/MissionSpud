@@ -3,8 +3,9 @@ extends ActionLeaf
 var idle_area
 
 func tick(actor, blackboard: Blackboard):
-	if actor.docked:
+	if actor.docking:
 		idle_area.change_dock_status_unoccupied(actor.docker_num)
-		actor.docked = false
+		idle_area.update_dock_status_color(actor.docker_num)
+		actor.docking = false
 	return SUCCESS
 

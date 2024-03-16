@@ -10,7 +10,7 @@ signal target_reached
 var active: bool = false
 var right_click: bool = false
 var idle:bool = false
-var docked:bool = false
+var docking:bool = false
 
 var docker_num:int
 var target_position = global_position
@@ -65,7 +65,7 @@ func disable_movement():
 	active = false
 
 func is_in_idle_area():
-	if not active and docked: # AND in an idle spot, check this somehow
+	if not active and docking: # AND in an idle spot, check this somehow
 		idle = true
 	else:
 		idle = false

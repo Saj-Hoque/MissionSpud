@@ -378,7 +378,6 @@ script = ExtResource("1_2hjtr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 script = ExtResource("2_8kypo")
 
 [node name="timeSystemMargin" type="MarginContainer" parent="UI"]
@@ -589,6 +588,24 @@ idle_area_path = NodePath("../../idleArea")
 position = Vector2(96, 20)
 
 [node name="PlanterAI" parent="planter2" instance=ExtResource("11_teud7")]
+idle_area_path = NodePath("../../idleArea")
+
+[node name="planter3" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(136, 62)
+
+[node name="PlanterAI" parent="planter3" instance=ExtResource("11_teud7")]
+idle_area_path = NodePath("../../idleArea")
+
+[node name="planter4" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(192, 40)
+
+[node name="PlanterAI" parent="planter4" instance=ExtResource("11_teud7")]
+idle_area_path = NodePath("../../idleArea")
+
+[node name="planter5" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(198, 108)
+
+[node name="PlanterAI" parent="planter5" instance=ExtResource("11_teud7")]
 idle_area_path = NodePath("../../idleArea")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

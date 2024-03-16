@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhem3pnk3j08k"]
-
-[ext_resource type="Script" path="res://ai/sit_in_idle_dock.gd" id="1_dwe7m"]
-
-[node name="sit_in_idle_dock" type="Node"]
-script = ExtResource("1_dwe7m")

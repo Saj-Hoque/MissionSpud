@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="6_eud4b"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence_star.gd" id="7_jduxd"]
 [ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="8_vgfvf"]
-[ext_resource type="PackedScene" uid="uid://dhem3pnk3j08k" path="res://ai/sit_in_idle_dock.tscn" id="9_8b4xs"]
+[ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="9_0dbci"]
 
 [node name="PlanterAI" type="Node"]
 script = ExtResource("1_u2toq")
@@ -38,8 +38,8 @@ script = ExtResource("2_hip51")
 [node name="go_sit_idle" type="Node" parent="Either/wait/rest"]
 script = ExtResource("7_jduxd")
 
-[node name="go_to_idle_spot" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("8_vgfvf")]
+[node name="find_next_available_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("9_0dbci")]
 unique_name_in_owner = true
 
-[node name="sit_in_idle_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("9_8b4xs")]
+[node name="go_to_idle_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("8_vgfvf")]
 unique_name_in_owner = true
