@@ -26,4 +26,10 @@ func _on_scrap_spawn_timer_timeout():
 		var scrap = scrap_scene.instantiate()
 		scrap.position = Vector2(randi_range(scrapAreaOrigin.x, scrapAreaOrigin.x + (scrapAreaDims.x*2)), randi_range(scrapAreaOrigin.y, scrapAreaOrigin.y + (scrapAreaDims.y*2)))
 		scraps.add_child(scrap) 
+		
+func _input(event):
+	if event.is_action_pressed("leftClick"):
+		SelectionManager.target_pos = get_global_mouse_position()
+		SelectionManager.selection_mode = true
+		
 	

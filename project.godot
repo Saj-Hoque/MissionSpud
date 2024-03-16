@@ -24,6 +24,7 @@ InteractionManager="*res://Interaction/interactionManager.tscn"
 Shop="*res://UI/shop.tscn"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+SelectionManager="*res://selection_manager.tscn"
 
 [display]
 
@@ -85,6 +86,11 @@ escape={
 interact={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
+]
+}
+select={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(156, 15),"global_position":Vector2(160, 56),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 

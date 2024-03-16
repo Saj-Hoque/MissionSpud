@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://keeavkauuufy"]
+[gd_scene load_steps=7 format=3 uid="uid://keeavkauuufy"]
 
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="1_ceor2"]
 [ext_resource type="Script" path="res://Robots/Planter/planter.gd" id="1_rs33c"]
@@ -14,10 +14,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muuij"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.243137, 0.890196, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gldqo"]
 size = Vector2(6, 3)
 
-[node name="planter" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjavj"]
+
+[node name="planter" type="CharacterBody2D" groups=["robots"]]
 z_index = 4
 y_sort_enabled = true
 collision_layer = 16
@@ -35,9 +50,22 @@ path_max_distance = 10.0
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_vivhh")
 
+[node name="highlight_box" type="Panel" parent="."]
+visible = false
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_muuij")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_gldqo")
+
+[node name="SelectionArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea2D"]
+shape = SubResource("CircleShape2D_yjavj")
 
 [node name="Raycasts" type="Node2D" parent="."]
 
@@ -67,3 +95,4 @@ collision_mask = 26
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

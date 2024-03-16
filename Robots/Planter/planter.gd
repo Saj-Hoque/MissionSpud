@@ -6,23 +6,26 @@ signal target_reached
 @export var speed = 30
 @export var accel = 5
 @export var avoid_force = 1000
+@export var slow_down_radius = 10
 
 var active: bool = false
 var right_click: bool = false
 var idle:bool = false
 var docking:bool = false
+var selected: bool = false
 
 var docker_num:int
 var target_position = global_position
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var selection_area: Area2D = $SelectionArea2D
+@onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
 		
 func _unhandled_input(event):
-	if event.is_action_pressed("rightClick"):
+	if event.is_action_pressed("rightClick") and selected:
 		target_position = get_global_mouse_position()
 		right_click = true
-	
 
 func _physics_process(delta):
 	if active:
@@ -33,6 +36,8 @@ func _physics_process(delta):
 		
 		velocity += steering
 		velocity = velocity.limit_length(speed)
+		if ((target_position-position).length()) < slow_down_radius:
+			velocity = velocity.limit_length(speed * ((target_position-position).length() / slow_down_radius))
 		velocity.lerp(velocity, accel * delta)
 		
 		move_and_slide()
@@ -76,4 +81,10 @@ func _on_navigation_agent_2d_target_reached():
 func _on_navigation_agent_2d_navigation_finished():
 	emit_signal("target_reached")
 	
-	
+func _on_selection_area_2d_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("leftClick"):
+		SelectionManager.register_area(selection_area)
+
+func toggle_select():
+	selected = not selected
+	highlight_box.visible = not highlight_box.visible
