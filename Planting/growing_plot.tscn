@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://didne6k2t8m24"]
 
-[ext_resource type="Script" path="res://Planting/growingZone.gd" id="1_m7qxl"]
-[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_5y2os"]
+[ext_resource type="Script" path="res://Planting/growing_plot.gd" id="1_pm2gc"]
+[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_7o4a8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sospt"]
-atlas = ExtResource("2_5y2os")
+atlas = ExtResource("2_7o4a8")
 region = Rect2(64, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qrksc"]
@@ -22,19 +22,19 @@ animations = [{
 size = Vector2(12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qok2"]
-atlas = ExtResource("2_5y2os")
+atlas = ExtResource("2_7o4a8")
 region = Rect2(160, 176, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4y00x"]
-atlas = ExtResource("2_5y2os")
+atlas = ExtResource("2_7o4a8")
 region = Rect2(128, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2kri"]
-atlas = ExtResource("2_5y2os")
+atlas = ExtResource("2_7o4a8")
 region = Rect2(112, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mglxd"]
-atlas = ExtResource("2_5y2os")
+atlas = ExtResource("2_7o4a8")
 region = Rect2(96, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ni43"]
@@ -62,8 +62,8 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="growingZone" type="StaticBody2D"]
-script = ExtResource("1_m7qxl")
+[node name="plotArea" type="StaticBody2D"]
+script = ExtResource("1_pm2gc")
 
 [node name="hoedLand" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qrksc")

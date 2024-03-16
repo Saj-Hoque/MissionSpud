@@ -20,12 +20,12 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.243137, 0.890196, 1, 1)
+border_color = Color(1, 1, 1, 1)
 border_blend = true
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gldqo"]
 size = Vector2(6, 3)
@@ -36,7 +36,7 @@ size = Vector2(6, 3)
 z_index = 4
 y_sort_enabled = true
 collision_layer = 16
-collision_mask = 27
+collision_mask = 11
 motion_mode = 1
 platform_floor_layers = 4294967277
 script = ExtResource("1_rs33c")
@@ -52,10 +52,10 @@ sprite_frames = SubResource("SpriteFrames_vivhh")
 
 [node name="highlight_box" type="Panel" parent="."]
 visible = false
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_muuij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -93,6 +93,5 @@ position = Vector2(0, -6)
 target_position = Vector2(32, 0)
 collision_mask = 26
 
-[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

@@ -1,6 +1,5 @@
 extends ActionLeaf
 
-var idle_area
 var target_reached = false
 
 func tick(actor, blackboard: Blackboard):
@@ -9,7 +8,7 @@ func tick(actor, blackboard: Blackboard):
 	if target_reached:
 		target_reached = false
 		actor.disable_movement()
-		idle_area.update_dock_status_color(actor.docker_num)
+		actor.idle_area.update_dock_status_color(actor.docker_num)
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
 		return SUCCESS
 	if actor.right_click:

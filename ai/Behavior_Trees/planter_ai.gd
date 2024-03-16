@@ -1,12 +1,5 @@
 extends BeehaveTree
 
-@export var idle_area_path: NodePath
-@onready var idle_area = get_node(idle_area_path)
-
-@onready var find_next_available_dock = $"%find_next_available_dock"
-@onready var go_to_idle_dock = $"%go_to_idle_dock"
-@onready var deoccupy_dock = $"%deoccupy_dock"
-
 func _ready() -> void:
 	#region default_ready_function
 	if not process_thread:
@@ -41,9 +34,5 @@ func _ready() -> void:
 	# Randomize at what frames tick() will happen to avoid stutters
 	last_tick = randi_range(0, tick_rate - 1)
 	#endregion
-	
-	deoccupy_dock.idle_area = idle_area
-	find_next_available_dock.idle_area = idle_area
-	go_to_idle_dock.idle_area = idle_area
 
 	

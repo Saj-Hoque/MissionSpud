@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_2aaxa"]
-[ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot.tscn" id="4_x37oa"]
+[ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot_area.tscn" id="4_x37oa"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://bhii6b55hb4fl" path="res://World_Objects/idle_area.tscn" id="9_tw5w8"]
@@ -530,11 +530,6 @@ layer_2/tile_data = PackedInt32Array(-65539, 0, 0, -65538, 65536, 0, -65537, 131
 position = Vector2(-2, 0)
 navigation_polygon = SubResource("NavigationPolygon_8m5dc")
 
-[node name="idleArea" parent="." instance=ExtResource("9_tw5w8")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(83, 114)
-
 [node name="scrapSpawnZone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 0
@@ -546,9 +541,25 @@ shape = SubResource("RectangleShape2D_l8heb")
 [node name="scrapSpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="plotA" parent="." instance=ExtResource("4_x37oa")]
+[node name="idleArea" parent="." instance=ExtResource("9_tw5w8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(83, 114)
+
+[node name="plotA" parent="idleArea" instance=ExtResource("4_x37oa")]
 z_index = 2
 y_sort_enabled = true
+position = Vector2(-83, -114)
+total_plots = 24
+
+[node name="idleArea2" parent="." instance=ExtResource("9_tw5w8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(81, 168)
+
+[node name="plotB" parent="idleArea2" instance=ExtResource("4_x37oa")]
+position = Vector2(76, -168)
+total_plots = 24
 
 [node name="potatoes" type="Node2D" parent="."]
 z_index = 3
@@ -580,33 +591,33 @@ position = Vector2(14, 179)
 
 [node name="planter" parent="." instance=ExtResource("9_vrajd")]
 position = Vector2(48, 10)
+idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter" instance=ExtResource("11_teud7")]
-idle_area_path = NodePath("../../idleArea")
 
 [node name="planter2" parent="." instance=ExtResource("9_vrajd")]
 position = Vector2(96, 20)
+idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter2" instance=ExtResource("11_teud7")]
-idle_area_path = NodePath("../../idleArea")
 
 [node name="planter3" parent="." instance=ExtResource("9_vrajd")]
 position = Vector2(136, 62)
+idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter3" instance=ExtResource("11_teud7")]
-idle_area_path = NodePath("../../idleArea")
 
 [node name="planter4" parent="." instance=ExtResource("9_vrajd")]
 position = Vector2(192, 40)
+idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter4" instance=ExtResource("11_teud7")]
-idle_area_path = NodePath("../../idleArea")
 
 [node name="planter5" parent="." instance=ExtResource("9_vrajd")]
 position = Vector2(198, 108)
+idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter5" instance=ExtResource("11_teud7")]
-idle_area_path = NodePath("../../idleArea")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4

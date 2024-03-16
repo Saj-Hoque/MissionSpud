@@ -4,6 +4,16 @@ var potato_scene = preload("res://Resources/potato.tscn")
 @onready var potatoes = get_node("/root/world/potatoes")
 var plantGrowing = false
 var plantGrown = false
+var taken = false
+
+func occupied():
+	taken = true
+
+func unoccupied():
+	taken = false
+	
+func is_available():
+	return not taken
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("leftClick"):	

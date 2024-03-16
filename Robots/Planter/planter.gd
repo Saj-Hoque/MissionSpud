@@ -21,11 +21,17 @@ var target_position = global_position
 @onready var selection_area: Area2D = $SelectionArea2D
 @onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
+
+@export var idle_area_path: NodePath
+@onready var idle_area = get_node(idle_area_path)
+
 		
-func _unhandled_input(event):
-	if event.is_action_pressed("rightClick") and selected:
+func right_clicked(new_idle_area):
+	if selected:
 		target_position = get_global_mouse_position()
 		right_click = true
+		await $NavigationAgent2D.target_reached
+		idle_area = new_idle_area		
 
 func _physics_process(delta):
 	if active:
@@ -76,9 +82,6 @@ func is_in_idle_area():
 		idle = false
 
 func _on_navigation_agent_2d_target_reached():
-	emit_signal("target_reached")
-
-func _on_navigation_agent_2d_navigation_finished():
 	emit_signal("target_reached")
 	
 func _on_selection_area_2d_input_event(viewport, event, shape_idx):
