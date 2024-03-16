@@ -22,8 +22,6 @@ z_index = 4
 y_sort_enabled = true
 collision_layer = 16
 collision_mask = 27
-motion_mode = 1
-platform_floor_layers = 4294967277
 script = ExtResource("1_rs33c")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -43,28 +41,18 @@ shape = SubResource("RectangleShape2D_gldqo")
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(32, 0)
-collision_mask = 26
+target_position = Vector2(48, 0)
+collision_mask = 19
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, 6)
-target_position = Vector2(32, 0)
-collision_mask = 26
-
-[node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 3)
-target_position = Vector2(32, 0)
-collision_mask = 26
-
-[node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -3)
-target_position = Vector2(32, 0)
-collision_mask = 26
+target_position = Vector2(48, 0)
+collision_mask = 18
 
 [node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, -6)
-target_position = Vector2(32, 0)
-collision_mask = 26
+target_position = Vector2(48, 0)
+collision_mask = 18
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

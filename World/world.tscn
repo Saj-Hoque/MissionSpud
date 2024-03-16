@@ -585,10 +585,17 @@ position = Vector2(48, 10)
 [node name="PlanterAI" parent="planter" instance=ExtResource("11_teud7")]
 idle_area_path = NodePath("../../idleArea")
 
+[node name="planter2" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(96, 20)
+
+[node name="PlanterAI" parent="planter2" instance=ExtResource("11_teud7")]
+idle_area_path = NodePath("../../idleArea")
+
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4
 y_sort_enabled = true
 position = Vector2(59, 98)
 collision_mask = 25
+platform_floor_layers = 4294967277
 
 [connection signal="timeout" from="scrapSpawnTimer" to="." method="_on_scrap_spawn_timer_timeout"]
