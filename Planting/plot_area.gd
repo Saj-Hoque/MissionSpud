@@ -57,7 +57,13 @@ func change_plot_status_occupied(plot):
 	
 func change_plot_status_unoccupied(plot):
 	plots.get_child(plot).unoccupied()
-
+	
+func reset_plot(plot):
+	plots.get_child(plot).reset()
+	
+func grow_plant_on_plot(plot):
+	plots.get_child(plot).grow_plant()
+	
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):
 		for robot in all_robots:
@@ -68,4 +74,3 @@ func _on_zone_input_event(viewport, event, shape_idx):
 					print("Cannot assign robot to fully allocated plot. Free up space or assign them to a different plot")
 				else:
 					robot.assign_to_new_idle_area(idle_area)
-				

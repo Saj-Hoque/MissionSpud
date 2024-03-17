@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ok4nbf70k6mw"]
+[gd_scene load_steps=14 format=3 uid="uid://ok4nbf70k6mw"]
 
 [ext_resource type="Script" path="res://ai/Behavior_Trees/planter_ai.gd" id="1_u2toq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_hip51"]
@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="9_0dbci"]
 [ext_resource type="PackedScene" uid="uid://8cb0e5him5we" path="res://ai/available_potatoes.tscn" id="9_4hex0"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_7a58i"]
-[ext_resource type="PackedScene" uid="uid://qjqkrp4ssp8k" path="res://ai/find_next_available_growing_plot.tscn" id="11_73mnw"]
+[ext_resource type="PackedScene" uid="uid://b4ur0wmuf36l2" path="res://ai/find_next_available_growing_plot.tscn" id="11_73mnw"]
 [ext_resource type="PackedScene" uid="uid://1ihuvq2sk2jl" path="res://ai/go_to_growing_plot.tscn" id="12_7q5i6"]
+[ext_resource type="PackedScene" uid="uid://dxmtc3naygxuw" path="res://ai/plant_on_growing_plot.tscn" id="13_g8xo3"]
 
 [node name="PlanterAI" type="Node"]
 script = ExtResource("1_u2toq")
@@ -38,7 +39,6 @@ script = ExtResource("2_hip51")
 script = ExtResource("9_7a58i")
 
 [node name="available_growing_plot" parent="Either/wait/needs_to_wait/no_available_growing_plot" instance=ExtResource("8_6n76v")]
-unique_name_in_owner = true
 
 [node name="no_potatoes_available" type="Node" parent="Either/wait/needs_to_wait"]
 script = ExtResource("9_7a58i")
@@ -65,6 +65,13 @@ script = ExtResource("9_7a58i")
 [node name="plant" type="Node" parent="Either"]
 script = ExtResource("3_jsp6k")
 
+[node name="not_overrided_by_player" type="Node" parent="Either/plant"]
+script = ExtResource("9_7a58i")
+
+[node name="check_right_click" parent="Either/plant/not_overrided_by_player" instance=ExtResource("4_l06i4")]
+
 [node name="find_next_available_growing_plot" parent="Either/plant" instance=ExtResource("11_73mnw")]
 
 [node name="go_to_growing_plot" parent="Either/plant" instance=ExtResource("12_7q5i6")]
+
+[node name="plant_on_growing_plot" parent="Either/plant" instance=ExtResource("13_g8xo3")]

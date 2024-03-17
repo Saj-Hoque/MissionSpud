@@ -33,9 +33,9 @@ func _ready():
 		
 func assign_to_new_idle_area(new_idle_area):
 	right_click = true
-	undock()
 	if plotting:
 		unoccupy_plot()
+	undock()
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
@@ -99,6 +99,7 @@ func undock():
 	docking = false
 
 func unoccupy_plot():
+	#plot.reset_plot(plot_num)
 	plot.change_plot_status_unoccupied(plot_num)
 	plotting = false
 

@@ -596,6 +596,24 @@ idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter" instance=ExtResource("11_teud7")]
 
+[node name="planter2" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(48, 10)
+idle_area_path = NodePath("../idleArea")
+
+[node name="PlanterAI" parent="planter2" instance=ExtResource("11_teud7")]
+
+[node name="planter3" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(48, 10)
+idle_area_path = NodePath("../idleArea")
+
+[node name="PlanterAI" parent="planter3" instance=ExtResource("11_teud7")]
+
+[node name="planter4" parent="." instance=ExtResource("9_vrajd")]
+position = Vector2(48, 10)
+idle_area_path = NodePath("../idleArea")
+
+[node name="PlanterAI" parent="planter4" instance=ExtResource("11_teud7")]
+
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4
 y_sort_enabled = true
