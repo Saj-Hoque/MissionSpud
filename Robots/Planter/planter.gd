@@ -12,6 +12,7 @@ var active: bool = false
 var right_click: bool = false
 var idle:bool = false
 var docking:bool = false
+var plotting:bool = false
 var selected: bool = false
 
 var docker_num:int
@@ -24,19 +25,24 @@ var target_position = global_position
 
 @export var idle_area_path: NodePath
 @onready var idle_area = get_node(idle_area_path)
+@onready var plot = idle_area.plot
+var plot_num : int
 
 func _ready():
 	idle_area.robots.push_back(self)
 		
-func assign_to_plot(new_idle_area):
+func assign_to_new_idle_area(new_idle_area):
 	right_click = true
 	undock()
+	if plotting:
+		unoccupy_plot()
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
 	idle_area = new_idle_area
 	if self not in idle_area.robots:
 		idle_area.robots.push_back(self)
+	plot = idle_area.plot
 	
 
 func _physics_process(delta):
@@ -91,6 +97,10 @@ func undock():
 	idle_area.change_dock_status_unoccupied(docker_num)
 	idle_area.update_dock_status_color(docker_num)
 	docking = false
+
+func unoccupy_plot():
+	plot.change_plot_status_unoccupied(plot_num)
+	plotting = false
 
 func _on_navigation_agent_2d_target_reached():
 	emit_signal("target_reached")

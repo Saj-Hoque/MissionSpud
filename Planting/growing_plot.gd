@@ -23,7 +23,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			$plant.play("potato")
 		elif plantGrown:
 			var potato = potato_scene.instantiate()
-			potato.position = position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
+			potato.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
 			potatoes.add_child(potato) 
 			plantGrowing = false
 			plantGrown = false

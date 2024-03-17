@@ -24,26 +24,28 @@ func _ready():
 			pos.x += DISTANCE_BETWEEN_PLOTS
 		
 		var plot = growingPlot.instantiate()
-		plot.position = pos
+		plot.position = global_position + pos
 		plots.add_child(plot)
 	
 	var zone_x_size = DISTANCE_BETWEEN_PLOTS * (plots_per_row+1)
-	var zone_x_pos = DISTANCE_BETWEEN_PLOTS * (plots_per_row-1) / 2
+	var zone_x_pos = global_position.x + DISTANCE_BETWEEN_PLOTS * (plots_per_row-1) / 2
 	var zone_y_size = DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) 
-	var zone_y_pos = DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) / 2 
+	var zone_y_pos = global_position.y + DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) / 2 
 	
 	zone.shape.size = Vector2(zone_x_size, zone_y_size)
 	zone.global_position += Vector2(zone_x_pos, zone_y_pos)
 	
 func get_next_available_plot():
 	for i in range(0, total_plots):
-		if plots.get_child(i).is_available():
+		var plot = plots.get_child(i)
+		if plot.is_available() and not plot.plantGrowing and not plot.plantGrown:
 			return i
 	return -1
 	
 func get_next_full_plot():
 	for i in range(0, total_plots):
-		if not plots.get_child(i).is_available():
+		var plot = plots.get_child(i)
+		if not plot.is_available() and not plot.plantGrowing and not plot.plantGrown:
 			return i
 	return -1
 	
@@ -65,5 +67,5 @@ func _on_zone_input_event(viewport, event, shape_idx):
 				elif idle_area.robots.size() == idle_area.total_docks:
 					print("Cannot assign robot to fully allocated plot. Free up space or assign them to a different plot")
 				else:
-					robot.assign_to_plot(idle_area)
+					robot.assign_to_new_idle_area(idle_area)
 				
