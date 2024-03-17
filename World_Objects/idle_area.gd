@@ -15,6 +15,8 @@ var pos = Vector2.ZERO
 var robots = []
 @onready var robotCount = $count/label
 
+@onready var plots = []
+
 @onready var zone = $zone/CollisionShape2D
 
 func _ready():
@@ -39,6 +41,11 @@ func _ready():
 	zone.global_position += Vector2(zone_x_pos, zone_y_pos)		
 	
 	$count.position = Vector2(DISTANCE_BETWEEN_DOCKS * (docks_per_row-1), 0)
+	
+	for child in get_children():
+		if child is PlotArea:
+			plots.append(child)
+			
 	
 func _process(delta):
 	robotCount.text = (str(robots.size()) + " / " + str(total_docks))

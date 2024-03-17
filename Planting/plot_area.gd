@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name PlotArea
+
 const DISTANCE_BETWEEN_PLOTS = 16
 
 @export var total_plots = 12

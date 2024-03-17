@@ -1,5 +1,8 @@
 extends BeehaveTree
 
+@onready var robot = get_parent()
+@onready var available_growing_plot = $"%available_growing_plot"
+
 func _ready() -> void:
 	#region default_ready_function
 	if not process_thread:
@@ -34,5 +37,15 @@ func _ready() -> void:
 	# Randomize at what frames tick() will happen to avoid stutters
 	last_tick = randi_range(0, tick_rate - 1)
 	#endregion
+	
+	await get_parent().ready
+	var idle_area = robot.idle_area
+	available_growing_plot.plot_areas = idle_area.plots
+	
+
+	
+	
+
+	
 
 	
