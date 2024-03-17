@@ -11,8 +11,11 @@ const DISTANCE_BETWEEN_DOCKS = 16
 
 var pos = Vector2.ZERO
 
+@onready var all_robots = get_tree().get_nodes_in_group("robots")
 var robots = []
 @onready var robotCount = $count/label
+
+@onready var zone = $zone/CollisionShape2D
 
 func _ready():
 	for i in range(0, total_docks):
@@ -26,6 +29,14 @@ func _ready():
 		dock.position = pos
 		dock.add_to_group("docks")
 		docks.add_child(dock)
+		
+	var zone_x_size = DISTANCE_BETWEEN_DOCKS * (docks_per_row+1)
+	var zone_x_pos = DISTANCE_BETWEEN_DOCKS * (docks_per_row-1) / 2
+	var zone_y_size = DISTANCE_BETWEEN_DOCKS * ((total_docks / docks_per_row) + 1) 
+	var zone_y_pos = DISTANCE_BETWEEN_DOCKS * ((total_docks / docks_per_row) + 1) / 2 
+	
+	zone.shape.size = Vector2(zone_x_size, zone_y_size)
+	zone.global_position += Vector2(zone_x_pos, zone_y_pos)		
 	
 	$count.position = Vector2(DISTANCE_BETWEEN_DOCKS * (docks_per_row-1), 0)
 	
@@ -50,3 +61,10 @@ func change_dock_status_occupied(dock):
 	
 func change_dock_status_unoccupied(dock):
 	docks.get_child(dock).unoccupied()
+
+
+func _on_zone_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("rightClick"):
+		for robot in all_robots:
+			if robot.selected and robot not in robots:
+				robot.assign_to_plot(self)
