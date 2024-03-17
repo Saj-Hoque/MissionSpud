@@ -57,5 +57,7 @@ func change_plot_status_unoccupied(plot):
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):
 		for robot in all_robots:
-			if robot.selected:
-				robot.right_clicked(idle_area)
+			if robot.selected and robot not in idle_area.robots:
+				robot.assign_to_plot(idle_area)
+				
+				

@@ -25,13 +25,19 @@ var target_position = global_position
 @export var idle_area_path: NodePath
 @onready var idle_area = get_node(idle_area_path)
 
+func _ready():
+	idle_area.robots.push_back(self)
 		
-func right_clicked(new_idle_area):
-	if selected:
-		target_position = get_global_mouse_position()
-		right_click = true
-		await $NavigationAgent2D.target_reached
-		idle_area = new_idle_area		
+func assign_to_plot(new_idle_area):
+	right_click = true
+	undock()
+	var index = idle_area.robots.find(self)
+	if index != -1:
+		idle_area.robots.remove_at(index)
+	idle_area = new_idle_area
+	if self not in idle_area.robots:
+		idle_area.robots.push_back(self)
+	
 
 func _physics_process(delta):
 	if active:
@@ -80,6 +86,11 @@ func is_in_idle_area():
 		idle = true
 	else:
 		idle = false
+		
+func undock():
+	idle_area.change_dock_status_unoccupied(docker_num)
+	idle_area.update_dock_status_color(docker_num)
+	docking = false
 
 func _on_navigation_agent_2d_target_reached():
 	emit_signal("target_reached")

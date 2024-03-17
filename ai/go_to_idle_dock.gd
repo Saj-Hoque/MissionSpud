@@ -9,6 +9,7 @@ func tick(actor, blackboard: Blackboard):
 		target_reached = false
 		actor.disable_movement()
 		actor.idle_area.update_dock_status_color(actor.docker_num)
+		actor.docking = true
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
 		return SUCCESS
 	if actor.right_click:

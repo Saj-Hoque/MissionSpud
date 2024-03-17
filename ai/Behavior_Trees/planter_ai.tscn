@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://ok4nbf70k6mw"]
+[gd_scene load_steps=10 format=3 uid="uid://ok4nbf70k6mw"]
 
 [ext_resource type="Script" path="res://ai/Behavior_Trees/planter_ai.gd" id="1_u2toq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_hip51"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_jsp6k"]
 [ext_resource type="PackedScene" uid="uid://cuuvk71g2531q" path="res://ai/check_right_click.tscn" id="4_l06i4"]
-[ext_resource type="PackedScene" uid="uid://via73r2ffqnw" path="res://ai/deoccupy_dock.tscn" id="5_58l6m"]
-[ext_resource type="PackedScene" uid="uid://bu4b8ntael1lv" path="res://ai/go_to_location.tscn" id="5_pnr3y"]
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="6_eud4b"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence_star.gd" id="7_jduxd"]
 [ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="8_vgfvf"]
 [ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="9_0dbci"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_7a58i"]
 
 [node name="PlanterAI" type="Node"]
 script = ExtResource("1_u2toq")
@@ -17,14 +16,14 @@ script = ExtResource("1_u2toq")
 [node name="Either" type="Node" parent="."]
 script = ExtResource("2_hip51")
 
-[node name="directed_by_player" type="Node" parent="Either"]
+[node name="overrided_by_player" type="Node" parent="Either"]
 script = ExtResource("3_jsp6k")
 
-[node name="check_right_click" parent="Either/directed_by_player" instance=ExtResource("4_l06i4")]
+[node name="check_right_click" parent="Either/overrided_by_player" instance=ExtResource("4_l06i4")]
 
-[node name="deoccupy_dock" parent="Either/directed_by_player" instance=ExtResource("5_58l6m")]
+[node name="find_next_available_dock" parent="Either/overrided_by_player" instance=ExtResource("9_0dbci")]
 
-[node name="go_to_right_click" parent="Either/directed_by_player" instance=ExtResource("5_pnr3y")]
+[node name="go_to_idle_dock" parent="Either/overrided_by_player" instance=ExtResource("8_vgfvf")]
 
 [node name="wait" type="Node" parent="Either"]
 script = ExtResource("3_jsp6k")
@@ -36,6 +35,11 @@ script = ExtResource("2_hip51")
 
 [node name="go_sit_idle" type="Node" parent="Either/wait/rest"]
 script = ExtResource("7_jduxd")
+
+[node name="not_overrided_by_player" type="Node" parent="Either/wait/rest/go_sit_idle"]
+script = ExtResource("9_7a58i")
+
+[node name="check_right_click" parent="Either/wait/rest/go_sit_idle/not_overrided_by_player" instance=ExtResource("4_l06i4")]
 
 [node name="find_next_available_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("9_0dbci")]
 
