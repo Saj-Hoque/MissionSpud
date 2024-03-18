@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://via73r2ffqnw"]
+
+[ext_resource type="Script" path="res://ai/deoccupy_dock.gd" id="1_7eri0"]
+
+[node name="deoccupy_dock" type="Node"]
+script = ExtResource("1_7eri0")

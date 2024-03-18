@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu4b8ntael1lv"]
+
+[ext_resource type="Script" path="res://ai/go_to_location.gd" id="1_iymq5"]
+
+[node name="go_to_location" type="Node"]
+script = ExtResource("1_iymq5")

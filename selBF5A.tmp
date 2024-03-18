@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dytjujaci4ip5"]
+
+[ext_resource type="Script" path="res://SelectionArea2D.gd" id="1_oylga"]
+
+[node name="SelectionArea2D" type="Area2D"]
+script = ExtResource("1_oylga")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

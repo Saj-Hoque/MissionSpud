@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4jfivi7i1lm8"]
+
+[ext_resource type="Script" path="res://ai/reset_plotting_status.gd" id="1_itlcm"]
+
+[node name="reset_plotting_status" type="Node"]
+script = ExtResource("1_itlcm")

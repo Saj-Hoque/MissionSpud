@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpdo8vka75qqa"]
+
+[ext_resource type="Script" path="res://ai/find_next_available_dock.gd" id="1_hlssf"]
+
+[node name="find_next_available_dock" type="Node"]
+script = ExtResource("1_hlssf")

@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhii6b55hb4fl"]
+[gd_scene load_steps=5 format=3 uid="uid://bhii6b55hb4fl"]
 
 [ext_resource type="Script" path="res://World_Objects/idle_area.gd" id="1_vw7xc"]
+
+[sub_resource type="SystemFont" id="SystemFont_ehjel"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+
+[sub_resource type="Theme" id="Theme_ckwhh"]
+default_font = SubResource("SystemFont_ehjel")
+default_font_size = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrknf"]
 
 [node name="idleArea" type="Node2D"]
 script = ExtResource("1_vw7xc")
@@ -8,3 +19,33 @@ total_docks = 16
 docks_per_row = 8
 
 [node name="docks" type="Node2D" parent="."]
+
+[node name="count" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.0
+offset_right = 11.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="label" type="Label" parent="count"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.5
+offset_right = 5.5
+offset_bottom = 8.0
+grow_horizontal = 2
+theme = SubResource("Theme_ckwhh")
+text = "0 / 8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone"]
+shape = SubResource("RectangleShape2D_mrknf")
+
+[connection signal="input_event" from="zone" to="." method="_on_zone_input_event"]

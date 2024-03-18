@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuuvk71g2531q"]
+
+[ext_resource type="Script" path="res://ai/check_input.gd" id="1_h2ibn"]
+
+[node name="check_right_click" type="Node"]
+script = ExtResource("1_h2ibn")

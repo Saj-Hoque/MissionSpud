@@ -5,16 +5,20 @@ extends Node2D
 
 func _ready():
 	unoccupied()
-
+	update_status()
 
 func occupied():
 	taken = true
-	sprite.play("green")
 
 func unoccupied():
 	taken = false
-	sprite.play("blue")
-	
+
+func update_status():
+	if taken:
+		sprite.play("green")
+	else:
+		sprite.play("blue")
+		
 func has_space():
 	if taken:
 		return false

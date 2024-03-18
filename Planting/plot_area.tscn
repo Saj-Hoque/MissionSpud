@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2w1y1o2ytso2"]
+
+[ext_resource type="Script" path="res://Planting/plot_area.gd" id="1_rub6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oagsr"]
+
+[node name="plot_area" type="Node2D" groups=["plots"]]
+script = ExtResource("1_rub6l")
+
+[node name="plots" type="Node2D" parent="."]
+
+[node name="zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone"]
+shape = SubResource("RectangleShape2D_oagsr")
+
+[connection signal="input_event" from="zone" to="." method="_on_zone_input_event"]
