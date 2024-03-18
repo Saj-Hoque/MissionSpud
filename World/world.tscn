@@ -1,17 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=25 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_2aaxa"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_2aaxa"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot_area.tscn" id="4_x37oa"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://bhii6b55hb4fl" path="res://World_Objects/idle_area.tscn" id="9_tw5w8"]
 [ext_resource type="PackedScene" uid="uid://drf4le7he70xx" path="res://World_Objects/workbench.tscn" id="9_u78r3"]
 [ext_resource type="PackedScene" uid="uid://keeavkauuufy" path="res://Robots/Planter/planter.tscn" id="9_vrajd"]
 [ext_resource type="PackedScene" uid="uid://ok4nbf70k6mw" path="res://ai/Behavior_Trees/planter_ai.tscn" id="11_teud7"]
+[ext_resource type="PackedScene" uid="uid://17tfsfbem7it" path="res://Robots/Harvester/harvester.tscn" id="12_morrn"]
+[ext_resource type="PackedScene" uid="uid://nvdo6erlwj2v" path="res://ai/Behavior_Trees/harvester_ai.tscn" id="13_ll7b2"]
 
 [sub_resource type="SystemFont" id="SystemFont_vc7es"]
 font_names = PackedStringArray("Impact")
@@ -608,11 +610,17 @@ idle_area_path = NodePath("../idleArea")
 
 [node name="PlanterAI" parent="planter3" instance=ExtResource("11_teud7")]
 
-[node name="planter4" parent="." instance=ExtResource("9_vrajd")]
-position = Vector2(48, 10)
+[node name="harvester" parent="." instance=ExtResource("12_morrn")]
 idle_area_path = NodePath("../idleArea")
 
-[node name="PlanterAI" parent="planter4" instance=ExtResource("11_teud7")]
+[node name="harvester_ai" parent="harvester" node_paths=PackedStringArray("blackboard") instance=ExtResource("13_ll7b2")]
+blackboard = NodePath("@Node@113786")
+
+[node name="harvester2" parent="." instance=ExtResource("12_morrn")]
+idle_area_path = NodePath("../idleArea")
+
+[node name="harvester_ai" parent="harvester2" node_paths=PackedStringArray("blackboard") instance=ExtResource("13_ll7b2")]
+blackboard = NodePath("../../harvester/harvester_ai/@Node@113786")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqsspbob272h3"
-path="res://.godot/imported/red_light.png-7ab2362a1e4d332c2ff114fdab7db193.ctex"
+path="res://.godot/imported/red_light.png-bc0536b7a11ff812db56b63d3b56cac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/idle_area/red_light.png"
-dest_files=["res://.godot/imported/red_light.png-7ab2362a1e4d332c2ff114fdab7db193.ctex"]
+source_file="res://Assets/Idle_Area/red_light.png"
+dest_files=["res://.godot/imported/red_light.png-bc0536b7a11ff812db56b63d3b56cac4.ctex"]
 
 [params]
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd7gxqjhbb1ig"]
+
+[ext_resource type="Script" path="res://ai/reset_harvesting_status.gd" id="1_vsgm2"]
+
+[node name="reset_harvesting_status" type="Node"]
+script = ExtResource("1_vsgm2")

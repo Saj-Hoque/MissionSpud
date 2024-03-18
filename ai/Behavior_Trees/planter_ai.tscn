@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="9_0dbci"]
 [ext_resource type="PackedScene" uid="uid://8cb0e5him5we" path="res://ai/available_potatoes.tscn" id="9_4hex0"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_7a58i"]
-[ext_resource type="PackedScene" path="res://ai/find_next_available_growing_plot.tscn" id="11_73mnw"]
+[ext_resource type="PackedScene" uid="uid://dq3qmwtefdi4r" path="res://ai/find_next_available_growing_plot.tscn" id="11_73mnw"]
 [ext_resource type="PackedScene" uid="uid://c4jfivi7i1lm8" path="res://ai/reset_plotting_status.tscn" id="11_l5qnx"]
 [ext_resource type="PackedScene" uid="uid://1ihuvq2sk2jl" path="res://ai/go_to_growing_plot.tscn" id="12_7q5i6"]
 [ext_resource type="PackedScene" uid="uid://dxmtc3naygxuw" path="res://ai/plant_on_growing_plot.tscn" id="13_g8xo3"]
