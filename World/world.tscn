@@ -544,6 +544,18 @@ shape = SubResource("RectangleShape2D_l8heb")
 [node name="scrapSpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="MainHub" parent="." instance=ExtResource("9_tw5w8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(73, -78)
+
+[node name="emptyPlot" parent="MainHub" instance=ExtResource("4_x37oa")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-448, -112)
+total_plots = 0
+plots_per_row = 0
+
 [node name="idleArea" parent="." instance=ExtResource("9_tw5w8")]
 z_index = 1
 y_sort_enabled = true
@@ -593,34 +605,38 @@ y_sort_enabled = true
 position = Vector2(14, 179)
 
 [node name="planter" parent="." instance=ExtResource("9_vrajd")]
-position = Vector2(48, 10)
-idle_area_path = NodePath("../idleArea")
+position = Vector2(152, -56)
+idle_area_path = NodePath("../MainHub")
 
 [node name="PlanterAI" parent="planter" instance=ExtResource("11_teud7")]
 
 [node name="planter2" parent="." instance=ExtResource("9_vrajd")]
-position = Vector2(48, 10)
-idle_area_path = NodePath("../idleArea")
+position = Vector2(123, -56)
+idle_area_path = NodePath("../MainHub")
 
 [node name="PlanterAI" parent="planter2" instance=ExtResource("11_teud7")]
 
 [node name="planter3" parent="." instance=ExtResource("9_vrajd")]
-position = Vector2(48, 10)
-idle_area_path = NodePath("../idleArea")
+position = Vector2(100, -58)
+idle_area_path = NodePath("../MainHub")
 
 [node name="PlanterAI" parent="planter3" instance=ExtResource("11_teud7")]
 
 [node name="harvester" parent="." instance=ExtResource("12_morrn")]
-idle_area_path = NodePath("../idleArea")
+position = Vector2(53, -56)
+idle_area_path = NodePath("../MainHub")
 
-[node name="harvester_ai" parent="harvester" node_paths=PackedStringArray("blackboard") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@113786")
+[node name="harvester_ai" parent="harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
+blackboard = NodePath("@Node@176203")
+actor = NodePath("..")
 
 [node name="harvester2" parent="." instance=ExtResource("12_morrn")]
-idle_area_path = NodePath("../idleArea")
+position = Vector2(76, -58)
+idle_area_path = NodePath("../MainHub")
 
-[node name="harvester_ai" parent="harvester2" node_paths=PackedStringArray("blackboard") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("../../harvester/harvester_ai/@Node@113786")
+[node name="harvester_ai" parent="harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
+blackboard = NodePath("@Node@176204")
+actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4

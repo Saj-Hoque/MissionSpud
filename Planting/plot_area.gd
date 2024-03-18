@@ -27,13 +27,16 @@ func _ready():
 		plot.position = global_position + pos
 		plots.add_child(plot)
 	
-	var zone_x_size = DISTANCE_BETWEEN_PLOTS * (plots_per_row+1)
-	var zone_x_pos = global_position.x + DISTANCE_BETWEEN_PLOTS * (plots_per_row-1) / 2
-	var zone_y_size = DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) 
-	var zone_y_pos = global_position.y + DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) / 2 
-	
-	zone.shape.size = Vector2(zone_x_size, zone_y_size)
-	zone.global_position += Vector2(zone_x_pos, zone_y_pos)
+	if total_plots == 0:
+		zone.disabled = true
+	else:
+		var zone_x_size = DISTANCE_BETWEEN_PLOTS * (plots_per_row+1)
+		var zone_x_pos = global_position.x + DISTANCE_BETWEEN_PLOTS * (plots_per_row-1) / 2
+		var zone_y_size = DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) 
+		var zone_y_pos = global_position.y + DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) / 2 
+		
+		zone.shape.size = Vector2(zone_x_size, zone_y_size)
+		zone.global_position += Vector2(zone_x_pos, zone_y_pos)
 	
 func get_next_available_plot():
 	for i in range(0, total_plots):

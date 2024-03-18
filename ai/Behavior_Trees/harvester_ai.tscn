@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://nvdo6erlwj2v"]
+[gd_scene load_steps=15 format=3 uid="uid://nvdo6erlwj2v"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_mta53"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_wl74q"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_30fhx"]
 [ext_resource type="PackedScene" uid="uid://cuuvk71g2531q" path="res://ai/check_right_click.tscn" id="4_0adxx"]
+[ext_resource type="PackedScene" uid="uid://cn61f7i7xhl33" path="res://ai/change_right_click_status.tscn" id="5_6m7p6"]
 [ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="5_udkmh"]
 [ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="6_js68u"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="7_fiqpg"]
@@ -16,7 +17,7 @@
 
 [node name="harvester_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_mta53")
-blackboard = NodePath("@Node@113235")
+blackboard = NodePath("@Node@163667")
 actor = NodePath("")
 
 [node name="Either" type="Node" parent="."]
@@ -26,6 +27,8 @@ script = ExtResource("2_wl74q")
 script = ExtResource("3_30fhx")
 
 [node name="check_right_click" parent="Either/overrided_by_player" instance=ExtResource("4_0adxx")]
+
+[node name="change_right_click_status" parent="Either/overrided_by_player" instance=ExtResource("5_6m7p6")]
 
 [node name="find_next_available_dock" parent="Either/overrided_by_player" instance=ExtResource("5_udkmh")]
 

@@ -14,6 +14,8 @@ func tick(actor, blackboard: Blackboard):
 		return SUCCESS
 	if actor.right_click:
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
+		var next_available_dock = actor.idle_area.get_next_available_dock()
+		actor.docker_num = next_available_dock
 		return FAILURE
 	actor.enable_movement()
 	return RUNNING
