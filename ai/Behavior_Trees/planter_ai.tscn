@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ok4nbf70k6mw"]
+[gd_scene load_steps=15 format=3 uid="uid://ok4nbf70k6mw"]
 
 [ext_resource type="Script" path="res://ai/Behavior_Trees/planter_ai.gd" id="1_u2toq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_hip51"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="9_0dbci"]
 [ext_resource type="PackedScene" uid="uid://8cb0e5him5we" path="res://ai/available_potatoes.tscn" id="9_4hex0"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_7a58i"]
-[ext_resource type="PackedScene" uid="uid://b4ur0wmuf36l2" path="res://ai/find_next_available_growing_plot.tscn" id="11_73mnw"]
+[ext_resource type="PackedScene" path="res://ai/find_next_available_growing_plot.tscn" id="11_73mnw"]
+[ext_resource type="PackedScene" uid="uid://c4jfivi7i1lm8" path="res://ai/reset_plotting_status.tscn" id="11_l5qnx"]
 [ext_resource type="PackedScene" uid="uid://1ihuvq2sk2jl" path="res://ai/go_to_growing_plot.tscn" id="12_7q5i6"]
 [ext_resource type="PackedScene" uid="uid://dxmtc3naygxuw" path="res://ai/plant_on_growing_plot.tscn" id="13_g8xo3"]
 
@@ -57,6 +58,8 @@ script = ExtResource("3_jsp6k")
 script = ExtResource("9_7a58i")
 
 [node name="check_right_click" parent="Either/wait/rest/go_sit_idle/not_overrided_by_player" instance=ExtResource("4_l06i4")]
+
+[node name="reset_plotting_status" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("11_l5qnx")]
 
 [node name="find_next_available_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("9_0dbci")]
 
