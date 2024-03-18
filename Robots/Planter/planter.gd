@@ -15,6 +15,9 @@ var docking:bool = false
 var plotting:bool = false
 var selected: bool = false
 
+var planting: bool = false
+var planted: bool = false
+
 var docker_num:int
 var target_position = global_position
 
@@ -33,8 +36,7 @@ func _ready():
 		
 func assign_to_new_idle_area(new_idle_area):
 	right_click = true
-	if plotting:
-		unoccupy_plot()
+	reset_planting_status()
 	undock()
 	var index = idle_area.robots.find(self)
 	if index != -1:
@@ -113,3 +115,17 @@ func _on_selection_area_2d_input_event(viewport, event, shape_idx):
 func toggle_select():
 	selected = not selected
 	highlight_box.visible = not highlight_box.visible
+
+func start_planting():#
+	planting = true
+	$PlantingTimer.start()
+
+func reset_planting_status():
+	$PlantingTimer.stop()
+	planting = false
+	planted = false
+	if plotting:
+		unoccupy_plot()
+
+func _on_planting_timer_timeout():
+	planted = true
