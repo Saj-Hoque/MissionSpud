@@ -17,9 +17,7 @@ func is_available():
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("leftClick"):	
-		if not plantGrowing:
-			grow_plant()
-		elif plantGrown:
+		if plantGrown:
 			harvest_plant()
 		else:
 			print("PLANT IS ALREADY GROWING HERE")
