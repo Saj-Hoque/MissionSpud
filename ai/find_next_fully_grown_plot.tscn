@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ukdred3qo85i"]
+
+[ext_resource type="Script" path="res://ai/find_next_fully_grown_plot.gd" id="1_sho3l"]
+
+[node name="find_next_fully_grown_plot" type="Node"]
+script = ExtResource("1_sho3l")

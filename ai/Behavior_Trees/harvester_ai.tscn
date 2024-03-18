@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://nvdo6erlwj2v"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_mta53"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_wl74q"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_30fhx"]
+[ext_resource type="PackedScene" uid="uid://cuuvk71g2531q" path="res://ai/check_right_click.tscn" id="4_0adxx"]
+[ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="5_udkmh"]
+[ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="6_js68u"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="7_fiqpg"]
+[ext_resource type="PackedScene" uid="uid://bdsk7emd1q53q" path="res://ai/full_growing_plot.tscn" id="8_5emka"]
+[ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="9_ww7ci"]
+[ext_resource type="PackedScene" uid="uid://dd7gxqjhbb1ig" path="res://ai/reset_harvesting_status.tscn" id="10_bgt3e"]
+[ext_resource type="PackedScene" uid="uid://ukdred3qo85i" path="res://ai/find_next_fully_grown_plot.tscn" id="11_eul78"]
+[ext_resource type="PackedScene" uid="uid://1ihuvq2sk2jl" path="res://ai/go_to_growing_plot.tscn" id="12_1ibmu"]
+[ext_resource type="PackedScene" uid="uid://bblib8g2nlcvq" path="res://ai/harvest_on_grown_plot.tscn" id="13_qgutg"]
+
+[node name="harvester_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_mta53")
+blackboard = NodePath("@Node@113235")
+actor = NodePath("")
+
+[node name="Either" type="Node" parent="."]
+script = ExtResource("2_wl74q")
+
+[node name="overrided_by_player" type="Node" parent="Either"]
+script = ExtResource("3_30fhx")
+
+[node name="check_right_click" parent="Either/overrided_by_player" instance=ExtResource("4_0adxx")]
+
+[node name="find_next_available_dock" parent="Either/overrided_by_player" instance=ExtResource("5_udkmh")]
+
+[node name="go_to_idle_dock" parent="Either/overrided_by_player" instance=ExtResource("6_js68u")]
+
+[node name="wait" type="Node" parent="Either"]
+script = ExtResource("3_30fhx")
+
+[node name="needs_to_wait" type="Node" parent="Either/wait"]
+script = ExtResource("2_wl74q")
+
+[node name="no_full_growing_plot" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("7_fiqpg")
+
+[node name="full_growing_plot" parent="Either/wait/needs_to_wait/no_full_growing_plot" instance=ExtResource("8_5emka")]
+
+[node name="rest" type="Node" parent="Either/wait"]
+script = ExtResource("2_wl74q")
+
+[node name="is_already_idle" parent="Either/wait/rest" instance=ExtResource("9_ww7ci")]
+
+[node name="go_sit_idle" type="Node" parent="Either/wait/rest"]
+script = ExtResource("3_30fhx")
+
+[node name="not_overrided_by_player" type="Node" parent="Either/wait/rest/go_sit_idle"]
+script = ExtResource("7_fiqpg")
+
+[node name="check_right_click" parent="Either/wait/rest/go_sit_idle/not_overrided_by_player" instance=ExtResource("4_0adxx")]
+
+[node name="reset_harvesting_status" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("10_bgt3e")]
+
+[node name="find_next_available_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("5_udkmh")]
+
+[node name="go_to_idle_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("6_js68u")]
+
+[node name="harvest" type="Node" parent="Either"]
+script = ExtResource("3_30fhx")
+
+[node name="not_overrided_by_player" type="Node" parent="Either/harvest"]
+script = ExtResource("7_fiqpg")
+
+[node name="check_right_click" parent="Either/harvest/not_overrided_by_player" instance=ExtResource("4_0adxx")]
+
+[node name="find_next_fully_grown_plot" parent="Either/harvest" instance=ExtResource("11_eul78")]
+
+[node name="go_to_grown_plot" parent="Either/harvest" instance=ExtResource("12_1ibmu")]
+
+[node name="harvest_on_grown_plot" parent="Either/harvest" instance=ExtResource("13_qgutg")]

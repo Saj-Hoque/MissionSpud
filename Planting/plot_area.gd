@@ -45,7 +45,7 @@ func get_next_available_plot():
 func get_next_full_plot():
 	for i in range(0, total_plots):
 		var plot = plots.get_child(i)
-		if not plot.is_available() and not plot.plantGrowing and not plot.plantGrown:
+		if plot.is_available() and plot.plantGrown:
 			return i
 	return -1
 	
@@ -63,6 +63,9 @@ func reset_plot(plot):
 	
 func grow_plant_on_plot(plot):
 	plots.get_child(plot).grow_plant()
+	
+func harvest_plant_on_plot(plot):
+	plots.get_child(plot).harvest_plant()
 	
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):

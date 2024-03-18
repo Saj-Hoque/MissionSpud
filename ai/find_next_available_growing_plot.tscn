@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4ur0wmuf36l2"]
+[gd_scene load_steps=2 format=3 uid="uid://dq3qmwtefdi4r"]
 
 [ext_resource type="Script" path="res://ai/find_next_available_growing_plot.gd" id="1_ky6p7"]
 

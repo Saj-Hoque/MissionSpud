@@ -15,13 +15,6 @@ func unoccupied():
 func is_available():
 	return not taken
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
-	if Input.is_action_just_pressed("leftClick"):	
-		if plantGrown:
-			harvest_plant()
-		else:
-			print("PLANT IS ALREADY GROWING HERE")
-
 func _on_potato_timer_timeout():
 	var plant = $plant	
 	if plant.frame == 1:
@@ -30,7 +23,6 @@ func _on_potato_timer_timeout():
 	else:
 		plant.frame += 1 
 		timer.start()
-
 
 func grow_plant():
 	plantGrowing = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bblib8g2nlcvq"]
+
+[ext_resource type="Script" path="res://ai/harvest_on_grown_plot.gd" id="1_ulflq"]
+
+[node name="harvest_on_grown_plot" type="Node"]
+script = ExtResource("1_ulflq")

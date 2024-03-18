@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://17tfsfbem7it"]
+
+[ext_resource type="Script" path="res://Robots/Harvester/harvester.gd" id="1_lxean"]
+[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_epf20"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w070n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_epf20")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gw1h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2nsn"]
+size = Vector2(6, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w33wc"]
+
+[node name="harvester" type="CharacterBody2D" groups=["robots"]]
+z_index = 4
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 11
+motion_mode = 1
+platform_floor_layers = 4294967277
+script = ExtResource("1_lxean")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+target_desired_distance = 1.0
+path_max_distance = 10.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.784314, 0.0823529, 0.12549, 1)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_w070n")
+
+[node name="highlight_box" type="Panel" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gw1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_y2nsn")
+
+[node name="SelectionArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea2D"]
+shape = SubResource("CircleShape2D_w33wc")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(32, 0)
+collision_mask = 26
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+target_position = Vector2(32, 0)
+collision_mask = 26
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 3)
+target_position = Vector2(32, 0)
+collision_mask = 26
+
+[node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -3)
+target_position = Vector2(32, 0)
+collision_mask = 26
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -6)
+target_position = Vector2(32, 0)
+collision_mask = 26
+
+[node name="HarvestingTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]
+[connection signal="timeout" from="HarvestingTimer" to="." method="_on_harvesting_timer_timeout"]

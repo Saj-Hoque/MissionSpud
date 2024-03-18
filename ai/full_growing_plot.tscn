@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdsk7emd1q53q"]
+
+[ext_resource type="Script" path="res://ai/full_growing_plot.gd" id="1_cm56j"]
+
+[node name="full_growing_plot" type="Node"]
+script = ExtResource("1_cm56j")
