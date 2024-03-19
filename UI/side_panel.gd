@@ -15,7 +15,7 @@ func dissappear():
 	await anim.animation_finished
 	
 func _process(delta):
-	if not SelectionManager.current_selection.is_empty():
+	if not SelectionManager.current_selection.is_empty() and visible:
 		state.text = SelectionManager.current_selection[0].status
 		first_name.text = SelectionManager.current_selection[0].first_name
 

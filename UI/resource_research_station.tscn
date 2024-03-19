@@ -1,0 +1,199 @@
+[gd_scene load_steps=11 format=3 uid="uid://chdwj38p3u7t5"]
+
+[ext_resource type="Script" path="res://UI/resource_research_station.gd" id="1_lae4m"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_xx41c"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_wdo86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2wpi"]
+bg_color = Color(0.0431373, 0.0941176, 0.211765, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.0117647, 0.0431373, 0.145098, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_ari7l"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_k2e7l"]
+default_font = SubResource("SystemFont_ari7l")
+default_font_size = 50
+
+[sub_resource type="SystemFont" id="SystemFont_43gkv"]
+font_names = PackedStringArray("ROG Fonts")
+
+[sub_resource type="SystemFont" id="SystemFont_0xden"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_oyl04"]
+default_font = SubResource("SystemFont_0xden")
+
+[sub_resource type="SystemFont" id="SystemFont_57lri"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="resource_research_station" type="CanvasLayer"]
+script = ExtResource("1_lae4m")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -320.0
+offset_right = 704.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2wpi")
+
+[node name="BUY" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -311.0
+offset_right = 695.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BUY"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Potato" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_k2e7l")
+theme_override_constants/separation = 20
+
+[node name="Fertilizer" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="fetilizerLabel" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Fertilizer"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Description" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_43gkv")
+theme_override_font_sizes/font_size = 30
+text = "Improve the number of potatoes on harvest "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "x 2   ->  x 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="planterBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Quality Extractor" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Nano-Growth Stimulator" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CLOSE" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 25.0
+offset_right = -49.0
+offset_bottom = 111.0
+grow_horizontal = 0
+theme = SubResource("Theme_oyl04")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="close_button" type="Button" parent="Panel/CLOSE"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_57lri")
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/planterBuyButton" to="." method="_on_planter_buy_button_pressed"]
+[connection signal="pressed" from="Panel/CLOSE/close_button" to="." method="_on_close_button_pressed"]

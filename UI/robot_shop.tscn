@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://xqlx26ht07gn"]
 
-[ext_resource type="Script" path="res://UI/shop.gd" id="1_uw1f8"]
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_ul5s4"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_if712"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_4r1r7"]
+[ext_resource type="Script" path="res://UI/robot_shop.gd" id="1_2yh61"]
+[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_p1hq4"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_054f0"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju33a"]
 bg_color = Color(0.0431373, 0.0941176, 0.211765, 0.980392)
@@ -17,25 +17,25 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_ari7l"]
+[sub_resource type="SystemFont" id="SystemFont_244p0"]
 font_names = PackedStringArray("Impact")
 
 [sub_resource type="Theme" id="Theme_4w2fm"]
-default_font = SubResource("SystemFont_ari7l")
+default_font = SubResource("SystemFont_244p0")
 default_font_size = 50
 
-[sub_resource type="SystemFont" id="SystemFont_0xden"]
+[sub_resource type="SystemFont" id="SystemFont_yb53j"]
 font_names = PackedStringArray("Impact")
 
 [sub_resource type="Theme" id="Theme_55hee"]
-default_font = SubResource("SystemFont_0xden")
+default_font = SubResource("SystemFont_yb53j")
 
 [sub_resource type="SystemFont" id="SystemFont_810cx"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
-[node name="shop" type="CanvasLayer"]
-script = ExtResource("1_uw1f8")
+[node name="robot_shop" type="CanvasLayer"]
+script = ExtResource("1_2yh61")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -86,7 +86,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter"]
 layout_mode = 2
-texture = ExtResource("2_ul5s4")
+texture = ExtResource("2_p1hq4")
 expand_mode = 3
 stretch_mode = 3
 
@@ -105,7 +105,7 @@ vertical_alignment = 1
 
 [node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter/Price"]
 layout_mode = 2
-texture = ExtResource("3_if712")
+texture = ExtResource("3_054f0")
 expand_mode = 3
 stretch_mode = 5
 
@@ -119,13 +119,13 @@ vertical_alignment = 1
 
 [node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter/Price"]
 layout_mode = 2
-texture = ExtResource("4_4r1r7")
+texture = ExtResource("4_8jj0w")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="planterBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Planter"]
 layout_mode = 2
-text = "Buy"
+text = "Build"
 
 [node name="Harvester" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
 layout_mode = 2
@@ -140,7 +140,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester"]
 layout_mode = 2
-texture = ExtResource("2_ul5s4")
+texture = ExtResource("2_p1hq4")
 expand_mode = 3
 stretch_mode = 3
 
@@ -158,7 +158,7 @@ vertical_alignment = 1
 
 [node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester/Price"]
 layout_mode = 2
-texture = ExtResource("3_if712")
+texture = ExtResource("3_054f0")
 expand_mode = 3
 stretch_mode = 5
 
@@ -172,13 +172,13 @@ vertical_alignment = 1
 
 [node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester/Price"]
 layout_mode = 2
-texture = ExtResource("4_4r1r7")
+texture = ExtResource("4_8jj0w")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="harvesterBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Harvester"]
 layout_mode = 2
-text = "Buy"
+text = "Build"
 
 [node name="Collector" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
 layout_mode = 2
@@ -193,7 +193,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector"]
 layout_mode = 2
-texture = ExtResource("2_ul5s4")
+texture = ExtResource("2_p1hq4")
 expand_mode = 3
 stretch_mode = 3
 
@@ -211,7 +211,7 @@ vertical_alignment = 1
 
 [node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector/Price"]
 layout_mode = 2
-texture = ExtResource("3_if712")
+texture = ExtResource("3_054f0")
 expand_mode = 3
 stretch_mode = 5
 
@@ -225,13 +225,13 @@ vertical_alignment = 1
 
 [node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector/Price"]
 layout_mode = 2
-texture = ExtResource("4_4r1r7")
+texture = ExtResource("4_8jj0w")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="collectorBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Collector"]
 layout_mode = 2
-text = "Buy"
+text = "Build"
 
 [node name="CLOSE" type="MarginContainer" parent="Panel"]
 layout_mode = 1
