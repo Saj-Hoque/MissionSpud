@@ -7,14 +7,13 @@ signal target_reached
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
-@export var idle_area_path: NodePath
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D
 @onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
 
-@onready var idle_area = get_node(idle_area_path)
+@onready var idle_area = get_node("/root/world/MainHub")
 @onready var plot = idle_area.plot
 
 var right_click: bool = false

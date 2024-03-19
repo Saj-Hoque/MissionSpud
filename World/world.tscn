@@ -604,38 +604,30 @@ z_index = 4
 y_sort_enabled = true
 position = Vector2(14, 179)
 
-[node name="planter" parent="." instance=ExtResource("9_vrajd")]
+[node name="robots" type="Node2D" parent="."]
+
+[node name="planter" parent="robots" instance=ExtResource("9_vrajd")]
 position = Vector2(152, -56)
-idle_area_path = NodePath("../MainHub")
 
-[node name="PlanterAI" parent="planter" instance=ExtResource("11_teud7")]
+[node name="PlanterAI" parent="robots/planter" instance=ExtResource("11_teud7")]
 
-[node name="planter2" parent="." instance=ExtResource("9_vrajd")]
+[node name="planter2" parent="robots" instance=ExtResource("9_vrajd")]
 position = Vector2(123, -56)
-idle_area_path = NodePath("../MainHub")
 
-[node name="PlanterAI" parent="planter2" instance=ExtResource("11_teud7")]
+[node name="PlanterAI" parent="robots/planter2" instance=ExtResource("11_teud7")]
 
-[node name="planter3" parent="." instance=ExtResource("9_vrajd")]
-position = Vector2(100, -58)
-idle_area_path = NodePath("../MainHub")
-
-[node name="PlanterAI" parent="planter3" instance=ExtResource("11_teud7")]
-
-[node name="harvester" parent="." instance=ExtResource("12_morrn")]
+[node name="harvester" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(53, -56)
-idle_area_path = NodePath("../MainHub")
 
-[node name="harvester_ai" parent="harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@176203")
+[node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
+blackboard = NodePath("@Node@449439")
 actor = NodePath("..")
 
-[node name="harvester2" parent="." instance=ExtResource("12_morrn")]
+[node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
-idle_area_path = NodePath("../MainHub")
 
-[node name="harvester_ai" parent="harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@176204")
+[node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
+blackboard = NodePath("@Node@449440")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

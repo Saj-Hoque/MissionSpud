@@ -72,6 +72,7 @@ func harvest_plant_on_plot(plot):
 	
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):
+		all_robots = get_tree().get_nodes_in_group("robots")
 		for robot in all_robots:
 			if robot.selected:
 				if robot in idle_area.robots:

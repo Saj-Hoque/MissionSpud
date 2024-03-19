@@ -2,6 +2,7 @@ extends StaticBody2D
 @onready var timer = $potatoTimer
 var potato_scene = preload("res://Resources/potato.tscn")
 @onready var potatoes = get_node("/root/world/potatoes")
+var potatoQuantity = 2
 var plantGrowing = false
 var plantGrown = false
 var taken = false
@@ -30,12 +31,13 @@ func grow_plant():
 	$plant.play("potato")
 	
 func harvest_plant():
-	var potato = potato_scene.instantiate()
-	potato.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
-	potatoes.add_child(potato) 
-	plantGrowing = false
-	plantGrown = false
-	$plant.play("none")
+	for i in range(potatoQuantity):
+		var potato = potato_scene.instantiate()
+		potato.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
+		potatoes.add_child(potato) 
+		plantGrowing = false
+		plantGrown = false
+		$plant.play("none")
 	
 func reset():
 	plantGrowing = false

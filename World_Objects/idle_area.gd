@@ -72,6 +72,7 @@ func change_dock_status_unoccupied(dock):
 
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):
+		all_robots = get_tree().get_nodes_in_group("robots")
 		for robot in all_robots:
 			if robot.selected:
 				if robot in robots:
