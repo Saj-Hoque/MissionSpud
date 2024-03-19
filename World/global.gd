@@ -4,3 +4,5 @@ var max_scraps = 100
 
 var potatoCount = 0
 var scrapCount = 0
+
+var names = ["Bolt", "Circuit", "Nova", "Titan", "Spark", "Electron", "Nexus", "Zenith", "Byte", "Luna", "Blaze", "Quantum", "Orion", "Matrix", "Zen", "Cypher", "Phoenix", "Galaxia", "Tesla", "Astro", "Cosmo", "Omega", "Astra", "Synth", "Vortex", "Aurora", "Draco", "Nebula", "Pulse", "Comet", "Zephyr", "Celestia", "Cyborg", "Stellar", "Infinity", "Cogs", "Radiant", "Glyph", "Sirius", "Flux", "Dynamo", "Eclipse", "Vector", "Kepler", "Astral", "Horizon", "Galactica", "Spectra", "Helix", "Lumina", "Aether", "Atom", "Pulsar", "Synapse", "Atmos", "Vesper", "Arc", "Chronos", "Epoch", "Helios", "Quasar", "Solstice", "Tempest", "Valkyrie", "Wavelength", "Xenon", "Ypsilon", "Zircon", "Apex", "Cygnus", "Droid", "Eon", "Genesis", "Halcyon", "Icarus", "Jett", "Kinesis", "Luminex", "Metrix", "Nucleus", "Ozone", "Prism", "Quanta", "Radiex", "Sol", "Tron", "Unity", "Vortex", "Wisp", "Xylon", "Yuga", "Zephyrus", "Andromeda", "Blitz", "Equinox", "Fission", "Graviton", "Hyperion"]

@@ -2,12 +2,14 @@ extends CharacterBody2D
 
 signal target_reached
 
+var first_name = Global.names.pick_random()
+var status = "Idle"
+
 @export var max_steering = 2.5
 @export var speed = 30
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
-
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D

@@ -12,5 +12,6 @@ func tick(actor, blackboard: Blackboard):
 		actor.harvested = false
 		actor.harvesting = false
 		return SUCCESS
+	actor.status = "Harvesting"
 	return RUNNING
 

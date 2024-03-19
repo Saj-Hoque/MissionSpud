@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 signal target_reached
 
+var first_name = Global.names.pick_random()
+var status = "Idle"
+
 @export var max_steering = 2.5
 @export var speed = 30
 @export var accel = 5

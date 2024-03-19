@@ -18,6 +18,7 @@ func tick(actor, blackboard: Blackboard):
 		actor.docker_num = next_available_dock
 		return FAILURE
 	actor.enable_movement()
+	actor.status = "Travelling to Idle Dock"
 	return RUNNING
 
 func _target_reached():
