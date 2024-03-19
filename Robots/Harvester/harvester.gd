@@ -92,6 +92,10 @@ func _on_selection_area_2d_input_event(viewport, event, shape_idx):
 func toggle_select():
 	selected = not selected
 	highlight_box.visible = not highlight_box.visible
+	if selected:
+		SidePanel.appear()
+	else:
+		SidePanel.dissappear()
 
 # Right click related methods
 			
