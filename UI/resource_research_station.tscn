@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chdwj38p3u7t5"]
+[gd_scene load_steps=10 format=3 uid="uid://chdwj38p3u7t5"]
 
 [ext_resource type="Script" path="res://UI/resource_research_station.gd" id="1_lae4m"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_xx41c"]
@@ -23,9 +23,6 @@ font_names = PackedStringArray("Impact")
 default_font = SubResource("SystemFont_ari7l")
 default_font_size = 50
 
-[sub_resource type="SystemFont" id="SystemFont_43gkv"]
-font_names = PackedStringArray("ROG Fonts")
-
 [sub_resource type="SystemFont" id="SystemFont_0xden"]
 font_names = PackedStringArray("Impact")
 
@@ -45,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -704.0
-offset_top = -320.0
-offset_right = 704.0
-offset_bottom = 320.0
+offset_left = -798.5
+offset_top = -389.5
+offset_right = 798.5
+offset_bottom = 389.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2wpi")
@@ -74,104 +71,248 @@ theme_override_constants/margin_bottom = 100
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/BUY"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 200
+theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Potato" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_k2e7l")
-theme_override_constants/separation = 20
-
-[node name="Fertilizer" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato"]
+[node name="Labels" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 60
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer"]
-layout_mode = 2
-size_flags_horizontal = 4
 alignment = 1
 
-[node name="fetilizerLabel" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 124)
+[node name="fetilizerLabel" type="Label" parent="Panel/BUY/HBoxContainer/Labels"]
+custom_minimum_size = Vector2(500, 124)
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 60
 text = "Fertilizer"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Description" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer2"]
+[node name="qualityLabel" type="Label" parent="Panel/BUY/HBoxContainer/Labels"]
 custom_minimum_size = Vector2(500, 124)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_43gkv")
+theme_override_font_sizes/font_size = 60
+text = "Qual Enhancer"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GrowthLabel" type="Label" parent="Panel/BUY/HBoxContainer/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Nano-Growth
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Description_Improvement" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_k2e7l")
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="fertilizer" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="Panel/BUY/HBoxContainer/Description_Improvement/fertilizer"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Improve the number of potatoes on harvest "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="improvement" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer2"]
-custom_minimum_size = Vector2(300, 0)
+[node name="improvement" type="Label" parent="Panel/BUY/HBoxContainer/Description_Improvement/fertilizer"]
+custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
-text = "x 2   ->  x 4"
+text = "x 2   ->   x 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer"]
+[node name="quality" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Description_Improvement"]
 layout_mode = 2
-theme_override_constants/separation = 40
+
+[node name="Description" type="Label" parent="Panel/BUY/HBoxContainer/Description_Improvement/quality"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Extract the value of your potato"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="Panel/BUY/HBoxContainer/Description_Improvement/quality"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "1   ->   2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="growth" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="Panel/BUY/HBoxContainer/Description_Improvement/growth"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed up your potato growth"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="Panel/BUY/HBoxContainer/Description_Improvement/growth"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "10s   ->   5s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons_Price" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
 alignment = 1
 
-[node name="planterBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3"]
+[node name="fertilizer" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="fertilizerButton" type="Button" parent="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
 text = "Research"
+icon_alignment = 1
 
-[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3"]
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price"]
 layout_mode = 2
 texture = ExtResource("3_xx41c")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/Price"]
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price"]
 layout_mode = 2
 texture = ExtResource("4_wdo86")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Quality Extractor" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato"]
+[node name="quality" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="qualityButton" type="Button" parent="Panel/BUY/HBoxContainer/Buttons_Price/quality"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Buttons_Price/quality"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Nano-Growth Stimulator" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Potato"]
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Buttons_Price/quality/Price"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Buttons_Price/quality/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Buttons_Price/quality/Price"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Buttons_Price/quality/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="growth" type="VBoxContainer" parent="Panel/BUY/HBoxContainer/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="growthButton" type="Button" parent="Panel/BUY/HBoxContainer/Buttons_Price/growth"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Buttons_Price/growth"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Buttons_Price/growth/Price"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Buttons_Price/growth/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Buttons_Price/growth/Price"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Buttons_Price/growth/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="CLOSE" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -195,5 +336,7 @@ theme_override_fonts/font = SubResource("SystemFont_57lri")
 theme_override_font_sizes/font_size = 30
 text = "X"
 
-[connection signal="pressed" from="Panel/BUY/HBoxContainer/Potato/Fertilizer/VBoxContainer3/planterBuyButton" to="." method="_on_planter_buy_button_pressed"]
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_pressed"]
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Buttons_Price/quality/qualityButton" to="." method="_on_quality_button_pressed"]
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Buttons_Price/growth/growthButton" to="." method="_on_growth_button_pressed"]
 [connection signal="pressed" from="Panel/CLOSE/close_button" to="." method="_on_close_button_pressed"]

@@ -7,8 +7,8 @@ extends Node2D
 var scrap_scene = preload("res://Resources/scrap.tscn")
 
 func _ready():
-	Global.potatoCount = 100
-	Global.scrapCount = 100
+	Global.potatoCount = 1000
+	Global.scrapCount = 1000
 	
 	TimeSystem.day = 1
 	TimeSystem.hour = 0
