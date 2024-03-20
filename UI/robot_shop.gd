@@ -8,6 +8,7 @@ var harvester_scene = preload("res://Robots/Harvester/harvester.tscn")
 var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 
 @onready var timer = $buyTimer
+@onready var totalUpkeep = $totalUpkeep
 
 @onready var planterButton = $Panel/BUY/HBoxContainer/Planter/planterBuyButton
 @onready var planterUpkeepLabel = $Panel/BUY/HBoxContainer/Planter/upkeep/upkeepLabel
@@ -100,6 +101,7 @@ func _enable_all_buttons():
 	harvesterButton.disabled = false
 	collectorButton.disabled = false
 
+
 func _buy_robot(price, scene, ai_scene):
 	Global.potatoCount -= price["potato"]
 	Global.scrapCount -= price["scrap"]
@@ -112,22 +114,50 @@ func _buy_robot(price, scene, ai_scene):
 	timer.start()
 	_disable_all_buttons()
 
+func _on_buy_timer_timeout():
+	_enable_all_buttons()
+	
+
+func _on_close_button_pressed():
+	close_shop()
 
 func _on_planter_buy_button_pressed():
 	_buy_robot(planterPrice, planter_scene, planter_ai_scene)
+	_refresh_upkeep_button(planterButton, planterUpkeep)
 
 
 func _on_harvester_buy_button_pressed():
 	_buy_robot(harvesterPrice, harvester_scene, harvester_ai_scene)
-
+	_refresh_upkeep_button(harvesterButton, harvesterUpkeep)
 
 func _on_collector_buy_button_pressed():
-	pass # Replace with function body.
+	_refresh_upkeep_button(collectorButton, collectorUpkeep)
 
 
-func _on_buy_timer_timeout():
-	_enable_all_buttons()
+
+func _refresh_upkeep(upkeepValue):
+	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep) + "   ->   " + str(Global.upkeep + upkeepValue)
+	
+func _refresh_upkeep_button(button, upkeepValue):
+	totalUpkeep.global_position = button.global_position + button.size/2 + Vector2(-40, 45)
+	_refresh_upkeep(upkeepValue)
+	totalUpkeep.visible = true
 
 
-func _on_close_button_pressed():
-	close_shop()
+func _on_planter_buy_button_mouse_entered():
+	_refresh_upkeep_button(planterButton, planterUpkeep)
+
+func _on_planter_buy_button_mouse_exited():
+	totalUpkeep.visible = false
+
+func _on_harvester_buy_button_mouse_entered():
+	_refresh_upkeep_button(harvesterButton, harvesterUpkeep)
+
+func _on_harvester_buy_button_mouse_exited():
+		totalUpkeep.visible = false
+
+func _on_collector_buy_button_mouse_entered():
+	_refresh_upkeep_button(collectorButton, collectorUpkeep)
+
+func _on_collector_buy_button_mouse_exited():
+		totalUpkeep.visible = false
