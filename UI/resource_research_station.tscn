@@ -98,16 +98,14 @@ theme_override_font_sizes/font_size = 60
 text = "Fertilizer"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
 [node name="qualityLabel" type="Label" parent="potato/research/fields/Labels"]
 custom_minimum_size = Vector2(500, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Qual Enhancer"
+text = "Spud Splitter"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
 [node name="GrowthLabel" type="Label" parent="potato/research/fields/Labels"]
 custom_minimum_size = Vector2(500, 124)
@@ -117,7 +115,6 @@ text = "Nano-Growth
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
 [node name="Description_Improvement" type="VBoxContainer" parent="potato/research/fields"]
 layout_mode = 2
@@ -151,7 +148,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Extract the value of your potato"
+text = "Enhance the value of harvested potatoes"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -373,34 +370,29 @@ layout_mode = 2
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="fetilizerLabel" type="Label" parent="scrap/research/fields/Labels"]
+[node name="boostLabel" type="Label" parent="scrap/research/fields/Labels"]
 custom_minimum_size = Vector2(500, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "poo
-"
+text = " ScrapBoost+"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="qualityLabel" type="Label" parent="scrap/research/fields/Labels"]
+[node name="forgeLabel" type="Label" parent="scrap/research/fields/Labels"]
 custom_minimum_size = Vector2(500, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Qual Enhancer"
+text = "Ampli-Forge"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="GrowthLabel" type="Label" parent="scrap/research/fields/Labels"]
+[node name="turbineLabel" type="Label" parent="scrap/research/fields/Labels"]
 custom_minimum_size = Vector2(500, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Nano-Growth
-"
+text = "Dust Turbine"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
 [node name="Description_Improvement" type="VBoxContainer" parent="scrap/research/fields"]
 layout_mode = 2
@@ -408,57 +400,57 @@ theme = SubResource("Theme_k2e7l")
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="fertilizer" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
+[node name="boost" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
 layout_mode = 2
 
-[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/fertilizer"]
+[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/boost"]
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Improve the number of potatoes on harvest "
+text = "Intensify salvage surges, scrap will spawn at double the rate"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/fertilizer"]
+[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/boost"]
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 text = "x 2   ->   x 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="quality" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
+[node name="forge" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
 layout_mode = 2
 
-[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/quality"]
+[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/forge"]
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Extract the value of your potato"
+text = "Amplifies the value of collected scrap"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/quality"]
+[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/forge"]
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 text = "1   ->   2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="growth" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
+[node name="turbine" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
 layout_mode = 2
 
-[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/growth"]
+[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/turbine"]
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Speed up your potato growth"
+text = "Speed up rate of uncovering scrap"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/growth"]
+[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/turbine"]
 custom_minimum_size = Vector2(500, 62)
 layout_mode = 2
 text = "10s   ->   5s"
@@ -470,11 +462,11 @@ layout_mode = 2
 theme_override_constants/separation = 70
 alignment = 1
 
-[node name="fertilizer" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
+[node name="boost" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
-[node name="fertilizerButton" type="Button" parent="scrap/research/fields/Buttons_Price/fertilizer"]
+[node name="boostButton" type="Button" parent="scrap/research/fields/Buttons_Price/boost"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -483,7 +475,7 @@ theme_override_font_sizes/font_size = 40
 text = "Research"
 icon_alignment = 1
 
-[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/fertilizer"]
+[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/boost"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -491,7 +483,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/fertilizer/Price"]
+[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/boost/Price"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -499,13 +491,13 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/fertilizer/Price"]
+[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/boost/Price"]
 layout_mode = 2
 texture = ExtResource("3_xx41c")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/fertilizer/Price"]
+[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/boost/Price"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -514,17 +506,17 @@ text = "1600
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/fertilizer/Price"]
+[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/boost/Price"]
 layout_mode = 2
 texture = ExtResource("4_wdo86")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="quality" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
+[node name="forge" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
-[node name="qualityButton" type="Button" parent="scrap/research/fields/Buttons_Price/quality"]
+[node name="forgeButton" type="Button" parent="scrap/research/fields/Buttons_Price/forge"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -532,13 +524,13 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 40
 text = "Research"
 
-[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/quality"]
+[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/forge"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/quality/Price"]
+[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/forge/Price"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -546,13 +538,13 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/quality/Price"]
+[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/forge/Price"]
 layout_mode = 2
 texture = ExtResource("3_xx41c")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/quality/Price"]
+[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/forge/Price"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -560,17 +552,17 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/quality/Price"]
+[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/forge/Price"]
 layout_mode = 2
 texture = ExtResource("4_wdo86")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="growth" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
+[node name="turbine" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
-[node name="growthButton" type="Button" parent="scrap/research/fields/Buttons_Price/growth"]
+[node name="turbineButton" type="Button" parent="scrap/research/fields/Buttons_Price/turbine"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -578,13 +570,13 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 40
 text = "Research"
 
-[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/growth"]
+[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/turbine"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/growth/Price"]
+[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -592,13 +584,13 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/growth/Price"]
+[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
 layout_mode = 2
 texture = ExtResource("3_xx41c")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/growth/Price"]
+[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -606,7 +598,7 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/growth/Price"]
+[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
 layout_mode = 2
 texture = ExtResource("4_wdo86")
 expand_mode = 3
@@ -654,6 +646,9 @@ icon = ExtResource("4_wdo86")
 [connection signal="pressed" from="potato/research/fields/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_pressed"]
 [connection signal="pressed" from="potato/research/fields/Buttons_Price/quality/qualityButton" to="." method="_on_quality_button_pressed"]
 [connection signal="pressed" from="potato/research/fields/Buttons_Price/growth/growthButton" to="." method="_on_growth_button_pressed"]
+[connection signal="pressed" from="scrap/research/fields/Buttons_Price/boost/boostButton" to="." method="_on_boost_button_pressed"]
+[connection signal="pressed" from="scrap/research/fields/Buttons_Price/forge/forgeButton" to="." method="_on_forge_button_pressed"]
+[connection signal="pressed" from="scrap/research/fields/Buttons_Price/turbine/turbineButton" to="." method="_on_turbine_button_pressed"]
 [connection signal="pressed" from="CLOSE/close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="potatoButton" to="." method="_on_potato_button_pressed"]
 [connection signal="pressed" from="scrapButton" to="." method="_on_scrap_button_pressed"]

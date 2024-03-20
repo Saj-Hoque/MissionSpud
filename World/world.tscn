@@ -542,6 +542,7 @@ position = Vector2(127.5, 389)
 shape = SubResource("RectangleShape2D_l8heb")
 
 [node name="scrapSpawnTimer" type="Timer" parent="."]
+wait_time = 8.0
 autostart = true
 
 [node name="MainHub" parent="." instance=ExtResource("9_tw5w8")]
@@ -635,14 +636,14 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@24852")
+blackboard = NodePath("@Node@261773")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@24853")
+blackboard = NodePath("@Node@261774")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

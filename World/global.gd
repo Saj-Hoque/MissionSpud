@@ -10,3 +10,7 @@ var names = ["Bolt", "Circuit", "Nova", "Titan", "Spark", "Electron", "Nexus", "
 var potatoQuantity = 2
 var potatoValue = 1
 var potatoTimer = 10
+
+var scrapQuantity = 1
+var scrapValue = 1
+var scrapTimer = 8
