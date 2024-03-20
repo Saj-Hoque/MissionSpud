@@ -16,3 +16,5 @@ var potatoTimer = 10
 var scrapQuantity = 1
 var scrapValue = 1
 var scrapTimer = 8
+
+

@@ -10,22 +10,37 @@ var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 @onready var timer = $buyTimer
 
 @onready var planterButton = $Panel/BUY/HBoxContainer/Planter/planterBuyButton
-@onready var plantedUpkeepLabel = $Panel/BUY/HBoxContainer/Planter/upkeep/upkeepLabel
+@onready var planterUpkeepLabel = $Panel/BUY/HBoxContainer/Planter/upkeep/upkeepLabel
+@onready var planterPotatoLabel = $Panel/BUY/HBoxContainer/Planter/Price/potatoPrice
+@onready var planterScrapLabel = $Panel/BUY/HBoxContainer/Planter/Price/scrapPrice
 
 @onready var harvesterButton = $Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton
-@onready var collectorButton = $Panel/BUY/HBoxContainer/Collector/collectorBuyButton
+@onready var harvesterUpkeepLabel = $Panel/BUY/HBoxContainer/Harvester/upkeep/upkeepLabel
+@onready var harvesterPotatoLabel = $Panel/BUY/HBoxContainer/Harvester/Price/potatoPrice
+@onready var harvesterScrapLabel = $Panel/BUY/HBoxContainer/Harvester/Price/scrapPrice
 
-var disable_override = false
+@onready var collectorButton = $Panel/BUY/HBoxContainer/Collector/collectorBuyButton
+@onready var collectorUpkeepLabel = $Panel/BUY/HBoxContainer/Collector/upkeep/upkeepLabel
+@onready var collectorPotatoLabel = $Panel/BUY/HBoxContainer/Collector/Price/potatoPrice
+@onready var collectorScrapLabel = $Panel/BUY/HBoxContainer/Collector/Price/scrapPrice
+
 
 var planterPrice = { "potato" : 20,
 					 "scrap"  : 20 }
-var planterUpkeepValue = 5
-					
+var planterUpkeep = 5
+
+
 var harvesterPrice = { "potato" : 20,
 					   "scrap"  : 20 }
-					
+var harvesterUpkeep = 5
+
+
 var collectorPrice = { "potato" : 20,
 					   "scrap"  : 20 }
+var collectorUpkeep = 5
+
+
+var disable_override = false
 
 func _ready():
 	close_shop()
@@ -55,15 +70,23 @@ func _process(delta):
 			
 func open_shop():
 	visible = true
-	_update_prices()
+	_update()
 	
 func close_shop():
 	visible = false
 
-func _update_prices():
-	#if visible:
-		#plantedUpkeepLabel.text = "Upkeep	    " + str()
+func update_prices():
 	pass
+
+func _update_robot_details(price, potatoLabel, scrapLabel, upkeep, upkeepLabel):
+	potatoLabel.text = str(price["potato"])
+	scrapLabel.text = str(price["scrap"])
+	upkeepLabel.text = "Upkeep	    " + str(upkeep)
+
+func _update():
+	_update_robot_details(planterPrice, planterPotatoLabel, planterScrapLabel, planterUpkeep, planterUpkeepLabel)
+	_update_robot_details(harvesterPrice, harvesterPotatoLabel, harvesterScrapLabel, harvesterUpkeep, harvesterUpkeepLabel)
+	_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, collectorUpkeep, collectorUpkeepLabel)
 
 func _disable_all_buttons():
 	disable_override = true
@@ -77,31 +100,25 @@ func _enable_all_buttons():
 	harvesterButton.disabled = false
 	collectorButton.disabled = false
 
-
-func _on_planter_buy_button_pressed():
-	Global.potatoCount -= planterPrice["potato"]
-	Global.scrapCount -= planterPrice["scrap"]
-	var planter = planter_scene.instantiate()
-	var planter_ai = planter_ai_scene.instantiate()
-	planter.idle_area = main_hub
-	planter.add_child(planter_ai)
-	#planter.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
-	robots.add_child(planter)
+func _buy_robot(price, scene, ai_scene):
+	Global.potatoCount -= price["potato"]
+	Global.scrapCount -= price["scrap"]
+	var robot = scene.instantiate()
+	var robot_ai = ai_scene.instantiate()
+	robot.idle_area = main_hub
+	robot.add_child(robot_ai)
+	#robot.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
+	robots.add_child(robot)
 	timer.start()
 	_disable_all_buttons()
+
+
+func _on_planter_buy_button_pressed():
+	_buy_robot(planterPrice, planter_scene, planter_ai_scene)
 
 
 func _on_harvester_buy_button_pressed():
-	var harvester = harvester_scene.instantiate()
-	var harvester_ai = harvester_ai_scene.instantiate()
-	harvester.idle_area = main_hub
-	harvester.add_child(harvester_ai)
-	#harvester.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
-	robots.add_child(harvester)
-	Global.potatoCount -= harvesterPrice["potato"]
-	Global.scrapCount -= harvesterPrice["scrap"]
-	timer.start()
-	_disable_all_buttons()
+	_buy_robot(harvesterPrice, harvester_scene, harvester_ai_scene)
 
 
 func _on_collector_buy_button_pressed():

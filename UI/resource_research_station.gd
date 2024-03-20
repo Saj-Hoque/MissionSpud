@@ -366,8 +366,6 @@ func _on_scrap_button_pressed():
 
 
 
-
-
 func _refresh_upkeep(upkeepValues, level):
 	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep) + "   ->   " + str(Global.upkeep + upkeepValues[level])
 	
