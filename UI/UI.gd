@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var potatoCounter = $resourceMargin/resourceContainer/potatoPanel/potatoMargin/potato/potatoCounter
 @onready var scrapCounter = $resourceMargin/resourceContainer/scrapPanel/scrapMargin/scrap/scrapCounter
+@onready var upkeepCounter = $upkeepMargin/upkeepPanel/margin/upkeep/upkeepCounter
 
 @onready var day = $timeSystemMargin/timeSystemContainer/dayPanel/dayMargin/day
 @onready var hour = $timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer/hour
@@ -11,6 +12,7 @@ extends CanvasLayer
 func _process(delta):
 	potatoCounter.text = (str(Global.potatoCount))
 	scrapCounter.text = (str(Global.scrapCount))
+	upkeepCounter.text = (str(Global.upkeep))
 	
 	day.text = ("Sol %d" % TimeSystem.day)
 	hour.text = ("%02d" % TimeSystem.hour)

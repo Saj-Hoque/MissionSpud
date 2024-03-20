@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=32 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -22,6 +22,13 @@ font_names = PackedStringArray("Impact")
 default_font = SubResource("SystemFont_vc7es")
 default_font_size = 40
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyhmq"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
 [sub_resource type="SystemFont" id="SystemFont_1u048"]
 font_names = PackedStringArray("Impact")
 
@@ -29,12 +36,46 @@ font_names = PackedStringArray("Impact")
 default_font = SubResource("SystemFont_1u048")
 default_font_size = 80
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw376"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
 [sub_resource type="SystemFont" id="SystemFont_oe71b"]
 font_names = PackedStringArray("Impact")
 
 [sub_resource type="Theme" id="Theme_8aapv"]
 default_font = SubResource("SystemFont_oe71b")
 default_font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iayh"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d585x"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cferr"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="SystemFont" id="SystemFont_kw2pb"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_pfilt"]
+default_font = SubResource("SystemFont_kw2pb")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dfma"]
 texture = ExtResource("1_nikri")
@@ -397,6 +438,7 @@ theme_override_constants/separation = 10
 
 [node name="dayPanel" type="PanelContainer" parent="UI/timeSystemMargin/timeSystemContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fyhmq")
 
 [node name="dayMargin" type="MarginContainer" parent="UI/timeSystemMargin/timeSystemContainer/dayPanel"]
 layout_mode = 2
@@ -414,6 +456,7 @@ horizontal_alignment = 1
 [node name="timePanel" type="PanelContainer" parent="UI/timeSystemMargin/timeSystemContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yw376")
 
 [node name="timeMargin" type="MarginContainer" parent="UI/timeSystemMargin/timeSystemContainer/timePanel"]
 layout_mode = 2
@@ -463,6 +506,7 @@ theme_override_constants/v_separation = 20
 
 [node name="potatoPanel" type="PanelContainer" parent="UI/resourceMargin/resourceContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6iayh")
 
 [node name="potatoMargin" type="MarginContainer" parent="UI/resourceMargin/resourceContainer/potatoPanel"]
 layout_mode = 2
@@ -491,6 +535,7 @@ vertical_alignment = 1
 
 [node name="scrapPanel" type="PanelContainer" parent="UI/resourceMargin/resourceContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d585x")
 
 [node name="scrapMargin" type="MarginContainer" parent="UI/resourceMargin/resourceContainer/scrapPanel"]
 layout_mode = 2
@@ -513,6 +558,49 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepMargin" type="MarginContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="upkeepPanel" type="PanelContainer" parent="UI/upkeepMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cferr")
+
+[node name="margin" type="MarginContainer" parent="UI/upkeepMargin/upkeepPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="upkeep" type="HBoxContainer" parent="UI/upkeepMargin/upkeepPanel/margin"]
+layout_mode = 2
+theme = SubResource("Theme_pfilt")
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="UI/upkeepMargin/upkeepPanel/margin/upkeep"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Upkeep:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepCounter" type="Label" parent="UI/upkeepMargin/upkeepPanel/margin/upkeep"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -636,14 +724,14 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@443987")
+blackboard = NodePath("@Node@445696")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@443988")
+blackboard = NodePath("@Node@445697")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
