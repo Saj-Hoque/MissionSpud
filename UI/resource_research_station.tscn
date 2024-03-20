@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chdwj38p3u7t5"]
+[gd_scene load_steps=16 format=3 uid="uid://chdwj38p3u7t5"]
 
 [ext_resource type="Script" path="res://UI/resource_research_station.gd" id="1_lae4m"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_xx41c"]
@@ -16,10 +16,11 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_n7jsn"]
+[sub_resource type="SystemFont" id="SystemFont_xe0ix"]
+font_names = PackedStringArray("Impact")
 
-[sub_resource type="Theme" id="Theme_m86dk"]
-default_font = SubResource("SystemFont_n7jsn")
+[sub_resource type="Theme" id="Theme_xwxb8"]
+default_font = SubResource("SystemFont_xe0ix")
 
 [sub_resource type="SystemFont" id="SystemFont_ari7l"]
 font_names = PackedStringArray("Impact")
@@ -39,6 +40,12 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_qkcfd"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_j8tnq"]
+default_font = SubResource("SystemFont_qkcfd")
 
 [sub_resource type="SystemFont" id="SystemFont_0xden"]
 font_names = PackedStringArray("Impact")
@@ -104,33 +111,63 @@ alignment = 1
 
 [node name="Labels" type="VBoxContainer" parent="potato/research/fields"]
 layout_mode = 2
+theme = SubResource("Theme_xwxb8")
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="fetilizerLabel" type="Label" parent="potato/research/fields/Labels"]
-custom_minimum_size = Vector2(500, 124)
+[node name="fertilizer" type="HBoxContainer" parent="potato/research/fields/Labels"]
 layout_mode = 2
-theme = SubResource("Theme_m86dk")
+
+[node name="fetilizerLabel" type="Label" parent="potato/research/fields/Labels/fertilizer"]
+custom_minimum_size = Vector2(400, 124)
+layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Fertilizer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="qualityLabel" type="Label" parent="potato/research/fields/Labels"]
-custom_minimum_size = Vector2(500, 124)
+[node name="currentUpkeep" type="Label" parent="potato/research/fields/Labels/fertilizer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+30"
+vertical_alignment = 1
+
+[node name="quality" type="HBoxContainer" parent="potato/research/fields/Labels"]
+layout_mode = 2
+
+[node name="qualityLabel" type="Label" parent="potato/research/fields/Labels/quality"]
+custom_minimum_size = Vector2(400, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Spud Splitter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GrowthLabel" type="Label" parent="potato/research/fields/Labels"]
-custom_minimum_size = Vector2(500, 124)
+[node name="currentUpkeep" type="Label" parent="potato/research/fields/Labels/quality"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+30"
+vertical_alignment = 1
+
+[node name="growth" type="HBoxContainer" parent="potato/research/fields/Labels"]
+layout_mode = 2
+
+[node name="GrowthLabel" type="Label" parent="potato/research/fields/Labels/growth"]
+custom_minimum_size = Vector2(400, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Nano-Growth
 "
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="currentUpkeep" type="Label" parent="potato/research/fields/Labels/growth"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+30"
 vertical_alignment = 1
 
 [node name="Description_Improvement" type="VBoxContainer" parent="potato/research/fields"]
@@ -211,7 +248,6 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/fertilizer/upkeep"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    0 -> 60"
 horizontal_alignment = 1
@@ -279,7 +315,6 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/quality/upkeep"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    0 -> 60"
 horizontal_alignment = 1
@@ -343,7 +378,6 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/growth/upkeep"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    0 -> 60"
 horizontal_alignment = 1
@@ -438,31 +472,62 @@ alignment = 1
 
 [node name="Labels" type="VBoxContainer" parent="scrap/research/fields"]
 layout_mode = 2
+theme = SubResource("Theme_j8tnq")
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="boostLabel" type="Label" parent="scrap/research/fields/Labels"]
-custom_minimum_size = Vector2(500, 124)
+[node name="boost" type="HBoxContainer" parent="scrap/research/fields/Labels"]
+layout_mode = 2
+
+[node name="boostLabel" type="Label" parent="scrap/research/fields/Labels/boost"]
+custom_minimum_size = Vector2(400, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = " ScrapBoost+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="forgeLabel" type="Label" parent="scrap/research/fields/Labels"]
-custom_minimum_size = Vector2(500, 124)
+[node name="currentUpkeep" type="Label" parent="scrap/research/fields/Labels/boost"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+0"
+vertical_alignment = 1
+
+[node name="forge" type="HBoxContainer" parent="scrap/research/fields/Labels"]
+layout_mode = 2
+
+[node name="forgeLabel" type="Label" parent="scrap/research/fields/Labels/forge"]
+custom_minimum_size = Vector2(400, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Ampli-Forge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="turbineLabel" type="Label" parent="scrap/research/fields/Labels"]
-custom_minimum_size = Vector2(500, 124)
+[node name="currentUpkeep" type="Label" parent="scrap/research/fields/Labels/forge"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+0"
+vertical_alignment = 1
+
+[node name="turbine" type="HBoxContainer" parent="scrap/research/fields/Labels"]
+layout_mode = 2
+
+[node name="turbineLabel" type="Label" parent="scrap/research/fields/Labels/turbine"]
+custom_minimum_size = Vector2(400, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Dust Turbine"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="currentUpkeep" type="Label" parent="scrap/research/fields/Labels/turbine"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+0"
 vertical_alignment = 1
 
 [node name="Description_Improvement" type="VBoxContainer" parent="scrap/research/fields"]
@@ -543,7 +608,6 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/boost/upkeep"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    0 -> 60"
 horizontal_alignment = 1
@@ -611,7 +675,6 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/forge/upkeep"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    0 -> 60"
 horizontal_alignment = 1
@@ -675,7 +738,6 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/upkeep"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    0 -> 60"
 horizontal_alignment = 1
@@ -776,7 +838,10 @@ offset_right = -92.0
 offset_bottom = 46.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_2cmkt")
-text = "0   ->   60"
+text = "UPKEEP:
+0   ->   60"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="potato/research/fields/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_mouse_entered"]
 [connection signal="mouse_exited" from="potato/research/fields/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_mouse_exited"]

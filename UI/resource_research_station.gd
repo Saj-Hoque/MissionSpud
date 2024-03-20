@@ -13,6 +13,7 @@ extends CanvasLayer
 @onready var fertilizerScrapPrice = $potato/research/fields/Buttons_Price/fertilizer/Price/scrapPrice
 @onready var fertilizerImprovementLabel = $potato/research/fields/Description_Improvement/fertilizer/improvement
 @onready var fertilizerUpkeepLabel = $potato/research/fields/Buttons_Price/fertilizer/upkeep/upkeepLabel
+@onready var fertilizerCurrentUpkeepLabel = $potato/research/fields/Labels/fertilizer/currentUpkeep
 
 @onready var qualityButton = $potato/research/fields/Buttons_Price/quality/qualityButton
 @onready var qualityResources = $potato/research/fields/Buttons_Price/quality/Price
@@ -20,6 +21,7 @@ extends CanvasLayer
 @onready var qualityScrapPrice = $potato/research/fields/Buttons_Price/quality/Price/scrapPrice
 @onready var qualityImprovementLabel = $potato/research/fields/Description_Improvement/quality/improvement
 @onready var qualityUpkeepLabel = $potato/research/fields/Buttons_Price/quality/upkeep/upkeepLabel
+@onready var qualityCurrentUpkeepLabel = $potato/research/fields/Labels/quality/currentUpkeep
 
 @onready var growthButton = $potato/research/fields/Buttons_Price/growth/growthButton
 @onready var growthResources = $potato/research/fields/Buttons_Price/growth/Price
@@ -27,6 +29,7 @@ extends CanvasLayer
 @onready var growthScrapPrice = $potato/research/fields/Buttons_Price/growth/Price/scrapPrice
 @onready var growthImprovementLabel = $potato/research/fields/Description_Improvement/growth/improvement
 @onready var growthUpkeepLabel = $potato/research/fields/Buttons_Price/growth/upkeep/upkeepLabel
+@onready var growthCurrentUpkeepLabel = $potato/research/fields/Labels/growth/currentUpkeep
 
 @onready var boostButton = $scrap/research/fields/Buttons_Price/boost/boostButton
 @onready var boostResources = $scrap/research/fields/Buttons_Price/boost/Price
@@ -34,6 +37,7 @@ extends CanvasLayer
 @onready var boostScrapPrice = $scrap/research/fields/Buttons_Price/boost/Price/scrapPrice
 @onready var boostImprovementLabel = $scrap/research/fields/Description_Improvement/boost/improvement
 @onready var boostUpkeepLabel = $scrap/research/fields/Buttons_Price/boost/upkeep/upkeepLabel
+@onready var boostCurrentUpkeepLabel = $scrap/research/fields/Labels/boost/currentUpkeep
 
 @onready var forgeButton = $scrap/research/fields/Buttons_Price/forge/forgeButton
 @onready var forgeResources = $scrap/research/fields/Buttons_Price/forge/Price
@@ -41,6 +45,7 @@ extends CanvasLayer
 @onready var forgeScrapPrice = $scrap/research/fields/Buttons_Price/forge/Price/scrapPrice
 @onready var forgeImprovementLabel = $scrap/research/fields/Description_Improvement/forge/improvement
 @onready var forgeUpkeepLabel = $scrap/research/fields/Buttons_Price/forge/upkeep/upkeepLabel
+@onready var forgeCurrentUpkeepLabel = $scrap/research/fields/Labels/forge/currentUpkeep
 
 @onready var turbineButton = $scrap/research/fields/Buttons_Price/turbine/turbineButton
 @onready var turbineResources = $scrap/research/fields/Buttons_Price/turbine/Price
@@ -48,7 +53,7 @@ extends CanvasLayer
 @onready var turbineScrapPrice = $scrap/research/fields/Buttons_Price/turbine/Price/scrapPrice
 @onready var turbineImprovementLabel = $scrap/research/fields/Description_Improvement/turbine/improvement
 @onready var turbineUpkeepLabel = $scrap/research/fields/Buttons_Price/turbine/upkeep/upkeepLabel
-
+@onready var turbineCurrentUpkeepLabel = $scrap/research/fields/Labels/turbine/currentUpkeep
 
 var fertilizerLevel = 0
 var fertilizerPrice = { 0 : {"potato" : 40,
@@ -67,18 +72,20 @@ var fertilizerImprovementValues = { 0 : 2,
 							   		1 : 4,
 							   		2 : 8,
 							   		3 : 16	
-								  }						
-							
-var fertilizerUpkeep = { 0 : "Upkeep	    0 -> 30",
-						 1 : "Upkeep	    30 -> 60",
-						 2 : "Upkeep	    60 -> 120",
-						 3 : "Upkeep	    120"
+								  }
+var fertilizerUpkeep = { 0 : "Upkeep	    +30",
+						 1 : "Upkeep	    +60",
+						 2 : "Upkeep	    +120"
 					   }
-var fertilizerUpkeepValues = { 0 : 0,
-							   1 : 30, 
-							   2 : 60,
-							   3 : 120
+var fertilizerUpkeepValues = { 0 : 30,
+							   1 : 60, 
+							   2 : 120
 							 }
+var fertilizerCurrentUpkeep = { 0 : "+0",
+								1 : "+30", 
+								2 : "+90",
+								3 : "+210"
+							  }
 
 
 var qualityLevel = 0
@@ -99,16 +106,19 @@ var qualityImprovementValues = { 0 : 1,
 						   		 2 : 4,
 						   		 3 : 8	
 							   }					
-var qualityUpkeep = { 0 : "Upkeep	    0 -> 30",
-					  1 : "Upkeep	    30 -> 60",
-					  2 : "Upkeep	    60 -> 120",
-					  3 : "Upkeep	    120"
+var qualityUpkeep = { 0 : "Upkeep	    +30",
+					  1 : "Upkeep	    +60",
+					  2 : "Upkeep	    +120"
 					}
-var qualityUpkeepValues = { 0 : 0,
-							1 : 30, 
-							2 : 60,
-							3 : 120
+var qualityUpkeepValues = { 0 : 30,
+							1 : 60, 
+							2 : 120
 						  }
+var qualityCurrentUpkeep = { 0 : "+0",
+							 1 : "+30", 
+							 2 : "+90",
+							 3 : "+210"
+						   }
 
 var growthLevel = 0
 var growthPrice = { 0 : {"potato" : 40,
@@ -128,16 +138,19 @@ var growthImprovementValues = { 0 : 10,				# Divided by 2 because plant growth i
 						   		2 : 2.5,
 						   		3 : 1.25	
 							  }						
-var growthUpkeep = { 0 : "Upkeep	    0 -> 30",
-					 1 : "Upkeep	    30 -> 60",
-					 2 : "Upkeep	    60 -> 120",
-					 3 : "Upkeep	    120"
+var growthUpkeep = { 0 : "Upkeep	    +30",
+					 1 : "Upkeep	    +60",
+					 2 : "Upkeep	    +120"
 				   }
-var growthUpkeepValues = { 0 : 0,
-						   1 : 30, 
-						   2 : 60,
-						   3 : 120
+var growthUpkeepValues = { 0 : 30,
+						   1 : 60, 
+						   2 : 120
 						 }
+var growthCurrentUpkeep = { 0 : "+0",
+							1 : "+30", 
+							2 : "+90",
+							3 : "+210"
+						  }
 
 var boostLevel = 0
 var boostPrice = { 0 : {"potato" : 40,
@@ -157,16 +170,19 @@ var boostImprovementValues = { 0 : 1,
 					   		   2 : 4,
 					   		   3 : 8	
 							 }						
-var boostUpkeep = { 0 : "Upkeep	    0 -> 30",
-					1 : "Upkeep	    30 -> 60",
-					2 : "Upkeep	    60 -> 120",
-					3 : "Upkeep	    120"
+var boostUpkeep = { 0 : "Upkeep	    +30",
+					1 : "Upkeep	    +60",
+					2 : "Upkeep	    +120"
 				  }
-var boostUpkeepValues = { 0 : 0,
-						  1 : 30, 
-						  2 : 60,
-						  3 : 120
+var boostUpkeepValues = { 0 : 30,
+						  1 : 60, 
+						  2 : 120
 						}
+var boostCurrentUpkeep = { 0 : "+0",
+						   1 : "+30", 
+						   2 : "+90",
+						   3 : "+210"
+						 }
 
 var forgeLevel = 0
 var forgePrice = { 0 : {"potato" : 40,
@@ -186,16 +202,19 @@ var forgeImprovementValues = { 0 : 1,
 					   		   2 : 4,
 					   		   3 : 8	
 							 }						
-var forgeUpkeep = { 0 : "Upkeep	    0 -> 30",
-					1 : "Upkeep	    30 -> 60",
-					2 : "Upkeep	    60 -> 120",
-					3 : "Upkeep	    120"
+var forgeUpkeep = { 0 : "Upkeep	    +30",
+					1 : "Upkeep	    +60",
+					2 : "Upkeep	    +120"
 				  }
-var forgeUpkeepValues = { 0 : 0,
-						  1 : 30, 
-						  2 : 60,
-						  3 : 120
+var forgeUpkeepValues = { 0 : 30,
+						  1 : 60, 
+						  2 : 120
 						}
+var forgeCurrentUpkeep = { 0 : "+0",
+						   1 : "+30", 
+						   2 : "+90",
+						   3 : "+210"
+						 }
 
 var turbineLevel = 0
 var turbinePrice = { 0 : {"potato" : 40,
@@ -215,16 +234,19 @@ var turbineImprovementValues = { 0 : 8,
 						   		 2 : 2,
 						   		 3 : 1	
 							   }						
-var turbineUpkeep = { 0 : "Upkeep	    0 -> 30",
-					  1 : "Upkeep	    30 -> 60",
-					  2 : "Upkeep	    60 -> 120",
-					  3 : "Upkeep	    120"
+var turbineUpkeep = { 0 : "Upkeep	    +30",
+					  1 : "Upkeep	    +60",
+					  2 : "Upkeep	    +120"
 					}
-var turbineUpkeepValues = { 0 : 0,
-							1 : 30, 
-							2 : 60,
-							3 : 120
+var turbineUpkeepValues = { 0 : 30,
+							1 : 60, 
+							2 : 120
 						  }
+var turbineCurrentUpkeep = { 0 : "+0",
+							 1 : "+30", 
+							 2 : "+90",
+							 3 : "+210"
+						   }
 
 
 func _ready():
@@ -263,39 +285,40 @@ func _on_close_button_pressed():
 	close_shop()
 
 
-func _update_values(prices, level, potatoPrice, scrapPrice, impovementLabel, improvement, upkeepLabel, upkeep):
+func _update_values(prices, level, potatoPrice, scrapPrice, impovementLabel, improvement, upkeepLabel, upkeep, currentUpkeepLabel, currentUpkeep):
 	if level < 3:
 		potatoPrice.text = str(prices[level]["potato"])
 		scrapPrice.text = str(prices[level]["scrap"])
 		impovementLabel.text = improvement[level]
 		upkeepLabel.text = upkeep[level]
+		currentUpkeepLabel.text = currentUpkeep[level]
+		
 
 func _update():
-	_update_values(fertilizerPrice, fertilizerLevel, fertilizerPotatoPrice, fertilizerScrapPrice, fertilizerImprovementLabel, fertilizerImprovements, fertilizerUpkeepLabel, fertilizerUpkeep)
-	_update_values(qualityPrice, qualityLevel, qualityPotatoPrice, qualityScrapPrice, qualityImprovementLabel, qualityImprovements, qualityUpkeepLabel, qualityUpkeep)
-	_update_values(growthPrice, growthLevel, growthPotatoPrice, growthScrapPrice, growthImprovementLabel, growthImprovements, growthUpkeepLabel, growthUpkeep)
-	_update_values(boostPrice, boostLevel, boostPotatoPrice, boostScrapPrice, boostImprovementLabel, boostImprovements, boostUpkeepLabel, boostUpkeep)
-	_update_values(forgePrice, forgeLevel, forgePotatoPrice, forgeScrapPrice, forgeImprovementLabel, forgeImprovements, forgeUpkeepLabel, forgeUpkeep)
-	_update_values(turbinePrice, turbineLevel, turbinePotatoPrice, turbineScrapPrice, turbineImprovementLabel, turbineImprovements, turbineUpkeepLabel, turbineUpkeep)
+	_update_values(fertilizerPrice, fertilizerLevel, fertilizerPotatoPrice, fertilizerScrapPrice, fertilizerImprovementLabel, fertilizerImprovements, fertilizerUpkeepLabel, fertilizerUpkeep, fertilizerCurrentUpkeepLabel, fertilizerCurrentUpkeep)
+	_update_values(qualityPrice, qualityLevel, qualityPotatoPrice, qualityScrapPrice, qualityImprovementLabel, qualityImprovements, qualityUpkeepLabel, qualityUpkeep, qualityCurrentUpkeepLabel, qualityCurrentUpkeep)
+	_update_values(growthPrice, growthLevel, growthPotatoPrice, growthScrapPrice, growthImprovementLabel, growthImprovements, growthUpkeepLabel, growthUpkeep, growthCurrentUpkeepLabel, growthCurrentUpkeep)
+	_update_values(boostPrice, boostLevel, boostPotatoPrice, boostScrapPrice, boostImprovementLabel, boostImprovements, boostUpkeepLabel, boostUpkeep, boostCurrentUpkeepLabel, boostCurrentUpkeep)
+	_update_values(forgePrice, forgeLevel, forgePotatoPrice, forgeScrapPrice, forgeImprovementLabel, forgeImprovements, forgeUpkeepLabel, forgeUpkeep, forgeCurrentUpkeepLabel, forgeCurrentUpkeep)
+	_update_values(turbinePrice, turbineLevel, turbinePotatoPrice, turbineScrapPrice, turbineImprovementLabel, turbineImprovements, turbineUpkeepLabel, turbineUpkeep, turbineCurrentUpkeepLabel, fertilizerCurrentUpkeep)
 
 
 func _update_global_values(prices, level, upkeepValues, improvementValues):
 	Global.potatoCount -= prices[level]["potato"]
 	Global.scrapCount -= prices[level]["scrap"]
-	Global.upkeep -= upkeepValues[level]
-	level += 1
-	Global.potatoQuantity = improvementValues[level]
 	Global.upkeep += upkeepValues[level]
+	level += 1
 	return level
 
-func _update_to_new_button_values(level, upkeep, upkeepValues, upkeepLabel, improvements, improvementLabel, button, resources):
+func _update_to_new_button_values(level, upkeep, upkeepValues, upkeepLabel, improvements, improvementLabel, currentUpkeep, currentUpkeepLabel, button, resources):
 
 	if level < 3:
 		_update()
 		_refresh_upkeep(upkeepValues, level)
 	else:
 		totalUpkeep.visible = false
-		upkeepLabel.text = upkeep[level]
+		upkeepLabel.visible = false
+		currentUpkeepLabel.text = currentUpkeep[level]
 		improvementLabel.text = improvements[level]
 		button.text = "Maxed out"
 		button.disabled = true
@@ -303,27 +326,33 @@ func _update_to_new_button_values(level, upkeep, upkeepValues, upkeepLabel, impr
 
 func _on_fertilizer_button_pressed():
 	fertilizerLevel = _update_global_values(fertilizerPrice, fertilizerLevel, fertilizerUpkeepValues, fertilizerImprovementValues)
-	_update_to_new_button_values(fertilizerLevel, fertilizerUpkeep, fertilizerUpkeepValues, fertilizerUpkeepLabel, fertilizerImprovements, fertilizerImprovementLabel, fertilizerButton, fertilizerResources)
+	Global.potatoQuantity = fertilizerImprovementValues[fertilizerLevel]
+	_update_to_new_button_values(fertilizerLevel, fertilizerUpkeep, fertilizerUpkeepValues, fertilizerUpkeepLabel, fertilizerImprovements, fertilizerImprovementLabel, fertilizerCurrentUpkeep, fertilizerCurrentUpkeepLabel, fertilizerButton, fertilizerResources)
 
 func _on_quality_button_pressed():
 	qualityLevel = _update_global_values(qualityPrice, qualityLevel, qualityUpkeepValues, qualityImprovementValues)
-	_update_to_new_button_values(qualityLevel, qualityUpkeep, qualityUpkeepValues, qualityUpkeepLabel, qualityImprovements, qualityImprovementLabel, qualityButton, qualityResources)
+	Global.potatoValue = qualityImprovementValues[qualityLevel]
+	_update_to_new_button_values(qualityLevel, qualityUpkeep, qualityUpkeepValues, qualityUpkeepLabel, qualityImprovements, qualityImprovementLabel, qualityCurrentUpkeep, qualityCurrentUpkeepLabel, qualityButton, qualityResources)
 
 func _on_growth_button_pressed():
 	growthLevel = _update_global_values(growthPrice, growthLevel, growthUpkeepValues, growthImprovementValues)
-	_update_to_new_button_values(growthLevel, growthUpkeep, growthUpkeepValues, growthUpkeepLabel, growthImprovements, growthImprovementLabel, growthButton, growthResources)
+	Global.potatoTimer = growthImprovementValues[growthLevel]
+	_update_to_new_button_values(growthLevel, growthUpkeep, growthUpkeepValues, growthUpkeepLabel, growthImprovements, growthImprovementLabel, growthCurrentUpkeep, growthCurrentUpkeepLabel, growthButton, growthResources)
 
 func _on_boost_button_pressed():
 	boostLevel = _update_global_values(boostPrice, boostLevel, boostUpkeepValues, boostImprovementValues)
-	_update_to_new_button_values(boostLevel, boostUpkeep, boostUpkeepValues, boostUpkeepLabel, boostImprovements, boostImprovementLabel, boostButton, boostResources)
+	Global.scrapQuantity = boostImprovementValues[boostLevel]
+	_update_to_new_button_values(boostLevel, boostUpkeep, boostUpkeepValues, boostUpkeepLabel, boostImprovements, boostImprovementLabel, boostCurrentUpkeep, boostCurrentUpkeepLabel, boostButton, boostResources)
 
 func _on_forge_button_pressed():
 	forgeLevel = _update_global_values(forgePrice, forgeLevel, forgeUpkeepValues, forgeImprovementValues)
-	_update_to_new_button_values(forgeLevel, forgeUpkeep, forgeUpkeepValues, forgeUpkeepLabel, forgeImprovements, forgeImprovementLabel, forgeButton, forgeResources)
+	Global.scrapValue = forgeImprovementValues[forgeLevel]
+	_update_to_new_button_values(forgeLevel, forgeUpkeep, forgeUpkeepValues, forgeUpkeepLabel, forgeImprovements, forgeImprovementLabel, forgeCurrentUpkeep, forgeCurrentUpkeepLabel, forgeButton, forgeResources)
 
 func _on_turbine_button_pressed():
 	turbineLevel = _update_global_values(turbinePrice, turbineLevel, turbineUpkeepValues, turbineImprovementValues)
-	_update_to_new_button_values(turbineLevel, turbineUpkeep, turbineUpkeepValues, turbineUpkeepLabel, turbineImprovements, turbineImprovementLabel, turbineButton, turbineResources)
+	Global.scrapTimer = turbineImprovementValues[turbineLevel]
+	_update_to_new_button_values(turbineLevel, turbineUpkeep, turbineUpkeepValues, turbineUpkeepLabel, turbineImprovements, turbineImprovementLabel, turbineCurrentUpkeep, turbineCurrentUpkeepLabel, turbineButton, turbineResources)
 
 func _on_potato_button_pressed():
 	scrapButton.button_pressed = false
@@ -340,11 +369,11 @@ func _on_scrap_button_pressed():
 
 
 func _refresh_upkeep(upkeepValues, level):
-	totalUpkeep.text = str(Global.upkeep) + "   ->   " + str(Global.upkeep + upkeepValues[level+1] - upkeepValues[level])
+	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep) + "   ->   " + str(Global.upkeep + upkeepValues[level])
 	
 func _refresh_upkeep_button(button, upkeepValues, level):
 	if not button.disabled:
-		totalUpkeep.global_position = button.global_position + button.size + Vector2(10, -50)
+		totalUpkeep.global_position = button.global_position + button.size + Vector2(10, -60)
 		_refresh_upkeep(upkeepValues, level)
 		totalUpkeep.visible = true
 		
