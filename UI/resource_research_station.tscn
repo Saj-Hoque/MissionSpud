@@ -188,6 +188,24 @@ alignment = 1
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
+[node name="upkeep" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/fertilizer"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/fertilizer/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/fertilizer/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="fertilizerButton" type="Button" parent="potato/research/fields/Buttons_Price/fertilizer"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
@@ -238,6 +256,24 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
+[node name="upkeep" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/quality"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/quality/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/quality/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="qualityButton" type="Button" parent="potato/research/fields/Buttons_Price/quality"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
@@ -283,6 +319,24 @@ stretch_mode = 5
 [node name="growth" type="VBoxContainer" parent="potato/research/fields/Buttons_Price"]
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/growth"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/growth/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/growth/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="growthButton" type="Button" parent="potato/research/fields/Buttons_Price/growth"]
 custom_minimum_size = Vector2(0, 62)
@@ -466,6 +520,24 @@ alignment = 1
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
+[node name="upkeep" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/boost"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/boost/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/boost/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="boostButton" type="Button" parent="scrap/research/fields/Buttons_Price/boost"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
@@ -516,6 +588,24 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 
+[node name="upkeep" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/forge"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/forge/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/forge/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="forgeButton" type="Button" parent="scrap/research/fields/Buttons_Price/forge"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
@@ -561,6 +651,24 @@ stretch_mode = 5
 [node name="turbine" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
 custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/turbine"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/turbine/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="turbineButton" type="Button" parent="scrap/research/fields/Buttons_Price/turbine"]
 custom_minimum_size = Vector2(0, 62)
@@ -608,10 +716,10 @@ stretch_mode = 5
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -327.5
-offset_top = 175.5
-offset_right = -210.5
-offset_bottom = 261.5
+offset_left = -316.5
+offset_top = 165.5
+offset_right = -199.5
+offset_bottom = 251.5
 grow_horizontal = 0
 theme = SubResource("Theme_oyl04")
 theme_override_constants/margin_left = 20

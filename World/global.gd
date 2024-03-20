@@ -2,6 +2,8 @@ extends Node
 
 var max_scraps = 100
 
+var upkeep = 0
+
 var potatoCount = 0
 var scrapCount = 0
 
