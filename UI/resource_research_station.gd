@@ -1,22 +1,27 @@
 extends CanvasLayer
 
-@onready var fertilizerButton = $Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/fertilizerButton
-@onready var fertilizerResources = $Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price
-@onready var fertilizerPotatoPrice = $Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price/potatoPrice
-@onready var fertilizerScrapPrice = $Panel/BUY/HBoxContainer/Buttons_Price/fertilizer/Price/scrapPrice
-@onready var fertilizerImprovementLabel = $Panel/BUY/HBoxContainer/Description_Improvement/fertilizer/improvement
+@onready var potatoButton = $potatoButton
+@onready var scrapButton = $scrapButton
+@onready var potatoSection = $potato
+@onready var scrapSection = $scrap
 
-@onready var qualityButton = $Panel/BUY/HBoxContainer/Buttons_Price/quality/qualityButton
-@onready var qualityResources = $Panel/BUY/HBoxContainer/Buttons_Price/quality/Price
-@onready var qualityPotatoPrice = $Panel/BUY/HBoxContainer/Buttons_Price/quality/Price/potatoPrice
-@onready var qualityScrapPrice = $Panel/BUY/HBoxContainer/Buttons_Price/quality/Price/scrapPrice
-@onready var qualityImprovementLabel = $Panel/BUY/HBoxContainer/Description_Improvement/quality/improvement
+@onready var fertilizerButton = $potato/research/fields/Buttons_Price/fertilizer/fertilizerButton
+@onready var fertilizerResources = $potato/research/fields/Buttons_Price/fertilizer/Price
+@onready var fertilizerPotatoPrice = $potato/research/fields/Buttons_Price/fertilizer/Price/potatoPrice
+@onready var fertilizerScrapPrice = $potato/research/fields/Buttons_Price/fertilizer/Price/scrapPrice
+@onready var fertilizerImprovementLabel = $potato/research/fields/Description_Improvement/fertilizer/improvement
 
-@onready var growthButton = $Panel/BUY/HBoxContainer/Buttons_Price/growth/growthButton
-@onready var growthResources = $Panel/BUY/HBoxContainer/Buttons_Price/growth/Price
-@onready var growthPotatoPrice = $Panel/BUY/HBoxContainer/Buttons_Price/growth/Price/potatoPrice
-@onready var growthScrapPrice = $Panel/BUY/HBoxContainer/Buttons_Price/growth/Price/scrapPrice
-@onready var growthImprovementLabel = $Panel/BUY/HBoxContainer/Description_Improvement/growth/improvement
+@onready var qualityButton = $potato/research/fields/Buttons_Price/quality/qualityButton
+@onready var qualityResources = $potato/research/fields/Buttons_Price/quality/Price
+@onready var qualityPotatoPrice = $potato/research/fields/Buttons_Price/quality/Price/potatoPrice
+@onready var qualityScrapPrice = $potato/research/fields/Buttons_Price/quality/Price/scrapPrice
+@onready var qualityImprovementLabel = $potato/research/fields/Description_Improvement/quality/improvement
+
+@onready var growthButton = $potato/research/fields/Buttons_Price/growth/growthButton
+@onready var growthResources = $potato/research/fields/Buttons_Price/growth/Price
+@onready var growthPotatoPrice = $potato/research/fields/Buttons_Price/growth/Price/potatoPrice
+@onready var growthScrapPrice = $potato/research/fields/Buttons_Price/growth/Price/scrapPrice
+@onready var growthImprovementLabel = $potato/research/fields/Description_Improvement/growth/improvement
 
 
 var fertilizerLevel = 0
@@ -61,6 +66,8 @@ var growthImprovements = { 0 : "20s   ->   10s",
 
 
 func _ready():
+	scrapButton.button_pressed = false
+	scrapSection.visible = false
 	close_shop()
 	await get_tree().get_root().ready
 	
@@ -153,3 +160,17 @@ func _on_growth_button_pressed():
 		growthButton.disabled = true
 		growthResources.visible = false
 		growthImprovementLabel.visible = false
+	
+
+func _on_potato_button_pressed():
+	scrapButton.button_pressed = false
+	scrapSection.visible = false
+	potatoSection.visible = true
+
+func _on_scrap_button_pressed():
+	potatoButton.button_pressed = false
+	potatoSection.visible = false
+	scrapSection.visible = true
+
+
+
