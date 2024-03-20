@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var potatoSection = $potato
 @onready var scrapSection = $scrap
 
+@onready var totalUpkeep = $totalUpkeep
+
 @onready var fertilizerButton = $potato/research/fields/Buttons_Price/fertilizer/fertilizerButton
 @onready var fertilizerResources = $potato/research/fields/Buttons_Price/fertilizer/Price
 @onready var fertilizerPotatoPrice = $potato/research/fields/Buttons_Price/fertilizer/Price/potatoPrice
@@ -61,6 +63,12 @@ var fertilizerImprovements = { 0 : "x 2   ->   x 4",
 							   2 : "x 8   ->   x 16",
 							   3 : "x 16"
 							 }
+var fertilizerImprovementValues = { 0 : 2,
+							   		1 : 4,
+							   		2 : 8,
+							   		3 : 16	
+								  }						
+							
 var fertilizerUpkeep = { 0 : "Upkeep	    0 -> 30",
 						 1 : "Upkeep	    30 -> 60",
 						 2 : "Upkeep	    60 -> 120",
@@ -86,6 +94,11 @@ var qualityImprovements = { 0 : "1   ->   2",
 							2 : "4   ->   8",
 							3 : "8"
 						  }
+var qualityImprovementValues = { 0 : 1,
+						   		 1 : 2,
+						   		 2 : 4,
+						   		 3 : 8	
+							   }					
 var qualityUpkeep = { 0 : "Upkeep	    0 -> 30",
 					  1 : "Upkeep	    30 -> 60",
 					  2 : "Upkeep	    60 -> 120",
@@ -110,6 +123,11 @@ var growthImprovements = { 0 : "20s   ->   10s",
 						   2 : "5s   ->   2.5s",
 						   3 : "2.5s"
 						 }
+var growthImprovementValues = { 0 : 10,				# Divided by 2 because plant growth is 2 sprites
+						   		1 : 5,
+						   		2 : 2.5,
+						   		3 : 1.25	
+							  }						
 var growthUpkeep = { 0 : "Upkeep	    0 -> 30",
 					 1 : "Upkeep	    30 -> 60",
 					 2 : "Upkeep	    60 -> 120",
@@ -134,6 +152,11 @@ var boostImprovements = { 0 : "x 1   ->   x 2",
 						  2 : "x 4   ->   x 8",
 						  3 : "x 8"
 						}
+var boostImprovementValues = { 0 : 1,
+					   		   1 : 2,
+					   		   2 : 4,
+					   		   3 : 8	
+							 }						
 var boostUpkeep = { 0 : "Upkeep	    0 -> 30",
 					1 : "Upkeep	    30 -> 60",
 					2 : "Upkeep	    60 -> 120",
@@ -158,6 +181,11 @@ var forgeImprovements = { 0 : "1   ->   2",
 						  2 : "4   ->   8",
 						  3 : "8"
 						  }
+var forgeImprovementValues = { 0 : 1,
+					   		   1 : 2,
+					   		   2 : 4,
+					   		   3 : 8	
+							 }						
 var forgeUpkeep = { 0 : "Upkeep	    0 -> 30",
 					1 : "Upkeep	    30 -> 60",
 					2 : "Upkeep	    60 -> 120",
@@ -182,6 +210,11 @@ var turbineImprovements = { 0 : "8s   ->   4s",
 							2 : "2s   ->   1s",
 							3 : "1s"
 						  }
+var turbineImprovementValues = { 0 : 8,
+						   		 1 : 4,
+						   		 2 : 2,
+						   		 3 : 1	
+							   }						
 var turbineUpkeep = { 0 : "Upkeep	    0 -> 30",
 					  1 : "Upkeep	    30 -> 60",
 					  2 : "Upkeep	    60 -> 120",
@@ -200,198 +233,97 @@ func _ready():
 	close_shop()
 	await get_tree().get_root().ready
 	
+func _check_if_enough(level, prices, button):
+	if level < 3:
+		if Global.potatoCount >= prices[level]["potato"] and Global.scrapCount >= prices[level]["scrap"]:
+			button.disabled = false
+		else:
+			button.disabled = true
+
 func _process(delta):
 
 	if visible:
-		if fertilizerLevel < 3:
-			if Global.potatoCount >= fertilizerPrice[fertilizerLevel]["potato"] and Global.scrapCount >= fertilizerPrice[fertilizerLevel]["scrap"]:
-				fertilizerButton.disabled = false
-			else:
-				fertilizerButton.disabled = true
-		
-		if qualityLevel < 3:
-			if Global.potatoCount >= qualityPrice[qualityLevel]["potato"] and Global.scrapCount >= qualityPrice[qualityLevel]["scrap"]:
-				qualityButton.disabled = false
-			else:
-				qualityButton.disabled = true
-#
-		if growthLevel < 3:
-			if Global.potatoCount >= growthPrice[growthLevel]["potato"] and Global.scrapCount >= growthPrice[growthLevel]["scrap"]:
-				growthButton.disabled = false
-			else:
-				growthButton.disabled = true
-				
-		if boostLevel < 3:
-			if Global.potatoCount >= boostPrice[boostLevel]["potato"] and Global.scrapCount >= boostPrice[boostLevel]["scrap"]:
-				boostButton.disabled = false
-			else:
-				boostButton.disabled = true
-		
-		if forgeLevel < 3:
-			if Global.potatoCount >= forgePrice[forgeLevel]["potato"] and Global.scrapCount >= forgePrice[forgeLevel]["scrap"]:
-				forgeButton.disabled = false
-			else:
-				forgeButton.disabled = true
-#
-		if turbineLevel < 3:
-			if Global.potatoCount >= turbinePrice[turbineLevel]["potato"] and Global.scrapCount >= turbinePrice[turbineLevel]["scrap"]:
-				turbineButton.disabled = false
-			else:
-				turbineButton.disabled = true
-			
+		_check_if_enough(fertilizerLevel, fertilizerPrice, fertilizerButton)
+		_check_if_enough(qualityLevel, qualityPrice, qualityButton)
+		_check_if_enough(growthLevel, growthPrice, growthButton)
+		_check_if_enough(boostLevel, boostPrice, boostButton)
+		_check_if_enough(forgeLevel, forgePrice, forgeButton)
+		_check_if_enough(turbineLevel, turbinePrice, turbineButton)
+
+
+
 func open_shop():
 	visible = true
 	_update()
 	
 func close_shop():
 	visible = false
-
-func _update():
-	if fertilizerLevel < 3:
-		fertilizerPotatoPrice.text = str(fertilizerPrice[fertilizerLevel]["potato"])
-		fertilizerScrapPrice.text = str(fertilizerPrice[fertilizerLevel]["scrap"])
-		fertilizerImprovementLabel.text = fertilizerImprovements[fertilizerLevel]
-		fertilizerUpkeepLabel.text = fertilizerUpkeep[fertilizerLevel]
-		
-	if qualityLevel < 3:
-		qualityPotatoPrice.text = str(qualityPrice[qualityLevel]["potato"])
-		qualityScrapPrice.text = str(qualityPrice[qualityLevel]["scrap"])
-		qualityImprovementLabel.text = qualityImprovements[qualityLevel]
-		qualityUpkeepLabel.text = qualityUpkeep[qualityLevel]
 	
-	if growthLevel < 3:
-		growthPotatoPrice.text = str(growthPrice[growthLevel]["potato"])
-		growthScrapPrice.text = str(growthPrice[growthLevel]["scrap"])
-		growthImprovementLabel.text = growthImprovements[growthLevel]
-		growthUpkeepLabel.text = growthUpkeep[growthLevel]
-		
-	if boostLevel < 3:
-		boostPotatoPrice.text = str(boostPrice[boostLevel]["potato"])
-		boostScrapPrice.text = str(boostPrice[boostLevel]["scrap"])
-		boostImprovementLabel.text = boostImprovements[boostLevel]
-		boostUpkeepLabel.text = boostUpkeep[boostLevel]
-		
-	if forgeLevel < 3:
-		forgePotatoPrice.text = str(forgePrice[forgeLevel]["potato"])
-		forgeScrapPrice.text = str(forgePrice[forgeLevel]["scrap"])
-		forgeImprovementLabel.text = forgeImprovements[forgeLevel]
-		forgeUpkeepLabel.text = forgeUpkeep[forgeLevel]
-	
-	if turbineLevel < 3:
-		turbinePotatoPrice.text = str(turbinePrice[turbineLevel]["potato"])
-		turbineScrapPrice.text = str(turbinePrice[turbineLevel]["scrap"])
-		turbineImprovementLabel.text = turbineImprovements[turbineLevel]
-		turbineUpkeepLabel.text = turbineUpkeep[turbineLevel]
-		
-
 func _on_close_button_pressed():
 	close_shop()
 
-func _on_fertilizer_button_pressed():
-	Global.potatoCount -= fertilizerPrice[fertilizerLevel]["potato"]
-	Global.scrapCount -= fertilizerPrice[fertilizerLevel]["scrap"]
-	Global.upkeep -= fertilizerUpkeepValues[fertilizerLevel]
-	fertilizerLevel += 1
-	Global.potatoQuantity *= 2
-	Global.upkeep += fertilizerUpkeepValues[fertilizerLevel]
-	
-	if fertilizerLevel < 3:
+
+func _update_values(prices, level, potatoPrice, scrapPrice, impovementLabel, improvement, upkeepLabel, upkeep):
+	if level < 3:
+		potatoPrice.text = str(prices[level]["potato"])
+		scrapPrice.text = str(prices[level]["scrap"])
+		impovementLabel.text = improvement[level]
+		upkeepLabel.text = upkeep[level]
+
+func _update():
+	_update_values(fertilizerPrice, fertilizerLevel, fertilizerPotatoPrice, fertilizerScrapPrice, fertilizerImprovementLabel, fertilizerImprovements, fertilizerUpkeepLabel, fertilizerUpkeep)
+	_update_values(qualityPrice, qualityLevel, qualityPotatoPrice, qualityScrapPrice, qualityImprovementLabel, qualityImprovements, qualityUpkeepLabel, qualityUpkeep)
+	_update_values(growthPrice, growthLevel, growthPotatoPrice, growthScrapPrice, growthImprovementLabel, growthImprovements, growthUpkeepLabel, growthUpkeep)
+	_update_values(boostPrice, boostLevel, boostPotatoPrice, boostScrapPrice, boostImprovementLabel, boostImprovements, boostUpkeepLabel, boostUpkeep)
+	_update_values(forgePrice, forgeLevel, forgePotatoPrice, forgeScrapPrice, forgeImprovementLabel, forgeImprovements, forgeUpkeepLabel, forgeUpkeep)
+	_update_values(turbinePrice, turbineLevel, turbinePotatoPrice, turbineScrapPrice, turbineImprovementLabel, turbineImprovements, turbineUpkeepLabel, turbineUpkeep)
+
+
+func _update_global_values(prices, level, upkeepValues, improvementValues):
+	Global.potatoCount -= prices[level]["potato"]
+	Global.scrapCount -= prices[level]["scrap"]
+	Global.upkeep -= upkeepValues[level]
+	level += 1
+	Global.potatoQuantity = improvementValues[level]
+	Global.upkeep += upkeepValues[level]
+	return level
+
+func _update_to_new_button_values(level, upkeep, upkeepValues, upkeepLabel, improvements, improvementLabel, button, resources):
+
+	if level < 3:
 		_update()
+		_refresh_upkeep(upkeepValues, level)
 	else:
-		fertilizerUpkeepLabel.text = fertilizerUpkeep[fertilizerLevel]
-		fertilizerImprovementLabel.text = fertilizerImprovements[fertilizerLevel]
-		fertilizerButton.text = "Maxed out"
-		fertilizerButton.disabled = true
-		fertilizerResources.visible = false
+		totalUpkeep.visible = false
+		upkeepLabel.text = upkeep[level]
+		improvementLabel.text = improvements[level]
+		button.text = "Maxed out"
+		button.disabled = true
+		resources.visible = false
+
+func _on_fertilizer_button_pressed():
+	fertilizerLevel = _update_global_values(fertilizerPrice, fertilizerLevel, fertilizerUpkeepValues, fertilizerImprovementValues)
+	_update_to_new_button_values(fertilizerLevel, fertilizerUpkeep, fertilizerUpkeepValues, fertilizerUpkeepLabel, fertilizerImprovements, fertilizerImprovementLabel, fertilizerButton, fertilizerResources)
 
 func _on_quality_button_pressed():
-	Global.potatoCount -= qualityPrice[qualityLevel]["potato"]
-	Global.scrapCount -= qualityPrice[qualityLevel]["scrap"]
-	Global.upkeep -= qualityUpkeepValues[qualityLevel]
-	qualityLevel += 1
-	Global.potatoValue *= 2
-	Global.upkeep += qualityUpkeepValues[qualityLevel]
-
-	if qualityLevel < 3:
-		_update()
-	else:
-		qualityUpkeepLabel.text = qualityUpkeep[qualityLevel]
-		qualityImprovementLabel.text = qualityImprovements[qualityLevel]
-		qualityButton.text = "Maxed out"
-		qualityButton.disabled = true
-		qualityResources.visible = false
+	qualityLevel = _update_global_values(qualityPrice, qualityLevel, qualityUpkeepValues, qualityImprovementValues)
+	_update_to_new_button_values(qualityLevel, qualityUpkeep, qualityUpkeepValues, qualityUpkeepLabel, qualityImprovements, qualityImprovementLabel, qualityButton, qualityResources)
 
 func _on_growth_button_pressed():
-	Global.potatoCount -= growthPrice[growthLevel]["potato"]
-	Global.scrapCount -= growthPrice[growthLevel]["scrap"]
-	Global.upkeep -= growthUpkeepValues[growthLevel]
-	growthLevel += 1
-	Global.potatoTimer /= 2.0
-	Global.upkeep += growthUpkeepValues[growthLevel]
-	
-	if growthLevel < 3:
-		_update()
-	else:
-		growthUpkeepLabel.text = growthUpkeep[growthLevel]
-		growthImprovementLabel.text = growthImprovements[growthLevel]
-		growthButton.text = "Maxed out"
-		growthButton.disabled = true
-		growthResources.visible = false
-
+	growthLevel = _update_global_values(growthPrice, growthLevel, growthUpkeepValues, growthImprovementValues)
+	_update_to_new_button_values(growthLevel, growthUpkeep, growthUpkeepValues, growthUpkeepLabel, growthImprovements, growthImprovementLabel, growthButton, growthResources)
 
 func _on_boost_button_pressed():
-	Global.potatoCount -= boostPrice[boostLevel]["potato"]
-	Global.scrapCount -= boostPrice[boostLevel]["scrap"]
-	Global.upkeep -= boostUpkeepValues[boostLevel]
-	boostLevel += 1
-	Global.scrapQuantity *= 2
-	Global.upkeep += boostUpkeepValues[boostLevel]
-	
-	if boostLevel < 3:
-		_update()
-	else:
-		boostUpkeepLabel.text = boostUpkeep[boostLevel]
-		boostImprovementLabel.text = boostImprovements[boostLevel]
-		boostButton.text = "Maxed out"
-		boostButton.disabled = true
-		boostResources.visible = false
-
+	boostLevel = _update_global_values(boostPrice, boostLevel, boostUpkeepValues, boostImprovementValues)
+	_update_to_new_button_values(boostLevel, boostUpkeep, boostUpkeepValues, boostUpkeepLabel, boostImprovements, boostImprovementLabel, boostButton, boostResources)
 
 func _on_forge_button_pressed():
-	Global.potatoCount -= forgePrice[forgeLevel]["potato"]
-	Global.scrapCount -= forgePrice[forgeLevel]["scrap"]
-	Global.upkeep -= forgeUpkeepValues[forgeLevel]
-	forgeLevel += 1
-	Global.scrapValue *= 2
-	Global.upkeep += forgeUpkeepValues[forgeLevel]
-	
-	if forgeLevel < 3:
-		_update()
-	else:
-		forgeUpkeepLabel.text = forgeUpkeep[forgeLevel]
-		forgeImprovementLabel.text = forgeImprovements[forgeLevel]
-		forgeButton.text = "Maxed out"
-		forgeButton.disabled = true
-		forgeResources.visible = false
-
+	forgeLevel = _update_global_values(forgePrice, forgeLevel, forgeUpkeepValues, forgeImprovementValues)
+	_update_to_new_button_values(forgeLevel, forgeUpkeep, forgeUpkeepValues, forgeUpkeepLabel, forgeImprovements, forgeImprovementLabel, forgeButton, forgeResources)
 
 func _on_turbine_button_pressed():
-	Global.potatoCount -= turbinePrice[turbineLevel]["potato"]
-	Global.scrapCount -= turbinePrice[turbineLevel]["scrap"]
-	Global.upkeep -= turbineUpkeepValues[turbineLevel]
-	turbineLevel += 1
-	Global.scrapTimer /= 2.0
-	Global.upkeep += turbineUpkeepValues[turbineLevel]
-	
-	if turbineLevel < 3:
-		_update()
-	else:
-		turbineUpkeepLabel.text = turbineUpkeep[turbineLevel]
-		turbineImprovementLabel.text = turbineImprovements[turbineLevel]
-		turbineButton.text = "Maxed out"
-		turbineButton.disabled = true
-		turbineResources.visible = false
-
+	turbineLevel = _update_global_values(turbinePrice, turbineLevel, turbineUpkeepValues, turbineImprovementValues)
+	_update_to_new_button_values(turbineLevel, turbineUpkeep, turbineUpkeepValues, turbineUpkeepLabel, turbineImprovements, turbineImprovementLabel, turbineButton, turbineResources)
 
 func _on_potato_button_pressed():
 	scrapButton.button_pressed = false
@@ -407,3 +339,47 @@ func _on_scrap_button_pressed():
 
 
 
+func _refresh_upkeep(upkeepValues, level):
+	totalUpkeep.text = str(Global.upkeep) + "   ->   " + str(Global.upkeep + upkeepValues[level+1] - upkeepValues[level])
+	
+func _refresh_upkeep_button(button, upkeepValues, level):
+	if not button.disabled:
+		totalUpkeep.global_position = button.global_position + button.size + Vector2(10, -50)
+		_refresh_upkeep(upkeepValues, level)
+		totalUpkeep.visible = true
+		
+func _on_fertilizer_button_mouse_entered():
+	_refresh_upkeep_button(fertilizerButton, fertilizerUpkeepValues, fertilizerLevel)
+
+func _on_fertilizer_button_mouse_exited():
+	totalUpkeep.visible = false
+	
+func _on_quality_button_mouse_entered():
+	_refresh_upkeep_button(qualityButton, qualityUpkeepValues, qualityLevel)
+
+func _on_quality_button_mouse_exited():
+	totalUpkeep.visible = false
+
+func _on_growth_button_mouse_entered():
+	_refresh_upkeep_button(growthButton, growthUpkeepValues, growthLevel)
+
+func _on_growth_button_mouse_exited():
+	totalUpkeep.visible = false
+
+func _on_boost_button_mouse_entered():
+	_refresh_upkeep_button(boostButton, boostUpkeepValues, boostLevel)
+
+func _on_boost_button_mouse_exited():
+	totalUpkeep.visible = false
+
+func _on_forge_button_mouse_entered():
+	_refresh_upkeep_button(forgeButton, forgeUpkeepValues, forgeLevel)
+
+func _on_forge_button_mouse_exited():
+	totalUpkeep.visible = false
+
+func _on_turbine_button_mouse_entered():
+	_refresh_upkeep_button(turbineButton, turbineUpkeepValues, turbineLevel)
+
+func _on_turbine_button_mouse_exited():
+	totalUpkeep.visible = false

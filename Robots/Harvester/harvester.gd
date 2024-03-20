@@ -10,6 +10,7 @@ var status = "Idle"
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
+@export var upkeep = 5
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D
@@ -36,6 +37,7 @@ var harvested: bool = false
 var target_position = global_position
 
 func _ready():
+	Global.upkeep += upkeep
 	idle_area.robots.push_back(self)
 
 # Movement related methods

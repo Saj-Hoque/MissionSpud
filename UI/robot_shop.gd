@@ -8,7 +8,10 @@ var harvester_scene = preload("res://Robots/Harvester/harvester.tscn")
 var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 
 @onready var timer = $buyTimer
+
 @onready var planterButton = $Panel/BUY/HBoxContainer/Planter/planterBuyButton
+@onready var plantedUpkeepLabel = $Panel/BUY/HBoxContainer/Planter/upkeep/upkeepLabel
+
 @onready var harvesterButton = $Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton
 @onready var collectorButton = $Panel/BUY/HBoxContainer/Collector/collectorBuyButton
 
@@ -16,6 +19,7 @@ var disable_override = false
 
 var planterPrice = { "potato" : 20,
 					 "scrap"  : 20 }
+var planterUpkeepValue = 5
 					
 var harvesterPrice = { "potato" : 20,
 					   "scrap"  : 20 }
@@ -57,9 +61,9 @@ func close_shop():
 	visible = false
 
 func _update_prices():
-	# update prices based on upgraded price
+	#if visible:
+		#plantedUpkeepLabel.text = "Upkeep	    " + str()
 	pass
-
 
 func _disable_all_buttons():
 	disable_override = true
@@ -75,14 +79,14 @@ func _enable_all_buttons():
 
 
 func _on_planter_buy_button_pressed():
+	Global.potatoCount -= planterPrice["potato"]
+	Global.scrapCount -= planterPrice["scrap"]
 	var planter = planter_scene.instantiate()
 	var planter_ai = planter_ai_scene.instantiate()
 	planter.idle_area = main_hub
 	planter.add_child(planter_ai)
 	#planter.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
 	robots.add_child(planter)
-	Global.potatoCount -= planterPrice["potato"]
-	Global.scrapCount -= planterPrice["scrap"]
 	timer.start()
 	_disable_all_buttons()
 
