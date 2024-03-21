@@ -7,7 +7,6 @@ var greenStyleBox = load("res://UI/green_style_box_flat.tres")
 @onready var totalUpkeep = $totalUpkeep
 
 @onready var planterCurrentUpkeep = $Panel/BUY/robots/Planter/Name/currentUpkeep
-
 @onready var planterSpeedButton = $Panel/BUY/robots/Planter/Speed/label_and_build/planterSpeedButton
 @onready var planterSpeedLevel1 = $Panel/BUY/robots/Planter/Speed/label_and_build/box/level1
 @onready var planterSpeedLevel2 = $Panel/BUY/robots/Planter/Speed/label_and_build/box/level2
@@ -38,7 +37,41 @@ var greenStyleBox = load("res://UI/green_style_box_flat.tres")
 @onready var planterPowerUpkeepLabel = $Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
 @onready var planterPowerResources = $Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep
 
-@onready var harvesterButton = $Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton
+
+
+
+@onready var harvesterCurrentUpkeep = $Panel/BUY/robots/Harvester/Name/currentUpkeep
+@onready var harvesterSpeedButton = $Panel/BUY/robots/Harvester/Speed/label_and_build/harvesterSpeedButton
+@onready var harvesterSpeedLevel1 = $Panel/BUY/robots/Harvester/Speed/label_and_build/box/level1
+@onready var harvesterSpeedLevel2 = $Panel/BUY/robots/Harvester/Speed/label_and_build/box/level2
+@onready var harvesterSpeedLevel3 = $Panel/BUY/robots/Harvester/Speed/label_and_build/box/level3
+@onready var harvesterSpeedPotatoPrice = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price/potatoPrice
+@onready var harvesterSpeedScrapPrice = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price/scrapPrice
+@onready var harvesterSpeedImprovementLabel = $Panel/BUY/robots/Harvester/Speed/description/improvement
+@onready var harvesterSpeedUpkeepLabel = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep/upkeepLabel
+@onready var harvesterSpeedResources = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep
+
+@onready var harvesterProductivityButton = $Panel/BUY/robots/Harvester/Productivity/label_and_build/harvesterProductivityButton
+@onready var harvesterProductivityLevel1 = $Panel/BUY/robots/Harvester/Productivity/label_and_build/box/level1
+@onready var harvesterProductivityLevel2 = $Panel/BUY/robots/Harvester/Productivity/label_and_build/box/level2
+@onready var harvesterProductivityLevel3 = $Panel/BUY/robots/Harvester/Productivity/label_and_build/box/level3
+@onready var harvesterProductivityPotatoPrice = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price/potatoPrice
+@onready var harvesterProductivityScrapPrice = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price/scrapPrice
+@onready var harvesterProductivityImprovementLabel = $Panel/BUY/robots/Harvester/Productivity/description/improvement
+@onready var harvesterProductivityUpkeepLabel = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep/upkeepLabel
+@onready var harvesterProductivityResources = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep
+
+@onready var harvesterPowerButton = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/harvesterPowerButton
+@onready var harvesterPowerLevel1 = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level1
+@onready var harvesterPowerLevel2 = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level2
+@onready var harvesterPowerLevel3 = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level3
+@onready var harvesterPowerPotatoPrice = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price/potatoPrice
+@onready var harvesterPowerScrapPrice = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price/scrapPrice
+@onready var harvesterPowerImprovementLabel = $Panel/BUY/robots/Harvester/Power_Efficiency/description/improvement
+@onready var harvesterPowerUpkeepLabel = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
+@onready var harvesterPowerResources = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep
+
+
 @onready var collectorButton = $Panel/BUY/HBoxContainer/Collector/collectorBuyButton
 
 var planterSpeedLevel = 0
@@ -69,8 +102,6 @@ var planterSpeedUpkeepValues = { 0 : 3,
 								 2 : 10
 							   }
 
-
-
 var planterProductivityLevel = 0
 var planterProductivityPrice = { 0 : {"potato" : 40,
 							   		  "scrap"  : 40 },
@@ -98,9 +129,7 @@ var planterProductivityUpkeepValues = { 0 : 3,
 										1 : 6, 
 										2 : 10
 									  }
-
-
-
+									
 var planterPowerLevel = 0
 var planterPowerPrice = { 0 : {"potato" : 40,
 							   "scrap"  : 40 },
@@ -115,16 +144,90 @@ var planterPowerImprovements = { 0 : "5 per robot",
 								 2 : "13 per robot",
 								 3 : "Up to -26 per robot"
 							   }
-var planterPowerImprovementValues = { 0 : 0,
-							   		  1 : -5,
-							   		  2 : -8,
-							   		  3 : -13	
-									}
 var planterPowerUpkeep = { 0 : "Upkeep	    -5",
 						   1 : "Upkeep	    -8",
 						   2 : "Upkeep	    -13"
 						 }
 var planterPowerUpkeepValues = { 0 : -5,
+								 1 : -8, 
+								 2 : -13
+							   }
+
+var harvesterSpeedLevel = 0
+var harvesterSpeedPrice = { 0 : {"potato" : 40,
+							   "scrap"  : 40 },
+						  1 : {"potato" : 160,
+							   "scrap"  : 160 },
+						  2 : {"potato" : 500,
+							   "scrap"  : 500 }
+						}
+var harvesterSpeedImprovementPrompt = "Enhance robots mobility.    "
+var harvesterSpeedImprovements = { 0 : "30   ->   40 m/s",
+								 1 : "40   ->   50 m/s",
+								 2 : "50   ->   60 m/s",
+								 3 : "60 m/s"
+							   }
+var harvesterSpeedImprovementValues = { 0 : 30,
+							   		  1 : 40,
+							   		  2 : 50,
+							   		  3 : 60	
+									}
+var harvesterSpeedUpkeep = { 0 : "Upkeep	    +3",
+						   1 : "Upkeep	    +6",
+						   2 : "Upkeep	    +10"
+						 }
+var harvesterSpeedUpkeepValues = { 0 : 3,
+								 1 : 6, 
+								 2 : 10
+							   }
+
+var harvesterProductivityLevel = 0
+var harvesterProductivityPrice = { 0 : {"potato" : 40,
+							   		  "scrap"  : 40 },
+						  		 1 : {"potato" : 160,
+							   		  "scrap"  : 160 },
+						  		 2 : {"potato" : 500,
+									  "scrap"  : 500 }
+							   }
+var harvesterProductivityImprovementPrompt = "Reduce potato harvesting time.    "
+var harvesterProductivityImprovements = { 0 : "10   ->   5 s",
+								 		1 : "5   ->   2.5 s",
+								 		2 : "2.5   ->   1 s",
+								 		3 : "1 s"
+							   		  }
+var harvesterProductivityImprovementValues = { 0 : 10,
+							   		  		 1 : 5,
+							   		  		 2 : 2.5,
+							   		  		 3 : 1
+										   }
+var harvesterProductivityUpkeep = { 0 : "Upkeep	    +3",
+						   		  1 : "Upkeep	    +6",
+								  2 : "Upkeep	    +10"
+								}
+var harvesterProductivityUpkeepValues = { 0 : 3,
+										1 : 6, 
+										2 : 10
+									  }
+									
+var harvesterPowerLevel = 0
+var harvesterPowerPrice = { 0 : {"potato" : 40,
+							   "scrap"  : 40 },
+						  1 : {"potato" : 160,
+							   "scrap"  : 160 },
+						  2 : {"potato" : 500,
+							   "scrap"  : 500 }
+						}
+var harvesterPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
+var harvesterPowerImprovements = { 0 : "5 per robot",
+								 1 : "8 per robot",
+								 2 : "13 per robot",
+								 3 : "Up to -26 per robot"
+							   }
+var harvesterPowerUpkeep = { 0 : "Upkeep	    -5",
+						   1 : "Upkeep	    -8",
+						   2 : "Upkeep	    -13"
+						 }
+var harvesterPowerUpkeepValues = { 0 : -5,
 								 1 : -8, 
 								 2 : -13
 							   }
@@ -164,6 +267,10 @@ func _process(delta):
 		_check_if_enough(planterProductivityLevel, planterProductivityPrice, planterProductivityButton)
 		_check_if_enough(planterPowerLevel, planterPowerPrice, planterPowerButton)
 		
+		_check_if_enough(harvesterSpeedLevel, harvesterSpeedPrice, harvesterSpeedButton)
+		_check_if_enough(harvesterProductivityLevel, harvesterProductivityPrice, harvesterProductivityButton)
+		_check_if_enough(harvesterPowerLevel, harvesterPowerPrice, harvesterPowerButton)
+		
 
 func _update_values(prices, level, potatoPrice, scrapPrice, improvementPrompt, impovementLabel, improvement, upkeepLabel, upkeep):
 	if level < 3:
@@ -177,6 +284,10 @@ func _update():
 	_update_values(planterSpeedPrice, planterSpeedLevel, planterSpeedPotatoPrice, planterSpeedScrapPrice, planterSpeedImprovementPrompt, planterSpeedImprovementLabel, planterSpeedImprovements, planterSpeedUpkeepLabel, planterSpeedUpkeep)
 	_update_values(planterProductivityPrice, planterProductivityLevel, planterProductivityPotatoPrice, planterProductivityScrapPrice, planterProductivityImprovementPrompt, planterProductivityImprovementLabel, planterProductivityImprovements, planterProductivityUpkeepLabel, planterProductivityUpkeep)
 	_update_values(planterPowerPrice, planterPowerLevel, planterPowerPotatoPrice, planterPowerScrapPrice, planterPowerImprovementPrompt, planterPowerImprovementLabel, planterPowerImprovements, planterPowerUpkeepLabel, planterPowerUpkeep)
+	
+	_update_values(harvesterSpeedPrice, harvesterSpeedLevel, harvesterSpeedPotatoPrice, harvesterSpeedScrapPrice, harvesterSpeedImprovementPrompt, harvesterSpeedImprovementLabel, harvesterSpeedImprovements, harvesterSpeedUpkeepLabel, harvesterSpeedUpkeep)
+	_update_values(harvesterProductivityPrice, harvesterProductivityLevel, harvesterProductivityPotatoPrice, harvesterProductivityScrapPrice, harvesterProductivityImprovementPrompt, harvesterProductivityImprovementLabel, harvesterProductivityImprovements, harvesterProductivityUpkeepLabel, harvesterProductivityUpkeep)
+	_update_values(harvesterPowerPrice, harvesterPowerLevel, harvesterPowerPotatoPrice, harvesterPowerScrapPrice, harvesterPowerImprovementPrompt, harvesterPowerImprovementLabel, harvesterPowerImprovements, harvesterPowerUpkeepLabel, harvesterPowerUpkeep)
 
 func _update_global_values(robot_type, prices, level):
 	Global.potatoCount -= prices[level]["potato"]
@@ -201,14 +312,25 @@ func _update_to_new_button_values(robots, level, upkeep, upkeepValues, upkeepLab
 	levelBox.add_theme_stylebox_override("normal", greenStyleBox)
 
 func _refresh_upkeep(robots, upkeepValues, level):
+	var no_change = false
 	var upkeep = Global.upkeep + Global.robot_upkeep
 	for robot in robots:
-		if robot.upkeep < 0:
+		if robot.upkeep <= 0 and upkeepValues[level] < 0:
+			no_change = true
+			break
+		elif robot.upkeep <= 0 and (robot.upkeep + upkeepValues[level]) <= 0:
+			no_change = true
+			break
+		elif robot.upkeep < 0:
 			upkeep += robot.upkeep + upkeepValues[level]
+		elif (robot.upkeep + upkeepValues[level]) < 0:
+			upkeep -= robot.upkeep
 		else:
 			upkeep += upkeepValues[level]
-	if upkeep <= 0:
+	
+	if not no_change and upkeep <= 0:
 		upkeep = Global.upkeep + Global.robot_upkeep
+	
 	
 	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep + Global.robot_upkeep) + "   ->   " + str(upkeep)
 	
@@ -227,12 +349,8 @@ func recalibrate_robot_upkeep():
 	update_current_upkeep_label()
 
 func update_current_upkeep_label():
-	var text
-	if Global.planterUpkeep < 0:
-		text = "+0 (" + str(Global.planterUpkeep) + ")"
-	else:
-		text = "+" + str(Global.planterUpkeep)
-	planterCurrentUpkeep.text = text
+	planterCurrentUpkeep.text = "+0 (" + str(Global.planterUpkeep) + ")" if Global.planterUpkeep < 0 else "+" + str(Global.planterUpkeep)
+	harvesterCurrentUpkeep.text = "+0 (" + str(Global.harvesterUpkeep) + ")" if Global.harvesterUpkeep < 0 else "+" + str(Global.harvesterUpkeep)
 	
 func update_robot_upkeep(robots, upkeepValues, level):
 	var upkeep = upkeepValues[level]
@@ -330,4 +448,82 @@ func _on_planter_power_button_mouse_entered():
 	_refresh_upkeep_button(planters, planterPowerButton, planterPowerUpkeepValues, planterPowerLevel)
 
 func _on_planter_power_button_mouse_exited():
+	totalUpkeep.visible = false
+
+
+func _on_harvester_speed_button_pressed():
+	var harvesters = list_of_robot_type(harvester_robot)
+	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterSpeedUpkeepValues, harvesterSpeedLevel)
+	harvesterSpeedLevel = _update_global_values("harvester", harvesterSpeedPrice, harvesterSpeedLevel)
+	Global.harvesterSpeed = update_robot_speed(harvesters, harvesterSpeedImprovementValues, harvesterSpeedLevel)
+	
+	var levelBox
+	if harvesterSpeedLevel == 1:
+		levelBox = harvesterSpeedLevel1
+	elif harvesterSpeedLevel == 2:
+		levelBox = harvesterSpeedLevel2
+	elif harvesterSpeedLevel == 3:
+		levelBox = harvesterSpeedLevel3
+		
+	_update_to_new_button_values(harvesters, harvesterSpeedLevel, harvesterSpeedUpkeep, harvesterSpeedUpkeepValues, harvesterSpeedUpkeepLabel, harvesterSpeedImprovements, harvesterSpeedImprovementLabel, harvesterSpeedButton, harvesterSpeedResources, levelBox)
+
+
+func _on_harvester_speed_button_mouse_entered():
+	var harvesters = list_of_robot_type(harvester_robot)
+	_refresh_upkeep_button(harvesters, harvesterSpeedButton, harvesterSpeedUpkeepValues, harvesterSpeedLevel)
+
+
+func _on_harvester_speed_button_mouse_exited():
+	totalUpkeep.visible = false
+
+
+func _on_harvester_productivity_button_pressed():
+	var harvesters = list_of_robot_type(harvester_robot)
+	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterProductivityUpkeepValues, harvesterProductivityLevel)
+	harvesterProductivityLevel = _update_global_values("harvester", harvesterProductivityPrice, harvesterProductivityLevel)
+	Global.harvesterProductivity = update_robot_productivity(harvesters, harvesterProductivityImprovementValues, harvesterProductivityLevel)
+	
+	var levelBox
+	if harvesterProductivityLevel == 1:
+		levelBox = harvesterProductivityLevel1
+	elif harvesterProductivityLevel == 2:
+		levelBox = harvesterProductivityLevel2
+	elif harvesterProductivityLevel == 3:
+		levelBox = harvesterProductivityLevel3
+		
+	_update_to_new_button_values(harvesters, harvesterProductivityLevel, harvesterProductivityUpkeep, harvesterProductivityUpkeepValues, harvesterProductivityUpkeepLabel, harvesterProductivityImprovements, harvesterProductivityImprovementLabel, harvesterProductivityButton, harvesterProductivityResources, levelBox)
+
+
+
+func _on_harvester_productivity_button_mouse_entered():
+	var harvesters = list_of_robot_type(harvester_robot)
+	_refresh_upkeep_button(harvesters, harvesterProductivityButton, harvesterProductivityUpkeepValues, harvesterProductivityLevel)
+
+
+func _on_harvester_productivity_button_mouse_exited():
+	totalUpkeep.visible = false
+
+
+func _on_harvester_power_button_pressed():
+	var harvesters = list_of_robot_type(harvester_robot)
+	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterPowerUpkeepValues, harvesterPowerLevel)
+	harvesterPowerLevel = _update_global_values("harvester", harvesterPowerPrice, harvesterPowerLevel)
+	
+	var levelBox
+	if harvesterPowerLevel == 1:
+		levelBox = harvesterPowerLevel1
+	elif harvesterPowerLevel == 2:
+		levelBox = harvesterPowerLevel2
+	elif harvesterPowerLevel == 3:
+		levelBox = harvesterPowerLevel3
+		
+	_update_to_new_button_values(harvesters, harvesterPowerLevel, harvesterPowerUpkeep, harvesterPowerUpkeepValues, harvesterPowerUpkeepLabel, harvesterPowerImprovements, harvesterPowerImprovementLabel, harvesterPowerButton, harvesterPowerResources, levelBox)
+
+
+func _on_harvester_power_button_mouse_entered():
+	var harvesters = list_of_robot_type(harvester_robot)
+	_refresh_upkeep_button(harvesters, harvesterPowerButton, harvesterPowerUpkeepValues, harvesterPowerLevel)
+
+
+func _on_harvester_power_button_mouse_exited():
 	totalUpkeep.visible = false

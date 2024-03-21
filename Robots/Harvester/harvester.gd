@@ -12,7 +12,9 @@ var status = "Idle"
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
 @export var upkeep = 5
+@export var productivity = 10
 
+@onready var timer = $HarvestingTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D
 @onready var highlight_box: Panel = $highlight_box
@@ -38,6 +40,10 @@ var harvested: bool = false
 var target_position = global_position
 
 func _ready():
+	speed = Global.harvesterSpeed
+	productivity = Global.harvesterProductivity
+	timer.wait_time = productivity
+	upkeep = Global.harvesterUpkeep
 	idle_area.robots.push_back(self)
 
 # Movement related methods

@@ -22,3 +22,7 @@ var planterSpeed = 30
 var planterProductivity = 10
 var planterUpkeep = 5
 
+var harvesterSpeed = 30
+var harvesterProductivity = 10
+var harvesterUpkeep = 5
+
