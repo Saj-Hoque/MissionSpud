@@ -598,11 +598,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="upkeepCounter" type="Label" parent="UI/upkeepMargin/upkeepPanel/margin/upkeep"]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="UI/upkeepMargin/upkeepPanel/margin/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_2aaxa")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="background" type="TileMap" parent="." groups=["navigation"]]
 y_sort_enabled = true
@@ -724,14 +730,14 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@653645")
+blackboard = NodePath("@Node@953137")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@653646")
+blackboard = NodePath("@Node@953138")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name planter_robot
 
 signal target_reached
 
@@ -11,7 +12,9 @@ var status = "Idle"
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
 @export var upkeep = 5
+@export var productivity = 10
 
+@onready var timer = $PlantingTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D
 @onready var highlight_box: Panel = $highlight_box
@@ -37,7 +40,10 @@ var planted: bool = false
 var target_position = global_position
 
 func _ready():
-	Global.upkeep += upkeep
+	speed = Global.planterSpeed
+	productivity = Global.planterProductivity
+	timer.wait_time = productivity
+	upkeep = Global.planterUpkeep
 	idle_area.robots.push_back(self)
 
 # Movement related methods
@@ -136,10 +142,10 @@ func unoccupy_plot():
 	
 func start_planting():
 	planting = true
-	$PlantingTimer.start()
+	timer.start()
 
 func reset_planting_status():
-	$PlantingTimer.stop()
+	timer.stop()
 	planting = false
 	planted = false
 	if plotting:
@@ -147,7 +153,11 @@ func reset_planting_status():
 
 func _on_planting_timer_timeout():
 	planted = true
-	
+
+
+# Other methods
+
+
 
 
 

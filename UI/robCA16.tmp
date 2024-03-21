@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://db8oemq5j8qg5"]
+[gd_scene load_steps=14 format=3 uid="uid://db8oemq5j8qg5"]
 
 [ext_resource type="Script" path="res://UI/robot_research_station.gd" id="1_dcfpf"]
 [ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="2_45nwv"]
@@ -39,17 +39,6 @@ default_font = SubResource("SystemFont_swktf")
 [sub_resource type="SystemFont" id="SystemFont_db7wg"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tavhj"]
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="robot_research_station" type="CanvasLayer"]
 script = ExtResource("1_dcfpf")
@@ -96,20 +85,10 @@ layout_mode = 2
 theme = SubResource("Theme_slhwj")
 theme_override_constants/separation = 20
 
-[node name="Name" type="VBoxContainer" parent="Panel/BUY/robots/Planter"]
-layout_mode = 2
-
-[node name="robotName" type="Label" parent="Panel/BUY/robots/Planter/Name"]
+[node name="robotName" type="Label" parent="Panel/BUY/robots/Planter"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Planter"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="currentUpkeep" type="Label" parent="Panel/BUY/robots/Planter/Name"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "+0 (-8)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -170,7 +149,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_dg1jv")
 text = "   "
 
-[node name="planterSpeedButton" type="Button" parent="Panel/BUY/robots/Planter/Speed/label_and_build"]
+[node name="speedButton" type="Button" parent="Panel/BUY/robots/Planter/Speed/label_and_build"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade"
@@ -180,12 +159,9 @@ layout_mode = 2
 alignment = 1
 
 [node name="improvement" type="Label" parent="Panel/BUY/robots/Planter/Speed/description"]
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Enhance robots mobility.    20 -> 30 m/s"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed"]
 layout_mode = 2
@@ -193,7 +169,6 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
@@ -226,7 +201,6 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
@@ -238,19 +212,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
-layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="filler" type="Label" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="robotIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
 texture = ExtResource("3_5saav")
 expand_mode = 3
@@ -295,7 +256,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_dg1jv")
 text = "   "
 
-[node name="planterProductivityButton" type="Button" parent="Panel/BUY/robots/Planter/Productivity/label_and_build"]
+[node name="productivityButton" type="Button" parent="Panel/BUY/robots/Planter/Productivity/label_and_build"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade"
@@ -305,12 +266,9 @@ layout_mode = 2
 alignment = 1
 
 [node name="improvement" type="Label" parent="Panel/BUY/robots/Planter/Productivity/description"]
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Reduce potato planting time.    20 -> 10 s"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity"]
 layout_mode = 2
@@ -318,7 +276,6 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
@@ -351,7 +308,6 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
@@ -363,19 +319,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
-layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="filler" type="Label" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="robotIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
 layout_mode = 2
 texture = ExtResource("3_5saav")
 expand_mode = 3
@@ -417,7 +360,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_dg1jv")
 text = "   "
 
-[node name="planterPowerButton" type="Button" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build"]
+[node name="powerButton" type="Button" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade"
@@ -427,13 +370,9 @@ layout_mode = 2
 alignment = 1
 
 [node name="improvement" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/description"]
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Optimize power usage. Reduce upkeep by up to 5 per robot"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency"]
 layout_mode = 2
@@ -441,7 +380,6 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
@@ -474,7 +412,6 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
@@ -486,19 +423,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
-layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="filler" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="robotIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
 texture = ExtResource("3_5saav")
 expand_mode = 3
@@ -1164,28 +1088,7 @@ theme_override_fonts/font = SubResource("SystemFont_db7wg")
 theme_override_font_sizes/font_size = 30
 text = "X"
 
-[node name="totalUpkeep" type="Label" parent="."]
-visible = false
-offset_left = -159.0
-offset_top = 23.0
-offset_right = -92.0
-offset_bottom = 46.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tavhj")
-text = "UPKEEP:
-0   ->   60"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="mouse_entered" from="Panel/BUY/robots/Planter/Speed/label_and_build/planterSpeedButton" to="." method="_on_planter_speed_button_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/BUY/robots/Planter/Speed/label_and_build/planterSpeedButton" to="." method="_on_planter_speed_button_mouse_exited"]
-[connection signal="pressed" from="Panel/BUY/robots/Planter/Speed/label_and_build/planterSpeedButton" to="." method="_on_planter_speed_button_pressed"]
-[connection signal="mouse_entered" from="Panel/BUY/robots/Planter/Productivity/label_and_build/planterProductivityButton" to="." method="_on_planter_productivity_button_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/BUY/robots/Planter/Productivity/label_and_build/planterProductivityButton" to="." method="_on_planter_productivity_button_mouse_exited"]
-[connection signal="pressed" from="Panel/BUY/robots/Planter/Productivity/label_and_build/planterProductivityButton" to="." method="_on_planter_productivity_button_pressed"]
-[connection signal="mouse_entered" from="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/planterPowerButton" to="." method="_on_planter_power_button_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/planterPowerButton" to="." method="_on_planter_power_button_mouse_exited"]
-[connection signal="pressed" from="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/planterPowerButton" to="." method="_on_planter_power_button_pressed"]
+[connection signal="pressed" from="Panel/BUY/robots/Planter/Speed/label_and_build/speedButton" to="." method="_on_speed_button_pressed"]
 [connection signal="pressed" from="Panel/BUY/robots/Harvester/Speed/label_and_build/speedButton" to="." method="_on_planter_buy_button_pressed"]
 [connection signal="pressed" from="Panel/BUY/robots/Collector/Speed/label_and_build/speedButton" to="." method="_on_planter_buy_button_pressed"]
 [connection signal="pressed" from="Panel/CLOSE/close_button" to="." method="_on_close_button_pressed"]

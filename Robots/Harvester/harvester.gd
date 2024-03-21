@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name harvester_robot
 
 signal target_reached
 
@@ -37,7 +38,6 @@ var harvested: bool = false
 var target_position = global_position
 
 func _ready():
-	Global.upkeep += upkeep
 	idle_area.robots.push_back(self)
 
 # Movement related methods

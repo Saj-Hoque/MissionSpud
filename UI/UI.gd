@@ -12,9 +12,9 @@ extends CanvasLayer
 func _process(delta):
 	potatoCounter.text = (str(Global.potatoCount))
 	scrapCounter.text = (str(Global.scrapCount))
-	upkeepCounter.text = (str(Global.upkeep))
+	#print(str(Global.upkeep) + " " + str(Global.robot_upkeep))
+	upkeepCounter.text = (str(Global.upkeep + Global.robot_upkeep))
 	
 	day.text = ("Sol %d" % TimeSystem.day)
 	hour.text = ("%02d" % TimeSystem.hour)
 	minute.text = ("%02d" % ((TimeSystem.minute / 10) * 10))
-	

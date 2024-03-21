@@ -3,6 +3,7 @@ extends Node
 var max_scraps = 100
 
 var upkeep = 0
+var robot_upkeep = 0
 
 var potatoCount = 0
 var scrapCount = 0
@@ -17,4 +18,7 @@ var scrapQuantity = 1
 var scrapValue = 1
 var scrapTimer = 8
 
+var planterSpeed = 30
+var planterProductivity = 10
+var planterUpkeep = 5
 

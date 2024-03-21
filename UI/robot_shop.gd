@@ -25,11 +25,8 @@ var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 @onready var collectorPotatoLabel = $Panel/BUY/HBoxContainer/Collector/Price/potatoPrice
 @onready var collectorScrapLabel = $Panel/BUY/HBoxContainer/Collector/Price/scrapPrice
 
-
 var planterPrice = { "potato" : 20,
 					 "scrap"  : 20 }
-var planterUpkeep = 5
-
 
 var harvesterPrice = { "potato" : 20,
 					   "scrap"  : 20 }
@@ -46,7 +43,7 @@ var disable_override = false
 func _ready():
 	close_shop()
 	await get_tree().get_root().ready
-	
+
 func _process(delta):
 	if robots == null:
 		robots = get_node("/root/world/robots")
@@ -54,40 +51,34 @@ func _process(delta):
 		main_hub = get_node("/root/world/MainHub")
 		
 	if visible and not disable_override:
-		if Global.potatoCount >= planterPrice["potato"] and Global.scrapCount >= planterPrice["scrap"]:
-			planterButton.disabled = false
-		else:
-			planterButton.disabled = true
+		_check_if_enough(planterPrice, planterButton)
+		_check_if_enough(harvesterPrice, harvesterButton)
+		_check_if_enough(collectorPrice, collectorButton)
 		
-		if Global.potatoCount >= harvesterPrice["potato"] and Global.scrapCount >= harvesterPrice["scrap"]:
-			harvesterButton.disabled = false
-		else:
-			harvesterButton.disabled = true
-
-		if Global.potatoCount >= collectorPrice["potato"] and Global.scrapCount >= collectorPrice["scrap"]:
-			collectorButton.disabled = false
-		else:
-			collectorButton.disabled = true
-			
+		
 func open_shop():
 	visible = true
 	_update()
 	
 func close_shop():
 	visible = false
-
-func update_prices():
-	pass
-
+	
+func _check_if_enough(prices, button):
+	if Global.potatoCount >= prices["potato"] and Global.scrapCount >= prices["scrap"]:
+		button.disabled = false
+	else:
+		button.disabled = true	
+	
 func _update_robot_details(price, potatoLabel, scrapLabel, upkeep, upkeepLabel):
 	potatoLabel.text = str(price["potato"])
 	scrapLabel.text = str(price["scrap"])
-	upkeepLabel.text = "Upkeep	    " + str(upkeep)
+	upkeep = 0 if upkeep < 0 else upkeep
+	upkeepLabel.text = "Upkeep	    +" + str(upkeep)
 
 func _update():
-	_update_robot_details(planterPrice, planterPotatoLabel, planterScrapLabel, planterUpkeep, planterUpkeepLabel)
+	_update_robot_details(planterPrice, planterPotatoLabel, planterScrapLabel, Global.planterUpkeep, planterUpkeepLabel)
 	_update_robot_details(harvesterPrice, harvesterPotatoLabel, harvesterScrapLabel, harvesterUpkeep, harvesterUpkeepLabel)
-	_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, collectorUpkeep, collectorUpkeepLabel)
+	#_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, collectorUpkeep, collectorUpkeepLabel)
 
 func _disable_all_buttons():
 	disable_override = true
@@ -111,6 +102,8 @@ func _buy_robot(price, scene, ai_scene):
 	robot.add_child(robot_ai)
 	#robot.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
 	robots.add_child(robot)
+	var upkeep = 0 if robot.upkeep < 0 else robot.upkeep
+	Global.robot_upkeep += upkeep
 	timer.start()
 	_disable_all_buttons()
 
@@ -123,7 +116,7 @@ func _on_close_button_pressed():
 
 func _on_planter_buy_button_pressed():
 	_buy_robot(planterPrice, planter_scene, planter_ai_scene)
-	_refresh_upkeep_button(planterButton, planterUpkeep)
+	_refresh_upkeep_button(planterButton, Global.planterUpkeep)
 
 
 func _on_harvester_buy_button_pressed():
@@ -136,7 +129,8 @@ func _on_collector_buy_button_pressed():
 
 
 func _refresh_upkeep(upkeepValue):
-	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep) + "   ->   " + str(Global.upkeep + upkeepValue)
+	upkeepValue = 0 if upkeepValue < 0 else upkeepValue
+	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep + Global.robot_upkeep) + "   ->   " + str(Global.upkeep + Global.robot_upkeep + upkeepValue)
 	
 func _refresh_upkeep_button(button, upkeepValue):
 	totalUpkeep.global_position = button.global_position + button.size/2 + Vector2(-40, 45)
@@ -145,7 +139,7 @@ func _refresh_upkeep_button(button, upkeepValue):
 
 
 func _on_planter_buy_button_mouse_entered():
-	_refresh_upkeep_button(planterButton, planterUpkeep)
+	_refresh_upkeep_button(planterButton, Global.planterUpkeep)
 
 func _on_planter_buy_button_mouse_exited():
 	totalUpkeep.visible = false
