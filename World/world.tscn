@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_2aaxa"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_2aaxa"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot_area.tscn" id="4_x37oa"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
 [ext_resource type="PackedScene" uid="uid://bhii6b55hb4fl" path="res://World_Objects/idle_area.tscn" id="9_tw5w8"]
 [ext_resource type="PackedScene" uid="uid://drf4le7he70xx" path="res://World_Objects/workbench.tscn" id="9_u78r3"]
@@ -730,14 +730,14 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@953137")
+blackboard = NodePath("@Node@17729")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@953138")
+blackboard = NodePath("@Node@17730")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

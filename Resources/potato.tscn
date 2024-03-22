@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvw37g4bvtwas"]
 
 [ext_resource type="Script" path="res://Resources/potato.gd" id="1_14gri"]
-[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="2_87ycv"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_3l67c"]
-[ext_resource type="Texture2D" uid="uid://2rec27tf5b3u" path="res://Assets/Resources/Potato/potato3.png" id="4_wlrk6"]
+[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://assets/Resources/Potato/potato1.png" id="2_87ycv"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_3l67c"]
+[ext_resource type="Texture2D" uid="uid://2rec27tf5b3u" path="res://assets/Resources/Potato/potato3.png" id="4_wlrk6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv0lm"]
 radius = 6.0

@@ -10,20 +10,25 @@ var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 @onready var timer = $buyTimer
 @onready var totalUpkeep = $totalUpkeep
 
-@onready var planterButton = $Panel/BUY/HBoxContainer/Planter/planterBuyButton
-@onready var planterUpkeepLabel = $Panel/BUY/HBoxContainer/Planter/upkeep/upkeepLabel
-@onready var planterPotatoLabel = $Panel/BUY/HBoxContainer/Planter/Price/potatoPrice
-@onready var planterScrapLabel = $Panel/BUY/HBoxContainer/Planter/Price/scrapPrice
+@onready var potatoButton = $potatoButton
+@onready var scrapButton = $scrapButton
+@onready var potatoSection = $potato
+@onready var scrapSection = $scrap
 
-@onready var harvesterButton = $Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton
-@onready var harvesterUpkeepLabel = $Panel/BUY/HBoxContainer/Harvester/upkeep/upkeepLabel
-@onready var harvesterPotatoLabel = $Panel/BUY/HBoxContainer/Harvester/Price/potatoPrice
-@onready var harvesterScrapLabel = $Panel/BUY/HBoxContainer/Harvester/Price/scrapPrice
+@onready var planterButton = $potato/BUY/robots/Planter/planterBuyButton
+@onready var planterUpkeepLabel = $potato/BUY/robots/Planter/upkeep/upkeepLabel
+@onready var planterPotatoLabel = $potato/BUY/robots/Planter/Price/potatoPrice
+@onready var planterScrapLabel = $potato/BUY/robots/Planter/Price/scrapPrice
 
-@onready var collectorButton = $Panel/BUY/HBoxContainer/Collector/collectorBuyButton
-@onready var collectorUpkeepLabel = $Panel/BUY/HBoxContainer/Collector/upkeep/upkeepLabel
-@onready var collectorPotatoLabel = $Panel/BUY/HBoxContainer/Collector/Price/potatoPrice
-@onready var collectorScrapLabel = $Panel/BUY/HBoxContainer/Collector/Price/scrapPrice
+@onready var harvesterButton = $potato/BUY/robots/Harvester/harvesterBuyButton
+@onready var harvesterUpkeepLabel = $potato/BUY/robots/Harvester/upkeep/upkeepLabel
+@onready var harvesterPotatoLabel = $potato/BUY/robots/Harvester/Price/potatoPrice
+@onready var harvesterScrapLabel = $potato/BUY/robots/Harvester/Price/scrapPrice
+
+@onready var collectorButton = $potato/BUY/robots/Collector/collectorBuyButton
+@onready var collectorUpkeepLabel = $potato/BUY/robots/Collector/upkeep/upkeepLabel
+@onready var collectorPotatoLabel = $potato/BUY/robots/Collector/Price/potatoPrice
+@onready var collectorScrapLabel = $potato/BUY/robots/Collector/Price/scrapPrice
 
 var planterPrice = { "potato" : 20,
 					 "scrap"  : 20 }
@@ -77,7 +82,7 @@ func _update_robot_details(price, potatoLabel, scrapLabel, upkeep, upkeepLabel):
 
 func _update():
 	_update_robot_details(planterPrice, planterPotatoLabel, planterScrapLabel, Global.planterUpkeep, planterUpkeepLabel)
-	_update_robot_details(harvesterPrice, harvesterPotatoLabel, harvesterScrapLabel, harvesterUpkeep, harvesterUpkeepLabel)
+	_update_robot_details(harvesterPrice, harvesterPotatoLabel, harvesterScrapLabel, Global.harvesterUpkeep, harvesterUpkeepLabel)
 	#_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, collectorUpkeep, collectorUpkeepLabel)
 
 func _disable_all_buttons():
@@ -155,3 +160,26 @@ func _on_collector_buy_button_mouse_entered():
 
 func _on_collector_buy_button_mouse_exited():
 		totalUpkeep.visible = false
+
+
+func _on_scavenger_buy_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_scavenger_buy_button_mouse_entered():
+	pass # Replace with function body.
+
+
+func _on_scavenger_buy_button_mouse_exited():
+	pass # Replace with function body.
+
+
+func _on_potato_button_pressed():
+	scrapButton.button_pressed = false
+	scrapSection.visible = false
+	potatoSection.visible = true
+
+func _on_scrap_button_pressed():
+	potatoButton.button_pressed = false
+	potatoSection.visible = false
+	scrapSection.visible = true

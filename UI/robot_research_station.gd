@@ -4,75 +4,80 @@ extends CanvasLayer
 
 var greenStyleBox = load("res://UI/green_style_box_flat.tres")
 
+@onready var potatoButton = $potatoButton
+@onready var scrapButton = $scrapButton
+@onready var potatoSection = $potato
+@onready var scrapSection = $scrap
+
 @onready var totalUpkeep = $totalUpkeep
 
-@onready var planterCurrentUpkeep = $Panel/BUY/robots/Planter/Name/currentUpkeep
-@onready var planterSpeedButton = $Panel/BUY/robots/Planter/Speed/label_and_build/planterSpeedButton
-@onready var planterSpeedLevel1 = $Panel/BUY/robots/Planter/Speed/label_and_build/box/level1
-@onready var planterSpeedLevel2 = $Panel/BUY/robots/Planter/Speed/label_and_build/box/level2
-@onready var planterSpeedLevel3 = $Panel/BUY/robots/Planter/Speed/label_and_build/box/level3
-@onready var planterSpeedPotatoPrice = $Panel/BUY/robots/Planter/Speed/price_and_upkeep/Price/potatoPrice
-@onready var planterSpeedScrapPrice = $Panel/BUY/robots/Planter/Speed/price_and_upkeep/Price/scrapPrice
-@onready var planterSpeedImprovementLabel = $Panel/BUY/robots/Planter/Speed/description/improvement
-@onready var planterSpeedUpkeepLabel = $Panel/BUY/robots/Planter/Speed/price_and_upkeep/upkeep/upkeepLabel
-@onready var planterSpeedResources = $Panel/BUY/robots/Planter/Speed/price_and_upkeep
+@onready var planterCurrentUpkeep = $potato/BUY/robots/Planter/Name/currentUpkeep
+@onready var planterSpeedButton = $potato/BUY/robots/Planter/Speed/label_and_build/planterSpeedButton
+@onready var planterSpeedLevel1 = $potato/BUY/robots/Planter/Speed/label_and_build/box/level1
+@onready var planterSpeedLevel2 = $potato/BUY/robots/Planter/Speed/label_and_build/box/level2
+@onready var planterSpeedLevel3 = $potato/BUY/robots/Planter/Speed/label_and_build/box/level3
+@onready var planterSpeedPotatoPrice = $potato/BUY/robots/Planter/Speed/price_and_upkeep/Price/potatoPrice
+@onready var planterSpeedScrapPrice = $potato/BUY/robots/Planter/Speed/price_and_upkeep/Price/scrapPrice
+@onready var planterSpeedImprovementLabel = $potato/BUY/robots/Planter/Speed/description/improvement
+@onready var planterSpeedUpkeepLabel = $potato/BUY/robots/Planter/Speed/price_and_upkeep/upkeep/upkeepLabel
+@onready var planterSpeedResources = $potato/BUY/robots/Planter/Speed/price_and_upkeep
 
-@onready var planterProductivityButton = $Panel/BUY/robots/Planter/Productivity/label_and_build/planterProductivityButton
-@onready var planterProductivityLevel1 = $Panel/BUY/robots/Planter/Productivity/label_and_build/box/level1
-@onready var planterProductivityLevel2 = $Panel/BUY/robots/Planter/Productivity/label_and_build/box/level2
-@onready var planterProductivityLevel3 = $Panel/BUY/robots/Planter/Productivity/label_and_build/box/level3
-@onready var planterProductivityPotatoPrice = $Panel/BUY/robots/Planter/Productivity/price_and_upkeep/Price/potatoPrice
-@onready var planterProductivityScrapPrice = $Panel/BUY/robots/Planter/Productivity/price_and_upkeep/Price/scrapPrice
-@onready var planterProductivityImprovementLabel = $Panel/BUY/robots/Planter/Productivity/description/improvement
-@onready var planterProductivityUpkeepLabel = $Panel/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep/upkeepLabel
-@onready var planterProductivityResources = $Panel/BUY/robots/Planter/Productivity/price_and_upkeep
+@onready var planterProductivityButton = $potato/BUY/robots/Planter/Productivity/label_and_build/planterProductivityButton
+@onready var planterProductivityLevel1 = $potato/BUY/robots/Planter/Productivity/label_and_build/box/level1
+@onready var planterProductivityLevel2 = $potato/BUY/robots/Planter/Productivity/label_and_build/box/level2
+@onready var planterProductivityLevel3 = $potato/BUY/robots/Planter/Productivity/label_and_build/box/level3
+@onready var planterProductivityPotatoPrice = $potato/BUY/robots/Planter/Productivity/price_and_upkeep/Price/potatoPrice
+@onready var planterProductivityScrapPrice = $potato/BUY/robots/Planter/Productivity/price_and_upkeep/Price/scrapPrice
+@onready var planterProductivityImprovementLabel = $potato/BUY/robots/Planter/Productivity/description/improvement
+@onready var planterProductivityUpkeepLabel = $potato/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep/upkeepLabel
+@onready var planterProductivityResources = $potato/BUY/robots/Planter/Productivity/price_and_upkeep
 
-@onready var planterPowerButton = $Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/planterPowerButton
-@onready var planterPowerLevel1 = $Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/box/level1
-@onready var planterPowerLevel2 = $Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/box/level2
-@onready var planterPowerLevel3 = $Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/box/level3
-@onready var planterPowerPotatoPrice = $Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price/potatoPrice
-@onready var planterPowerScrapPrice = $Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price/scrapPrice
-@onready var planterPowerImprovementLabel = $Panel/BUY/robots/Planter/Power_Efficiency/description/improvement
-@onready var planterPowerUpkeepLabel = $Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
-@onready var planterPowerResources = $Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep
-
-
+@onready var planterPowerButton = $potato/BUY/robots/Planter/Power_Efficiency/label_and_build/planterPowerButton
+@onready var planterPowerLevel1 = $potato/BUY/robots/Planter/Power_Efficiency/label_and_build/box/level1
+@onready var planterPowerLevel2 = $potato/BUY/robots/Planter/Power_Efficiency/label_and_build/box/level2
+@onready var planterPowerLevel3 = $potato/BUY/robots/Planter/Power_Efficiency/label_and_build/box/level3
+@onready var planterPowerPotatoPrice = $potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price/potatoPrice
+@onready var planterPowerScrapPrice = $potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price/scrapPrice
+@onready var planterPowerImprovementLabel = $potato/BUY/robots/Planter/Power_Efficiency/description/improvement
+@onready var planterPowerUpkeepLabel = $potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
+@onready var planterPowerResources = $potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep
 
 
-@onready var harvesterCurrentUpkeep = $Panel/BUY/robots/Harvester/Name/currentUpkeep
-@onready var harvesterSpeedButton = $Panel/BUY/robots/Harvester/Speed/label_and_build/harvesterSpeedButton
-@onready var harvesterSpeedLevel1 = $Panel/BUY/robots/Harvester/Speed/label_and_build/box/level1
-@onready var harvesterSpeedLevel2 = $Panel/BUY/robots/Harvester/Speed/label_and_build/box/level2
-@onready var harvesterSpeedLevel3 = $Panel/BUY/robots/Harvester/Speed/label_and_build/box/level3
-@onready var harvesterSpeedPotatoPrice = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price/potatoPrice
-@onready var harvesterSpeedScrapPrice = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price/scrapPrice
-@onready var harvesterSpeedImprovementLabel = $Panel/BUY/robots/Harvester/Speed/description/improvement
-@onready var harvesterSpeedUpkeepLabel = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep/upkeepLabel
-@onready var harvesterSpeedResources = $Panel/BUY/robots/Harvester/Speed/price_and_upkeep
-
-@onready var harvesterProductivityButton = $Panel/BUY/robots/Harvester/Productivity/label_and_build/harvesterProductivityButton
-@onready var harvesterProductivityLevel1 = $Panel/BUY/robots/Harvester/Productivity/label_and_build/box/level1
-@onready var harvesterProductivityLevel2 = $Panel/BUY/robots/Harvester/Productivity/label_and_build/box/level2
-@onready var harvesterProductivityLevel3 = $Panel/BUY/robots/Harvester/Productivity/label_and_build/box/level3
-@onready var harvesterProductivityPotatoPrice = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price/potatoPrice
-@onready var harvesterProductivityScrapPrice = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price/scrapPrice
-@onready var harvesterProductivityImprovementLabel = $Panel/BUY/robots/Harvester/Productivity/description/improvement
-@onready var harvesterProductivityUpkeepLabel = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep/upkeepLabel
-@onready var harvesterProductivityResources = $Panel/BUY/robots/Harvester/Productivity/price_and_upkeep
-
-@onready var harvesterPowerButton = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/harvesterPowerButton
-@onready var harvesterPowerLevel1 = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level1
-@onready var harvesterPowerLevel2 = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level2
-@onready var harvesterPowerLevel3 = $Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level3
-@onready var harvesterPowerPotatoPrice = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price/potatoPrice
-@onready var harvesterPowerScrapPrice = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price/scrapPrice
-@onready var harvesterPowerImprovementLabel = $Panel/BUY/robots/Harvester/Power_Efficiency/description/improvement
-@onready var harvesterPowerUpkeepLabel = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
-@onready var harvesterPowerResources = $Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep
 
 
-@onready var collectorButton = $Panel/BUY/HBoxContainer/Collector/collectorBuyButton
+@onready var harvesterCurrentUpkeep = $potato/BUY/robots/Harvester/Name/currentUpkeep
+@onready var harvesterSpeedButton = $potato/BUY/robots/Harvester/Speed/label_and_build/harvesterSpeedButton
+@onready var harvesterSpeedLevel1 = $potato/BUY/robots/Harvester/Speed/label_and_build/box/level1
+@onready var harvesterSpeedLevel2 = $potato/BUY/robots/Harvester/Speed/label_and_build/box/level2
+@onready var harvesterSpeedLevel3 = $potato/BUY/robots/Harvester/Speed/label_and_build/box/level3
+@onready var harvesterSpeedPotatoPrice = $potato/BUY/robots/Harvester/Speed/price_and_upkeep/Price/potatoPrice
+@onready var harvesterSpeedScrapPrice = $potato/BUY/robots/Harvester/Speed/price_and_upkeep/Price/scrapPrice
+@onready var harvesterSpeedImprovementLabel = $potato/BUY/robots/Harvester/Speed/description/improvement
+@onready var harvesterSpeedUpkeepLabel = $potato/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep/upkeepLabel
+@onready var harvesterSpeedResources = $potato/BUY/robots/Harvester/Speed/price_and_upkeep
+
+@onready var harvesterProductivityButton = $potato/BUY/robots/Harvester/Productivity/label_and_build/harvesterProductivityButton
+@onready var harvesterProductivityLevel1 = $potato/BUY/robots/Harvester/Productivity/label_and_build/box/level1
+@onready var harvesterProductivityLevel2 = $potato/BUY/robots/Harvester/Productivity/label_and_build/box/level2
+@onready var harvesterProductivityLevel3 = $potato/BUY/robots/Harvester/Productivity/label_and_build/box/level3
+@onready var harvesterProductivityPotatoPrice = $potato/BUY/robots/Harvester/Productivity/price_and_upkeep/Price/potatoPrice
+@onready var harvesterProductivityScrapPrice = $potato/BUY/robots/Harvester/Productivity/price_and_upkeep/Price/scrapPrice
+@onready var harvesterProductivityImprovementLabel = $potato/BUY/robots/Harvester/Productivity/description/improvement
+@onready var harvesterProductivityUpkeepLabel = $potato/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep/upkeepLabel
+@onready var harvesterProductivityResources = $potato/BUY/robots/Harvester/Productivity/price_and_upkeep
+
+@onready var harvesterPowerButton = $potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/harvesterPowerButton
+@onready var harvesterPowerLevel1 = $potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level1
+@onready var harvesterPowerLevel2 = $potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level2
+@onready var harvesterPowerLevel3 = $potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/box/level3
+@onready var harvesterPowerPotatoPrice = $potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price/potatoPrice
+@onready var harvesterPowerScrapPrice = $potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price/scrapPrice
+@onready var harvesterPowerImprovementLabel = $potato/BUY/robots/Harvester/Power_Efficiency/description/improvement
+@onready var harvesterPowerUpkeepLabel = $potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
+@onready var harvesterPowerResources = $potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep
+
+
+@onready var collectorButton = $potato/BUY/HBoxContainer/Collector/collectorBuyButton
 
 var planterSpeedLevel = 0
 var planterSpeedPrice = { 0 : {"potato" : 40,
@@ -527,3 +532,14 @@ func _on_harvester_power_button_mouse_entered():
 
 func _on_harvester_power_button_mouse_exited():
 	totalUpkeep.visible = false
+
+
+func _on_potato_button_pressed():
+	scrapButton.button_pressed = false
+	scrapSection.visible = false
+	potatoSection.visible = true
+
+func _on_scrap_button_pressed():
+	potatoButton.button_pressed = false
+	potatoSection.visible = false
+	scrapSection.visible = true
