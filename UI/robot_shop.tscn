@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://xqlx26ht07gn"]
+[gd_scene load_steps=13 format=3 uid="uid://xqlx26ht07gn"]
 
 [ext_resource type="Script" path="res://UI/robot_shop.gd" id="1_2yh61"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_p1hq4"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_054f0"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_054f0"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju33a"]
 bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)
@@ -34,6 +34,19 @@ default_font = SubResource("SystemFont_yb53j")
 [sub_resource type="SystemFont" id="SystemFont_810cx"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jude"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdrw7"]
 border_width_left = 5
@@ -335,7 +348,7 @@ offset_right = 800.0
 offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ju33a")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0jude")
 
 [node name="BUY" type="MarginContainer" parent="scrap"]
 layout_mode = 1

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byusp04m5vkc8"
-path="res://.godot/imported/green_light.png-3d10eddef07f4aa5172c92a2a0538a16.ctex"
+path="res://.godot/imported/green_light.png-944e30206b7e55496e9639243338f2b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/idle_area/green_light.png"
-dest_files=["res://.godot/imported/green_light.png-3d10eddef07f4aa5172c92a2a0538a16.ctex"]
+source_file="res://Assets/Idle_Area/green_light.png"
+dest_files=["res://.godot/imported/green_light.png-944e30206b7e55496e9639243338f2b6.ctex"]
 
 [params]
 

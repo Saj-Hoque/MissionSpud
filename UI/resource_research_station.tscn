@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://chdwj38p3u7t5"]
 
 [ext_resource type="Script" path="res://UI/resource_research_station.gd" id="1_lae4m"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_xx41c"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_wdo86"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_xx41c"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_wdo86"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2wpi"]
 bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)

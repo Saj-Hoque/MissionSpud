@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://db8oemq5j8qg5"]
+[gd_scene load_steps=16 format=3 uid="uid://db8oemq5j8qg5"]
 
 [ext_resource type="Script" path="res://UI/robot_research_station.gd" id="1_dcfpf"]
-[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://assets/Resources/Potato/potato1.png" id="2_45nwv"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_5saav"]
+[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="2_45nwv"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_5saav"]
 [ext_resource type="StyleBox" uid="uid://bipa2xq5vsx12" path="res://UI/gray_style_box_flat.tres" id="3_dg1jv"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_7sbpb"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_7sbpb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nomaj"]
 bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)
@@ -30,6 +30,19 @@ font_names = PackedStringArray("Impact")
 [sub_resource type="Theme" id="Theme_slhwj"]
 default_font = SubResource("SystemFont_r73fu")
 default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8rl4"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="SystemFont" id="SystemFont_swktf"]
 font_names = PackedStringArray("Impact")
@@ -1345,7 +1358,7 @@ offset_right = 800.0
 offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nomaj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_t8rl4")
 
 [node name="BUY" type="MarginContainer" parent="scrap"]
 layout_mode = 1
