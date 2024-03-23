@@ -19,4 +19,5 @@ func _on_save_pressed():
 func _on_exit_pressed():
 	get_tree().paused = !get_tree().paused
 	visible = not visible
+	SidePanel.visible = false
 	get_tree().change_scene_to_file("res://Menu/menu.tscn")

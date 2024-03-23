@@ -6,6 +6,10 @@ var plantGrowing = false
 var plantGrown = false
 var taken = false
 
+
+func _process(delta):
+	timer.wait_time = Global.potatoTimer
+
 func occupied():
 	taken = true
 
@@ -30,12 +34,13 @@ func grow_plant():
 	$plant.play("potato")
 	
 func harvest_plant():
-	var potato = potato_scene.instantiate()
-	potato.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
-	potatoes.add_child(potato) 
-	plantGrowing = false
-	plantGrown = false
-	$plant.play("none")
+	for i in range(Global.potatoQuantity):
+		var potato = potato_scene.instantiate()
+		potato.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
+		potatoes.add_child(potato) 
+		plantGrowing = false
+		plantGrown = false
+		$plant.play("none")
 	
 func reset():
 	plantGrowing = false

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn61f7i7xhl33"]
+
+[ext_resource type="Script" path="res://ai/change_right_click_status.gd" id="1_er8j4"]
+
+[node name="change_right_click_status" type="Node"]
+script = ExtResource("1_er8j4")

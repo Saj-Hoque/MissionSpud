@@ -1,0 +1,350 @@
+[gd_scene load_steps=12 format=3 uid="uid://xqlx26ht07gn"]
+
+[ext_resource type="Script" path="res://UI/robot_shop.gd" id="1_2yh61"]
+[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_p1hq4"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_054f0"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju33a"]
+bg_color = Color(0.0431373, 0.0941176, 0.211765, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.0117647, 0.0431373, 0.145098, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_244p0"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_4w2fm"]
+default_font = SubResource("SystemFont_244p0")
+default_font_size = 50
+
+[sub_resource type="SystemFont" id="SystemFont_yb53j"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_55hee"]
+default_font = SubResource("SystemFont_yb53j")
+
+[sub_resource type="SystemFont" id="SystemFont_810cx"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdrw7"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="robot_shop" type="CanvasLayer"]
+script = ExtResource("1_2yh61")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -320.0
+offset_right = 704.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ju33a")
+
+[node name="BUY" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -311.0
+offset_right = 695.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BUY"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Planter" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4w2fm")
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Panel/BUY/HBoxContainer/Planter"]
+layout_mode = 2
+text = "Planter "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter"]
+layout_mode = 2
+texture = ExtResource("2_p1hq4")
+stretch_mode = 5
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Planter"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Planter/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter/Price"]
+layout_mode = 2
+texture = ExtResource("3_054f0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Planter/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter/Price"]
+layout_mode = 2
+texture = ExtResource("4_8jj0w")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Planter"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/HBoxContainer/Planter/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Planter/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_054f0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="planterBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Planter"]
+layout_mode = 2
+text = "Build"
+
+[node name="Harvester" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4w2fm")
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Panel/BUY/HBoxContainer/Harvester"]
+layout_mode = 2
+text = "Harvester "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester"]
+layout_mode = 2
+texture = ExtResource("2_p1hq4")
+stretch_mode = 5
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Harvester"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Harvester/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester/Price"]
+layout_mode = 2
+texture = ExtResource("3_054f0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Harvester/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester/Price"]
+layout_mode = 2
+texture = ExtResource("4_8jj0w")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Harvester"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/HBoxContainer/Harvester/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Harvester/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_054f0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="harvesterBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Harvester"]
+layout_mode = 2
+text = "Build"
+
+[node name="Collector" type="VBoxContainer" parent="Panel/BUY/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4w2fm")
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Panel/BUY/HBoxContainer/Collector"]
+layout_mode = 2
+text = "Collector"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector"]
+layout_mode = 2
+texture = ExtResource("2_p1hq4")
+stretch_mode = 5
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Collector"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/HBoxContainer/Collector/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector/Price"]
+layout_mode = 2
+texture = ExtResource("3_054f0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/HBoxContainer/Collector/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector/Price"]
+layout_mode = 2
+texture = ExtResource("4_8jj0w")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/HBoxContainer/Collector"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/HBoxContainer/Collector/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/HBoxContainer/Collector/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_054f0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="collectorBuyButton" type="Button" parent="Panel/BUY/HBoxContainer/Collector"]
+layout_mode = 2
+text = "Build"
+
+[node name="CLOSE" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 25.0
+offset_right = -49.0
+offset_bottom = 111.0
+grow_horizontal = 0
+theme = SubResource("Theme_55hee")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="close_button" type="Button" parent="Panel/CLOSE"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_810cx")
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="buyTimer" type="Timer" parent="."]
+wait_time = 1.25
+one_shot = true
+
+[node name="totalUpkeep" type="Label" parent="."]
+visible = false
+offset_left = -159.0
+offset_top = 23.0
+offset_right = -92.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdrw7")
+text = "UPKEEP:
+0   ->   60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Panel/BUY/HBoxContainer/Planter/planterBuyButton" to="." method="_on_planter_buy_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/BUY/HBoxContainer/Planter/planterBuyButton" to="." method="_on_planter_buy_button_mouse_exited"]
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Planter/planterBuyButton" to="." method="_on_planter_buy_button_pressed"]
+[connection signal="mouse_entered" from="Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton" to="." method="_on_harvester_buy_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton" to="." method="_on_harvester_buy_button_mouse_exited"]
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Harvester/harvesterBuyButton" to="." method="_on_harvester_buy_button_pressed"]
+[connection signal="mouse_entered" from="Panel/BUY/HBoxContainer/Collector/collectorBuyButton" to="." method="_on_collector_buy_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/BUY/HBoxContainer/Collector/collectorBuyButton" to="." method="_on_collector_buy_button_mouse_exited"]
+[connection signal="pressed" from="Panel/BUY/HBoxContainer/Collector/collectorBuyButton" to="." method="_on_collector_buy_button_pressed"]
+[connection signal="pressed" from="Panel/CLOSE/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="timeout" from="buyTimer" to="." method="_on_buy_timer_timeout"]

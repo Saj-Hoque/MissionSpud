@@ -79,6 +79,6 @@ sprite_frames = SubResource("SpriteFrames_1ni43")
 animation = &"none"
 
 [node name="potatoTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 
 [connection signal="timeout" from="potatoTimer" to="." method="_on_potato_timer_timeout"]

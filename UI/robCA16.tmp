@@ -1,0 +1,1094 @@
+[gd_scene load_steps=14 format=3 uid="uid://db8oemq5j8qg5"]
+
+[ext_resource type="Script" path="res://UI/robot_research_station.gd" id="1_dcfpf"]
+[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="2_45nwv"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_5saav"]
+[ext_resource type="StyleBox" uid="uid://bipa2xq5vsx12" path="res://UI/gray_style_box_flat.tres" id="3_dg1jv"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_7sbpb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nomaj"]
+bg_color = Color(0.0431373, 0.0941176, 0.211765, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.0117647, 0.0431373, 0.145098, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_wh834"]
+
+[sub_resource type="Theme" id="Theme_akjxa"]
+default_font = SubResource("SystemFont_wh834")
+
+[sub_resource type="SystemFont" id="SystemFont_r73fu"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_slhwj"]
+default_font = SubResource("SystemFont_r73fu")
+default_font_size = 50
+
+[sub_resource type="SystemFont" id="SystemFont_swktf"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_jw0fo"]
+default_font = SubResource("SystemFont_swktf")
+
+[sub_resource type="SystemFont" id="SystemFont_db7wg"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="robot_research_station" type="CanvasLayer"]
+script = ExtResource("1_dcfpf")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -320.0
+offset_right = 704.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nomaj")
+
+[node name="BUY" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -311.0
+offset_right = 695.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="robots" type="HBoxContainer" parent="Panel/BUY"]
+layout_mode = 2
+theme = SubResource("Theme_akjxa")
+theme_override_constants/separation = 60
+
+[node name="Planter" type="VBoxContainer" parent="Panel/BUY/robots"]
+layout_mode = 2
+theme = SubResource("Theme_slhwj")
+theme_override_constants/separation = 20
+
+[node name="robotName" type="Label" parent="Panel/BUY/robots/Planter"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Planter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="icon" type="HBoxContainer" parent="Panel/BUY/robots/Planter"]
+layout_mode = 2
+alignment = 1
+
+[node name="empty" type="Label" parent="Panel/BUY/robots/Planter/icon"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BUY/robots/Planter/icon"]
+layout_mode = 2
+texture = ExtResource("2_45nwv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="empty2" type="Label" parent="Panel/BUY/robots/Planter/icon"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="Speed" type="VBoxContainer" parent="Panel/BUY/robots/Planter"]
+layout_mode = 2
+alignment = 1
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Planter/Speed/label_and_build"]
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Planter/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Planter/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Planter/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="speedButton" type="Button" parent="Panel/BUY/robots/Planter/Speed/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="description" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed"]
+layout_mode = 2
+alignment = 1
+
+[node name="improvement" type="Label" parent="Panel/BUY/robots/Planter/Speed/description"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Enhance robots mobility.    20 -> 30 m/s"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Productivity" type="VBoxContainer" parent="Panel/BUY/robots/Planter"]
+layout_mode = 2
+alignment = 1
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Planter/Productivity/label_and_build"]
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Productivity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Planter/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Planter/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Planter/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="productivityButton" type="Button" parent="Panel/BUY/robots/Planter/Productivity/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="description" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity"]
+layout_mode = 2
+alignment = 1
+
+[node name="improvement" type="Label" parent="Panel/BUY/robots/Planter/Productivity/description"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Reduce potato planting time.    20 -> 10 s"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Power_Efficiency" type="VBoxContainer" parent="Panel/BUY/robots/Planter"]
+layout_mode = 2
+alignment = 1
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Power Efficiency"
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="powerButton" type="Button" parent="Panel/BUY/robots/Planter/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="description" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency"]
+layout_mode = 2
+alignment = 1
+
+[node name="improvement" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/description"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Optimize power usage. Reduce upkeep by up to 5 per robot"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Harvester" type="VBoxContainer" parent="Panel/BUY/robots"]
+layout_mode = 2
+theme = SubResource("Theme_slhwj")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="robotName" type="Label" parent="Panel/BUY/robots/Harvester"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Harvester"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="icon" type="HBoxContainer" parent="Panel/BUY/robots/Harvester"]
+layout_mode = 2
+alignment = 1
+
+[node name="empty" type="Label" parent="Panel/BUY/robots/Harvester/icon"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BUY/robots/Harvester/icon"]
+layout_mode = 2
+texture = ExtResource("2_45nwv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="empty2" type="Label" parent="Panel/BUY/robots/Harvester/icon"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="Speed" type="VBoxContainer" parent="Panel/BUY/robots/Harvester"]
+layout_mode = 2
+alignment = 1
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Harvester/Speed/label_and_build"]
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Speed/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Harvester/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Harvester/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Harvester/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="speedButton" type="Button" parent="Panel/BUY/robots/Harvester/Speed/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Productivity" type="VBoxContainer" parent="Panel/BUY/robots/Harvester"]
+layout_mode = 2
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Productivity"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/label_and_build"]
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Productivity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Productivity/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="productivityButton" type="Button" parent="Panel/BUY/robots/Harvester/Productivity/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Productivity"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Power_Efficiency" type="VBoxContainer" parent="Panel/BUY/robots/Harvester"]
+layout_mode = 2
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Power_Efficiency"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Power Efficiency"
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="powerButton" type="Button" parent="Panel/BUY/robots/Harvester/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Power_Efficiency"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Collector" type="VBoxContainer" parent="Panel/BUY/robots"]
+layout_mode = 2
+theme = SubResource("Theme_slhwj")
+theme_override_constants/separation = 20
+
+[node name="robotName" type="Label" parent="Panel/BUY/robots/Collector"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Collector"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="icon" type="HBoxContainer" parent="Panel/BUY/robots/Collector"]
+layout_mode = 2
+alignment = 1
+
+[node name="empty" type="Label" parent="Panel/BUY/robots/Collector/icon"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BUY/robots/Collector/icon"]
+layout_mode = 2
+texture = ExtResource("2_45nwv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="empty2" type="Label" parent="Panel/BUY/robots/Collector/icon"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="Speed" type="VBoxContainer" parent="Panel/BUY/robots/Collector"]
+layout_mode = 2
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Collector/Speed/label_and_build"]
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Speed/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Collector/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Collector/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Collector/Speed/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="speedButton" type="Button" parent="Panel/BUY/robots/Collector/Speed/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Speed/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Productivity" type="VBoxContainer" parent="Panel/BUY/robots/Collector"]
+layout_mode = 2
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Productivity"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Collector/Productivity/label_and_build"]
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Productivity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Productivity/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Collector/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Collector/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Collector/Productivity/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="productivityButton" type="Button" parent="Panel/BUY/robots/Collector/Productivity/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Productivity"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Productivity/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Power_Efficiency" type="VBoxContainer" parent="Panel/BUY/robots/Collector"]
+layout_mode = 2
+
+[node name="label_and_build" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Power_Efficiency"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Speed" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Power Efficiency"
+
+[node name="box" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="level1" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level2" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="level3" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/label_and_build/box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_dg1jv")
+text = "   "
+
+[node name="powerButton" type="Button" parent="Panel/BUY/robots/Collector/Power_Efficiency/label_and_build"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upgrade"
+
+[node name="price_and_upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Power_Efficiency"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/Price"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/Price"]
+layout_mode = 2
+texture = ExtResource("4_7sbpb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="upkeep" type="HBoxContainer" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/upkeep"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="Panel/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_5saav")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CLOSE" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 25.0
+offset_right = -49.0
+offset_bottom = 111.0
+grow_horizontal = 0
+theme = SubResource("Theme_jw0fo")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="close_button" type="Button" parent="Panel/CLOSE"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_db7wg")
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[connection signal="pressed" from="Panel/BUY/robots/Planter/Speed/label_and_build/speedButton" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="Panel/BUY/robots/Harvester/Speed/label_and_build/speedButton" to="." method="_on_planter_buy_button_pressed"]
+[connection signal="pressed" from="Panel/BUY/robots/Collector/Speed/label_and_build/speedButton" to="." method="_on_planter_buy_button_pressed"]
+[connection signal="pressed" from="Panel/CLOSE/close_button" to="." method="_on_close_button_pressed"]

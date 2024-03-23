@@ -1,0 +1,801 @@
+[gd_scene load_steps=14 format=3 uid="uid://chdwj38p3u7t5"]
+
+[ext_resource type="Script" path="res://UI/resource_research_station.gd" id="1_lae4m"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_xx41c"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_wdo86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2wpi"]
+bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.184314, 0.133333, 0.0117647, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_n7jsn"]
+
+[sub_resource type="Theme" id="Theme_m86dk"]
+default_font = SubResource("SystemFont_n7jsn")
+
+[sub_resource type="SystemFont" id="SystemFont_ari7l"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_k2e7l"]
+default_font = SubResource("SystemFont_ari7l")
+default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6a5l"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 0.980392)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_0xden"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_oyl04"]
+default_font = SubResource("SystemFont_0xden")
+
+[sub_resource type="SystemFont" id="SystemFont_57lri"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cmkt"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="resource_research_station" type="CanvasLayer"]
+script = ExtResource("1_lae4m")
+
+[node name="potato" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -798.5
+offset_top = -389.5
+offset_right = 798.5
+offset_bottom = 389.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2wpi")
+
+[node name="research" type="MarginContainer" parent="potato"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -311.0
+offset_right = 695.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="fields" type="HBoxContainer" parent="potato/research"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Labels" type="VBoxContainer" parent="potato/research/fields"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="fetilizerLabel" type="Label" parent="potato/research/fields/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme = SubResource("Theme_m86dk")
+theme_override_font_sizes/font_size = 60
+text = "Fertilizer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="qualityLabel" type="Label" parent="potato/research/fields/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Spud Splitter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrowthLabel" type="Label" parent="potato/research/fields/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Nano-Growth
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description_Improvement" type="VBoxContainer" parent="potato/research/fields"]
+layout_mode = 2
+theme = SubResource("Theme_k2e7l")
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="fertilizer" type="VBoxContainer" parent="potato/research/fields/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="potato/research/fields/Description_Improvement/fertilizer"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Improve the number of potatoes on harvest "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="potato/research/fields/Description_Improvement/fertilizer"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "x 2   ->   x 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quality" type="VBoxContainer" parent="potato/research/fields/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="potato/research/fields/Description_Improvement/quality"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Enhance the value of harvested potatoes"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="potato/research/fields/Description_Improvement/quality"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "1   ->   2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="growth" type="VBoxContainer" parent="potato/research/fields/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="potato/research/fields/Description_Improvement/growth"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed up your potato growth"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="potato/research/fields/Description_Improvement/growth"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "10s   ->   5s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons_Price" type="VBoxContainer" parent="potato/research/fields"]
+layout_mode = 2
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="fertilizer" type="VBoxContainer" parent="potato/research/fields/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/fertilizer"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/fertilizer/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/fertilizer/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="fertilizerButton" type="Button" parent="potato/research/fields/Buttons_Price/fertilizer"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+icon_alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/fertilizer"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="potato/research/fields/Buttons_Price/fertilizer/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/fertilizer/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="potato/research/fields/Buttons_Price/fertilizer/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1600
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/fertilizer/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="quality" type="VBoxContainer" parent="potato/research/fields/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/quality"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/quality/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/quality/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="qualityButton" type="Button" parent="potato/research/fields/Buttons_Price/quality"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/quality"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="potato/research/fields/Buttons_Price/quality/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/quality/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="potato/research/fields/Buttons_Price/quality/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/quality/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="growth" type="VBoxContainer" parent="potato/research/fields/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/growth"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="potato/research/fields/Buttons_Price/growth/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/growth/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="growthButton" type="Button" parent="potato/research/fields/Buttons_Price/growth"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="potato/research/fields/Buttons_Price/growth"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="potato/research/fields/Buttons_Price/growth/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/growth/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="potato/research/fields/Buttons_Price/growth/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="potato/research/fields/Buttons_Price/growth/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrap" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -798.5
+offset_top = -389.5
+offset_right = 798.5
+offset_bottom = 389.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6a5l")
+
+[node name="research" type="MarginContainer" parent="scrap"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -311.0
+offset_right = 695.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="fields" type="HBoxContainer" parent="scrap/research"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Labels" type="VBoxContainer" parent="scrap/research/fields"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="boostLabel" type="Label" parent="scrap/research/fields/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = " ScrapBoost+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="forgeLabel" type="Label" parent="scrap/research/fields/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Ampli-Forge"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="turbineLabel" type="Label" parent="scrap/research/fields/Labels"]
+custom_minimum_size = Vector2(500, 124)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Dust Turbine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description_Improvement" type="VBoxContainer" parent="scrap/research/fields"]
+layout_mode = 2
+theme = SubResource("Theme_k2e7l")
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="boost" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/boost"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Intensify salvage surges, scrap will spawn at double the rate"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/boost"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "x 2   ->   x 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="forge" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/forge"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Amplifies the value of collected scrap"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/forge"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "1   ->   2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="turbine" type="VBoxContainer" parent="scrap/research/fields/Description_Improvement"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="scrap/research/fields/Description_Improvement/turbine"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed up rate of uncovering scrap"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="improvement" type="Label" parent="scrap/research/fields/Description_Improvement/turbine"]
+custom_minimum_size = Vector2(500, 62)
+layout_mode = 2
+text = "10s   ->   5s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons_Price" type="VBoxContainer" parent="scrap/research/fields"]
+layout_mode = 2
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="boost" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/boost"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/boost/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/boost/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="boostButton" type="Button" parent="scrap/research/fields/Buttons_Price/boost"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+icon_alignment = 1
+
+[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/boost"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/boost/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/boost/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/boost/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1600
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/boost/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="forge" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/forge"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/forge/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/forge/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="forgeButton" type="Button" parent="scrap/research/fields/Buttons_Price/forge"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/forge"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/forge/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/forge/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/forge/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/forge/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="turbine" type="VBoxContainer" parent="scrap/research/fields/Buttons_Price"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+
+[node name="upkeep" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/turbine"]
+layout_mode = 2
+alignment = 1
+
+[node name="upkeepLabel" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/upkeep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.101961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "Upkeep	    0 -> 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upkeepIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/turbine/upkeep"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="turbineButton" type="Button" parent="scrap/research/fields/Buttons_Price/turbine"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Research"
+
+[node name="Price" type="HBoxContainer" parent="scrap/research/fields/Buttons_Price/turbine"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
+layout_mode = 2
+texture = ExtResource("3_xx41c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="scrap/research/fields/Buttons_Price/turbine/Price"]
+layout_mode = 2
+texture = ExtResource("4_wdo86")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CLOSE" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -316.5
+offset_top = 165.5
+offset_right = -199.5
+offset_bottom = 251.5
+grow_horizontal = 0
+theme = SubResource("Theme_oyl04")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="close_button" type="Button" parent="CLOSE"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_57lri")
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="potatoButton" type="Button" parent="."]
+offset_left = 283.0
+offset_top = 179.0
+offset_right = 307.0
+offset_bottom = 203.0
+scale = Vector2(4, 4)
+keep_pressed_outside = true
+icon = ExtResource("3_xx41c")
+
+[node name="scrapButton" type="Button" parent="."]
+offset_left = 395.0
+offset_top = 179.0
+offset_right = 419.0
+offset_bottom = 203.0
+scale = Vector2(4, 4)
+keep_pressed_outside = true
+icon = ExtResource("4_wdo86")
+
+[node name="totalUpkeep" type="Label" parent="."]
+visible = false
+offset_left = -159.0
+offset_top = 23.0
+offset_right = -92.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cmkt")
+text = "0   ->   60"
+
+[connection signal="mouse_entered" from="potato/research/fields/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_mouse_entered"]
+[connection signal="mouse_exited" from="potato/research/fields/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_mouse_exited"]
+[connection signal="pressed" from="potato/research/fields/Buttons_Price/fertilizer/fertilizerButton" to="." method="_on_fertilizer_button_pressed"]
+[connection signal="mouse_entered" from="potato/research/fields/Buttons_Price/quality/qualityButton" to="." method="_on_quality_button_mouse_entered"]
+[connection signal="mouse_exited" from="potato/research/fields/Buttons_Price/quality/qualityButton" to="." method="_on_quality_button_mouse_exited"]
+[connection signal="pressed" from="potato/research/fields/Buttons_Price/quality/qualityButton" to="." method="_on_quality_button_pressed"]
+[connection signal="mouse_entered" from="potato/research/fields/Buttons_Price/growth/growthButton" to="." method="_on_growth_button_mouse_entered"]
+[connection signal="mouse_exited" from="potato/research/fields/Buttons_Price/growth/growthButton" to="." method="_on_growth_button_mouse_exited"]
+[connection signal="pressed" from="potato/research/fields/Buttons_Price/growth/growthButton" to="." method="_on_growth_button_pressed"]
+[connection signal="mouse_entered" from="scrap/research/fields/Buttons_Price/boost/boostButton" to="." method="_on_boost_button_mouse_entered"]
+[connection signal="mouse_exited" from="scrap/research/fields/Buttons_Price/boost/boostButton" to="." method="_on_boost_button_mouse_exited"]
+[connection signal="pressed" from="scrap/research/fields/Buttons_Price/boost/boostButton" to="." method="_on_boost_button_pressed"]
+[connection signal="mouse_entered" from="scrap/research/fields/Buttons_Price/forge/forgeButton" to="." method="_on_forge_button_mouse_entered"]
+[connection signal="mouse_exited" from="scrap/research/fields/Buttons_Price/forge/forgeButton" to="." method="_on_forge_button_mouse_exited"]
+[connection signal="pressed" from="scrap/research/fields/Buttons_Price/forge/forgeButton" to="." method="_on_forge_button_pressed"]
+[connection signal="mouse_entered" from="scrap/research/fields/Buttons_Price/turbine/turbineButton" to="." method="_on_turbine_button_mouse_entered"]
+[connection signal="mouse_exited" from="scrap/research/fields/Buttons_Price/turbine/turbineButton" to="." method="_on_turbine_button_mouse_exited"]
+[connection signal="pressed" from="scrap/research/fields/Buttons_Price/turbine/turbineButton" to="." method="_on_turbine_button_pressed"]
+[connection signal="pressed" from="CLOSE/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="potatoButton" to="." method="_on_potato_button_pressed"]
+[connection signal="pressed" from="scrapButton" to="." method="_on_scrap_button_pressed"]

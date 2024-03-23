@@ -16,5 +16,6 @@ func tick(actor, blackboard: Blackboard):
 		actor.planted = false
 		actor.planting = false
 		return SUCCESS
+	actor.status = "Planting"
 	return RUNNING
 

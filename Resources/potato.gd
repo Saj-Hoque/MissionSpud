@@ -8,7 +8,6 @@ const MAX_SPEED = 15.0
 const ACCELERATION = 0.15
 
 var speed = 0.0
-var value = 1
 var is_being_picked_up_by_player = false
 
 func _ready():
@@ -33,7 +32,7 @@ func _physics_process(delta):
 func _handle_picked_up_by_player():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.1)
-	tween.tween_callback(world.update_potato_counter.bind(value))
+	tween.tween_callback(world.update_potato_counter.bind(Global.potatoValue))
 	tween.tween_callback(queue_free)
 
 func _on_pickup_range_area_entered(area):

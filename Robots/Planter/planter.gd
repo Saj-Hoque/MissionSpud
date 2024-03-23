@@ -1,20 +1,26 @@
 extends CharacterBody2D
+class_name planter_robot
 
 signal target_reached
+
+var first_name = Global.names.pick_random()
+var status = "Idle"
 
 @export var max_steering = 2.5
 @export var speed = 30
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
-@export var idle_area_path: NodePath
+@export var upkeep = 5
+@export var productivity = 10
 
+@onready var timer = $PlantingTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D
 @onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
 
-@onready var idle_area = get_node(idle_area_path)
+@onready var idle_area = get_node("/root/world/MainHub")
 @onready var plot = idle_area.plot
 
 var right_click: bool = false
@@ -34,6 +40,10 @@ var planted: bool = false
 var target_position = global_position
 
 func _ready():
+	speed = Global.planterSpeed
+	productivity = Global.planterProductivity
+	timer.wait_time = productivity
+	upkeep = Global.planterUpkeep
 	idle_area.robots.push_back(self)
 
 # Movement related methods
@@ -92,6 +102,10 @@ func _on_selection_area_2d_input_event(viewport, event, shape_idx):
 func toggle_select():
 	selected = not selected
 	highlight_box.visible = not highlight_box.visible
+	if selected:
+		SidePanel.appear()
+	else:
+		SidePanel.dissappear()
 
 # Right click related methods
 			
@@ -128,10 +142,10 @@ func unoccupy_plot():
 	
 func start_planting():
 	planting = true
-	$PlantingTimer.start()
+	timer.start()
 
 func reset_planting_status():
-	$PlantingTimer.stop()
+	timer.stop()
 	planting = false
 	planted = false
 	if plotting:
@@ -139,7 +153,11 @@ func reset_planting_status():
 
 func _on_planting_timer_timeout():
 	planted = true
-	
+
+
+# Other methods
+
+
 
 
 
