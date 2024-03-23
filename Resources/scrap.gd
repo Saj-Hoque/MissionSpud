@@ -8,6 +8,7 @@ const MAX_SPEED = 15.0
 const ACCELERATION = 0.15
 
 var speed = 0.0
+var taken = false
 var is_being_picked_up_by_player = false
 
 func _ready():
@@ -29,7 +30,18 @@ func _physics_process(delta):
 	if collision:
 		if is_being_picked_up_by_player:
 			_handle_picked_up_by_player()
-		
+
+
+func occupied():
+	taken = true
+
+func unoccupied():
+	taken = false
+	
+func is_available():
+	return not taken
+	
+
 func _handle_picked_up_by_player():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.1)

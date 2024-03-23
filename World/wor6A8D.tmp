@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=32 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -8,15 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot_area.tscn" id="4_x37oa"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
-[ext_resource type="Script" path="res://World_Objects/scrapSpawnZone.gd" id="8_o8f6c"]
 [ext_resource type="PackedScene" uid="uid://bhii6b55hb4fl" path="res://World_Objects/idle_area.tscn" id="9_tw5w8"]
 [ext_resource type="PackedScene" uid="uid://drf4le7he70xx" path="res://World_Objects/workbench.tscn" id="9_u78r3"]
 [ext_resource type="PackedScene" uid="uid://keeavkauuufy" path="res://Robots/Planter/planter.tscn" id="9_vrajd"]
 [ext_resource type="PackedScene" uid="uid://ok4nbf70k6mw" path="res://ai/Behavior_Trees/planter_ai.tscn" id="11_teud7"]
 [ext_resource type="PackedScene" uid="uid://17tfsfbem7it" path="res://Robots/Harvester/harvester.tscn" id="12_morrn"]
 [ext_resource type="PackedScene" uid="uid://nvdo6erlwj2v" path="res://ai/Behavior_Trees/harvester_ai.tscn" id="13_ll7b2"]
-[ext_resource type="PackedScene" uid="uid://lj0orhl3dn2u" path="res://Robots/Scavenger/scavenger.tscn" id="15_pl3ab"]
-[ext_resource type="PackedScene" uid="uid://bwj2mfj27tyoh" path="res://ai/Behavior_Trees/scavenger_ai.tscn" id="16_lr2pf"]
 
 [sub_resource type="SystemFont" id="SystemFont_vc7es"]
 font_names = PackedStringArray("Impact")
@@ -639,6 +636,13 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(73, -78)
 
+[node name="emptyPlot" parent="MainHub" instance=ExtResource("4_x37oa")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-448, -112)
+total_plots = 0
+plots_per_row = 0
+
 [node name="idleArea" parent="." instance=ExtResource("9_tw5w8")]
 z_index = 1
 y_sort_enabled = true
@@ -662,21 +666,15 @@ total_plots = 24
 [node name="idleArea3" parent="." instance=ExtResource("9_tw5w8")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(60, 278)
+position = Vector2(17, 280)
 
-[node name="scrapSpawnZone" type="Area2D" parent="idleArea3"]
-position = Vector2(-60, -278)
+[node name="scrapSpawnZone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("8_o8f6c")
 
-[node name="area" type="CollisionShape2D" parent="idleArea3/scrapSpawnZone"]
+[node name="area" type="CollisionShape2D" parent="scrapSpawnZone"]
 position = Vector2(127.5, 389)
 shape = SubResource("RectangleShape2D_l8heb")
-
-[node name="scraps" type="Node2D" parent="idleArea3/scrapSpawnZone"]
-z_index = 3
-y_sort_enabled = true
 
 [node name="potatoes" type="Node2D" parent="."]
 z_index = 3
@@ -696,6 +694,10 @@ position = Vector2(195, 50)
 
 [node name="potato5" parent="potatoes" instance=ExtResource("6_1nlxy")]
 position = Vector2(116, 33)
+
+[node name="scraps" type="Node2D" parent="."]
+z_index = 3
+y_sort_enabled = true
 
 [node name="robotShop" parent="." groups=["navigation"] instance=ExtResource("9_u78r3")]
 z_index = 4
@@ -733,21 +735,14 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@108291")
+blackboard = NodePath("@Node@32583")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@108292")
-actor = NodePath("..")
-
-[node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
-position = Vector2(-14, -58)
-
-[node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@108293")
+blackboard = NodePath("@Node@32584")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
@@ -757,4 +752,4 @@ position = Vector2(59, 98)
 collision_mask = 25
 platform_floor_layers = 4294967277
 
-[connection signal="timeout" from="scrapSpawnTimer" to="idleArea3/scrapSpawnZone" method="_on_scrap_spawn_timer_timeout"]
+[connection signal="timeout" from="scrapSpawnTimer" to="." method="_on_scrap_spawn_timer_timeout"]
