@@ -14,6 +14,8 @@ var status = "Idle"
 @export var upkeep = 5
 @export var capacity = 1
 
+var carrying = 0
+
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var selection_area: Area2D = $SelectionArea2D
 @onready var highlight_box: Panel = $highlight_box
@@ -34,6 +36,8 @@ var docker_num:int
 var scrapping:bool = false
 var collecting: bool = false
 var collected: bool = false
+
+var closest_scrap = null
 
 var target_position = global_position
 
@@ -133,19 +137,38 @@ func is_in_idle_area():
 
 # Scavenge related methods
 
-func find_nearest_scrap():
-	return 1
+func is_scrap_available():
+	for scrap in get_tree().get_nodes_in_group("scraps"):
+		if scrap.is_available():
+			return 1
+	return -1
 
+func find_nearest_scrap():
+	var current_distance = 9999999
+	var nearest = null
+	for scrap in get_tree().get_nodes_in_group("scraps"):
+		if not scrap.is_available():
+			continue
+		var scrap_distance = global_position.distance_to(scrap.global_position)
+		#var dist = abs(global_position - scrap.global_position)
+		#var scrap_distance = pow(pow(dist[0], 2) + pow(dist[1], 2), 1.0/2.0)
+		if scrap_distance < current_distance:
+			current_distance = scrap_distance
+			nearest = scrap
+	return nearest
+
+
+func occupy_scrap():
+	closest_scrap.occupied()
 
 func unoccupy_scrap():
-	#scrap.change_status_unoccupied()
-	scrapping = false
+	if is_instance_valid(closest_scrap):
+		closest_scrap.unoccupied()
+	else:
+		closest_scrap = null
 	
-func start_collecting():
-	collecting = true
+func add_to_capacity():
+	carrying += 1
 
 func reset_collecting_status():
-	collecting = false
-	collected = false
-	if scrapping:
-		unoccupy_scrap()
+	unoccupy_scrap()

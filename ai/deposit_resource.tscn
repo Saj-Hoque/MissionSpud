@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhorqx7jm74ex"]
+
+[ext_resource type="Script" path="res://ai/deposit_resource.gd" id="1_oge5n"]
+
+[node name="deposit_resource" type="Node"]
+script = ExtResource("1_oge5n")

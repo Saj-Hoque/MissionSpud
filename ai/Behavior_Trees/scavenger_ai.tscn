@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwj2mfj27tyoh"]
+[gd_scene load_steps=17 format=3 uid="uid://bwj2mfj27tyoh"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_dq4xa"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_k8yb4"]
@@ -8,15 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="6_ymakp"]
 [ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="7_jl8kn"]
 [ext_resource type="PackedScene" uid="uid://dx8aypahf3tv2" path="res://ai/is_main_hub.tscn" id="8_itkn7"]
+[ext_resource type="PackedScene" uid="uid://dhorqx7jm74ex" path="res://ai/deposit_resource.tscn" id="8_qyip2"]
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="8_wf75r"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_2v8aa"]
+[ext_resource type="PackedScene" uid="uid://bx5yx5duph0yc" path="res://ai/has_enough_capacity.tscn" id="10_er5pt"]
+[ext_resource type="PackedScene" uid="uid://dhaid364y0dtb" path="res://ai/are_closest_scrap.tscn" id="10_fdh2s"]
 [ext_resource type="PackedScene" uid="uid://lgcu0uuh0c07" path="res://ai/reset_scavenging_status.tscn" id="10_l63o0"]
 [ext_resource type="PackedScene" uid="uid://r1yjew4bcikx" path="res://ai/find_next_available_scrap.tscn" id="11_ng51y"]
+[ext_resource type="PackedScene" uid="uid://bxprh3cfba8bb" path="res://ai/go_to_closest_scrap.tscn" id="14_rlmgn"]
 
 [node name="scavenger_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_dq4xa")
-blackboard = NodePath("@Node@114089")
-actor = NodePath("")
+blackboard = NodePath("@Node@121708")
+actor = NodePath("..")
 
 [node name="Either" type="Node" parent="."]
 script = ExtResource("2_k8yb4")
@@ -32,6 +36,8 @@ script = ExtResource("3_8ufkn")
 
 [node name="go_to_idle_dock" parent="Either/overrided_by_player" instance=ExtResource("7_jl8kn")]
 
+[node name="deposit_resource" parent="Either/overrided_by_player" instance=ExtResource("8_qyip2")]
+
 [node name="wait" type="Node" parent="Either"]
 script = ExtResource("3_8ufkn")
 
@@ -39,6 +45,16 @@ script = ExtResource("3_8ufkn")
 script = ExtResource("2_k8yb4")
 
 [node name="is_main_hub" parent="Either/wait/needs_to_wait" instance=ExtResource("8_itkn7")]
+
+[node name="not_enough_capacity" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("9_2v8aa")
+
+[node name="has_enough_capacity" parent="Either/wait/needs_to_wait/not_enough_capacity" instance=ExtResource("10_er5pt")]
+
+[node name="no_closest_scrap" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("9_2v8aa")
+
+[node name="are_closest_scrap" parent="Either/wait/needs_to_wait/no_closest_scrap" instance=ExtResource("10_fdh2s")]
 
 [node name="rest" type="Node" parent="Either/wait"]
 script = ExtResource("2_k8yb4")
@@ -59,6 +75,8 @@ script = ExtResource("9_2v8aa")
 
 [node name="go_to_idle_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("7_jl8kn")]
 
+[node name="deposit_resource" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("8_qyip2")]
+
 [node name="harvest" type="Node" parent="Either"]
 script = ExtResource("3_8ufkn")
 
@@ -68,3 +86,5 @@ script = ExtResource("9_2v8aa")
 [node name="check_right_click" parent="Either/harvest/not_overrided_by_player" instance=ExtResource("4_5n2vw")]
 
 [node name="find_next_available_scrap" parent="Either/harvest" instance=ExtResource("11_ng51y")]
+
+[node name="go_to_closest_scrap" parent="Either/harvest" instance=ExtResource("14_rlmgn")]

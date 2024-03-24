@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxprh3cfba8bb"]
+
+[ext_resource type="Script" path="res://ai/go_to_closest_scrap.gd" id="1_piuhj"]
+
+[node name="go_to_closest_scrap" type="Node"]
+script = ExtResource("1_piuhj")

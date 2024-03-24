@@ -8,18 +8,20 @@ func tick(actor, blackboard: Blackboard):
 	if target_reached:
 		target_reached = false
 		actor.disable_movement()
-		actor.idle_area.update_dock_status_color(actor.docker_num)
-		actor.docking = true
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
 		return SUCCESS
 	if actor.right_click:
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
-		var next_available_dock = actor.idle_area.get_next_available_dock()
-		actor.docker_num = next_available_dock
+		return FAILURE
+	if not is_instance_valid(actor.closest_scrap):
+		actor.reset_collecting_status()
+		return FAILURE
+	if actor.carrying >= actor.capacity:
+		actor.reset_collecting_status()
 		return FAILURE
 	actor.enable_movement()
+	actor.status = "Travelling to closest scrap"
 	return RUNNING
 
 func _target_reached():
 	self.target_reached = true
-

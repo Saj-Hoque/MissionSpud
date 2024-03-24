@@ -16,7 +16,7 @@ var potatoTimer = 10
 
 var scrapQuantity = 1
 var scrapValue = 1
-var scrapTimer = 8
+var scrapTimer = 2
 
 var planterSpeed = 30
 var planterProductivity = 10
@@ -26,7 +26,7 @@ var harvesterSpeed = 30
 var harvesterProductivity = 10
 var harvesterUpkeep = 5
 
-var scavengerSpeed = 30
+var scavengerSpeed = 60
 var scavengerCapacity = 1
 var scavengerUpkeep = 5
 
