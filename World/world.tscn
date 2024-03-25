@@ -417,7 +417,7 @@ cell_size = 4.0
 agent_radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8heb"]
-size = Vector2(599, 268)
+size = Vector2(599, 163)
 
 [node name="world" type="Node2D"]
 process_mode = 1
@@ -673,7 +673,7 @@ collision_mask = 0
 script = ExtResource("8_o8f6c")
 
 [node name="area" type="CollisionShape2D" parent="idleArea3/scrapSpawnZone"]
-position = Vector2(127.5, 389)
+position = Vector2(127.5, 441.5)
 shape = SubResource("RectangleShape2D_l8heb")
 
 [node name="scraps" type="Node2D" parent="idleArea3/scrapSpawnZone"]
@@ -735,35 +735,35 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@182844")
+blackboard = NodePath("@Node@235164")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@182845")
+blackboard = NodePath("@Node@235165")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@182846")
+blackboard = NodePath("@Node@235166")
 actor = NodePath("..")
 
 [node name="collector" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-98, -57)
 
 [node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@182847")
+blackboard = NodePath("@Node@235167")
 actor = NodePath("..")
 
 [node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-63, -57)
 
 [node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@182848")
+blackboard = NodePath("@Node@235168")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
