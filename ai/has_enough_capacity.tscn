@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx5yx5duph0yc"]
+
+[ext_resource type="Script" path="res://ai/has_enough_capacity.gd" id="1_iihp5"]
+
+[node name="has_enough_capacity" type="Node"]
+script = ExtResource("1_iihp5")

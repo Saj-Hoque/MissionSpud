@@ -16,6 +16,7 @@ var robots = []
 @onready var robotCount = $count/label
 
 @onready var plot
+@onready var type
 
 @onready var zone = $zone/CollisionShape2D
 
@@ -45,8 +46,14 @@ func _ready():
 	for child in get_children():
 		if child is PlotArea:
 			plot = child
-			
+			type = "farming"
+		if child is ScrapArea:
+			plot = child
+			type = "scrap"
 	
+	if plot == null:
+		type = "main"
+		
 func _process(delta):
 	robotCount.text = (str(robots.size()) + " / " + str(total_docks))
 	
@@ -79,5 +86,9 @@ func _on_zone_input_event(viewport, event, shape_idx):
 					print("This robot is already assigned here!")
 				elif robots.size() == total_docks:
 					print("Cannot assign robot to fully allocated plot. Free up space or assign them to a different plot")
+				elif (robot is planter_robot or robot is harvester_robot) and not (type == "farming" or type == "main"):
+					print("Cannot assign a farming robot to a non-farming area")
+				elif (robot is scavenger_robot) and not (type == "scrap" or type == "main"):
+					print("Cannot assign a scrap robot to a non-scrap area")
 				else:
 					robot.assign_to_new_idle_area(self)

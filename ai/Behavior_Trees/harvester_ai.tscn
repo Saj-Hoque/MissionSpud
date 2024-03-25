@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://nvdo6erlwj2v"]
+[gd_scene load_steps=16 format=3 uid="uid://nvdo6erlwj2v"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_mta53"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_wl74q"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="6_js68u"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="7_fiqpg"]
 [ext_resource type="PackedScene" uid="uid://bdsk7emd1q53q" path="res://ai/full_growing_plot.tscn" id="8_5emka"]
+[ext_resource type="PackedScene" uid="uid://dx8aypahf3tv2" path="res://ai/is_main_hub.tscn" id="8_pktov"]
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="9_ww7ci"]
 [ext_resource type="PackedScene" uid="uid://dd7gxqjhbb1ig" path="res://ai/reset_harvesting_status.tscn" id="10_bgt3e"]
 [ext_resource type="PackedScene" uid="uid://ukdred3qo85i" path="res://ai/find_next_fully_grown_plot.tscn" id="11_eul78"]
@@ -39,6 +40,8 @@ script = ExtResource("3_30fhx")
 
 [node name="needs_to_wait" type="Node" parent="Either/wait"]
 script = ExtResource("2_wl74q")
+
+[node name="is_main_hub" parent="Either/wait/needs_to_wait" instance=ExtResource("8_pktov")]
 
 [node name="no_full_growing_plot" type="Node" parent="Either/wait/needs_to_wait"]
 script = ExtResource("7_fiqpg")

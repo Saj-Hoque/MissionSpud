@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhaid364y0dtb"]
+
+[ext_resource type="Script" path="res://ai/are_closest_scrap.gd" id="1_e68vu"]
+
+[node name="are_closest_scrap" type="Node"]
+script = ExtResource("1_e68vu")

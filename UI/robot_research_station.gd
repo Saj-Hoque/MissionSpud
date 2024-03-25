@@ -79,6 +79,38 @@ var greenStyleBox = load("res://UI/green_style_box_flat.tres")
 
 @onready var collectorButton = $potato/BUY/HBoxContainer/Collector/collectorBuyButton
 
+
+@onready var scavengerCurrentUpkeep = $scrap/BUY/robots/Scavenger/Name/currentUpkeep
+@onready var scavengerSpeedButton = $scrap/BUY/robots/Scavenger/Speed/label_and_build/scavengerSpeedButton
+@onready var scavengerSpeedLevel1 = $scrap/BUY/robots/Scavenger/Speed/label_and_build/box/level1
+@onready var scavengerSpeedLevel2 = $scrap/BUY/robots/Scavenger/Speed/label_and_build/box/level2
+@onready var scavengerSpeedLevel3 = $scrap/BUY/robots/Scavenger/Speed/label_and_build/box/level3
+@onready var scavengerSpeedPotatoPrice = $scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/Price/potatoPrice
+@onready var scavengerSpeedScrapPrice = $scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/Price/scrapPrice
+@onready var scavengerSpeedImprovementLabel = $scrap/BUY/robots/Scavenger/Speed/description/improvement
+@onready var scavengerSpeedUpkeepLabel = $scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/upkeep/upkeepLabel
+@onready var scavengerSpeedResources = $scrap/BUY/robots/Scavenger/Speed/price_and_upkeep
+
+@onready var scavengerCapacityButton = $scrap/BUY/robots/Scavenger/Capacity/label_and_build/scavengerCapacityButton
+@onready var scavengerCapacityLevel1 = $scrap/BUY/robots/Scavenger/Capacity/label_and_build/box/level1
+@onready var scavengerCapacityLevel2 = $scrap/BUY/robots/Scavenger/Capacity/label_and_build/box/level2
+@onready var scavengerCapacityLevel3 = $scrap/BUY/robots/Scavenger/Capacity/label_and_build/box/level3
+@onready var scavengerCapacityPotatoPrice = $scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/Price/potatoPrice
+@onready var scavengerCapacityScrapPrice = $scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/Price/scrapPrice
+@onready var scavengerCapacityImprovementLabel = $scrap/BUY/robots/Scavenger/Capacity/description/improvement
+@onready var scavengerCapacityUpkeepLabel = $scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/upkeep/upkeepLabel
+@onready var scavengerCapacityResources = $scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep
+
+@onready var scavengerPowerButton = $scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/scavengerPowerButton
+@onready var scavengerPowerLevel1 = $scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/box/level1
+@onready var scavengerPowerLevel2 = $scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/box/level2
+@onready var scavengerPowerLevel3 = $scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/box/level3
+@onready var scavengerPowerPotatoPrice = $scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/Price/potatoPrice
+@onready var scavengerPowerScrapPrice = $scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/Price/scrapPrice
+@onready var scavengerPowerImprovementLabel = $scrap/BUY/robots/Scavenger/Power_Efficiency/description/improvement
+@onready var scavengerPowerUpkeepLabel = $scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/upkeep/upkeepLabel
+@onready var scavengerPowerResources = $scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep
+
 var planterSpeedLevel = 0
 var planterSpeedPrice = { 0 : {"potato" : 40,
 							   "scrap"  : 40 },
@@ -239,6 +271,87 @@ var harvesterPowerUpkeepValues = { 0 : -5,
 
 
 
+
+var scavengerSpeedLevel = 0
+var scavengerSpeedPrice = { 0 : {"potato" : 40,
+							   "scrap"  : 40 },
+						  1 : {"potato" : 160,
+							   "scrap"  : 160 },
+						  2 : {"potato" : 500,
+							   "scrap"  : 500 }
+						}
+var scavengerSpeedImprovementPrompt = "Enhance robots mobility.    "
+var scavengerSpeedImprovements = { 0 : "50   ->   60 m/s",
+								 1 : "60   ->   70 m/s",
+								 2 : "70   ->   80 m/s",
+								 3 : "80 m/s"
+							   }
+var scavengerSpeedImprovementValues = { 0 : 50,
+							   		  1 : 60,
+							   		  2 : 70,
+							   		  3 : 80	
+									}
+var scavengerSpeedUpkeep = { 0 : "Upkeep	    +3",
+						   1 : "Upkeep	    +6",
+						   2 : "Upkeep	    +10"
+						 }
+var scavengerSpeedUpkeepValues = { 0 : 3,
+								 1 : 6, 
+								 2 : 10
+							   }
+
+var scavengerCapacityLevel = 0
+var scavengerCapacityPrice = { 0 : {"potato" : 40,
+							   		  "scrap"  : 40 },
+						  		 1 : {"potato" : 160,
+							   		  "scrap"  : 160 },
+						  		 2 : {"potato" : 500,
+									  "scrap"  : 500 }
+							   }
+var scavengerCapacityImprovementPrompt = "Increase carrying capacity.    "
+var scavengerCapacityImprovements = { 0 : "1   ->   2",
+								 		1 : "2   ->   4",
+								 		2 : "4   ->   8",
+								 		3 : "8"
+							   		  }
+var scavengerCapacityImprovementValues = { 0 : 1,
+							   		  		 1 : 2,
+							   		  		 2 : 4,
+							   		  		 3 : 8
+										   }
+var scavengerCapacityUpkeep = { 0 : "Upkeep	    +3",
+						   		  1 : "Upkeep	    +6",
+								  2 : "Upkeep	    +10"
+								}
+var scavengerCapacityUpkeepValues = { 0 : 3,
+										1 : 6, 
+										2 : 10
+									  }
+									
+var scavengerPowerLevel = 0
+var scavengerPowerPrice = { 0 : {"potato" : 40,
+							   "scrap"  : 40 },
+						  1 : {"potato" : 160,
+							   "scrap"  : 160 },
+						  2 : {"potato" : 500,
+							   "scrap"  : 500 }
+						}
+var scavengerPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
+var scavengerPowerImprovements = { 0 : "5 per robot",
+								 1 : "8 per robot",
+								 2 : "13 per robot",
+								 3 : "Up to -26 per robot"
+							   }
+var scavengerPowerUpkeep = { 0 : "Upkeep	    -5",
+						   1 : "Upkeep	    -8",
+						   2 : "Upkeep	    -13"
+						 }
+var scavengerPowerUpkeepValues = { 0 : -5,
+								 1 : -8, 
+								 2 : -13
+							   }
+
+
 func _ready():
 	close_shop()
 	await get_tree().get_root().ready
@@ -276,6 +389,12 @@ func _process(delta):
 		_check_if_enough(harvesterProductivityLevel, harvesterProductivityPrice, harvesterProductivityButton)
 		_check_if_enough(harvesterPowerLevel, harvesterPowerPrice, harvesterPowerButton)
 		
+		
+		
+		_check_if_enough(scavengerSpeedLevel, scavengerSpeedPrice, scavengerSpeedButton)
+		_check_if_enough(scavengerCapacityLevel, scavengerCapacityPrice, scavengerCapacityButton)
+		_check_if_enough(scavengerPowerLevel, scavengerPowerPrice, scavengerPowerButton)
+		
 
 func _update_values(prices, level, potatoPrice, scrapPrice, improvementPrompt, impovementLabel, improvement, upkeepLabel, upkeep):
 	if level < 3:
@@ -294,7 +413,14 @@ func _update():
 	_update_values(harvesterProductivityPrice, harvesterProductivityLevel, harvesterProductivityPotatoPrice, harvesterProductivityScrapPrice, harvesterProductivityImprovementPrompt, harvesterProductivityImprovementLabel, harvesterProductivityImprovements, harvesterProductivityUpkeepLabel, harvesterProductivityUpkeep)
 	_update_values(harvesterPowerPrice, harvesterPowerLevel, harvesterPowerPotatoPrice, harvesterPowerScrapPrice, harvesterPowerImprovementPrompt, harvesterPowerImprovementLabel, harvesterPowerImprovements, harvesterPowerUpkeepLabel, harvesterPowerUpkeep)
 
-func _update_global_values(robot_type, prices, level):
+
+
+	_update_values(scavengerSpeedPrice, scavengerSpeedLevel, scavengerSpeedPotatoPrice, scavengerSpeedScrapPrice, scavengerSpeedImprovementPrompt, scavengerSpeedImprovementLabel, scavengerSpeedImprovements, scavengerSpeedUpkeepLabel, scavengerSpeedUpkeep)
+	_update_values(scavengerCapacityPrice, scavengerCapacityLevel, scavengerCapacityPotatoPrice, scavengerCapacityScrapPrice, scavengerCapacityImprovementPrompt, scavengerCapacityImprovementLabel, scavengerCapacityImprovements, scavengerCapacityUpkeepLabel, scavengerCapacityUpkeep)
+	_update_values(scavengerPowerPrice, scavengerPowerLevel, scavengerPowerPotatoPrice, scavengerPowerScrapPrice, scavengerPowerImprovementPrompt, scavengerPowerImprovementLabel, scavengerPowerImprovements, scavengerPowerUpkeepLabel, scavengerPowerUpkeep)
+
+
+func _update_global_values(prices, level):
 	Global.potatoCount -= prices[level]["potato"]
 	Global.scrapCount -= prices[level]["scrap"]
 	recalibrate_robot_upkeep()
@@ -357,6 +483,8 @@ func update_current_upkeep_label():
 	planterCurrentUpkeep.text = "+0 (" + str(Global.planterUpkeep) + ")" if Global.planterUpkeep < 0 else "+" + str(Global.planterUpkeep)
 	harvesterCurrentUpkeep.text = "+0 (" + str(Global.harvesterUpkeep) + ")" if Global.harvesterUpkeep < 0 else "+" + str(Global.harvesterUpkeep)
 	
+	scavengerCurrentUpkeep.text = "+0 (" + str(Global.scavengerUpkeep) + ")" if Global.scavengerUpkeep < 0 else "+" + str(Global.scavengerUpkeep)
+	
 func update_robot_upkeep(robots, upkeepValues, level):
 	var upkeep = upkeepValues[level]
 	for robot in robots:
@@ -376,6 +504,12 @@ func update_robot_productivity(robots, improvementValues, level):
 		robot.timer.wait_time = productivity
 	return productivity
 
+func update_robot_capacity(robots, improvementValues, level):
+	var capacity = improvementValues[level]
+	for robot in robots:
+		robot.capacity = capacity
+	return capacity
+
 func list_of_robot_type(type):
 	all_robots = get_tree().get_nodes_in_group("robots")
 	var robots = []
@@ -387,7 +521,7 @@ func list_of_robot_type(type):
 func _on_planter_speed_button_pressed():
 	var planters = list_of_robot_type(planter_robot)
 	Global.planterUpkeep += update_robot_upkeep(planters, planterSpeedUpkeepValues, planterSpeedLevel)
-	planterSpeedLevel = _update_global_values("planter", planterSpeedPrice, planterSpeedLevel)
+	planterSpeedLevel = _update_global_values(planterSpeedPrice, planterSpeedLevel)
 	Global.planterSpeed = update_robot_speed(planters, planterSpeedImprovementValues, planterSpeedLevel)
 	
 	var levelBox
@@ -411,7 +545,7 @@ func _on_planter_speed_button_mouse_exited():
 func _on_planter_productivity_button_pressed():
 	var planters = list_of_robot_type(planter_robot)
 	Global.planterUpkeep += update_robot_upkeep(planters, planterProductivityUpkeepValues, planterProductivityLevel)
-	planterProductivityLevel = _update_global_values("planter", planterProductivityPrice, planterProductivityLevel)
+	planterProductivityLevel = _update_global_values(planterProductivityPrice, planterProductivityLevel)
 	Global.planterProductivity = update_robot_productivity(planters, planterProductivityImprovementValues, planterProductivityLevel)
 	
 	var levelBox
@@ -436,7 +570,7 @@ func _on_planter_productivity_button_mouse_exited():
 func _on_planter_power_button_pressed():
 	var planters = list_of_robot_type(planter_robot)
 	Global.planterUpkeep += update_robot_upkeep(planters, planterPowerUpkeepValues, planterPowerLevel)
-	planterPowerLevel = _update_global_values("planter", planterPowerPrice, planterPowerLevel)
+	planterPowerLevel = _update_global_values(planterPowerPrice, planterPowerLevel)
 	
 	var levelBox
 	if planterPowerLevel == 1:
@@ -459,7 +593,7 @@ func _on_planter_power_button_mouse_exited():
 func _on_harvester_speed_button_pressed():
 	var harvesters = list_of_robot_type(harvester_robot)
 	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterSpeedUpkeepValues, harvesterSpeedLevel)
-	harvesterSpeedLevel = _update_global_values("harvester", harvesterSpeedPrice, harvesterSpeedLevel)
+	harvesterSpeedLevel = _update_global_values(harvesterSpeedPrice, harvesterSpeedLevel)
 	Global.harvesterSpeed = update_robot_speed(harvesters, harvesterSpeedImprovementValues, harvesterSpeedLevel)
 	
 	var levelBox
@@ -485,7 +619,7 @@ func _on_harvester_speed_button_mouse_exited():
 func _on_harvester_productivity_button_pressed():
 	var harvesters = list_of_robot_type(harvester_robot)
 	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterProductivityUpkeepValues, harvesterProductivityLevel)
-	harvesterProductivityLevel = _update_global_values("harvester", harvesterProductivityPrice, harvesterProductivityLevel)
+	harvesterProductivityLevel = _update_global_values(harvesterProductivityPrice, harvesterProductivityLevel)
 	Global.harvesterProductivity = update_robot_productivity(harvesters, harvesterProductivityImprovementValues, harvesterProductivityLevel)
 	
 	var levelBox
@@ -512,7 +646,7 @@ func _on_harvester_productivity_button_mouse_exited():
 func _on_harvester_power_button_pressed():
 	var harvesters = list_of_robot_type(harvester_robot)
 	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterPowerUpkeepValues, harvesterPowerLevel)
-	harvesterPowerLevel = _update_global_values("harvester", harvesterPowerPrice, harvesterPowerLevel)
+	harvesterPowerLevel = _update_global_values(harvesterPowerPrice, harvesterPowerLevel)
 	
 	var levelBox
 	if harvesterPowerLevel == 1:
@@ -534,6 +668,90 @@ func _on_harvester_power_button_mouse_exited():
 	totalUpkeep.visible = false
 
 
+
+
+
+
+
+func _on_scavenger_speed_button_pressed():
+	var scavengers = list_of_robot_type(scavenger_robot)
+	Global.scavengerUpkeep += update_robot_upkeep(scavengers, scavengerSpeedUpkeepValues, scavengerSpeedLevel)
+	scavengerSpeedLevel = _update_global_values(scavengerSpeedPrice, scavengerSpeedLevel)
+	Global.scavengerSpeed = update_robot_speed(scavengers, scavengerSpeedImprovementValues, scavengerSpeedLevel)
+	
+	var levelBox
+	if scavengerSpeedLevel == 1:
+		levelBox = scavengerSpeedLevel1
+	elif scavengerSpeedLevel == 2:
+		levelBox = scavengerSpeedLevel2
+	elif scavengerSpeedLevel == 3:
+		levelBox = scavengerSpeedLevel3
+		
+	_update_to_new_button_values(scavengers, scavengerSpeedLevel, scavengerSpeedUpkeep, scavengerSpeedUpkeepValues, scavengerSpeedUpkeepLabel, scavengerSpeedImprovements, scavengerSpeedImprovementLabel, scavengerSpeedButton, scavengerSpeedResources, levelBox)
+
+
+func _on_scavenger_speed_button_mouse_entered():
+	var scavengers = list_of_robot_type(scavenger_robot)
+	_refresh_upkeep_button(scavengers, scavengerPowerButton, scavengerPowerUpkeepValues, scavengerPowerLevel)
+
+
+func _on_scavenger_speed_button_mouse_exited():
+	totalUpkeep.visible = false
+	
+
+func _on_scavenger_capacity_button_pressed():
+	var scavengers = list_of_robot_type(scavenger_robot)
+	Global.scavengerUpkeep += update_robot_upkeep(scavengers, scavengerCapacityUpkeepValues, scavengerCapacityLevel)
+	scavengerCapacityLevel = _update_global_values(scavengerCapacityPrice, scavengerCapacityLevel)
+	Global.scavengerCapacity = update_robot_capacity(scavengers, scavengerCapacityImprovementValues, scavengerCapacityLevel)
+	
+	var levelBox
+	if scavengerCapacityLevel == 1:
+		levelBox = scavengerCapacityLevel1
+	elif scavengerCapacityLevel == 2:
+		levelBox = scavengerCapacityLevel2
+	elif scavengerCapacityLevel == 3:
+		levelBox = scavengerCapacityLevel3
+		
+	_update_to_new_button_values(scavengers, scavengerCapacityLevel, scavengerCapacityUpkeep, scavengerCapacityUpkeepValues, scavengerCapacityUpkeepLabel, scavengerCapacityImprovements, scavengerCapacityImprovementLabel, scavengerCapacityButton, scavengerCapacityResources, levelBox)
+
+
+func _on_scavenger_capacity_button_mouse_entered():
+	var scavengers = list_of_robot_type(scavenger_robot)
+	_refresh_upkeep_button(scavengers, scavengerPowerButton, scavengerPowerUpkeepValues, scavengerPowerLevel)
+
+func _on_scavenger_capacity_button_mouse_exited():
+	totalUpkeep.visible = false
+
+
+func _on_scavenger_power_button_pressed():
+	var scavengers = list_of_robot_type(scavenger_robot)
+	Global.scavengerUpkeep += update_robot_upkeep(scavengers, scavengerPowerUpkeepValues, scavengerPowerLevel)
+	scavengerPowerLevel = _update_global_values(scavengerPowerPrice, scavengerPowerLevel)
+	
+	var levelBox
+	if scavengerPowerLevel == 1:
+		levelBox = scavengerPowerLevel1
+	elif scavengerPowerLevel == 2:
+		levelBox = scavengerPowerLevel2
+	elif scavengerPowerLevel == 3:
+		levelBox = scavengerPowerLevel3
+		
+	_update_to_new_button_values(scavengers, scavengerPowerLevel, scavengerPowerUpkeep, scavengerPowerUpkeepValues, scavengerPowerUpkeepLabel, scavengerPowerImprovements, scavengerPowerImprovementLabel, scavengerPowerButton, scavengerPowerResources, levelBox)
+
+
+func _on_scavenger_power_button_mouse_entered():
+	var scavengers = list_of_robot_type(scavenger_robot)
+	_refresh_upkeep_button(scavengers, scavengerPowerButton, scavengerPowerUpkeepValues, scavengerPowerLevel)
+
+
+func _on_scavenger_power_button_mouse_exited():
+	totalUpkeep.visible = false
+
+
+
+
+
 func _on_potato_button_pressed():
 	scrapButton.button_pressed = false
 	scrapSection.visible = false
@@ -543,3 +761,8 @@ func _on_scrap_button_pressed():
 	potatoButton.button_pressed = false
 	potatoSection.visible = false
 	scrapSection.visible = true
+
+
+
+
+

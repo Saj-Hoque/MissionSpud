@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx8aypahf3tv2"]
+
+[ext_resource type="Script" path="res://ai/is_main_hub.gd" id="1_sel2s"]
+
+[node name="is_main_hub" type="Node"]
+script = ExtResource("1_sel2s")

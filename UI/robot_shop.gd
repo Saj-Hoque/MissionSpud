@@ -7,6 +7,9 @@ var planter_ai_scene = preload("res://ai/Behavior_Trees/planter_ai.tscn")
 var harvester_scene = preload("res://Robots/Harvester/harvester.tscn")
 var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 
+var scavenger_scene = preload("res://Robots/Scavenger/scavenger.tscn")
+var scavenger_ai_scene = preload("res://ai/Behavior_Trees/scavenger_ai.tscn")
+
 @onready var timer = $buyTimer
 @onready var totalUpkeep = $totalUpkeep
 
@@ -30,18 +33,23 @@ var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
 @onready var collectorPotatoLabel = $potato/BUY/robots/Collector/Price/potatoPrice
 @onready var collectorScrapLabel = $potato/BUY/robots/Collector/Price/scrapPrice
 
+@onready var scavengerButton = $scrap/BUY/robots/Scavenger/scavengerBuyButton
+@onready var scavengerUpkeepLabel = $scrap/BUY/robots/Scavenger/upkeep/upkeepLabel
+@onready var scavengerPotatoLabel = $scrap/BUY/robots/Scavenger/Price/potatoPrice
+@onready var scavengerScrapLabel = $scrap/BUY/robots/Scavenger/Price/scrapPrice
+
 var planterPrice = { "potato" : 20,
 					 "scrap"  : 20 }
 
 var harvesterPrice = { "potato" : 20,
 					   "scrap"  : 20 }
-var harvesterUpkeep = 5
-
 
 var collectorPrice = { "potato" : 20,
 					   "scrap"  : 20 }
 var collectorUpkeep = 5
 
+var scavengerPrice = { "potato" : 20,
+					   "scrap"  : 20 }
 
 var disable_override = false
 
@@ -60,7 +68,8 @@ func _process(delta):
 		_check_if_enough(harvesterPrice, harvesterButton)
 		_check_if_enough(collectorPrice, collectorButton)
 		
-		
+		_check_if_enough(scavengerPrice, scavengerButton)
+	
 func open_shop():
 	visible = true
 	_update()
@@ -84,6 +93,8 @@ func _update():
 	_update_robot_details(planterPrice, planterPotatoLabel, planterScrapLabel, Global.planterUpkeep, planterUpkeepLabel)
 	_update_robot_details(harvesterPrice, harvesterPotatoLabel, harvesterScrapLabel, Global.harvesterUpkeep, harvesterUpkeepLabel)
 	#_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, collectorUpkeep, collectorUpkeepLabel)
+	
+	_update_robot_details(scavengerPrice, scavengerPotatoLabel, scavengerScrapLabel, Global.scavengerUpkeep, scavengerUpkeepLabel)
 
 func _disable_all_buttons():
 	disable_override = true
@@ -91,11 +102,15 @@ func _disable_all_buttons():
 	harvesterButton.disabled = true
 	collectorButton.disabled = true
 	
+	scavengerButton.disabled = true
+	
 func _enable_all_buttons():
 	disable_override = false
 	planterButton.disabled = false
 	harvesterButton.disabled = false
 	collectorButton.disabled = false
+	
+	scavengerButton.disabled = false
 
 
 func _buy_robot(price, scene, ai_scene):
@@ -123,14 +138,16 @@ func _on_planter_buy_button_pressed():
 	_buy_robot(planterPrice, planter_scene, planter_ai_scene)
 	_refresh_upkeep_button(planterButton, Global.planterUpkeep)
 
-
 func _on_harvester_buy_button_pressed():
 	_buy_robot(harvesterPrice, harvester_scene, harvester_ai_scene)
-	_refresh_upkeep_button(harvesterButton, harvesterUpkeep)
+	_refresh_upkeep_button(harvesterButton, Global.harvesterUpkeep)
 
 func _on_collector_buy_button_pressed():
 	_refresh_upkeep_button(collectorButton, collectorUpkeep)
 
+func _on_scavenger_buy_button_pressed():
+	_buy_robot(scavengerPrice, scavenger_scene, scavenger_ai_scene)
+	_refresh_upkeep_button(scavengerButton, Global.scavengerUpkeep)
 
 
 func _refresh_upkeep(upkeepValue):
@@ -150,7 +167,7 @@ func _on_planter_buy_button_mouse_exited():
 	totalUpkeep.visible = false
 
 func _on_harvester_buy_button_mouse_entered():
-	_refresh_upkeep_button(harvesterButton, harvesterUpkeep)
+	_refresh_upkeep_button(harvesterButton, Global.harvesterUpkeep)
 
 func _on_harvester_buy_button_mouse_exited():
 		totalUpkeep.visible = false
@@ -161,18 +178,11 @@ func _on_collector_buy_button_mouse_entered():
 func _on_collector_buy_button_mouse_exited():
 		totalUpkeep.visible = false
 
-
-func _on_scavenger_buy_button_pressed():
-	pass # Replace with function body.
-
-
 func _on_scavenger_buy_button_mouse_entered():
-	pass # Replace with function body.
-
+	_refresh_upkeep_button(scavengerButton, Global.scavengerUpkeep)
 
 func _on_scavenger_buy_button_mouse_exited():
-	pass # Replace with function body.
-
+	totalUpkeep.visible = false
 
 func _on_potato_button_pressed():
 	scrapButton.button_pressed = false
