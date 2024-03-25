@@ -77,14 +77,14 @@ script = ExtResource("9_2v8aa")
 
 [node name="deposit_resource" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("8_qyip2")]
 
-[node name="collect" type="Node" parent="Either"]
+[node name="scavenge" type="Node" parent="Either"]
 script = ExtResource("3_8ufkn")
 
-[node name="not_overrided_by_player" type="Node" parent="Either/collect"]
+[node name="not_overrided_by_player" type="Node" parent="Either/scavenge"]
 script = ExtResource("9_2v8aa")
 
-[node name="check_right_click" parent="Either/collect/not_overrided_by_player" instance=ExtResource("4_5n2vw")]
+[node name="check_right_click" parent="Either/scavenge/not_overrided_by_player" instance=ExtResource("4_5n2vw")]
 
-[node name="find_next_available_scrap" parent="Either/collect" instance=ExtResource("11_ng51y")]
+[node name="find_next_available_scrap" parent="Either/scavenge" instance=ExtResource("11_ng51y")]
 
-[node name="go_to_closest_scrap" parent="Either/collect" instance=ExtResource("14_rlmgn")]
+[node name="go_to_closest_scrap" parent="Either/scavenge" instance=ExtResource("14_rlmgn")]
