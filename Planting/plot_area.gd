@@ -79,7 +79,7 @@ func _on_zone_input_event(viewport, event, shape_idx):
 					print("This robot is already assigned here!")
 				elif idle_area.robots.size() == idle_area.total_docks:
 					print("Cannot assign robot to fully allocated plot. Free up space or assign them to a different plot")
-				elif not (robot is planter_robot or robot is harvester_robot):
+				elif not (robot is planter_robot or robot is harvester_robot or robot is collector_robot):
 					print("Cannot assign a scrap robot to a farming area")
 				else:
 					robot.assign_to_new_idle_area(idle_area)

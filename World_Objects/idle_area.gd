@@ -86,7 +86,7 @@ func _on_zone_input_event(viewport, event, shape_idx):
 					print("This robot is already assigned here!")
 				elif robots.size() == total_docks:
 					print("Cannot assign robot to fully allocated plot. Free up space or assign them to a different plot")
-				elif (robot is planter_robot or robot is harvester_robot) and not (type == "farming" or type == "main"):
+				elif (robot is planter_robot or robot is harvester_robot or robot is collector_robot) and not (type == "farming" or type == "main"):
 					print("Cannot assign a farming robot to a non-farming area")
 				elif (robot is scavenger_robot) and not (type == "scrap" or type == "main"):
 					print("Cannot assign a scrap robot to a non-scrap area")

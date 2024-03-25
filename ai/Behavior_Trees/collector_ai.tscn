@@ -1,0 +1,90 @@
+[gd_scene load_steps=17 format=3 uid="uid://bwp18u1bpwem"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_5t421"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_2pikv"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_jocu5"]
+[ext_resource type="PackedScene" uid="uid://cuuvk71g2531q" path="res://ai/check_right_click.tscn" id="4_81kyx"]
+[ext_resource type="PackedScene" uid="uid://cn61f7i7xhl33" path="res://ai/change_right_click_status.tscn" id="5_3q3ww"]
+[ext_resource type="PackedScene" uid="uid://dpdo8vka75qqa" path="res://ai/find_next_available_dock.tscn" id="6_c7itr"]
+[ext_resource type="PackedScene" uid="uid://vp5x0sf3iae3" path="res://ai/go_to_idle_dock.tscn" id="7_jmop1"]
+[ext_resource type="PackedScene" uid="uid://dhorqx7jm74ex" path="res://ai/deposit_resource.tscn" id="8_muopw"]
+[ext_resource type="PackedScene" uid="uid://dx8aypahf3tv2" path="res://ai/is_main_hub.tscn" id="9_a32a2"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="10_23jio"]
+[ext_resource type="PackedScene" uid="uid://bx5yx5duph0yc" path="res://ai/has_enough_capacity.tscn" id="11_0iu8w"]
+[ext_resource type="PackedScene" uid="uid://c07om7c8hdmfw" path="res://ai/are_closest_potato.tscn" id="12_pvpt6"]
+[ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="13_4wbbd"]
+[ext_resource type="PackedScene" uid="uid://lgcu0uuh0c07" path="res://ai/reset_scavenging_status.tscn" id="14_mr7mc"]
+[ext_resource type="PackedScene" uid="uid://bku0hrpyq7kbs" path="res://ai/find_next_available_potato.tscn" id="15_mhw45"]
+[ext_resource type="PackedScene" uid="uid://dhn2tpeija2n8" path="res://ai/go_to_closest_potato.tscn" id="16_f226l"]
+
+[node name="collector_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_5t421")
+blackboard = NodePath("@Node@149289")
+actor = NodePath("")
+
+[node name="Either" type="Node" parent="."]
+script = ExtResource("2_2pikv")
+
+[node name="overrided_by_player" type="Node" parent="Either"]
+script = ExtResource("3_jocu5")
+
+[node name="check_right_click" parent="Either/overrided_by_player" instance=ExtResource("4_81kyx")]
+
+[node name="change_right_click_status" parent="Either/overrided_by_player" instance=ExtResource("5_3q3ww")]
+
+[node name="find_next_available_dock" parent="Either/overrided_by_player" instance=ExtResource("6_c7itr")]
+
+[node name="go_to_idle_dock" parent="Either/overrided_by_player" instance=ExtResource("7_jmop1")]
+
+[node name="deposit_resource" parent="Either/overrided_by_player" instance=ExtResource("8_muopw")]
+
+[node name="wait" type="Node" parent="Either"]
+script = ExtResource("3_jocu5")
+
+[node name="needs_to_wait" type="Node" parent="Either/wait"]
+script = ExtResource("2_2pikv")
+
+[node name="is_main_hub" parent="Either/wait/needs_to_wait" instance=ExtResource("9_a32a2")]
+
+[node name="not_enough_capacity" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("10_23jio")
+
+[node name="has_enough_capacity" parent="Either/wait/needs_to_wait/not_enough_capacity" instance=ExtResource("11_0iu8w")]
+
+[node name="no_closest_potato" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("10_23jio")
+
+[node name="are_closest_potato" parent="Either/wait/needs_to_wait/no_closest_potato" instance=ExtResource("12_pvpt6")]
+
+[node name="rest" type="Node" parent="Either/wait"]
+script = ExtResource("2_2pikv")
+
+[node name="is_already_idle" parent="Either/wait/rest" instance=ExtResource("13_4wbbd")]
+
+[node name="go_sit_idle" type="Node" parent="Either/wait/rest"]
+script = ExtResource("3_jocu5")
+
+[node name="not_overrided_by_player" type="Node" parent="Either/wait/rest/go_sit_idle"]
+script = ExtResource("10_23jio")
+
+[node name="check_right_click" parent="Either/wait/rest/go_sit_idle/not_overrided_by_player" instance=ExtResource("4_81kyx")]
+
+[node name="reset_collecting_status" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("14_mr7mc")]
+
+[node name="find_next_available_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("6_c7itr")]
+
+[node name="go_to_idle_dock" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("7_jmop1")]
+
+[node name="deposit_resource" parent="Either/wait/rest/go_sit_idle" instance=ExtResource("8_muopw")]
+
+[node name="collect" type="Node" parent="Either"]
+script = ExtResource("3_jocu5")
+
+[node name="not_overrided_by_player" type="Node" parent="Either/collect"]
+script = ExtResource("10_23jio")
+
+[node name="check_right_click" parent="Either/collect/not_overrided_by_player" instance=ExtResource("4_81kyx")]
+
+[node name="find_next_available_potato" parent="Either/collect" instance=ExtResource("15_mhw45")]
+
+[node name="go_to_closest_potato" parent="Either/collect" instance=ExtResource("16_f226l")]

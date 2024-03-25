@@ -1,20 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://lj0orhl3dn2u"]
+[gd_scene load_steps=8 format=3 uid="uid://f6qdqic4rt1u"]
 
-[ext_resource type="Script" path="res://Robots/Scavenger/scavenger.gd" id="1_74c7q"]
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_y7qio"]
+[ext_resource type="Script" path="res://Robots/Collector/collector.gd" id="1_kxb6b"]
+[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_14ip4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_x0vi5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wj5hv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y7qio")
+"texture": ExtResource("2_14ip4")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgfwq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt6up"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 2
 border_width_top = 2
@@ -27,22 +27,22 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqhlf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpyln"]
 size = Vector2(6, 3)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ddb4k"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wq5q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d0umt"]
-radius = 8.06226
+[sub_resource type="CircleShape2D" id="CircleShape2D_umsrc"]
+radius = 6.0
 
-[node name="scavenger" type="CharacterBody2D" groups=["robots"]]
+[node name="collector" type="CharacterBody2D" groups=["robots"]]
 z_index = 4
 y_sort_enabled = true
-collision_layer = 144
+collision_layer = 80
 collision_mask = 11
 motion_mode = 1
 platform_floor_layers = 4294967277
-script = ExtResource("1_74c7q")
+script = ExtResource("1_kxb6b")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
@@ -50,9 +50,9 @@ target_desired_distance = 1.0
 path_max_distance = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.564706, 0.0862745, 0.768627, 1)
+modulate = Color(0.74902, 0.415686, 0.0666667, 1)
 scale = Vector2(0.05, 0.05)
-sprite_frames = SubResource("SpriteFrames_x0vi5")
+sprite_frames = SubResource("SpriteFrames_wj5hv")
 
 [node name="highlight_box" type="Panel" parent="."]
 visible = false
@@ -60,23 +60,23 @@ offset_left = -5.0
 offset_top = -5.0
 offset_right = 5.0
 offset_bottom = 5.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vgfwq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dt6up")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_iqhlf")
+shape = SubResource("RectangleShape2D_mpyln")
 
 [node name="SelectionArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea2D"]
-shape = SubResource("CircleShape2D_ddb4k")
+shape = SubResource("CircleShape2D_8wq5q")
 
-[node name="pickup_range" type="Area2D" parent="." groups=["scavengers"]]
+[node name="pickup_range" type="Area2D" parent="." groups=["collectors"]]
 collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
-shape = SubResource("CircleShape2D_d0umt")
+shape = SubResource("CircleShape2D_umsrc")
 
 [node name="Raycasts" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=37 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://nvdo6erlwj2v" path="res://ai/Behavior_Trees/harvester_ai.tscn" id="13_ll7b2"]
 [ext_resource type="PackedScene" uid="uid://lj0orhl3dn2u" path="res://Robots/Scavenger/scavenger.tscn" id="15_pl3ab"]
 [ext_resource type="PackedScene" uid="uid://bwj2mfj27tyoh" path="res://ai/Behavior_Trees/scavenger_ai.tscn" id="16_lr2pf"]
+[ext_resource type="PackedScene" uid="uid://f6qdqic4rt1u" path="res://Robots/Collector/collector.tscn" id="17_eveds"]
+[ext_resource type="PackedScene" uid="uid://bwp18u1bpwem" path="res://ai/Behavior_Trees/collector_ai.tscn" id="18_pp1s6"]
 
 [sub_resource type="SystemFont" id="SystemFont_vc7es"]
 font_names = PackedStringArray("Impact")
@@ -644,7 +646,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(83, 114)
 
-[node name="plotA" parent="idleArea" instance=ExtResource("4_x37oa")]
+[node name="plotA" parent="idleArea" groups=["plotA"] instance=ExtResource("4_x37oa")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(-83, -114)
@@ -655,7 +657,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(81, 168)
 
-[node name="plotB" parent="idleArea2" instance=ExtResource("4_x37oa")]
+[node name="plotB" parent="idleArea2" groups=["plotB"] instance=ExtResource("4_x37oa")]
 position = Vector2(-15, -168)
 total_plots = 24
 
@@ -733,28 +735,35 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@17512")
+blackboard = NodePath("@Node@182844")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(76, -58)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@17513")
+blackboard = NodePath("@Node@182845")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@17514")
+blackboard = NodePath("@Node@182846")
 actor = NodePath("..")
 
-[node name="scavenger2" parent="robots" instance=ExtResource("15_pl3ab")]
-position = Vector2(-14, -58)
+[node name="collector" parent="robots" instance=ExtResource("17_eveds")]
+position = Vector2(-98, -57)
 
-[node name="scavenger_ai" parent="robots/scavenger2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@17515")
+[node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
+blackboard = NodePath("@Node@182847")
+actor = NodePath("..")
+
+[node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
+position = Vector2(-63, -57)
+
+[node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
+blackboard = NodePath("@Node@182848")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

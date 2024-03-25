@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bku0hrpyq7kbs"]
+
+[ext_resource type="Script" path="res://ai/find_next_available_potato.gd" id="1_cp07k"]
+
+[node name="find_next_available_potato" type="Node"]
+script = ExtResource("1_cp07k")

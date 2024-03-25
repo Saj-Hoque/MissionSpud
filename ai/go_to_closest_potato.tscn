@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhn2tpeija2n8"]
+
+[ext_resource type="Script" path="res://ai/go_to_closest_potato.gd" id="1_3llrk"]
+
+[node name="go_to_closest_potato" type="Node"]
+script = ExtResource("1_3llrk")
