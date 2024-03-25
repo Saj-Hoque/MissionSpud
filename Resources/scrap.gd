@@ -71,6 +71,7 @@ func _handle_picked_up_by_robot():
 	tween.tween_property(self, "modulate:a", 0.0, 0.1)
 	tween.tween_callback(robot.add_to_capacity)
 	tween.tween_callback(queue_free)
+	print(robot.carrying)
 	
 func _on_pickup_range_area_entered(area):
 	if area.is_in_group("player"):

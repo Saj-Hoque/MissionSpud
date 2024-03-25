@@ -20,7 +20,7 @@ func tick(actor, blackboard: Blackboard):
 		actor.reset_collecting_status()
 		return FAILURE
 	actor.enable_movement()
-	actor.status = "Travelling to closest scrap"
+	actor.status = "Finding nearest scrap"
 	return RUNNING
 
 func _target_reached():

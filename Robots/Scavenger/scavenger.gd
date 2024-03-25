@@ -33,10 +33,6 @@ var idle:bool = false
 var docking:bool = false
 var docker_num:int
 
-var scrapping:bool = false
-var collecting: bool = false
-var collected: bool = false
-
 var closest_scrap = null
 
 var target_position = global_position
@@ -150,13 +146,10 @@ func find_nearest_scrap():
 		if not scrap.is_available():
 			continue
 		var scrap_distance = global_position.distance_to(scrap.global_position)
-		#var dist = abs(global_position - scrap.global_position)
-		#var scrap_distance = pow(pow(dist[0], 2) + pow(dist[1], 2), 1.0/2.0)
 		if scrap_distance < current_distance:
 			current_distance = scrap_distance
 			nearest = scrap
 	return nearest
-
 
 func occupy_scrap():
 	closest_scrap.occupied()
