@@ -19,7 +19,7 @@
 
 [node name="scavenger_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_dq4xa")
-blackboard = NodePath("@Node@17519")
+blackboard = NodePath("@Node@47556")
 actor = NodePath("")
 
 [node name="Either" type="Node" parent="."]

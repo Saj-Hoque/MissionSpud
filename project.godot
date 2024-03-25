@@ -98,6 +98,8 @@ interact={
 2d_physics/layer_3="item"
 2d_physics/layer_4="workbench"
 2d_physics/layer_5="robot"
+2d_physics/layer_7="collector"
+2d_physics/layer_8="scavenger"
 
 [navigation]
 

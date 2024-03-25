@@ -406,6 +406,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="label" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/label_and_build"]
+custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Power Efficiency"
@@ -819,6 +820,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="label" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/label_and_build"]
+custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Power Efficiency"
@@ -1097,55 +1099,55 @@ texture = ExtResource("3_5saav")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Productivity" type="VBoxContainer" parent="potato/BUY/robots/Collector"]
+[node name="Range" type="VBoxContainer" parent="potato/BUY/robots/Collector"]
 layout_mode = 2
 alignment = 1
 
-[node name="label_and_build" type="HBoxContainer" parent="potato/BUY/robots/Collector/Productivity"]
+[node name="label_and_build" type="HBoxContainer" parent="potato/BUY/robots/Collector/Range"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="label" type="Label" parent="potato/BUY/robots/Collector/Productivity/label_and_build"]
+[node name="label" type="Label" parent="potato/BUY/robots/Collector/Range/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Productivity"
+text = "Range"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="box" type="HBoxContainer" parent="potato/BUY/robots/Collector/Productivity/label_and_build"]
+[node name="box" type="HBoxContainer" parent="potato/BUY/robots/Collector/Range/label_and_build"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="level1" type="Label" parent="potato/BUY/robots/Collector/Productivity/label_and_build/box"]
+[node name="level1" type="Label" parent="potato/BUY/robots/Collector/Range/label_and_build/box"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_dg1jv")
 text = "   "
 
-[node name="level2" type="Label" parent="potato/BUY/robots/Collector/Productivity/label_and_build/box"]
+[node name="level2" type="Label" parent="potato/BUY/robots/Collector/Range/label_and_build/box"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_dg1jv")
 text = "   "
 
-[node name="level3" type="Label" parent="potato/BUY/robots/Collector/Productivity/label_and_build/box"]
+[node name="level3" type="Label" parent="potato/BUY/robots/Collector/Range/label_and_build/box"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_dg1jv")
 text = "   "
 
-[node name="collectorProductivityButton" type="Button" parent="potato/BUY/robots/Collector/Productivity/label_and_build"]
+[node name="collectorRangeButton" type="Button" parent="potato/BUY/robots/Collector/Range/label_and_build"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade"
 
-[node name="description" type="HBoxContainer" parent="potato/BUY/robots/Collector/Productivity"]
+[node name="description" type="HBoxContainer" parent="potato/BUY/robots/Collector/Range"]
 layout_mode = 2
 alignment = 1
 
-[node name="improvement" type="Label" parent="potato/BUY/robots/Collector/Productivity/description"]
+[node name="improvement" type="Label" parent="potato/BUY/robots/Collector/Range/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
@@ -1153,17 +1155,17 @@ text = "Reduce potato harvesting time.    20 -> 10 s"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="price_and_upkeep" type="HBoxContainer" parent="potato/BUY/robots/Collector/Productivity"]
+[node name="price_and_upkeep" type="HBoxContainer" parent="potato/BUY/robots/Collector/Range"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Price" type="HBoxContainer" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep"]
+[node name="Price" type="HBoxContainer" parent="potato/BUY/robots/Collector/Range/price_and_upkeep"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="potatoPrice" type="Label" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+[node name="potatoPrice" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -1171,13 +1173,13 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="potatoIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+[node name="potatoIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/Price"]
 layout_mode = 2
 texture = ExtResource("3_5saav")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="scrapPrice" type="Label" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+[node name="scrapPrice" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -1185,38 +1187,38 @@ text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="scrapIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/Price"]
+[node name="scrapIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/Price"]
 layout_mode = 2
 texture = ExtResource("4_7sbpb")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="upkeep" type="HBoxContainer" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep"]
+[node name="upkeep" type="HBoxContainer" parent="potato/BUY/robots/Collector/Range/price_and_upkeep"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/upkeep"]
+[node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upkeepIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/upkeep"]
+[node name="upkeepIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
 layout_mode = 2
 texture = ExtResource("3_5saav")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="filler" type="Label" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/upkeep"]
+[node name="filler" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Productivity/price_and_upkeep/upkeep"]
+[node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
 layout_mode = 2
 texture = ExtResource("3_5saav")
 expand_mode = 3
@@ -1232,6 +1234,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="label" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/label_and_build"]
+custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Power Efficiency"
@@ -1685,6 +1688,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="label" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build"]
+custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Power Efficiency"
@@ -1868,6 +1872,15 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/harvesterPowerButton" to="." method="_on_harvester_power_button_mouse_entered"]
 [connection signal="mouse_exited" from="potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/harvesterPowerButton" to="." method="_on_harvester_power_button_mouse_exited"]
 [connection signal="pressed" from="potato/BUY/robots/Harvester/Power_Efficiency/label_and_build/harvesterPowerButton" to="." method="_on_harvester_power_button_pressed"]
+[connection signal="mouse_entered" from="potato/BUY/robots/Collector/Speed/label_and_build/collectorSpeedButton" to="." method="_on_collector_speed_button_mouse_entered"]
+[connection signal="mouse_exited" from="potato/BUY/robots/Collector/Speed/label_and_build/collectorSpeedButton" to="." method="_on_collector_speed_button_mouse_exited"]
+[connection signal="pressed" from="potato/BUY/robots/Collector/Speed/label_and_build/collectorSpeedButton" to="." method="_on_collector_speed_button_pressed"]
+[connection signal="mouse_entered" from="potato/BUY/robots/Collector/Range/label_and_build/collectorRangeButton" to="." method="_on_collector_range_button_mouse_entered"]
+[connection signal="mouse_exited" from="potato/BUY/robots/Collector/Range/label_and_build/collectorRangeButton" to="." method="_on_collector_range_button_mouse_exited"]
+[connection signal="pressed" from="potato/BUY/robots/Collector/Range/label_and_build/collectorRangeButton" to="." method="_on_collector_range_button_pressed"]
+[connection signal="mouse_entered" from="potato/BUY/robots/Collector/Power_Efficiency/label_and_build/collectorPowerButton" to="." method="_on_collector_power_button_mouse_entered"]
+[connection signal="mouse_exited" from="potato/BUY/robots/Collector/Power_Efficiency/label_and_build/collectorPowerButton" to="." method="_on_collector_power_button_mouse_exited"]
+[connection signal="pressed" from="potato/BUY/robots/Collector/Power_Efficiency/label_and_build/collectorPowerButton" to="." method="_on_collector_power_button_pressed"]
 [connection signal="mouse_entered" from="scrap/BUY/robots/Scavenger/Speed/label_and_build/scavengerSpeedButton" to="." method="_on_scavenger_speed_button_mouse_entered"]
 [connection signal="mouse_exited" from="scrap/BUY/robots/Scavenger/Speed/label_and_build/scavengerSpeedButton" to="." method="_on_scavenger_speed_button_mouse_exited"]
 [connection signal="pressed" from="scrap/BUY/robots/Scavenger/Speed/label_and_build/scavengerSpeedButton" to="." method="_on_scavenger_speed_button_pressed"]

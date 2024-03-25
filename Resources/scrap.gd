@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name scrap_resource
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var world = get_node("/root/world")
@@ -38,17 +39,19 @@ func _physics_process(delta):
 			
 	var collision = move_and_collide(velocity)
 	
+	
 	if collision:
 		if is_being_picked_up_by_player or is_being_picked_up_by_robot:
-			if is_being_picked_up_by_player:
-				_handle_picked_up_by_player()
-			else:
-				if robot.carrying >= robot.capacity:
-					is_being_picked_up_by_robot = false
-					speed = 0.0
-					velocity = Vector2(0, 0)
+			if collision.get_collider() is player_character or collision.get_collider() is scavenger_robot:
+				if is_being_picked_up_by_player:
+					_handle_picked_up_by_player()
 				else:
-					_handle_picked_up_by_robot()
+					if robot.carrying >= robot.capacity:
+						is_being_picked_up_by_robot = false
+						speed = 0.0
+						velocity = Vector2(0, 0)
+					else:
+						_handle_picked_up_by_robot()
 
 func occupied():
 	taken = true

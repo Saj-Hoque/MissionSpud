@@ -36,6 +36,7 @@ func grow_plant():
 func harvest_plant():
 	for i in range(Global.potatoQuantity):
 		var potato = potato_scene.instantiate()
+		potato.add_to_group(get_parent().get_parent().get_groups()[0])
 		potato.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
 		potatoes.add_child(potato) 
 		plantGrowing = false

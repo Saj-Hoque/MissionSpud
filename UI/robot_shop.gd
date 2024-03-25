@@ -6,7 +6,8 @@ var planter_scene = preload("res://Robots/Planter/planter.tscn")
 var planter_ai_scene = preload("res://ai/Behavior_Trees/planter_ai.tscn")
 var harvester_scene = preload("res://Robots/Harvester/harvester.tscn")
 var harvester_ai_scene = preload("res://ai/Behavior_Trees/harvester_ai.tscn")
-
+var collector_scene = preload("res://Robots/Collector/collector.tscn")
+var collector_ai_scene = preload("res://ai/Behavior_Trees/collector_ai.tscn")
 var scavenger_scene = preload("res://Robots/Scavenger/scavenger.tscn")
 var scavenger_ai_scene = preload("res://ai/Behavior_Trees/scavenger_ai.tscn")
 
@@ -46,7 +47,6 @@ var harvesterPrice = { "potato" : 20,
 
 var collectorPrice = { "potato" : 20,
 					   "scrap"  : 20 }
-var collectorUpkeep = 5
 
 var scavengerPrice = { "potato" : 20,
 					   "scrap"  : 20 }
@@ -92,7 +92,7 @@ func _update_robot_details(price, potatoLabel, scrapLabel, upkeep, upkeepLabel):
 func _update():
 	_update_robot_details(planterPrice, planterPotatoLabel, planterScrapLabel, Global.planterUpkeep, planterUpkeepLabel)
 	_update_robot_details(harvesterPrice, harvesterPotatoLabel, harvesterScrapLabel, Global.harvesterUpkeep, harvesterUpkeepLabel)
-	#_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, collectorUpkeep, collectorUpkeepLabel)
+	_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, Global.collectorUpkeep, collectorUpkeepLabel)
 	
 	_update_robot_details(scavengerPrice, scavengerPotatoLabel, scavengerScrapLabel, Global.scavengerUpkeep, scavengerUpkeepLabel)
 
@@ -143,7 +143,8 @@ func _on_harvester_buy_button_pressed():
 	_refresh_upkeep_button(harvesterButton, Global.harvesterUpkeep)
 
 func _on_collector_buy_button_pressed():
-	_refresh_upkeep_button(collectorButton, collectorUpkeep)
+	_buy_robot(collectorPrice, collector_scene, collector_ai_scene)
+	_refresh_upkeep_button(collectorButton, Global.collectorUpkeep)
 
 func _on_scavenger_buy_button_pressed():
 	_buy_robot(scavengerPrice, scavenger_scene, scavenger_ai_scene)
@@ -170,13 +171,13 @@ func _on_harvester_buy_button_mouse_entered():
 	_refresh_upkeep_button(harvesterButton, Global.harvesterUpkeep)
 
 func _on_harvester_buy_button_mouse_exited():
-		totalUpkeep.visible = false
+	totalUpkeep.visible = false
 
 func _on_collector_buy_button_mouse_entered():
-	_refresh_upkeep_button(collectorButton, collectorUpkeep)
+	_refresh_upkeep_button(collectorButton, Global.collectorUpkeep)
 
 func _on_collector_buy_button_mouse_exited():
-		totalUpkeep.visible = false
+	totalUpkeep.visible = false
 
 func _on_scavenger_buy_button_mouse_entered():
 	_refresh_upkeep_button(scavengerButton, Global.scavengerUpkeep)
