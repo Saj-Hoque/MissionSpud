@@ -153,3 +153,15 @@ func reset_harvesting_status():
 
 func _on_harvesting_timer_timeout():
 	harvested = true
+	
+	
+
+func self_destruct():
+	if plotting:
+		reset_harvesting_status()
+	if docking:
+		undock()
+	var index = idle_area.robots.find(self)
+	if index != -1:
+		idle_area.robots.remove_at(index)
+	queue_free()

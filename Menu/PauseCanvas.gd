@@ -5,16 +5,12 @@ func _input(event):
 		get_tree().paused = !get_tree().paused
 		visible = not visible
 		
-		#if visible:
-			#$buttons/resume.grab_focus()
+		if visible:
+			$buttons/resume.grab_focus()
 
 func _on_resume_pressed():
 	get_tree().paused = false
 	visible = false
-
-func _on_save_pressed():
-	print("Save is yet to be implemented")
-	pass # Replace with function body.
 
 func _on_exit_pressed():
 	get_tree().paused = !get_tree().paused

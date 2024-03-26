@@ -165,3 +165,12 @@ func add_to_capacity():
 
 func reset_collecting_status():
 	unoccupy_scrap()
+	
+func self_destruct():
+	reset_collecting_status()
+	if docking:
+		undock()
+	var index = idle_area.robots.find(self)
+	if index != -1:
+		idle_area.robots.remove_at(index)
+	queue_free()
