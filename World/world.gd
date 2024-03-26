@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	Global.potatoCount = 10000
+	Global.potatoCount = 9995
 	Global.scrapCount = 10000
 	
 	TimeSystem.day = 1

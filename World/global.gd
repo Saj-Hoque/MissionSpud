@@ -5,6 +5,9 @@ var max_scraps = 100
 var upkeep = 0
 var robot_upkeep = 0
 
+var potatoWin = 10000
+var scrapWin = 10000
+
 var potatoCount = 0
 var scrapCount = 0
 

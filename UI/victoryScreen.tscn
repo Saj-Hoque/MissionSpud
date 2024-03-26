@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://quqrv8u810yp"]
+
+[ext_resource type="Script" path="res://UI/victoryScreen.gd" id="1_swffo"]
+
+[sub_resource type="SystemFont" id="SystemFont_o2hqs"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_1pea7"]
+default_font = SubResource("SystemFont_o2hqs")
+default_font_size = 50
+
+[node name="victoryScreen" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swffo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_1pea7")
+theme_override_constants/separation = 100
+
+[node name="escapeMessage" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "You've Escaped the Planet!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sols" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "10 Sols"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="potato" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3000 Potatoes "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrap" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3000 Scrap"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="robots" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "58 Robots"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]
