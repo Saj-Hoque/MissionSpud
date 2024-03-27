@@ -721,6 +721,8 @@ shop_index = 2
 action_name = "research resource upgrades"
 
 [node name="rocketPad" parent="." groups=["navigation"] instance=ExtResource("11_3r114")]
+z_index = 4
+y_sort_enabled = true
 position = Vector2(357, 83)
 action_name = "build rocket"
 
@@ -740,49 +742,49 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@308601")
+blackboard = NodePath("@Node@349867")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(200, -62)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@308602")
+blackboard = NodePath("@Node@349868")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@308603")
+blackboard = NodePath("@Node@349869")
 actor = NodePath("..")
 
 [node name="scavenger2" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(254, -59)
 
 [node name="scavenger_ai" parent="robots/scavenger2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@308604")
+blackboard = NodePath("@Node@349870")
 actor = NodePath("..")
 
 [node name="collector" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-98, -57)
 
 [node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@308605")
+blackboard = NodePath("@Node@349871")
 actor = NodePath("..")
 
 [node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-63, -57)
 
 [node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@308606")
+blackboard = NodePath("@Node@349872")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
 z_index = 4
 y_sort_enabled = true
 position = Vector2(59, 98)
-collision_mask = 25
+collision_mask = 57
 platform_floor_layers = 4294967277
 
 [connection signal="timeout" from="scrapSpawnTimer" to="idleArea3/scrapSpawnZone" method="_on_scrap_spawn_timer_timeout"]

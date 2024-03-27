@@ -13,6 +13,7 @@ func _ready():
 
 func _on_interact():
 	if Global.potatoCount >= Global.potatoWin and Global.scrapCount >= Global.scrapWin:
+		Global.totalRobots = (get_tree().get_nodes_in_group("robots")).size()
 		get_tree().change_scene_to_file("res://UI/victoryScreen.tscn")
 	else:
 		print("Insufficient Resources")

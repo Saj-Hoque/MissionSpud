@@ -1,8 +1,8 @@
 extends Node2D
 
 func _ready():
-	Global.potatoCount = 9995
-	Global.scrapCount = 10000
+	Global.potatoCount = 20000
+	Global.scrapCount = 20000
 	
 	TimeSystem.day = 1
 	TimeSystem.hour = 0
@@ -11,9 +11,11 @@ func _ready():
 
 func update_potato_counter(value):
 		Global.potatoCount += value
+		Global.totalPotato += value
 		
 func update_scrap_counter(value):
 		Global.scrapCount += value
+		Global.totalScrap += value
 		
 func _process(delta):
 	pass

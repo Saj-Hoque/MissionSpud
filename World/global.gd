@@ -1,5 +1,9 @@
 extends Node
 
+var totalPotato = 0
+var totalScrap = 0
+var totalRobots = 0
+
 var max_scraps = 100
 
 var upkeep = 0
