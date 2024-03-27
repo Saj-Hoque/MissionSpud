@@ -41,12 +41,15 @@ var closest_potato = null
 var target_position = global_position
 
 func _ready():
+	instantiate()
+	idle_area.robots.push_back(self)
+
+func instantiate():
 	speed = Global.collectorSpeed
 	capacity = Global.collectorCapacity
 	upkeep = Global.collectorUpkeep
 	range = Global.collectorRange
 	pickup_range.apply_scale(Vector2(range,range))
-	idle_area.robots.push_back(self)
 
 # Movement related methods
 
@@ -185,4 +188,5 @@ func self_destruct():
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
+	remove_from_group("robots")
 	queue_free()

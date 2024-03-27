@@ -1,16 +1,15 @@
 extends Node
 
+const max_scraps = 100
+const potatoWin = 10000
+const scrapWin = 10000
+
 var totalPotato = 0
 var totalScrap = 0
 var totalRobots = 0
 
-var max_scraps = 100
-
 var upkeep = 0
 var robot_upkeep = 0
-
-var potatoWin = 10000
-var scrapWin = 10000
 
 var potatoCount = 0
 var scrapCount = 0
@@ -42,3 +41,38 @@ var scavengerSpeed = 50
 var scavengerCapacity = 1
 var scavengerUpkeep = 5
 
+
+func reset():
+	totalPotato = 0
+	totalScrap = 0
+	totalRobots = 0
+	potatoCount = 0
+	scrapCount = 0
+	
+	upkeep = 0
+	robot_upkeep = 0
+	
+	potatoQuantity = 2
+	potatoValue = 1
+	potatoTimer = 10
+
+	scrapQuantity = 1
+	scrapValue = 1
+	scrapTimer = 8
+
+	planterSpeed = 30
+	planterProductivity = 10
+	planterUpkeep = 5
+
+	harvesterSpeed = 30
+	harvesterProductivity = 10
+	harvesterUpkeep = 5
+
+	collectorSpeed = 20
+	collectorCapacity = 256
+	collectorRange = 1
+	collectorUpkeep = 5
+
+	scavengerSpeed = 50
+	scavengerCapacity = 1
+	scavengerUpkeep = 5

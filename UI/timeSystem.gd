@@ -50,9 +50,11 @@ func start_new_day():
 func apply_upkeep():
 	Global.potatoCount -= (Global.upkeep + Global.robot_upkeep)
 	if Global.potatoCount < 0:
+		SelectionManager.reset()
 		get_tree().change_scene_to_file("res://UI/loseScreen1.tscn")
 
 func check_day():
 	if day == FINAL_DAY:
 		Global.totalRobots = (get_tree().get_nodes_in_group("robots")).size()
+		SelectionManager.reset()
 		get_tree().change_scene_to_file("res://UI/loseScreen2.tscn")

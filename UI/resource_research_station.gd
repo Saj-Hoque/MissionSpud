@@ -363,8 +363,8 @@ func _on_scrap_button_pressed():
 	potatoButton.button_pressed = false
 	potatoSection.visible = false
 	scrapSection.visible = true
-
-
+	
+	
 
 func _refresh_upkeep(upkeepValues, level):
 	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep + Global.robot_upkeep) + "   ->   " + str(Global.upkeep + Global.robot_upkeep + upkeepValues[level])
@@ -410,3 +410,20 @@ func _on_turbine_button_mouse_entered():
 
 func _on_turbine_button_mouse_exited():
 	totalUpkeep.visible = false
+
+func reset_feature(level, button, resources, upkeepLabel):
+	level = 0
+	button.text = "Research"
+	button.disabled = false
+	resources.visible = true
+	upkeepLabel.visible = true
+	return level
+	
+func reset():
+	fertilizerLevel = reset_feature(fertilizerLevel, fertilizerButton, fertilizerResources, fertilizerUpkeepLabel)
+	qualityLevel = reset_feature(qualityLevel, qualityButton, qualityResources, qualityUpkeepLabel)
+	growthLevel = reset_feature(growthLevel, growthButton, growthResources, growthUpkeepLabel)
+	boostLevel = reset_feature(boostLevel, boostButton, boostResources, boostUpkeepLabel)
+	forgeLevel = reset_feature(forgeLevel, forgeButton, forgeResources, forgeUpkeepLabel)
+	turbineLevel = reset_feature(turbineLevel, turbineButton, turbineResources, turbineUpkeepLabel)
+	_update()

@@ -23,4 +23,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	current_robot.self_destruct()
+	await current_robot.self_destruct()
+	RobotResearchStation.recalibrate_robot_upkeep()

@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var all_robots = get_tree().get_nodes_in_group("robots")
 
 var greenStyleBox = load("res://UI/green_style_box_flat.tres")
+var grayStyleBox = load("res://UI/gray_style_box_flat.tres")
 
 @onready var potatoButton = $potatoButton
 @onready var scrapButton = $scrapButton
@@ -945,9 +946,6 @@ func _on_scavenger_power_button_mouse_exited():
 	totalUpkeep.visible = false
 
 
-
-
-
 func _on_potato_button_pressed():
 	scrapButton.button_pressed = false
 	scrapSection.visible = false
@@ -959,3 +957,41 @@ func _on_scrap_button_pressed():
 	scrapSection.visible = true
 
 
+func reset_feature(level, button, resources, upkeepLabel, box1, box2, box3):
+	level = 0
+	button.text = "Upgrade"
+	button.disabled = false
+	resources.visible = true
+	upkeepLabel.visible = true
+
+	box1.add_theme_stylebox_override("normal", grayStyleBox)
+	box2.add_theme_stylebox_override("normal", grayStyleBox)
+	box3.add_theme_stylebox_override("normal", grayStyleBox)
+	
+	return level
+	
+func reset():
+	planterSpeedLevel = reset_feature(planterSpeedLevel, planterSpeedButton, planterSpeedResources, planterSpeedUpkeepLabel, planterSpeedLevel1, planterSpeedLevel2, planterSpeedLevel3)
+	planterProductivityLevel = reset_feature(planterProductivityLevel, planterProductivityButton, planterProductivityResources, planterProductivityUpkeepLabel, planterProductivityLevel1, planterProductivityLevel2, planterProductivityLevel3)
+	planterPowerLevel = reset_feature(planterPowerLevel, planterPowerButton, planterPowerResources, planterPowerUpkeepLabel, planterPowerLevel1, planterPowerLevel2, planterPowerLevel3)
+	
+	harvesterSpeedLevel = reset_feature(harvesterSpeedLevel, harvesterSpeedButton, harvesterSpeedResources, harvesterSpeedUpkeepLabel, harvesterSpeedLevel1, harvesterSpeedLevel2, harvesterSpeedLevel3)
+	harvesterProductivityLevel = reset_feature(harvesterProductivityLevel, harvesterProductivityButton, harvesterProductivityResources, harvesterProductivityUpkeepLabel, harvesterProductivityLevel1, harvesterProductivityLevel2, harvesterProductivityLevel3)
+	harvesterPowerLevel = reset_feature(harvesterPowerLevel, harvesterPowerButton, harvesterPowerResources, harvesterPowerUpkeepLabel, harvesterPowerLevel1, harvesterPowerLevel2, harvesterPowerLevel3)
+		
+	collectorSpeedLevel = reset_feature(collectorSpeedLevel, collectorSpeedButton, collectorSpeedResources, collectorSpeedUpkeepLabel, collectorSpeedLevel1, collectorSpeedLevel2, collectorSpeedLevel3)
+	collectorRangeLevel = reset_feature(collectorRangeLevel, collectorRangeButton, collectorRangeResources, collectorRangeUpkeepLabel, collectorRangeLevel1, collectorRangeLevel2, collectorRangeLevel3)
+	collectorPowerLevel = reset_feature(collectorPowerLevel, collectorPowerButton, collectorPowerResources, collectorPowerUpkeepLabel, collectorPowerLevel1, collectorPowerLevel2, collectorPowerLevel3)
+	
+	scavengerSpeedLevel = reset_feature(scavengerSpeedLevel, scavengerSpeedButton, scavengerSpeedResources, scavengerSpeedUpkeepLabel, scavengerSpeedLevel1, scavengerSpeedLevel2, scavengerSpeedLevel3)
+	scavengerCapacityLevel = reset_feature(scavengerCapacityLevel, scavengerCapacityButton, scavengerCapacityResources, scavengerCapacityUpkeepLabel, scavengerCapacityLevel1, scavengerCapacityLevel2, scavengerCapacityLevel3)
+	scavengerPowerLevel = reset_feature(scavengerPowerLevel, scavengerPowerButton, scavengerPowerResources, scavengerPowerUpkeepLabel, scavengerPowerLevel1, scavengerPowerLevel2, scavengerPowerLevel3)
+
+	_update()
+
+	potatoButton.button_pressed = true
+	scrapButton.button_pressed = false
+	scrapSection.visible = false
+	potatoSection.visible = true
+
+	recalibrate_robot_upkeep()
