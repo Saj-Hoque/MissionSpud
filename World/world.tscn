@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=41 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
 [ext_resource type="Script" path="res://UI/UI.gd" id="2_8kypo"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_2aaxa"]
+[ext_resource type="Script" path="res://UI/upkeepPayment.gd" id="3_mrh03"]
 [ext_resource type="PackedScene" uid="uid://c2w1y1o2ytso2" path="res://Planting/plot_area.tscn" id="4_x37oa"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_xjtuv"]
 [ext_resource type="PackedScene" uid="uid://cvw37g4bvtwas" path="res://Resources/potato.tscn" id="6_1nlxy"]
@@ -48,6 +49,13 @@ corner_radius_top_left = 60
 corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
+
+[sub_resource type="SystemFont" id="SystemFont_0p15q"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="Theme" id="Theme_xm1m8"]
+default_font = SubResource("SystemFont_0p15q")
+default_font_size = 50
 
 [sub_resource type="SystemFont" id="SystemFont_oe71b"]
 font_names = PackedStringArray("Impact")
@@ -490,6 +498,23 @@ layout_mode = 2
 text = "00"
 horizontal_alignment = 1
 
+[node name="upkeepPayment" type="RichTextLabel" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.0
+offset_top = 21.0
+offset_right = 259.0
+offset_bottom = 86.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = SubResource("Theme_xm1m8")
+bbcode_enabled = true
+text = "[center][b][color=red]UPKEEP PAYMENT SOON"
+autowrap_mode = 0
+script = ExtResource("3_mrh03")
+fade = true
+
 [node name="resourceMargin" type="MarginContainer" parent="UI"]
 anchors_preset = 3
 anchor_left = 1.0
@@ -648,8 +673,6 @@ y_sort_enabled = true
 position = Vector2(83, 114)
 
 [node name="plotA" parent="idleArea" groups=["plotA"] instance=ExtResource("4_x37oa")]
-z_index = 2
-y_sort_enabled = true
 position = Vector2(-83, -114)
 total_plots = 24
 
@@ -678,11 +701,11 @@ position = Vector2(127.5, 441.5)
 shape = SubResource("RectangleShape2D_l8heb")
 
 [node name="scraps" type="Node2D" parent="idleArea3/scrapSpawnZone"]
-z_index = 3
+z_index = 2
 y_sort_enabled = true
 
 [node name="potatoes" type="Node2D" parent="."]
-z_index = 3
+z_index = 2
 y_sort_enabled = true
 
 [node name="potato" parent="potatoes" instance=ExtResource("6_1nlxy")]
@@ -727,6 +750,8 @@ position = Vector2(357, 83)
 action_name = "build rocket"
 
 [node name="robots" type="Node2D" parent="."]
+z_index = 4
+y_sort_enabled = true
 
 [node name="planter" parent="robots" instance=ExtResource("9_vrajd")]
 position = Vector2(332, -62)
@@ -742,42 +767,42 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@349867")
+blackboard = NodePath("@Node@730791")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(200, -62)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@349868")
+blackboard = NodePath("@Node@730792")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@349869")
+blackboard = NodePath("@Node@730793")
 actor = NodePath("..")
 
 [node name="scavenger2" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(254, -59)
 
 [node name="scavenger_ai" parent="robots/scavenger2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@349870")
+blackboard = NodePath("@Node@730794")
 actor = NodePath("..")
 
 [node name="collector" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-98, -57)
 
 [node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@349871")
+blackboard = NodePath("@Node@730795")
 actor = NodePath("..")
 
 [node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-63, -57)
 
 [node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@349872")
+blackboard = NodePath("@Node@730796")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

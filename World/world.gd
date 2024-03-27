@@ -4,10 +4,8 @@ func _ready():
 	Global.potatoCount = 20000
 	Global.scrapCount = 20000
 	
-	TimeSystem.day = 1
-	TimeSystem.hour = 0
-	TimeSystem.minute = 0
-	TimeSystem.second = 15*60*24
+	TimeSystem.reset()
+	TimeSystem.second = 6 * 60 * 60
 
 func update_potato_counter(value):
 		Global.potatoCount += value

@@ -1,49 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://quqrv8u810yp"]
+[gd_scene load_steps=4 format=3 uid="uid://bcsbgd438vgr1"]
 
-[ext_resource type="Script" path="res://UI/victoryScreen.gd" id="1_swffo"]
+[ext_resource type="Script" path="res://UI/loseScreen2.gd" id="1_toaqx"]
 
-[sub_resource type="SystemFont" id="SystemFont_qtcvu"]
+[sub_resource type="SystemFont" id="SystemFont_ia47e"]
 font_names = PackedStringArray("Impact")
 
-[sub_resource type="Theme" id="Theme_1pea7"]
-default_font = SubResource("SystemFont_qtcvu")
+[sub_resource type="Theme" id="Theme_4mlvu"]
+default_font = SubResource("SystemFont_ia47e")
 default_font_size = 50
 
-[node name="victoryScreen" type="CenterContainer"]
+[node name="loseScreen2" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_swffo")
+script = ExtResource("1_toaqx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme = SubResource("Theme_1pea7")
+theme = SubResource("Theme_4mlvu")
 theme_override_constants/separation = 100
 
-[node name="escapeMessage" type="VBoxContainer" parent="VBoxContainer"]
+[node name="loseMessage" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="escapeMessage" type="Label" parent="VBoxContainer/escapeMessage"]
+[node name="loseMessage" type="Label" parent="VBoxContainer/loseMessage"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
-text = "MISSION ACCOMPLISHED"
+text = "MISSION FAILED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="escapeMessage2" type="Label" parent="VBoxContainer/escapeMessage"]
+[node name="loseMessage2" type="Label" parent="VBoxContainer/loseMessage"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
-text = "You've Escaped the Planet!"
+text = "The Storm consumed your Hub!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="sols" type="Label" parent="VBoxContainer"]
+[node name="accumulationMessage" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "10 Sols"
+text = "In 20 Sols, you accumulated:"
 horizontal_alignment = 1
 vertical_alignment = 1
 

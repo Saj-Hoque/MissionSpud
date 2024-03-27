@@ -36,8 +36,6 @@ size = Vector2(6, 3)
 radius = 6.0
 
 [node name="collector" type="CharacterBody2D" groups=["robots"]]
-z_index = 4
-y_sort_enabled = true
 collision_layer = 80
 collision_mask = 11
 motion_mode = 1

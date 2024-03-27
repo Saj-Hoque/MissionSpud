@@ -74,6 +74,8 @@ sprite_frames = SubResource("SpriteFrames_qrksc")
 shape = SubResource("RectangleShape2D_2r0d8")
 
 [node name="plant" type="AnimatedSprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_1ni43")
 animation = &"none"

@@ -8,13 +8,16 @@ extends CanvasLayer
 @onready var hour = $timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer/hour
 @onready var minute = $timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer/minute
 
+@onready var upkeepPayment = $upkeepPayment
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	potatoCounter.text = (str(Global.potatoCount))
 	scrapCounter.text = (str(Global.scrapCount))
-	#print(str(Global.upkeep) + " " + str(Global.robot_upkeep))
 	upkeepCounter.text = (str(Global.upkeep + Global.robot_upkeep))
 	
 	day.text = ("Sol %d" % TimeSystem.day)
 	hour.text = ("%02d" % TimeSystem.hour)
 	minute.text = ("%02d" % ((TimeSystem.minute / 10) * 10))
+	
+	upkeepPayment.visible = TimeSystem.upkeep_imminent
