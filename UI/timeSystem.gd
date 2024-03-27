@@ -12,7 +12,8 @@ const DEFAULT_TIME_SPEED = 360 # 4 minute day
 var time_speed = 360
 
 var day_processed = false
-var upkeep_imminent = false
+var upkeep_alert = false
+var upkeep_message = false
 
 func _ready():
 	time_speed = DEFAULT_TIME_SPEED
@@ -33,7 +34,9 @@ func _process(delta):
 		day_processed = false
 
 	
-	upkeep_imminent = true if hour >= 22 else false
+	upkeep_alert = true if hour == 22 and minute <= 30 else false
+	upkeep_message = true if ((hour == 22 and minute > 30) or hour == 23) else false
+	
 
 	if time_speed > 0:
 		second += (delta * time_speed)
@@ -51,10 +54,10 @@ func apply_upkeep():
 	Global.potatoCount -= (Global.upkeep + Global.robot_upkeep)
 	if Global.potatoCount < 0:
 		SelectionManager.reset()
-		get_tree().change_scene_to_file("res://UI/loseScreen1.tscn")
+		SceneTransition.change_scene("res://UI/loseScreen1.tscn")
 
 func check_day():
 	if day == FINAL_DAY:
 		Global.totalRobots = (get_tree().get_nodes_in_group("robots")).size()
 		SelectionManager.reset()
-		get_tree().change_scene_to_file("res://UI/loseScreen2.tscn")
+		SceneTransition.change_scene("res://UI/loseScreen2.tscn")

@@ -7,10 +7,10 @@ func _ready():
 	RobotResearchStation.reset()
 	SelectionManager.reset()
 	TimeSystem.reset()
-	TimeSystem.second = 23 * 60 * 60
+	TimeSystem.second = 21 * 60 * 60
 	
-	Global.potatoCount = 100
-	Global.scrapCount = 100
+	Global.potatoCount = 100000
+	Global.scrapCount = 100000
 
 func update_potato_counter(value):
 		Global.potatoCount += value

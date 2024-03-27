@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SceneTransition="*res://UI/scene_transition.tscn"
 Global="*res://World/global.gd"
 PauseCanvas="*res://Menu/pause_canvas.tscn"
 TimeSystem="*res://UI/time_system.tscn"

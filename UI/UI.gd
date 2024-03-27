@@ -8,7 +8,8 @@ extends CanvasLayer
 @onready var hour = $timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer/hour
 @onready var minute = $timeSystemMargin/timeSystemContainer/timePanel/timeMargin/timeContainer/minute
 
-@onready var upkeepPayment = $upkeepPayment
+@onready var upkeepAlert = $upkeepAlert
+@onready var upkeepMessage = $upkeepMessage
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,4 +21,5 @@ func _process(delta):
 	hour.text = ("%02d" % TimeSystem.hour)
 	minute.text = ("%02d" % ((TimeSystem.minute / 10) * 10))
 	
-	upkeepPayment.visible = TimeSystem.upkeep_imminent
+	upkeepAlert.visible = TimeSystem.upkeep_alert
+	upkeepMessage.visible = TimeSystem.upkeep_message
