@@ -472,6 +472,8 @@ func _ready():
 func open_shop():
 	visible = true
 	_update()
+	RobotShop.close_shop()
+	ResourceResearchStation.close_shop()
 	
 func close_shop():
 	visible = false

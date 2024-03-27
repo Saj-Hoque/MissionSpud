@@ -73,6 +73,8 @@ func _process(delta):
 func open_shop():
 	visible = true
 	_update()
+	RobotResearchStation.close_shop()
+	ResourceResearchStation.close_shop()
 	
 func close_shop():
 	visible = false
