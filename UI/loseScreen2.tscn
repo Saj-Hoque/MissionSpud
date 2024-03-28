@@ -1,12 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcsbgd438vgr1"]
 
 [ext_resource type="Script" path="res://UI/loseScreen2.gd" id="1_toaqx"]
-
-[sub_resource type="SystemFont" id="SystemFont_ia47e"]
-font_names = PackedStringArray("Impact")
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_r5fr1"]
 
 [sub_resource type="Theme" id="Theme_4mlvu"]
-default_font = SubResource("SystemFont_ia47e")
+default_font = ExtResource("2_r5fr1")
 default_font_size = 50
 
 [node name="loseScreen2" type="CenterContainer"]

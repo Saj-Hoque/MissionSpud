@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://xqlx26ht07gn"]
+[gd_scene load_steps=12 format=3 uid="uid://xqlx26ht07gn"]
 
 [ext_resource type="Script" path="res://UI/robot_shop.gd" id="1_2yh61"]
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_j2y6y"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_p1hq4"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_054f0"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
@@ -18,18 +19,12 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_244p0"]
-font_names = PackedStringArray("Impact")
-
 [sub_resource type="Theme" id="Theme_4w2fm"]
-default_font = SubResource("SystemFont_244p0")
+default_font = ExtResource("2_j2y6y")
 default_font_size = 50
 
-[sub_resource type="SystemFont" id="SystemFont_yb53j"]
-font_names = PackedStringArray("Impact")
-
 [sub_resource type="Theme" id="Theme_55hee"]
-default_font = SubResource("SystemFont_yb53j")
+default_font = ExtResource("2_j2y6y")
 
 [sub_resource type="SystemFont" id="SystemFont_810cx"]
 font_names = PackedStringArray("Impact")
@@ -377,7 +372,6 @@ alignment = 1
 layout_mode = 2
 theme = SubResource("Theme_4w2fm")
 theme_override_constants/separation = 20
-alignment = 1
 
 [node name="Label" type="Label" parent="scrap/BUY/robots/Scavenger"]
 layout_mode = 2

@@ -111,5 +111,8 @@ position = Vector2(0, -6)
 target_position = Vector2(32, 0)
 collision_mask = 26
 
+[node name="gatherNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(-3, -6)
+
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

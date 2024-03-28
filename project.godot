@@ -29,6 +29,7 @@ BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 SelectionManager="*res://Selection/selection_manager.tscn"
 SidePanel="*res://UI/side_panel.tscn"
+GatherNumbers="*res://UI/gatherNumbers.gd"
 
 [display]
 
@@ -43,6 +44,7 @@ enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
 
 [gui]
 
+theme/custom_font="res://font/Bungee-Regular.ttf"
 theme/default_font_multichannel_signed_distance_field=true
 
 [input]

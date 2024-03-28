@@ -27,6 +27,8 @@ var carrying = 0
 @onready var plot = idle_area.plot
 var plot_group
 
+@onready var gatherNumbersOrigin = $gatherNumbersOrigin
+
 var right_click: bool = false
 var selected: bool = false
 

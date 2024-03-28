@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://chdwj38p3u7t5"]
+[gd_scene load_steps=13 format=3 uid="uid://chdwj38p3u7t5"]
 
 [ext_resource type="Script" path="res://UI/resource_research_station.gd" id="1_lae4m"]
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_r3jje"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_xx41c"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_wdo86"]
 
@@ -17,17 +18,11 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_xe0ix"]
-font_names = PackedStringArray("Impact")
-
 [sub_resource type="Theme" id="Theme_xwxb8"]
-default_font = SubResource("SystemFont_xe0ix")
-
-[sub_resource type="SystemFont" id="SystemFont_ari7l"]
-font_names = PackedStringArray("Impact")
+default_font = ExtResource("2_r3jje")
 
 [sub_resource type="Theme" id="Theme_k2e7l"]
-default_font = SubResource("SystemFont_ari7l")
+default_font = ExtResource("2_r3jje")
 default_font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6a5l"]
@@ -43,17 +38,11 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_qkcfd"]
-font_names = PackedStringArray("Impact")
-
 [sub_resource type="Theme" id="Theme_j8tnq"]
-default_font = SubResource("SystemFont_qkcfd")
-
-[sub_resource type="SystemFont" id="SystemFont_0xden"]
-font_names = PackedStringArray("Impact")
+default_font = ExtResource("2_r3jje")
 
 [sub_resource type="Theme" id="Theme_oyl04"]
-default_font = SubResource("SystemFont_0xden")
+default_font = ExtResource("2_r3jje")
 
 [sub_resource type="SystemFont" id="SystemFont_57lri"]
 font_names = PackedStringArray("Impact")
@@ -119,6 +108,7 @@ alignment = 1
 
 [node name="fertilizer" type="HBoxContainer" parent="potato/research/fields/Labels"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="fetilizerLabel" type="Label" parent="potato/research/fields/Labels/fertilizer"]
 custom_minimum_size = Vector2(400, 124)
@@ -133,10 +123,12 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+30"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="quality" type="HBoxContainer" parent="potato/research/fields/Labels"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="qualityLabel" type="Label" parent="potato/research/fields/Labels/quality"]
 custom_minimum_size = Vector2(400, 124)
@@ -151,10 +143,12 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+30"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="growth" type="HBoxContainer" parent="potato/research/fields/Labels"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="GrowthLabel" type="Label" parent="potato/research/fields/Labels/growth"]
 custom_minimum_size = Vector2(400, 124)
@@ -170,6 +164,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+30"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Description_Improvement" type="VBoxContainer" parent="potato/research/fields"]
@@ -480,12 +475,13 @@ alignment = 1
 
 [node name="boost" type="HBoxContainer" parent="scrap/research/fields/Labels"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="boostLabel" type="Label" parent="scrap/research/fields/Labels/boost"]
 custom_minimum_size = Vector2(400, 124)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = " ScrapBoost+"
+text = "ScrapBoost+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -494,10 +490,12 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+0"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="forge" type="HBoxContainer" parent="scrap/research/fields/Labels"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="forgeLabel" type="Label" parent="scrap/research/fields/Labels/forge"]
 custom_minimum_size = Vector2(400, 124)
@@ -512,10 +510,12 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+0"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="turbine" type="HBoxContainer" parent="scrap/research/fields/Labels"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="turbineLabel" type="Label" parent="scrap/research/fields/Labels/turbine"]
 custom_minimum_size = Vector2(400, 124)
@@ -530,6 +530,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+0"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Description_Improvement" type="VBoxContainer" parent="scrap/research/fields"]

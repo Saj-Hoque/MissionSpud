@@ -1,12 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://quqrv8u810yp"]
 
 [ext_resource type="Script" path="res://UI/victoryScreen.gd" id="1_swffo"]
-
-[sub_resource type="SystemFont" id="SystemFont_qtcvu"]
-font_names = PackedStringArray("Impact")
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_fgy31"]
 
 [sub_resource type="Theme" id="Theme_1pea7"]
-default_font = SubResource("SystemFont_qtcvu")
+default_font = ExtResource("2_fgy31")
 default_font_size = 50
 
 [node name="victoryScreen" type="CenterContainer"]

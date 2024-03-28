@@ -1,14 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhii6b55hb4fl"]
 
 [ext_resource type="Script" path="res://World_Objects/idle_area.gd" id="1_vw7xc"]
-
-[sub_resource type="SystemFont" id="SystemFont_ehjel"]
-font_names = PackedStringArray("Impact")
-subpixel_positioning = 0
-multichannel_signed_distance_field = true
+[ext_resource type="FontFile" uid="uid://d3on2b22dyyp1" path="res://font/Bungee-MSDF.ttf" id="2_rdjyw"]
 
 [sub_resource type="Theme" id="Theme_ckwhh"]
-default_font = SubResource("SystemFont_ehjel")
+default_font = ExtResource("2_rdjyw")
 default_font_size = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrknf"]
@@ -25,19 +21,23 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -7.0
-offset_right = 11.0
+offset_right = 15.0
 offset_bottom = 8.0
 grow_horizontal = 2
 
 [node name="label" type="Label" parent="count"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -5.5
-offset_right = 5.5
-offset_bottom = 8.0
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 7.0
+offset_bottom = 5.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_ckwhh")
 text = "0 / 8"
 horizontal_alignment = 1

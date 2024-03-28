@@ -19,7 +19,7 @@
 
 [node name="collector_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_5t421")
-blackboard = NodePath("@Node@351720")
+blackboard = NodePath("@Node@17525")
 actor = NodePath("")
 
 [node name="Either" type="Node" parent="."]

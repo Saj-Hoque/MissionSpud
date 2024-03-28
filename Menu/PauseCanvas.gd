@@ -5,8 +5,8 @@ func _input(event):
 		get_tree().paused = !get_tree().paused
 		visible = not visible
 		
-		if visible:
-			$buttons/resume.grab_focus()
+		#if visible:
+			#$buttons/resume.grab_focus()
 
 func _on_resume_pressed():
 	get_tree().paused = false

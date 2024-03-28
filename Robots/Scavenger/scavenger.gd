@@ -24,6 +24,8 @@ var carrying = 0
 @onready var idle_area = get_node("/root/world/MainHub")
 @onready var plot = idle_area.plot
 
+@onready var gatherNumbersOrigin = $gatherNumbersOrigin
+
 var right_click: bool = false
 var selected: bool = false
 
