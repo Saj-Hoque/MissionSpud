@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://17tfsfbem7it"]
+[gd_scene load_steps=10 format=3 uid="uid://17tfsfbem7it"]
 
 [ext_resource type="Script" path="res://Robots/Harvester/harvester.gd" id="1_lxean"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_epf20"]
@@ -33,6 +33,22 @@ corner_radius_bottom_left = 4
 size = Vector2(6, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w33wc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxgqy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gx3"]
+bg_color = Color(0.258824, 0.243137, 0.227451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [node name="harvester" type="CharacterBody2D" groups=["robots"]]
 collision_layer = 16
@@ -104,6 +120,17 @@ collision_mask = 26
 [node name="HarvestingTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 15.0
+offset_bottom = -2.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_kxgqy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_43gx3")
+show_percentage = false
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

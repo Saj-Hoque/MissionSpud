@@ -616,11 +616,8 @@ func update_robot_speed(robots, improvementValues, level):
 		robot.speed = speed
 	return speed
 
-func update_robot_productivity(robots, improvementValues, level):
+func update_robot_productivity(improvementValues, level):
 	var productivity = improvementValues[level]
-	for robot in robots:
-		robot.productivity = productivity
-		robot.timer.wait_time = productivity
 	return productivity
 
 func update_robot_capacity(robots, improvementValues, level):
@@ -671,7 +668,7 @@ func _on_planter_productivity_button_pressed():
 	var planters = list_of_robot_type(planter_robot)
 	Global.planterUpkeep += update_robot_upkeep(planters, planterProductivityUpkeepValues, planterProductivityLevel)
 	planterProductivityLevel = _update_global_values(planterProductivityPrice, planterProductivityLevel)
-	Global.planterProductivity = update_robot_productivity(planters, planterProductivityImprovementValues, planterProductivityLevel)
+	Global.planterProductivity = update_robot_productivity(planterProductivityImprovementValues, planterProductivityLevel)
 	
 	var levelBox
 	if planterProductivityLevel == 1:
@@ -745,7 +742,7 @@ func _on_harvester_productivity_button_pressed():
 	var harvesters = list_of_robot_type(harvester_robot)
 	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterProductivityUpkeepValues, harvesterProductivityLevel)
 	harvesterProductivityLevel = _update_global_values(harvesterProductivityPrice, harvesterProductivityLevel)
-	Global.harvesterProductivity = update_robot_productivity(harvesters, harvesterProductivityImprovementValues, harvesterProductivityLevel)
+	Global.harvesterProductivity = update_robot_productivity(harvesterProductivityImprovementValues, harvesterProductivityLevel)
 	
 	var levelBox
 	if harvesterProductivityLevel == 1:

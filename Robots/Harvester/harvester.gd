@@ -23,6 +23,9 @@ var status = "Idle"
 @onready var idle_area = get_node("/root/world/MainHub")
 @onready var plot = idle_area.plot
 
+@onready var progress = $ProgressBar
+var percentage_of_time
+
 var right_click: bool = false
 var selected: bool = false
 
@@ -48,6 +51,18 @@ func instantiate():
 	productivity = Global.harvesterProductivity
 	timer.wait_time = productivity
 	upkeep = Global.harvesterUpkeep
+
+func _process(delta):
+	if Global.harvesterProductivity < timer.wait_time:
+		if timer.get_time_left() > 0:
+			timer.start((timer.get_time_left() / timer.wait_time) * Global.harvesterProductivity)
+		else:
+			productivity = Global.harvesterProductivity
+			timer.wait_time = productivity
+			
+	if timer.get_time_left() > 0:
+		percentage_of_time = ((1 - timer.get_time_left() / timer.get_wait_time()) * 100)
+		progress.value = percentage_of_time
 
 # Movement related methods
 
@@ -146,16 +161,23 @@ func unoccupy_plot():
 func start_harvesting():
 	harvesting = true
 	$HarvestingTimer.start()
+	progress.visible = true
 
 func reset_harvesting_status():
 	$HarvestingTimer.stop()
+	progress.visible = false
 	harvesting = false
 	harvested = false
 	if plotting:
 		unoccupy_plot()
 
 func _on_harvesting_timer_timeout():
+	if timer.wait_time != Global.harvesterProductivity:
+		productivity = Global.harvesterProductivity
+		timer.wait_time = productivity
+
 	harvested = true
+	progress.visible = false
 	
 	
 
