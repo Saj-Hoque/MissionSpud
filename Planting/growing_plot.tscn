@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://didne6k2t8m24"]
+[gd_scene load_steps=13 format=3 uid="uid://didne6k2t8m24"]
 
 [ext_resource type="Script" path="res://Planting/growing_plot.gd" id="1_pm2gc"]
 [ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_7o4a8"]
@@ -62,7 +62,22 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="plotArea" type="StaticBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36s52"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wftnv"]
+bg_color = Color(0.342997, 0.478701, 0.238565, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="plotArea" type="StaticBody2D" groups=["growingPlots"]]
 script = ExtResource("1_pm2gc")
 
 [node name="hoedLand" type="AnimatedSprite2D" parent="."]
@@ -82,5 +97,16 @@ animation = &"none"
 
 [node name="potatoTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 7.0
+scale = Vector2(0.25, 0.25)
+theme_override_styles/background = SubResource("StyleBoxFlat_36s52")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wftnv")
+show_percentage = false
 
 [connection signal="timeout" from="potatoTimer" to="." method="_on_potato_timer_timeout"]

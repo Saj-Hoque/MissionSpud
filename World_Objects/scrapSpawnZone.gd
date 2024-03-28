@@ -8,10 +8,13 @@ var scrap_scene = preload("res://Resources/scrap.tscn")
 @onready var scrapAreaOrigin = scrapArea.global_position - scrapAreaDims
 @onready var scrapTimer = $"../../scrapSpawnTimer"
 
-func _ready():
-	pass
-
+func instantiate():
+	scrapTimer.wait_time = Global.scrapTimer
+	
 func _on_scrap_spawn_timer_timeout():
+	if scrapTimer.wait_time != Global.scrapTimer:
+		scrapTimer.wait_time = Global.scrapTimer
+	
 	for i in range(Global.scrapQuantity):
 		if scraps.get_child_count() < Global.max_scraps:
 			var scrap = scrap_scene.instantiate()
@@ -21,6 +24,9 @@ func _on_scrap_spawn_timer_timeout():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scrapTimer.wait_time = Global.scrapTimer
-
+	if Global.scrapTimer < scrapTimer.wait_time:
+		if scrapTimer.get_time_left() > 0:
+			scrapTimer.start((scrapTimer.get_time_left() / scrapTimer.wait_time) * Global.scrapTimer)
+		else:
+			scrapTimer.wait_time = Global.potatoTimer
 
