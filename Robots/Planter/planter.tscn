@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://keeavkauuufy"]
+[gd_scene load_steps=8 format=3 uid="uid://keeavkauuufy"]
 
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="1_ceor2"]
 [ext_resource type="Script" path="res://Robots/Planter/planter.gd" id="1_rs33c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i0y1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vivhh"]
 animations = [{
@@ -38,6 +40,13 @@ collision_mask = 11
 motion_mode = 1
 platform_floor_layers = 4294967277
 script = ExtResource("1_rs33c")
+
+[node name="interactRange" type="Area2D" parent="." groups=["robots_range"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactRange"]
+shape = SubResource("CircleShape2D_1i0y1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0

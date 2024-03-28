@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://21uid1tv0m2d"]
+
+[ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_el1ht"]
+[ext_resource type="Script" path="res://World_Objects/doors_bottom.gd" id="1_vqsse"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q6qm"]
+atlas = ExtResource("1_el1ht")
+region = Rect2(96, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hayq"]
+atlas = ExtResource("1_el1ht")
+region = Rect2(112, 64, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20bga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q6qm")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hayq")
+}],
+"loop": true,
+"name": &"open",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fefq7"]
+radius = 18.0
+
+[node name="doorsBottom" type="StaticBody2D"]
+script = ExtResource("1_vqsse")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_20bga")
+animation = &"open"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fefq7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
