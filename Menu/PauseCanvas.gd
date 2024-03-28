@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _input(event):
-	if event.is_action_pressed("escape") and get_tree().current_scene.name != "menu":
+	if event.is_action_pressed("escape") and get_tree().current_scene.name != "menu" and not Global.menu_active:
 		get_tree().paused = !get_tree().paused
 		visible = not visible
 		

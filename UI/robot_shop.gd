@@ -135,6 +135,7 @@ func _on_buy_timer_timeout():
 
 func _on_close_button_pressed():
 	close_shop()
+	Global.menu_active = false
 
 func _on_planter_buy_button_pressed():
 	_buy_robot(planterPrice, planter_scene, planter_ai_scene)

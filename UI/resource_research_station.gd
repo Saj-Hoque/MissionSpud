@@ -285,6 +285,7 @@ func close_shop():
 	
 func _on_close_button_pressed():
 	close_shop()
+	Global.menu_active = false
 
 
 func _update_values(prices, level, potatoPrice, scrapPrice, impovementLabel, improvement, upkeepLabel, upkeep, currentUpkeepLabel, currentUpkeep):

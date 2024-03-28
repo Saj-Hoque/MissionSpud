@@ -41,6 +41,7 @@ var scavengerSpeed = 50
 var scavengerCapacity = 1
 var scavengerUpkeep = 5
 
+var menu_active = false
 
 func reset():
 	totalPotato = 0
@@ -76,3 +77,5 @@ func reset():
 	scavengerSpeed = 50
 	scavengerCapacity = 1
 	scavengerUpkeep = 5
+	
+	var menu_active = false
