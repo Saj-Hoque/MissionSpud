@@ -100,7 +100,8 @@ animation = &"none"
 wait_time = 10.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-visible = false
+z_index = 2
+y_sort_enabled = true
 offset_left = -5.0
 offset_top = 3.0
 offset_right = 35.0
