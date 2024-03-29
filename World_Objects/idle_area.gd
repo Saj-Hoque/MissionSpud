@@ -1,5 +1,7 @@
 extends Node2D
 
+signal areaFull
+signal areaFree
 
 const DISTANCE_BETWEEN_DOCKS = 16
 
@@ -56,7 +58,14 @@ func _ready():
 		
 func _process(delta):
 	robotCount.text = (str(robots.size()) + " / " + str(total_docks))
-	
+
+func refresh_capacity():
+	if robots.size() == total_docks:
+		emit_signal("areaFull")
+	else:
+		emit_signal("areaFree")
+
+
 func get_next_available_dock():
 	for i in range(0, total_docks):
 		if docks.get_child(i).has_space():
@@ -75,7 +84,6 @@ func change_dock_status_occupied(dock):
 	
 func change_dock_status_unoccupied(dock):
 	docks.get_child(dock).unoccupied()
-
 
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):

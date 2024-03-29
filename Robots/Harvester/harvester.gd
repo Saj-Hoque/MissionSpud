@@ -47,6 +47,7 @@ var target_position = global_position
 func _ready():
 	instantiate()
 	idle_area.robots.push_back(self)
+	idle_area.refresh_capacity()
 
 func instantiate():
 	speed = Global.harvesterSpeed
@@ -136,10 +137,12 @@ func assign_to_new_idle_area(new_idle_area):
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
+	idle_area.refresh_capacity()
 	idle_area = new_idle_area
 	plot = idle_area.plot
 	if self not in idle_area.robots:
 		idle_area.robots.push_back(self)
+	idle_area.refresh_capacity()
 
 # Dock related methods
 		
@@ -190,5 +193,6 @@ func self_destruct():
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
+	idle_area.refresh_capacity()
 	remove_from_group("robots")
 	queue_free()

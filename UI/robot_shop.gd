@@ -51,6 +51,7 @@ var collectorPrice = { "potato" : 20,
 var scavengerPrice = { "potato" : 20,
 					   "scrap"  : 20 }
 
+var disabled = false
 var disable_override = false
 
 func _ready():
@@ -62,8 +63,11 @@ func _process(delta):
 		robots = get_node("/root/world/robots")
 	if main_hub == null:
 		main_hub = get_node("/root/world/MainHub")
-		
-	if visible and not disable_override:
+		if main_hub != null:
+			main_hub.areaFull.connect(blocked)
+			main_hub.areaFree.connect(unblocked)
+
+	if visible and not disabled and not disable_override:
 		_check_if_enough(planterPrice, planterButton)
 		_check_if_enough(harvesterPrice, harvesterButton)
 		_check_if_enough(collectorPrice, collectorButton)
@@ -98,8 +102,16 @@ func _update():
 	
 	_update_robot_details(scavengerPrice, scavengerPotatoLabel, scavengerScrapLabel, Global.scavengerUpkeep, scavengerUpkeepLabel)
 
-func _disable_all_buttons():
+
+func blocked():
+	_disable_all_buttons()
 	disable_override = true
+
+func unblocked():
+	_enable_all_buttons()
+	disable_override = false
+
+func _disable_all_buttons():
 	planterButton.disabled = true
 	harvesterButton.disabled = true
 	collectorButton.disabled = true
@@ -107,7 +119,6 @@ func _disable_all_buttons():
 	scavengerButton.disabled = true
 	
 func _enable_all_buttons():
-	disable_override = false
 	planterButton.disabled = false
 	harvesterButton.disabled = false
 	collectorButton.disabled = false
@@ -128,10 +139,12 @@ func _buy_robot(price, scene, ai_scene):
 	Global.robot_upkeep += upkeep
 	timer.start()
 	_disable_all_buttons()
+	disabled = true
 
 func _on_buy_timer_timeout():
-	_enable_all_buttons()
-	
+	if not disable_override:
+		_enable_all_buttons()
+	disabled = false
 
 func _on_close_button_pressed():
 	close_shop()
