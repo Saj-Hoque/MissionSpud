@@ -73,6 +73,7 @@ path_max_distance = 10.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_vivhh")
+frame_progress = 0.265014
 
 [node name="highlight_box" type="Panel" parent="."]
 visible = false

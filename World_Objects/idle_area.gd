@@ -100,3 +100,25 @@ func _on_zone_input_event(viewport, event, shape_idx):
 					print("Cannot assign a scrap robot to a non-scrap area")
 				else:
 					robot.assign_to_new_idle_area(self)
+					Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func _on_zone_mouse_entered():
+	var selected_robots = SelectionManager.current_selection
+	if selected_robots:
+		var currently_selected_robot = selected_robots[0]
+		if currently_selected_robot.selected:
+			if currently_selected_robot in robots:
+				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+			elif robots.size() == total_docks:
+				Input.set_default_cursor_shape(Input.CURSOR_FORBIDDEN)
+			elif (currently_selected_robot is planter_robot or currently_selected_robot is harvester_robot or currently_selected_robot is collector_robot) and not (type == "farming" or type == "main"):
+				Input.set_default_cursor_shape(Input.CURSOR_FORBIDDEN)
+			elif (currently_selected_robot is scavenger_robot) and not (type == "scrap" or type == "main"):
+				Input.set_default_cursor_shape(Input.CURSOR_FORBIDDEN)
+			elif (currently_selected_robot is planter_robot or currently_selected_robot is harvester_robot or currently_selected_robot is collector_robot) and (type == "farming" or type == "main"):
+				Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+			elif (currently_selected_robot is scavenger_robot) and (type == "scrap" or type == "main"):
+				Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+func _on_zone_mouse_exited():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

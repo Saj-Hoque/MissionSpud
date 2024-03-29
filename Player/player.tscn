@@ -254,7 +254,7 @@ volume_db = -15.0
 pitch_scale = 2.0
 max_distance = 300.0
 attenuation = 5.09824
-max_polyphony = 64
+max_polyphony = 8
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true

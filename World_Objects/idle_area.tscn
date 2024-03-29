@@ -49,3 +49,5 @@ vertical_alignment = 1
 shape = SubResource("RectangleShape2D_mrknf")
 
 [connection signal="input_event" from="zone" to="." method="_on_zone_input_event"]
+[connection signal="mouse_entered" from="zone" to="." method="_on_zone_mouse_entered"]
+[connection signal="mouse_exited" from="zone" to="." method="_on_zone_mouse_exited"]

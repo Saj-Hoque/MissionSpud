@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=42 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nikri"]
@@ -427,7 +427,10 @@ cell_size = 4.0
 agent_radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8heb"]
-size = Vector2(599, 163)
+size = Vector2(599, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpio"]
+size = Vector2(604, 282)
 
 [node name="world" type="Node2D"]
 process_mode = 1
@@ -733,12 +736,19 @@ collision_mask = 0
 script = ExtResource("8_o8f6c")
 
 [node name="area" type="CollisionShape2D" parent="idleArea3/scrapSpawnZone"]
-position = Vector2(127.5, 441.5)
+position = Vector2(127.5, 430.5)
 shape = SubResource("RectangleShape2D_l8heb")
 
 [node name="scraps" type="Node2D" parent="idleArea3/scrapSpawnZone"]
 z_index = 2
 y_sort_enabled = true
+
+[node name="zone" type="Area2D" parent="idleArea3/scrapSpawnZone"]
+position = Vector2(0, 246)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="idleArea3/scrapSpawnZone/zone"]
+position = Vector2(128, 134)
+shape = SubResource("RectangleShape2D_3tpio")
 
 [node name="potatoes" type="Node2D" parent="."]
 z_index = 2
@@ -803,42 +813,42 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@138712")
+blackboard = NodePath("@Node@17518")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(200, -62)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@138713")
+blackboard = NodePath("@Node@17519")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@138714")
+blackboard = NodePath("@Node@17520")
 actor = NodePath("..")
 
 [node name="scavenger2" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(254, -59)
 
 [node name="scavenger_ai" parent="robots/scavenger2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@138715")
+blackboard = NodePath("@Node@17521")
 actor = NodePath("..")
 
 [node name="collector" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-98, -57)
 
 [node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@138716")
+blackboard = NodePath("@Node@17522")
 actor = NodePath("..")
 
 [node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-63, -57)
 
 [node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@138717")
+blackboard = NodePath("@Node@17523")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
@@ -849,3 +859,6 @@ collision_mask = 57
 platform_floor_layers = 4294967277
 
 [connection signal="timeout" from="scrapSpawnTimer" to="idleArea3/scrapSpawnZone" method="_on_scrap_spawn_timer_timeout"]
+[connection signal="input_event" from="idleArea3/scrapSpawnZone/zone" to="idleArea3/scrapSpawnZone" method="_on_zone_input_event"]
+[connection signal="mouse_entered" from="idleArea3/scrapSpawnZone/zone" to="idleArea3/scrapSpawnZone" method="_on_zone_mouse_entered"]
+[connection signal="mouse_exited" from="idleArea3/scrapSpawnZone/zone" to="idleArea3/scrapSpawnZone" method="_on_zone_mouse_exited"]

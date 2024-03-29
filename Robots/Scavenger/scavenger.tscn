@@ -121,7 +121,7 @@ volume_db = -15.0
 pitch_scale = 2.0
 max_distance = 500.0
 attenuation = 5.09824
-max_polyphony = 64
+max_polyphony = 8
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

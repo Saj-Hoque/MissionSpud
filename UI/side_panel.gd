@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var first_name = $Panel/Name
 var current_robot = null
 
+var reset = false
+
 func appear():
 	visible = true
 	anim.play("TransIn")
@@ -20,7 +22,12 @@ func _process(delta):
 		current_robot = SelectionManager.current_selection[0]
 		state.text = current_robot.status
 		first_name.text = current_robot.first_name
+		reset = false
 
+	if not reset and SelectionManager.current_selection.is_empty(): 
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		reset = true
+		
 
 func _on_button_pressed():
 	await current_robot.self_destruct()

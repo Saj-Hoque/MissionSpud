@@ -15,3 +15,5 @@ script = ExtResource("1_rub6l")
 shape = SubResource("RectangleShape2D_oagsr")
 
 [connection signal="input_event" from="zone" to="." method="_on_zone_input_event"]
+[connection signal="mouse_entered" from="zone" to="." method="_on_zone_mouse_entered"]
+[connection signal="mouse_exited" from="zone" to="." method="_on_zone_mouse_exited"]
