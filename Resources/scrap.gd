@@ -4,12 +4,14 @@ class_name scrap_resource
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var world = get_node("/root/world")
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var gather_noise = load("res://SFX/plop.mp3")
 
 const MAX_SPEED = 15.0
 const ACCELERATION = 0.15
 
 var speed = 0.0
 var taken = false
+var played = false
 var is_being_picked_up_by_player = false
 var robot = null
 var is_being_picked_up_by_robot = false
@@ -44,6 +46,7 @@ func _physics_process(delta):
 		if is_being_picked_up_by_player or is_being_picked_up_by_robot:
 			if collision.get_collider() is player_character or collision.get_collider() is scavenger_robot:
 				if is_being_picked_up_by_player:
+					play_pick_up_noise(collision.get_collider())
 					_handle_picked_up_by_player()
 				else:
 					if robot.carrying >= robot.capacity:
@@ -51,7 +54,13 @@ func _physics_process(delta):
 						speed = 0.0
 						velocity = Vector2(0, 0)
 					else:
+						play_pick_up_noise(collision.get_collider())
 						_handle_picked_up_by_robot()
+
+func play_pick_up_noise(collider):
+	if !played:
+		collider.pick_up()
+		played = true
 
 func occupied():
 	taken = true

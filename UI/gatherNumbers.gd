@@ -1,8 +1,9 @@
 extends Node
 
-var font : FontFile = load("res://Bungee-MSDF.ttf")
+var font : FontFile = load("res://font/Bungee-MSDF.ttf")
 
 func display(value, position):
+	
 	var number = Label.new()
 	number.global_position = position
 	number.text = str(value)

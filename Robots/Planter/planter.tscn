@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://keeavkauuufy"]
+[gd_scene load_steps=11 format=3 uid="uid://keeavkauuufy"]
 
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="1_ceor2"]
 [ext_resource type="Script" path="res://Robots/Planter/planter.gd" id="1_rs33c"]
+[ext_resource type="AudioStream" uid="uid://ceeiamqoawmur" path="res://SFX/dig_ground.mp3" id="3_yjwv4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1i0y1"]
 
@@ -130,6 +131,12 @@ scale = Vector2(0.5, 0.5)
 theme_override_styles/background = SubResource("StyleBoxFlat_etkqf")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1g246")
 show_percentage = false
+
+[node name="planting_noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yjwv4")
+volume_db = -15.0
+max_distance = 500.0
+attenuation = 5.09823
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

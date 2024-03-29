@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://f6qdqic4rt1u"]
+[gd_scene load_steps=10 format=3 uid="uid://f6qdqic4rt1u"]
 
 [ext_resource type="Script" path="res://Robots/Collector/collector.gd" id="1_kxb6b"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_14ip4"]
+[ext_resource type="AudioStream" uid="uid://crrwawegmydx5" path="res://SFX/plop.mp3" id="3_0wsgd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1nwn"]
 
@@ -113,6 +114,14 @@ collision_mask = 26
 
 [node name="gatherNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(-3, -6)
+
+[node name="gather_noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0wsgd")
+volume_db = -15.0
+pitch_scale = 2.0
+max_distance = 500.0
+attenuation = 5.09824
+max_polyphony = 64
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

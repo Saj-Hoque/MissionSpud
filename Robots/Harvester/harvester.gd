@@ -26,6 +26,8 @@ var status = "Idle"
 @onready var progress = $ProgressBar
 var percentage_of_time
 
+@onready var harvesting_noise = $harvesting_noise
+
 var right_click: bool = false
 var selected: bool = false
 
@@ -177,9 +179,8 @@ func _on_harvesting_timer_timeout():
 		timer.wait_time = productivity
 
 	harvested = true
+	harvesting_noise.play()
 	progress.visible = false
-	
-	
 
 func self_destruct():
 	if plotting:

@@ -26,6 +26,8 @@ var carrying = 0
 
 @onready var gatherNumbersOrigin = $gatherNumbersOrigin
 
+@onready var gather_noise = $gather_noise
+
 var right_click: bool = false
 var selected: bool = false
 
@@ -167,6 +169,9 @@ func unoccupy_scrap():
 	
 func add_to_capacity():
 	carrying += 1
+
+func pick_up():
+	gather_noise.play(0.4)
 
 func reset_collecting_status():
 	unoccupy_scrap()

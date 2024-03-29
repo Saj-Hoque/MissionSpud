@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://17tfsfbem7it"]
+[gd_scene load_steps=11 format=3 uid="uid://17tfsfbem7it"]
 
 [ext_resource type="Script" path="res://Robots/Harvester/harvester.gd" id="1_lxean"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_epf20"]
+[ext_resource type="AudioStream" uid="uid://di16sx2ujnnig" path="res://SFX/harvest.mp3" id="3_oor7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0q0sa"]
 
@@ -131,6 +132,12 @@ scale = Vector2(0.5, 0.5)
 theme_override_styles/background = SubResource("StyleBoxFlat_kxgqy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_43gx3")
 show_percentage = false
+
+[node name="harvesting_noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oor7j")
+pitch_scale = 0.9
+max_distance = 500.0
+attenuation = 5.09823
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

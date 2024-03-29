@@ -26,6 +26,8 @@ var status = "Idle"
 @onready var progress = $ProgressBar
 var percentage_of_time
 
+@onready var planting_noise = $planting_noise
+
 var right_click: bool = false
 var selected: bool = false
 
@@ -177,6 +179,7 @@ func _on_planting_timer_timeout():
 		timer.wait_time = productivity
 		
 	planted = true
+	planting_noise.play()
 	progress.visible = false
 
 # Other methods
