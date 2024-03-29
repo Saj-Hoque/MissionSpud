@@ -14,10 +14,9 @@ func _ready():
 func _on_interact():
 	if Global.potatoCount >= Global.potatoWin and Global.scrapCount >= Global.scrapWin:
 		Global.totalRobots = (get_tree().get_nodes_in_group("robots")).size()
+		Global.running = false
 		SelectionManager.reset()
 		SceneTransition.change_scene("res://UI/victoryScreen.tscn")
-	else:
-		print("Insufficient Resources")
 
 func _on_interaction_area_body_entered(body):
 	if Global.potatoCount < Global.potatoWin:

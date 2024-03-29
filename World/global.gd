@@ -1,5 +1,7 @@
 extends Node
 
+var running = false
+
 const max_scraps = 100
 const potatoWin = 10000
 const scrapWin = 10000
@@ -44,6 +46,8 @@ var scavengerUpkeep = 5
 var menu_active = false
 
 func reset():
+	running = true
+	
 	totalPotato = 0
 	totalScrap = 0
 	totalRobots = 0
@@ -78,4 +82,5 @@ func reset():
 	scavengerCapacity = 1
 	scavengerUpkeep = 5
 	
-	var menu_active = false
+	menu_active = false
+	

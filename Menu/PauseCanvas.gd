@@ -13,7 +13,9 @@ func _on_resume_pressed():
 	visible = false
 
 func _on_exit_pressed():
-	get_tree().paused = !get_tree().paused
+	Global.running = false
+	SelectionManager.reset()
 	visible = not visible
-	SidePanel.visible = false
+	get_tree().paused = !get_tree().paused
 	SceneTransition.change_scene("res://Menu/menu.tscn")
+	

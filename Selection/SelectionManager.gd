@@ -9,7 +9,6 @@ func register_area(area: Area2D):
 	active_areas.push_back(area)
 		
 func _process(delta):
-
 	if active_areas.size() > 0:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		var selected_unit = active_areas[0].get_parent()
