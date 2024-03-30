@@ -49,6 +49,7 @@ polygon = PackedVector2Array(-10, -38, 15, -38, 39, -41, 37, -19, 36, 4, 38, 24,
 
 [node name="interactionArea" parent="." instance=ExtResource("2_4hikg")]
 visible = false
+y_offset = -38
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
 shape = SubResource("CircleShape2D_dtx44")

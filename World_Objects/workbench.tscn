@@ -77,6 +77,7 @@ position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_hmwg3")
 
 [node name="interactionArea" parent="." instance=ExtResource("3_grh7k")]
+y_offset = -30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
 shape = SubResource("CircleShape2D_i2fyy")

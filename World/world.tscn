@@ -418,8 +418,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7dfma")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8m5dc"]
-vertices = PackedVector2Array(280, 216, 136, 216, 28, 192, 28, 170, 27, 143, 27, 121, 28, 96, 232, 40, 254, 40, 371, 96, 371, 74, 424, -72, 424, 520, 312, 248, 343, 96, 254, 15, 280, -8, 130, -8, 232, 15, -168, 520, 130, 248, 126, 248, -56, 248, -168, -72, -56, -24, 312, -33, 343, 74, 28, 74, 126, -8, 0, 96, -1, 121, 136, 223, 130, 223, 126, 223, 120, 223, 120, 216, -47, -33, -47, -24, 0, 170, -1, 143, 130, -33, -24, 216, 0, 192, -24, -8, 0, 74, 126, -33)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8, 0, 3), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(9, 12, 13, 14), PackedInt32Array(8, 15, 16, 0), PackedInt32Array(17, 16, 15, 18), PackedInt32Array(13, 12, 19, 20), PackedInt32Array(21, 20, 19), PackedInt32Array(22, 21, 19), PackedInt32Array(22, 19, 23, 24), PackedInt32Array(14, 13, 25, 26), PackedInt32Array(17, 18, 7, 6, 27, 28), PackedInt32Array(29, 6, 5, 30), PackedInt32Array(1, 31, 32), PackedInt32Array(32, 20, 21, 33), PackedInt32Array(33, 34, 35, 1), PackedInt32Array(36, 37, 24, 23), PackedInt32Array(4, 3, 38, 39), PackedInt32Array(10, 26, 25, 11), PackedInt32Array(23, 11, 25, 40), PackedInt32Array(1, 32, 33), PackedInt32Array(2, 1, 35), PackedInt32Array(2, 35, 41, 42), PackedInt32Array(38, 42, 41, 43, 39), PackedInt32Array(30, 39, 43), PackedInt32Array(29, 30, 43, 44), PackedInt32Array(44, 43, 28, 27), PackedInt32Array(40, 17, 28, 45), PackedInt32Array(23, 40, 45), PackedInt32Array(23, 45, 36)])
+vertices = PackedVector2Array(313, 75, 313, 94, 312, 99, 312, 63, 401, 87, 402, 64, 402, 65, 280, 216, 136, 216, 37, 202, 37, 177, 406, 129, 424, -72, 424, 520, 403, 106, 405, 33, 36, 153, 36, 128, 37, 106, 232, 40, 254, 40, 254, 15, 280, -8, 130, -8, 232, 15, 312, 248, 312, 129, 320, 132, 37, 81, 126, -8, 383, 135, -9, 106, -10, 128, 331, 35, 312, 35, 312, -33, 136, 223, 130, 223, 130, 248, 126, 248, 126, 223, 120, 223, 120, 216, -47, -33, -47, -24, -56, -24, -168, -72, -9, 177, -10, 153, 361, 136, 321, 132, 339, 134, -168, 520, -56, 248, 371, 37, 348, 37, 126, -33, -24, 216, -9, 202, -24, -8, -9, 81, 130, -33)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13), PackedInt32Array(12, 11, 14, 4, 6, 15), PackedInt32Array(16, 17, 18, 19, 20, 7, 10), PackedInt32Array(20, 21, 22, 7), PackedInt32Array(23, 22, 21, 24), PackedInt32Array(25, 26, 27), PackedInt32Array(23, 24, 19, 18, 28, 29), PackedInt32Array(30, 11, 13), PackedInt32Array(31, 18, 17, 32), PackedInt32Array(33, 34, 35), PackedInt32Array(8, 36, 37), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(40, 41, 42, 8), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(16, 10, 47, 48), PackedInt32Array(49, 30, 13, 25), PackedInt32Array(25, 27, 50, 51), PackedInt32Array(25, 51, 49), PackedInt32Array(25, 13, 52, 38), PackedInt32Array(39, 38, 52), PackedInt32Array(53, 39, 52), PackedInt32Array(53, 52, 46, 45), PackedInt32Array(35, 12, 15, 54, 55, 33), PackedInt32Array(43, 46, 12, 56), PackedInt32Array(8, 37, 40), PackedInt32Array(9, 8, 42), PackedInt32Array(9, 42, 57, 58), PackedInt32Array(47, 58, 57, 59, 48), PackedInt32Array(32, 48, 59), PackedInt32Array(31, 32, 59, 60), PackedInt32Array(60, 59, 29, 28), PackedInt32Array(61, 23, 29, 56), PackedInt32Array(61, 56, 12), PackedInt32Array(61, 12, 35)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-189, -99, 448, -103, 452, 552, -196, 555)])
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
@@ -813,42 +813,42 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@403828")
+blackboard = NodePath("@Node@17776")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(200, -62)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@403829")
+blackboard = NodePath("@Node@17777")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@403830")
+blackboard = NodePath("@Node@17778")
 actor = NodePath("..")
 
 [node name="scavenger2" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(254, -59)
 
 [node name="scavenger_ai" parent="robots/scavenger2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@403831")
+blackboard = NodePath("@Node@17779")
 actor = NodePath("..")
 
 [node name="collector" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-98, -57)
 
 [node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@403832")
+blackboard = NodePath("@Node@17780")
 actor = NodePath("..")
 
 [node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-63, -57)
 
 [node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@403833")
+blackboard = NodePath("@Node@17781")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
