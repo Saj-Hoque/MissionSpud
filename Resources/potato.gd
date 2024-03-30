@@ -21,7 +21,7 @@ func _ready():
 	randomize()
 	var type = randi() % 3
 	var potatotype = "idle" + str(type)
-	anim_sprite.scale = Vector2(randf_range(0.6, 0.8), randf_range(0.6, 0.8))
+	anim_sprite.scale = Vector2(randf_range(0.4, 0.6), randf_range(0.4, 0.6))
 	anim_sprite.rotation_degrees = randf_range(-15, 15)
 	anim_sprite.play(potatotype)
 	

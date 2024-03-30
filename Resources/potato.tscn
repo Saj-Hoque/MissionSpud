@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2rec27tf5b3u" path="res://Assets/Resources/Potato/potato3.png" id="4_wlrk6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv0lm"]
-radius = 6.0
+radius = 4.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_634jg"]
 animations = [{
@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwody"]
-radius = 16.0
+radius = 13.0
 
 [node name="potato" type="CharacterBody2D"]
 collision_layer = 4
@@ -48,7 +48,7 @@ script = ExtResource("1_14gri")
 shape = SubResource("CircleShape2D_tv0lm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_634jg")
 animation = &"idle2"
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mf1f4po7x2x"
-path="res://.godot/imported/tilemap.png-d678527a9066d86f9c33542636e6ceac.ctex"
+uid="uid://b3hdi7qf6kb82"
+path="res://.godot/imported/potato_growth.png-5607008ca59eb3d149ba7111e42bfd6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-d678527a9066d86f9c33542636e6ceac.ctex"]
+source_file="res://Assets/Planting/potato_growth.png"
+dest_files=["res://.godot/imported/potato_growth.png-5607008ca59eb3d149ba7111e42bfd6e.ctex"]
 
 [params]
 

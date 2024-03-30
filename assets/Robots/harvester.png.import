@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mf1f4po7x2x"
-path="res://.godot/imported/tilemap.png-d678527a9066d86f9c33542636e6ceac.ctex"
+uid="uid://bal8n0is5gcql"
+path="res://.godot/imported/harvester.png-1d256453937c56fc72b218a4ac25b817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-d678527a9066d86f9c33542636e6ceac.ctex"]
+source_file="res://Assets/Robots/harvester.png"
+dest_files=["res://.godot/imported/harvester.png-1d256453937c56fc72b218a4ac25b817.ctex"]
 
 [params]
 

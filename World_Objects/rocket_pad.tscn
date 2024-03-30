@@ -1,32 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://breysoa8t4hpl"]
+[gd_scene load_steps=11 format=3 uid="uid://breysoa8t4hpl"]
 
-[ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_p6jjc"]
 [ext_resource type="Script" path="res://World_Objects/rocket_pad.gd" id="1_t55on"]
 [ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="2_4hikg"]
+[ext_resource type="Texture2D" uid="uid://cj1u8oyklmiga" path="res://Assets/Workbenches/launchpad.png" id="2_mqjcn"]
 [ext_resource type="FontFile" uid="uid://d3on2b22dyyp1" path="res://font/Bungee-MSDF.ttf" id="4_b31e3"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="4_e46yv"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="5_td0ji"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kquu0"]
-atlas = ExtResource("1_p6jjc")
-region = Rect2(64, 128, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wyl2n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kquu0")
+"texture": ExtResource("2_mqjcn")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkxge"]
-size = Vector2(12, 6)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_dtx44"]
-radius = 39.0
+radius = 95.0474
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_505le"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -51,11 +44,11 @@ script = ExtResource("1_t55on")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wyl2n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_pkxge")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -38, 15, -38, 39, -41, 37, -19, 36, 4, 38, 24, 40, 40, 25, 44, 4, 45, -17, 43, -35, 41, -39, 40, -39, 31, -36, 11, -36, -9, -38, -30, -41, -40, -27, -40)
 
 [node name="interactionArea" parent="." instance=ExtResource("2_4hikg")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
 shape = SubResource("CircleShape2D_dtx44")
@@ -66,9 +59,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -24.0
-offset_top = 10.0
+offset_top = 29.0
 offset_right = 24.0
-offset_bottom = 20.0
+offset_bottom = 39.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_505le")
 

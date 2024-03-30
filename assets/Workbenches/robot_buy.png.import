@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de8l32i6b372a"
-path="res://.godot/imported/farmingTilesheetComplete.png-57985c0dd2f16eba22b6f8710da47938.ctex"
+uid="uid://eoxvft6op5cg"
+path="res://.godot/imported/robot_buy.png-204756084990cccc79bc08e55e1330e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Planting/farmingTilesheetComplete.png"
-dest_files=["res://.godot/imported/farmingTilesheetComplete.png-57985c0dd2f16eba22b6f8710da47938.ctex"]
+source_file="res://Assets/Workbenches/robot_buy.png"
+dest_files=["res://.godot/imported/robot_buy.png-204756084990cccc79bc08e55e1330e2.ctex"]
 
 [params]
 

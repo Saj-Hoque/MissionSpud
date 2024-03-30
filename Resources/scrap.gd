@@ -20,7 +20,7 @@ func _ready():
 	randomize()
 	var type = randi() % 6
 	var scraptype = "idle" + str(type)
-	var scale_xy = randf_range(0.6, 0.8)
+	var scale_xy = randf_range(0.4, 0.6)
 	anim_sprite.scale = Vector2(scale_xy, scale_xy)
 	anim_sprite.rotation_degrees = randf_range(-15, 15)
 	anim_sprite.play(scraptype)

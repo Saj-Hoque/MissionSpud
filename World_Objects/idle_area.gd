@@ -121,4 +121,12 @@ func _on_zone_mouse_entered():
 				Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 func _on_zone_mouse_exited():
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	var selected_robots = SelectionManager.current_selection
+	if selected_robots:
+		var currently_selected_robot = selected_robots[0]
+		if (currently_selected_robot is scavenger_robot) and (type == "scrap"):
+			pass
+		elif (currently_selected_robot is planter_robot or currently_selected_robot is harvester_robot or currently_selected_robot is collector_robot) and (type == "scrap"):
+			pass
+		else:
+			Input.set_default_cursor_shape(Input.CURSOR_ARROW)

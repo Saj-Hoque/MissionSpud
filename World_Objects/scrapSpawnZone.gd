@@ -10,6 +10,7 @@ var scrap_scene = preload("res://Resources/scrap.tscn")
 @onready var all_robots = get_tree().get_nodes_in_group("robots")
 @onready var idle_area = get_parent()
 
+
 func instantiate():
 	scrapTimer.wait_time = Global.scrapTimer
 	
@@ -31,7 +32,6 @@ func _process(delta):
 			scrapTimer.start((scrapTimer.get_time_left() / scrapTimer.wait_time) * Global.scrapTimer)
 		else:
 			scrapTimer.wait_time = Global.potatoTimer
-
 
 func _on_zone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("rightClick"):

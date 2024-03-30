@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://xqlx26ht07gn"]
+[gd_scene load_steps=15 format=3 uid="uid://xqlx26ht07gn"]
 
 [ext_resource type="Script" path="res://UI/robot_shop.gd" id="1_2yh61"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_j2y6y"]
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_p1hq4"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_054f0"]
+[ext_resource type="Texture2D" uid="uid://ct7g8dtxrc235" path="res://Assets/Robots/planter.png" id="3_ux3oh"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
+[ext_resource type="Texture2D" uid="uid://bal8n0is5gcql" path="res://Assets/Robots/harvester.png" id="6_b13q0"]
+[ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://Assets/Robots/collector.png" id="7_wa0y2"]
+[ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://Assets/Robots/scavenger.png" id="8_yhyt8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju33a"]
 bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)
@@ -107,7 +110,8 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Planter"]
 layout_mode = 2
-texture = ExtResource("2_p1hq4")
+texture = ExtResource("3_ux3oh")
+expand_mode = 4
 stretch_mode = 5
 
 [node name="Price" type="HBoxContainer" parent="potato/BUY/robots/Planter"]
@@ -177,8 +181,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Harvester"]
+modulate = Color(0.290196, 0.427451, 0.886275, 1)
+custom_minimum_size = Vector2(314, 314)
 layout_mode = 2
-texture = ExtResource("2_p1hq4")
+texture = ExtResource("6_b13q0")
 stretch_mode = 5
 
 [node name="Price" type="HBoxContainer" parent="potato/BUY/robots/Harvester"]
@@ -249,8 +255,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Collector"]
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
 layout_mode = 2
-texture = ExtResource("2_p1hq4")
+texture = ExtResource("7_wa0y2")
+expand_mode = 4
 stretch_mode = 5
 
 [node name="Price" type="HBoxContainer" parent="potato/BUY/robots/Collector"]
@@ -380,8 +388,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="scrap/BUY/robots/Scavenger"]
+modulate = Color(0.313726, 0.223529, 0, 1)
+custom_minimum_size = Vector2(314, 314)
 layout_mode = 2
-texture = ExtResource("2_p1hq4")
+texture = ExtResource("8_yhyt8")
 stretch_mode = 5
 
 [node name="Price" type="HBoxContainer" parent="scrap/BUY/robots/Scavenger"]

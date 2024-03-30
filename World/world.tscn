@@ -429,8 +429,8 @@ agent_radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8heb"]
 size = Vector2(599, 185)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpio"]
-size = Vector2(604, 282)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yjlk"]
+size = Vector2(605, 287)
 
 [node name="world" type="Node2D"]
 process_mode = 1
@@ -747,8 +747,8 @@ y_sort_enabled = true
 position = Vector2(0, 246)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="idleArea3/scrapSpawnZone/zone"]
-position = Vector2(128, 134)
-shape = SubResource("RectangleShape2D_3tpio")
+position = Vector2(126.5, 133.5)
+shape = SubResource("RectangleShape2D_4yjlk")
 
 [node name="potatoes" type="Node2D" parent="."]
 z_index = 2
@@ -813,42 +813,42 @@ position = Vector2(123, -56)
 position = Vector2(53, -56)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@17518")
+blackboard = NodePath("@Node@403828")
 actor = NodePath("..")
 
 [node name="harvester2" parent="robots" instance=ExtResource("12_morrn")]
 position = Vector2(200, -62)
 
 [node name="harvester_ai" parent="robots/harvester2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@17519")
+blackboard = NodePath("@Node@403829")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-14, -58)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@17520")
+blackboard = NodePath("@Node@403830")
 actor = NodePath("..")
 
 [node name="scavenger2" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(254, -59)
 
 [node name="scavenger_ai" parent="robots/scavenger2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@17521")
+blackboard = NodePath("@Node@403831")
 actor = NodePath("..")
 
 [node name="collector" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-98, -57)
 
 [node name="collector_ai" parent="robots/collector" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@17522")
+blackboard = NodePath("@Node@403832")
 actor = NodePath("..")
 
 [node name="collector2" parent="robots" instance=ExtResource("17_eveds")]
 position = Vector2(-63, -57)
 
 [node name="collector_ai" parent="robots/collector2" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("18_pp1s6")]
-blackboard = NodePath("@Node@17523")
+blackboard = NodePath("@Node@403833")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

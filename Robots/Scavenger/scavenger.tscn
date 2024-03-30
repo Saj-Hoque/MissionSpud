@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://lj0orhl3dn2u"]
 
 [ext_resource type="Script" path="res://Robots/Scavenger/scavenger.gd" id="1_74c7q"]
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_y7qio"]
+[ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://Assets/Robots/scavenger.png" id="2_aqayd"]
 [ext_resource type="AudioStream" uid="uid://crrwawegmydx5" path="res://SFX/plop.mp3" id="3_4qepn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_an1qu"]
@@ -10,7 +10,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y7qio")
+"texture": ExtResource("2_aqayd")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +31,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqhlf"]
-size = Vector2(6, 3)
+size = Vector2(4, 2.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddb4k"]
 
@@ -58,8 +58,8 @@ target_desired_distance = 1.0
 path_max_distance = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.564706, 0.0862745, 0.768627, 1)
-scale = Vector2(0.05, 0.05)
+modulate = Color(0.313726, 0.223529, 0, 1)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_x0vi5")
 
 [node name="highlight_box" type="Panel" parent="."]
@@ -71,7 +71,7 @@ offset_bottom = 5.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vgfwq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 0.25)
 shape = SubResource("RectangleShape2D_iqhlf")
 
 [node name="SelectionArea2D" type="Area2D" parent="."]
@@ -89,26 +89,17 @@ shape = SubResource("CircleShape2D_d0umt")
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(32, 0)
-collision_mask = 26
-
-[node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 6)
+position = Vector2(3, 0)
 target_position = Vector2(32, 0)
 collision_mask = 26
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 3)
+position = Vector2(3, 3)
 target_position = Vector2(32, 0)
 collision_mask = 26
 
 [node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -3)
-target_position = Vector2(32, 0)
-collision_mask = 26
-
-[node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -6)
+position = Vector2(3, -3)
 target_position = Vector2(32, 0)
 collision_mask = 26
 
