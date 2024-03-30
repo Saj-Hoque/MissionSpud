@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://quqrv8u810yp"]
+[gd_scene load_steps=12 format=3 uid="uid://quqrv8u810yp"]
 
 [ext_resource type="Script" path="res://UI/victoryScreen.gd" id="1_swffo"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_fgy31"]
@@ -10,82 +10,40 @@
 default_font = ExtResource("2_fgy31")
 default_font_size = 50
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_frnkb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul4yg"]
 atlas = ExtResource("3_jg7qc")
-region = Rect2(0, 96, 32, 32)
+region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxqms"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rcfs"]
 atlas = ExtResource("3_jg7qc")
-region = Rect2(32, 96, 32, 32)
+region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qru3h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu7kf"]
 atlas = ExtResource("3_jg7qc")
-region = Rect2(64, 96, 32, 32)
+region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7d75y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3jro"]
 atlas = ExtResource("3_jg7qc")
-region = Rect2(96, 96, 32, 32)
+region = Rect2(96, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_41666"]
-atlas = ExtResource("3_jg7qc")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7ou2"]
-atlas = ExtResource("3_jg7qc")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37hqy"]
-atlas = ExtResource("3_jg7qc")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fbun"]
-atlas = ExtResource("3_jg7qc")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wjfik"]
-atlas = ExtResource("3_jg7qc")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8l3mb"]
-atlas = ExtResource("3_jg7qc")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7c5vc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_04vlu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_frnkb")
+"texture": SubResource("AtlasTexture_ul4yg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jxqms")
+"texture": SubResource("AtlasTexture_0rcfs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qru3h")
+"texture": SubResource("AtlasTexture_cu7kf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7d75y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_41666")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w7ou2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_37hqy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6fbun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wjfik")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8l3mb")
+"texture": SubResource("AtlasTexture_v3jro")
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 10.0
 }]
 
 [node name="victoryScreen" type="CenterContainer"]
@@ -184,7 +142,7 @@ texture = ExtResource("4_al3h0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(367, 649)
 scale = Vector2(16, 16)
-sprite_frames = SubResource("SpriteFrames_7c5vc")
-frame_progress = 0.710439
+sprite_frames = SubResource("SpriteFrames_04vlu")
+frame_progress = 0.404438
 
 [connection signal="pressed" from="VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]
