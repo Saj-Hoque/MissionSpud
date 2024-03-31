@@ -109,6 +109,7 @@ back={
 2d_physics/layer_6="interactable"
 2d_physics/layer_7="collector"
 2d_physics/layer_8="scavenger"
+2d_physics/layer_9="doors"
 
 [navigation]
 

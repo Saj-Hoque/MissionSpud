@@ -3,6 +3,7 @@ extends Node
 var running = false
 
 const max_scraps = 100
+
 const potatoWin = 10000
 const scrapWin = 10000
 

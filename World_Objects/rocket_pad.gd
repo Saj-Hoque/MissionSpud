@@ -1,14 +1,15 @@
 extends StaticBody2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
 @onready var interactionArea = $interactionArea
 @export var action_name : String
 @onready var price = $pricePanel
 @onready var potatoPrice = $pricePanel/Price/potatoPrice
 @onready var scrapPrice = $pricePanel/Price/scrapPrice
+@export var y_offset : int
 
 func _ready():
 	interactionArea.action_name = action_name
+	interactionArea.y_offset = y_offset
 	interactionArea.interact = Callable(self, "_on_interact")
 
 func _on_interact():

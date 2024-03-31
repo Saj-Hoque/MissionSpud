@@ -8,8 +8,6 @@ const DISTANCE_BETWEEN_PLOTS = 16
 @export var plots_per_row = 6
 @onready var plots = $plots
 @onready var idle_area = get_parent()
-@onready var zone = $zone/CollisionShape2D
-
 @onready var growingPlot = preload("res://Planting/growing_plot.tscn")
 @onready var all_robots = get_tree().get_nodes_in_group("robots")
 
@@ -26,17 +24,6 @@ func _ready():
 		var plot = growingPlot.instantiate()
 		plot.position = global_position + pos
 		plots.add_child(plot)
-	
-	if total_plots == 0:
-		zone.disabled = true
-	else:
-		var zone_x_size = DISTANCE_BETWEEN_PLOTS * (plots_per_row+1)
-		var zone_x_pos = global_position.x + DISTANCE_BETWEEN_PLOTS * (plots_per_row-1) / 2
-		var zone_y_size = DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) 
-		var zone_y_pos = global_position.y + DISTANCE_BETWEEN_PLOTS * ((total_plots / plots_per_row) + 1) / 2 
-		
-		zone.shape.size = Vector2(zone_x_size, zone_y_size)
-		zone.global_position += Vector2(zone_x_pos, zone_y_pos)
 	
 func get_next_available_plot():
 	for i in range(0, total_plots):
@@ -70,36 +57,5 @@ func grow_plant_on_plot(plot):
 func harvest_plant_on_plot(plot):
 	plots.get_child(plot).harvest_plant()
 	
-func _on_zone_input_event(viewport, event, shape_idx):
-	if event.is_action_pressed("rightClick"):
-		all_robots = get_tree().get_nodes_in_group("robots")
-		for robot in all_robots:
-			if robot.selected:
-				if robot in idle_area.robots:
-					print("This robot is already assigned here!")
-				elif idle_area.robots.size() == idle_area.total_docks:
-					print("Cannot assign robot to fully allocated plot. Free up space or assign them to a different plot")
-				elif not (robot is planter_robot or robot is harvester_robot or robot is collector_robot):
-					print("Cannot assign a scrap robot to a farming area")
-				else:
-					robot.assign_to_new_idle_area(idle_area)
-					Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
-
-func _on_zone_mouse_entered():
-	var selected_robots = SelectionManager.current_selection
-	if selected_robots:
-		var currently_selected_robot = selected_robots[0]
-		if currently_selected_robot.selected:
-			if currently_selected_robot in idle_area.robots:
-				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-			elif idle_area.robots.size() == idle_area.total_docks:
-				Input.set_default_cursor_shape(Input.CURSOR_FORBIDDEN)
-			elif (currently_selected_robot is scavenger_robot):
-				Input.set_default_cursor_shape(Input.CURSOR_FORBIDDEN)
-			elif (currently_selected_robot is planter_robot or currently_selected_robot is harvester_robot or currently_selected_robot is collector_robot):
-				Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-
-func _on_zone_mouse_exited():
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	

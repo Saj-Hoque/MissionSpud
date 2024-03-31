@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var anim = $AnimatedSprite2D
 @export var shop_index : int
 @export var action_name : String
+@export var y_offset : int
 var shop_dict = { 0 : [RobotShop, "robot_shop"],
 				  1 : [RobotResearchStation, "robot_upgrade"],
 				  2 : [ResourceResearchStation, "resource_upgrade"]}
@@ -15,6 +16,7 @@ func _ready():
 	Shop = shop_dict[shop_index][0]
 	anim.play(shop_dict[shop_index][1])
 	interactionArea.action_name = action_name
+	interactionArea.y_offset = y_offset
 	interactionArea.interact = Callable(self, "_on_interact")
 
 func _on_interact():

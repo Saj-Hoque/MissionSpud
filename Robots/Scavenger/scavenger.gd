@@ -21,7 +21,7 @@ var carrying = 0
 @onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
 
-@onready var idle_area = get_node("/root/world/MainHub")
+@onready var idle_area = get_node("/root/world/roomMain/idleArea")
 @onready var plot = idle_area.plot
 
 @onready var gatherNumbersOrigin = $gatherNumbersOrigin

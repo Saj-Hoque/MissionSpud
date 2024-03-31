@@ -5,6 +5,7 @@ class_name player_character
 @export var accel = 10
 @export var idle_direction = "downidle"
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var range = $pickup_range
 @onready var gather_noise = $gather_noise
 
 func _physics_process(delta):

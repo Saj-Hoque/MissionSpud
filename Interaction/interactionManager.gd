@@ -25,7 +25,7 @@ func _process(delta):
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
 		label.global_position.y += active_areas[0].y_offset
-		label.global_position.x -= label.size.x / 2
+		label.global_position.x += active_areas[0].x_offset - (label.size.x / 2)
 		label.show()
 	else:
 		label.hide()

@@ -1,25 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://bt5o1wq1ruqy1"]
+[gd_scene load_steps=15 format=3 uid="uid://c0awfqvd1fmmu"]
 
-[ext_resource type="Script" path="res://World_Objects/door.gd" id="1_c5y1n"]
-[ext_resource type="Texture2D" uid="uid://mf1f4po7x2x" path="res://Assets/Tiles/tilemap.png" id="2_5y53e"]
-[ext_resource type="FontFile" uid="uid://d3on2b22dyyp1" path="res://font/Bungee-MSDF.ttf" id="3_iy4sy"]
-[ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="3_nlgyv"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="4_cws4o"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="5_iy1f8"]
+[ext_resource type="Script" path="res://World_Objects/door.gd" id="1_6ma5k"]
+[ext_resource type="Texture2D" uid="uid://mf1f4po7x2x" path="res://Assets/Tiles/tilemap.png" id="2_f2rml"]
+[ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="3_ta6xk"]
+[ext_resource type="FontFile" uid="uid://d3on2b22dyyp1" path="res://font/Bungee-MSDF.ttf" id="4_7qmeq"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="5_muhob"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="6_a7qqc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfwu5"]
-atlas = ExtResource("2_5y53e")
-region = Rect2(16, 48, 64, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pib2g"]
+atlas = ExtResource("2_f2rml")
+region = Rect2(160, 48, 16, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5kcj"]
-atlas = ExtResource("2_5y53e")
-region = Rect2(16, 64, 64, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mkt6"]
+atlas = ExtResource("2_f2rml")
+region = Rect2(112, 48, 16, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dak7y"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kphy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfwu5")
+"texture": SubResource("AtlasTexture_pib2g")
 }],
 "loop": true,
 "name": &"closed",
@@ -27,21 +27,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n5kcj")
+"texture": SubResource("AtlasTexture_2mkt6")
 }],
 "loop": true,
 "name": &"open",
 "speed": 0.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp4yl"]
-size = Vector2(64, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbl56"]
+size = Vector2(7, 64)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47vdc"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sse8"]
 radius = 21.0
 height = 68.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pru5i"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anmia"]
+radius = 21.0
+height = 68.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs10"]
 bg_color = Color(0, 0, 0, 0.588235)
 border_width_left = 2
 border_width_top = 2
@@ -53,35 +57,35 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="Theme" id="Theme_hkxgx"]
-default_font = ExtResource("3_iy4sy")
+[sub_resource type="Theme" id="Theme_qlvoq"]
+default_font = ExtResource("4_7qmeq")
 
-[node name="doorsTop" type="StaticBody2D"]
+[node name="doorsRight" type="StaticBody2D"]
 collision_layer = 256
 collision_mask = 2
-script = ExtResource("1_c5y1n")
+script = ExtResource("1_6ma5k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dak7y")
+sprite_frames = SubResource("SpriteFrames_2kphy")
 animation = &"closed"
 
 [node name="locked" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_sp4yl")
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_pbl56")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_47vdc")
+position = Vector2(4, 0)
+shape = SubResource("CapsuleShape2D_8sse8")
 
-[node name="interactionArea" parent="." instance=ExtResource("3_nlgyv")]
+[node name="interactionArea" parent="." instance=ExtResource("3_ta6xk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_47vdc")
+position = Vector2(4, 0)
+shape = SubResource("CapsuleShape2D_anmia")
 
 [node name="pricePanel" type="Panel" parent="."]
 visible = false
@@ -89,11 +93,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -24.0
-offset_top = -20.0
+offset_top = -23.0
 offset_right = 24.0
-offset_bottom = -10.0
+offset_bottom = -13.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pru5i")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfs10")
 
 [node name="Price" type="HBoxContainer" parent="pricePanel"]
 layout_mode = 1
@@ -108,33 +112,33 @@ offset_right = 19.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_hkxgx")
+theme = SubResource("Theme_qlvoq")
 theme_override_constants/separation = 1
 alignment = 1
 
 [node name="potatoPrice" type="Label" parent="pricePanel/Price"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
-text = "1000"
+text = "10,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="potatoIcon" type="TextureRect" parent="pricePanel/Price"]
 layout_mode = 2
-texture = ExtResource("4_cws4o")
+texture = ExtResource("5_muhob")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="scrapPrice" type="Label" parent="pricePanel/Price"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
-text = "1000"
+text = "10,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="scrapIcon" type="TextureRect" parent="pricePanel/Price"]
 layout_mode = 2
-texture = ExtResource("5_iy1f8")
+texture = ExtResource("6_a7qqc")
 expand_mode = 3
 stretch_mode = 5
 
