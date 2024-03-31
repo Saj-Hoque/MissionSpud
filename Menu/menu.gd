@@ -1,9 +1,12 @@
 extends Control
 
-func _ready():
-	#$buttonsMargin/buttons/start.grab_focus()
-	pass
+@onready var anim = $AnimatedSprite2D
+@onready var anim_player = $AnimationPlayer
 
+func _ready():
+	anim.play()
+	anim_player.play("running")
+	
 func _on_start_pressed():
 	SceneTransition.change_scene("res://World/world.tscn")
 

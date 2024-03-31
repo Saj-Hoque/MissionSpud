@@ -1,11 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://hnv53wnup2n3"]
+[gd_scene load_steps=16 format=3 uid="uid://hnv53wnup2n3"]
 
 [ext_resource type="Script" path="res://Menu/menu.gd" id="1_1ao13"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="1_e2sdg"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_2vnql"]
+[ext_resource type="Texture2D" uid="uid://bq47tl0fxxhpt" path="res://Assets/Idle_Area/robot_zone.png" id="3_vmcgt"]
+[ext_resource type="Texture2D" uid="uid://desaiymp8br2y" path="res://Assets/Player/spaceman_sprite.png" id="4_ft81k"]
+[ext_resource type="Texture2D" uid="uid://b840gbxmucqxm" path="res://Assets/Idle_Area/robot_dock.png" id="4_hmdhj"]
 
 [sub_resource type="Theme" id="Theme_yad5t"]
 default_font = ExtResource("1_e2sdg")
 default_font_size = 60
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm7rf"]
+atlas = ExtResource("4_ft81k")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj3tt"]
+atlas = ExtResource("4_ft81k")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5iyj"]
+atlas = ExtResource("4_ft81k")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfu11"]
+atlas = ExtResource("4_ft81k")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv2pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm7rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj3tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5iyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfu11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_lapqw"]
+resource_name = "RESET"
+
+[sub_resource type="Animation" id="Animation_1u7hk"]
+resource_name = "running"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(224, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bs5nq"]
+_data = {
+"RESET": SubResource("Animation_lapqw"),
+"running": SubResource("Animation_1u7hk")
+}
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -16,6 +82,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yad5t")
 script = ExtResource("1_1ao13")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(965.5, 313.5)
+scale = Vector2(12.8688, 8.14063)
+texture = ExtResource("3_vmcgt")
 
 [node name="titleMargin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -53,16 +130,16 @@ horizontal_alignment = 1
 
 [node name="buttonsMargin" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -240.0
 offset_top = -293.0
-offset_right = 301.0
+offset_right = 240.0
+grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 60
 
 [node name="buttons" type="VBoxContainer" parent="buttonsMargin"]
 layout_mode = 2
@@ -70,15 +147,38 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="start" type="Button" parent="buttonsMargin/buttons"]
-custom_minimum_size = Vector2(360, 60)
+custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../quit")
 text = "Start"
 
 [node name="quit" type="Button" parent="buttonsMargin/buttons"]
+custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_bottom = NodePath("../start")
 text = "Quit"
+
+[node name="potato" type="Sprite2D" parent="."]
+position = Vector2(960, 580)
+scale = Vector2(10, 10)
+texture = ExtResource("3_2vnql")
+
+[node name="potatoBackground" type="Sprite2D" parent="."]
+position = Vector2(963, 585)
+scale = Vector2(15, 15)
+texture = ExtResource("4_hmdhj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-160, 770)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_nv2pi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bs5nq")
+}
 
 [connection signal="pressed" from="buttonsMargin/buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="buttonsMargin/buttons/quit" to="." method="_on_quit_pressed"]
