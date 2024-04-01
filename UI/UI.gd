@@ -23,3 +23,12 @@ func _process(delta):
 	
 	upkeepAlert.visible = TimeSystem.upkeep_alert
 	upkeepMessage.visible = TimeSystem.upkeep_message
+
+
+func _on_info_pressed():
+	if not Info.visible:
+		Info.show_panel()
+		Global.menu_active = true
+	else:
+		Info.hide_panel()
+		Global.menu_active = false

@@ -30,6 +30,7 @@ BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 SelectionManager="*res://Selection/selection_manager.tscn"
 SidePanel="*res://UI/side_panel.tscn"
 GatherNumbers="*res://UI/gatherNumbers.gd"
+Info="*res://UI/info.tscn"
 
 [display]
 
