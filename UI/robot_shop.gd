@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var robots = get_node("/root/world/robots")
-@onready var main_hub = get_node("/root/world/MainHub")
+@onready var main_hub = get_node("/root/world/roomMain/idleArea")
 var planter_scene = preload("res://Robots/Planter/planter.tscn")
 var planter_ai_scene = preload("res://ai/Behavior_Trees/planter_ai.tscn")
 var harvester_scene = preload("res://Robots/Harvester/harvester.tscn")
@@ -62,7 +62,7 @@ func _process(delta):
 	if robots == null:
 		robots = get_node("/root/world/robots")
 	if main_hub == null:
-		main_hub = get_node("/root/world/MainHub")
+		main_hub = get_node("/root/world/roomMain/idleArea")
 		if main_hub != null:
 			main_hub.areaFull.connect(blocked)
 			main_hub.areaFree.connect(unblocked)

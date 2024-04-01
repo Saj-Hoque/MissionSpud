@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chvbpq6iju4d6"
-path="res://.godot/imported/torch_2.png-d0e5be7c4424217ae46377fc190a400f.ctex"
+uid="uid://dib7xn00hdilx"
+path="res://.godot/imported/martian_land.png-8778bf0a48a8d73d7ac80807222f7fa8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_2.png"
-dest_files=["res://.godot/imported/torch_2.png-d0e5be7c4424217ae46377fc190a400f.ctex"]
+source_file="res://Assets/Tiles/martian_land.png"
+dest_files=["res://.godot/imported/martian_land.png-8778bf0a48a8d73d7ac80807222f7fa8.ctex"]
 
 [params]
 
