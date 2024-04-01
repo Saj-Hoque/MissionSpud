@@ -12,6 +12,9 @@ func _ready():
 	
 	Global.potatoCount = 100000
 	Global.scrapCount = 100000
+	
+	Info.show_panel()
+	Global.menu_active = true
 
 func update_potato_counter(value):
 		Global.potatoCount += value

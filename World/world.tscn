@@ -452,7 +452,6 @@ y_sort_enabled = true
 script = ExtResource("1_2hjtr")
 
 [node name="UI" type="CanvasLayer" parent="."]
-process_mode = 3
 layer = 10
 script = ExtResource("2_8kypo")
 
@@ -689,6 +688,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="info" type="Button" parent="UI"]
+process_mode = 3
 offset_left = 1408.0
 offset_top = 31.0
 offset_right = 1497.0
@@ -902,14 +902,14 @@ position = Vector2(-54, 11)
 position = Vector2(-32, 11)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@927529")
+blackboard = NodePath("@Node@394285")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-8, 11)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@927530")
+blackboard = NodePath("@Node@394286")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

@@ -10,6 +10,7 @@ extends CanvasLayer
 var current_page
 
 func _ready():
+	current_page = intro
 	hide()
 	await get_tree().get_root().ready
 
@@ -24,15 +25,8 @@ func _process(delta):
 			next.disabled = true
 		else:
 			next.disabled = false
-
-func _reset():
-	current_page = intro
-	intro.visible = true
-	instructions.visible = false
-	play.visible = false
 	
 func show_panel():
-	_reset()
 	visible = true
 	get_tree().paused = true
 	RobotShop.close_shop()

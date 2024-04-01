@@ -25,6 +25,7 @@ subpixel_positioning = 0
 
 [node name="Info" type="CanvasLayer"]
 process_mode = 3
+layer = 128
 script = ExtResource("1_8kntn")
 
 [node name="intro" type="Panel" parent="."]
@@ -59,12 +60,86 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Label" type="Label" parent="intro/margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="intro/margin"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Label" type="Label" parent="intro/margin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Intro"
+theme_override_colors/font_color = Color(0.137255, 0.109804, 0.12549, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kim Cosmonov"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="intro/margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.137255, 0.109804, 0.12549, 1)
+theme_override_font_sizes/font_size = 20
+text = "Age: 27"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="intro/margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.137255, 0.109804, 0.12549, 1)
+theme_override_font_sizes/font_size = 20
+text = "Master Engineer of the Secret Soviet Space Program
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.564706, 0.294118, 1)
+text = "Mission:          Test the viability of martian soil for agrictultural purposes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+text = "Mission has taken an unexpected turn.
+A violent storm has destroyed our spacecraft, killed my fellow comrades, leaving me stranded and alone
+"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+text = "But I am not alone...
+The humble potato emerges as my savior.      With its potential to thrive in the harshest of environments,  i've learnt to harness its power
+Allowing me to cultivate an automated plant-powered empire with the aid of my robotic expertise"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+text = "My goal is clear:     contruct a makeshift rocket, fuel it with the bounty of my potato harvest, and launch myself back to earth"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+text = "Time is not my ally.      With each passing moment, the storm looms larger, threatening to consume all hope of escape.
+I predict i have 10 Sols before it takes me too."
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+text = "My fate hangs in the balance of how I manage my robots and their upkeep whilst exploring the technology at hand. 
+The clock is ticking, and the choices are vast:"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="intro/margin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Grow or Die"
+horizontal_alignment = 1
 
 [node name="instructions" type="Panel" parent="."]
 visible = false
@@ -99,12 +174,121 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Label" type="Label" parent="instructions/margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="instructions/margin"]
 layout_mode = 2
-size_flags_vertical = 0
-text = "Instructions"
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="instructions/margin/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.564706, 0.294118, 1)
+text = "Controls:
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="instructions/margin/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="instructions/margin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Use  "
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.121569, 0.0862745, 0.14902, 1)
+text = "W, A, S, D"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "  keys to move"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="instructions/margin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Press  "
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.121569, 0.0862745, 0.14902, 1)
+text = "E"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "  to interact with objects"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="instructions/margin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.121569, 0.0862745, 0.14902, 1)
+text = "Left Click"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "  to select a robot"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="instructions/margin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.121569, 0.0862745, 0.14902, 1)
+text = "Right Click"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="instructions/margin/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "  to assign selected robots to a site"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="instructions/margin/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.564706, 0.294118, 1)
+text = "Notes:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="instructions/margin/VBoxContainer"]
+layout_mode = 2
+text = "Utilize Planters and Harvesters to plant and harvest potatoes
+Collectors can gather harvested potatoes when you are not around
+Scavengers search and retrieve scrap from outside the hub.
+
+Bear in mind, robots specialized in scrap collection cannot work on farming plots, and vice versa"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="instructions/margin/VBoxContainer"]
+layout_mode = 2
+text = "Maintain robots fuel upkeep - costing potatoes.   
+This is deducted at 0:00 every sol   ensure you have enough resources to survive till the next day
+
+Utilize acqired potatoes and scrap for researching resource or robot upgrades to improve your production.
+These upgrades can adjust your upkeep,   but are necessary to reach your end goal "
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="instructions/margin/VBoxContainer"]
+layout_mode = 2
+text = "Dismantle unwanted robots if you've reached the threshold or need to reduce current upkeep       ( NO Refunds )"
+horizontal_alignment = 1
 
 [node name="play" type="Panel" parent="."]
 visible = false
@@ -139,12 +323,77 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Label" type="Label" parent="play/margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="play/margin"]
 layout_mode = 2
-size_flags_vertical = 0
-text = "Play"
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label2" type="Label" parent="play/margin/VBoxContainer"]
+layout_mode = 2
+text = "Now equipped with  all the essential information,    you're ready to embark on your journey  to survival and escape."
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="play/margin/VBoxContainer"]
+layout_mode = 2
+text = " accumulate the necessary resources within the next 10 sols to construct the rocket located outside the hub."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="play/margin/VBoxContainer"]
+layout_mode = 2
+text = "remember to make strategic decisions and manage your resources wisely.
+ Each choice you make will shape your path to success and determine the fate of your mission."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="play/margin/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label5" type="Label" parent="play/margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Feel free to refer back to this transcript,   by clicking the   "
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="play/margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.564706, 0.294118, 1)
+text = "[info]"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="play/margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "   button situated in the top right."
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="play/margin/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label6" type="Label" parent="play/margin/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Good luck and click on the  "
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="play/margin/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.564706, 0.294118, 1)
+text = "[X]"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="play/margin/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "   or press   "
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="play/margin/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.121569, 0.0862745, 0.14902, 1)
+text = "Escape"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="play/margin/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "   when you're ready"
+horizontal_alignment = 1
 
 [node name="previous" type="Button" parent="."]
 anchors_preset = 2
