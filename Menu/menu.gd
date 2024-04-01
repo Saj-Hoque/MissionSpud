@@ -8,6 +8,7 @@ func _ready():
 	anim_player.play("running")
 	
 func _on_start_pressed():
+	Info.reset()
 	SceneTransition.change_scene("res://World/world.tscn")
 
 func _on_quit_pressed():

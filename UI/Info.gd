@@ -13,6 +13,12 @@ func _ready():
 	current_page = intro
 	hide()
 	await get_tree().get_root().ready
+	
+func reset():
+	current_page = intro
+	intro.visible = true
+	instructions.visible = false
+	play.visible = false
 
 func _process(delta):
 	if visible:
