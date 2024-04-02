@@ -6,8 +6,8 @@ var hour = 0
 var day = 0
 
 const FINAL_DAY = 21
-const DEFAULT_TIME_SPEED = 360 # 4 minute day
-var time_speed = 360
+const DEFAULT_TIME_SPEED = 720 # 4 minute day
+var time_speed = 720
 
 var day_processed = false
 var upkeep_alert = false

@@ -60,6 +60,8 @@ func _on_area_2d_area_exited(area):
 
 func _on_interact():
 	if Global.potatoCount >= potatoUnlock and Global.scrapCount >= scrapUnlock:
+		Global.potatoCount -= potatoUnlock
+		Global.scrapCount -= scrapUnlock
 		unlock()
 		_open_door(player.range)
 		interactionArea.queue_free()

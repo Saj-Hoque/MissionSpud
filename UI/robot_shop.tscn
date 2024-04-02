@@ -126,14 +126,14 @@ vertical_alignment = 1
 [node name="Label3" type="Label" parent="potato/BUY/robots/Planter"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "[Normal Speed]"
+text = "[Average Speed]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="potato/BUY/robots/Planter"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "[Normal Productivity]"
+text = "[Average Productivity]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -410,7 +410,6 @@ theme_override_font_sizes/font_size = 30
 text = "X"
 
 [node name="scrap" type="Panel" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -476,14 +475,14 @@ vertical_alignment = 1
 [node name="Label3" type="Label" parent="scrap/BUY/robots/Scavenger"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "[fast Speed]"
+text = "[rapid Speed]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="scrap/BUY/robots/Scavenger"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "[Low Capacity]"
+text = "[Tiny Capacity]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

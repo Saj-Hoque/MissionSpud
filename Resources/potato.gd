@@ -31,32 +31,39 @@ func _physics_process(delta):
 			speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
 			velocity = global_position.direction_to(player.global_position) * speed
 		else:
-			if robot.carrying >= robot.capacity:
+			if not is_instance_valid(robot):
 				is_being_picked_up_by_robot = false
 				speed = 0.0
 				velocity = Vector2(0, 0)
 			else:
-				speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
-				velocity = global_position.direction_to(robot.global_position) * speed
+				if robot.carrying >= robot.capacity:
+					is_being_picked_up_by_robot = false
+					speed = 0.0
+					velocity = Vector2(0, 0)
+				else:
+					speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
+					velocity = global_position.direction_to(robot.global_position) * speed
 			
 	var collision = move_and_collide(velocity)
 	
 	
 	if collision:
-		if is_being_picked_up_by_player or is_being_picked_up_by_robot:
-			if collision.get_collider() is player_character or collision.get_collider() is collector_robot:
-				if is_being_picked_up_by_player:
-					play_pick_up_noise(collision.get_collider())
-					_handle_picked_up_by_player()
-				else:
-					if robot.carrying >= robot.capacity:
-						is_being_picked_up_by_robot = false
-						speed = 0.0
-						velocity = Vector2(0, 0)
-					else:
-						play_pick_up_noise(collision.get_collider())
-						_handle_picked_up_by_robot()
-
+		if collision.get_collider() is player_character:
+			play_pick_up_noise(collision.get_collider())
+			_handle_picked_up_by_player()
+		elif collision.get_collider() is collector_robot:
+			if not is_instance_valid(collision.get_collider()):
+				is_being_picked_up_by_robot = false
+				speed = 0.0
+				velocity = Vector2(0, 0)
+			if robot.carrying >= robot.capacity:
+				is_being_picked_up_by_robot = false
+				speed = 0.0
+				velocity = Vector2(0, 0)
+			else:
+				play_pick_up_noise(collision.get_collider())
+				_handle_picked_up_by_robot()
+			
 func play_pick_up_noise(collider):
 	if !played:
 		collider.pick_up()

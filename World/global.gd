@@ -21,28 +21,28 @@ var names = ["Bolt", "Circuit", "Nova", "Titan", "Spark", "Electron", "Nexus", "
 
 var potatoQuantity = 2
 var potatoValue = 1
-var potatoTimer = 10
+var potatoTimer = 5
 
 var scrapQuantity = 1
 var scrapValue = 1
 var scrapTimer = 8
 
 var planterSpeed = 30
-var planterProductivity = 10
-var planterUpkeep = 5
+var planterProductivity = 5
+var planterUpkeep = 1
 
-var harvesterSpeed = 30
-var harvesterProductivity = 10
-var harvesterUpkeep = 5
+var harvesterSpeed = 20
+var harvesterProductivity = 2.5
+var harvesterUpkeep = 1
 
-var collectorSpeed = 20
+var collectorSpeed = 10
 var collectorCapacity = 256
 var collectorRange = 1
-var collectorUpkeep = 5
+var collectorUpkeep = 1
 
-var scavengerSpeed = 50
-var scavengerCapacity = 1
-var scavengerUpkeep = 5
+var scavengerSpeed = 40
+var scavengerCapacity = 2
+var scavengerUpkeep = 1
 
 var menu_active = false
 
@@ -60,28 +60,28 @@ func reset():
 	
 	potatoQuantity = 2
 	potatoValue = 1
-	potatoTimer = 10
+	potatoTimer = 5
 
 	scrapQuantity = 1
 	scrapValue = 1
 	scrapTimer = 8
 
 	planterSpeed = 30
-	planterProductivity = 10
-	planterUpkeep = 5
+	planterProductivity = 5
+	planterUpkeep = 1
 
-	harvesterSpeed = 30
-	harvesterProductivity = 10
-	harvesterUpkeep = 5
+	harvesterSpeed = 20
+	harvesterProductivity = 2.5
+	harvesterUpkeep = 1
 
-	collectorSpeed = 20
+	collectorSpeed = 10
 	collectorCapacity = 256
 	collectorRange = 1
-	collectorUpkeep = 5
+	collectorUpkeep = 1
 
-	scavengerSpeed = 50
-	scavengerCapacity = 1
-	scavengerUpkeep = 5
+	scavengerSpeed = 40
+	scavengerCapacity = 2
+	scavengerUpkeep = 1
 	
 	menu_active = false
 	

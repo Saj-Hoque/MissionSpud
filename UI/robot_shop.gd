@@ -39,17 +39,17 @@ var scavenger_ai_scene = preload("res://ai/Behavior_Trees/scavenger_ai.tscn")
 @onready var scavengerPotatoLabel = $scrap/BUY/robots/Scavenger/Price/potatoPrice
 @onready var scavengerScrapLabel = $scrap/BUY/robots/Scavenger/Price/scrapPrice
 
-var planterPrice = { "potato" : 20,
-					 "scrap"  : 20 }
+var planterPrice = { "potato" : 10,
+					 "scrap"  : 10 }
 
 var harvesterPrice = { "potato" : 20,
 					   "scrap"  : 20 }
 
-var collectorPrice = { "potato" : 20,
-					   "scrap"  : 20 }
+var collectorPrice = { "potato" : 100,
+					   "scrap"  : 100 }
 
-var scavengerPrice = { "potato" : 20,
-					   "scrap"  : 20 }
+var scavengerPrice = { "potato" : 5,
+					   "scrap"  : 5 }
 
 var disabled = false
 var disable_override = false

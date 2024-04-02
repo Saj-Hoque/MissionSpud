@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bwp18u1bpwem"]
+[gd_scene load_steps=18 format=3 uid="uid://bwp18u1bpwem"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_5t421"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_2pikv"]
@@ -13,14 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://bx5yx5duph0yc" path="res://ai/has_enough_capacity.tscn" id="11_0iu8w"]
 [ext_resource type="PackedScene" uid="uid://c07om7c8hdmfw" path="res://ai/are_closest_potato.tscn" id="12_pvpt6"]
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="13_4wbbd"]
+[ext_resource type="Script" path="res://ai/is_stuck.gd" id="13_35r0s"]
 [ext_resource type="PackedScene" uid="uid://lgcu0uuh0c07" path="res://ai/reset_scavenging_status.tscn" id="14_mr7mc"]
 [ext_resource type="PackedScene" uid="uid://bku0hrpyq7kbs" path="res://ai/find_next_available_potato.tscn" id="15_mhw45"]
 [ext_resource type="PackedScene" uid="uid://dhn2tpeija2n8" path="res://ai/go_to_closest_potato.tscn" id="16_f226l"]
 
 [node name="collector_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_5t421")
-blackboard = NodePath("@Node@17525")
-actor = NodePath("")
+blackboard = NodePath("@Node@656913")
+actor = NodePath("..")
 
 [node name="Either" type="Node" parent="."]
 script = ExtResource("2_2pikv")
@@ -55,6 +56,9 @@ script = ExtResource("10_23jio")
 script = ExtResource("10_23jio")
 
 [node name="are_closest_potato" parent="Either/wait/needs_to_wait/no_closest_potato" instance=ExtResource("12_pvpt6")]
+
+[node name="is_stuck" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("13_35r0s")
 
 [node name="rest" type="Node" parent="Either/wait"]
 script = ExtResource("2_2pikv")

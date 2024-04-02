@@ -97,7 +97,7 @@ theme_override_constants/margin_bottom = 100
 [node name="fields" type="HBoxContainer" parent="potato/research"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Labels" type="VBoxContainer" parent="potato/research/fields"]
@@ -464,7 +464,7 @@ theme_override_constants/margin_bottom = 100
 [node name="fields" type="HBoxContainer" parent="scrap/research"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Labels" type="VBoxContainer" parent="scrap/research/fields"]

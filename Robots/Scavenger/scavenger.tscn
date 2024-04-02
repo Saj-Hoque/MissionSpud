@@ -80,7 +80,7 @@ shape = SubResource("RectangleShape2D_iqhlf")
 shape = SubResource("CircleShape2D_ddb4k")
 
 [node name="pickup_range" type="Area2D" parent="." groups=["scavengers"]]
-collision_layer = 16
+collision_layer = 128
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
@@ -91,17 +91,17 @@ shape = SubResource("CircleShape2D_d0umt")
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, 0)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, 3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, -3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="gatherNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(-3, -6)

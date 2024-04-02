@@ -81,7 +81,7 @@ shape = SubResource("RectangleShape2D_mpyln")
 shape = SubResource("CircleShape2D_8wq5q")
 
 [node name="pickup_range" type="Area2D" parent="." groups=["collectors"]]
-collision_layer = 16
+collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
@@ -92,27 +92,27 @@ shape = SubResource("CircleShape2D_umsrc")
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, 0)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, 6)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, 3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, -3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
 position = Vector2(3, -6)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="gatherNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(-3, -6)
@@ -125,5 +125,10 @@ max_distance = 500.0
 attenuation = 5.09824
 max_polyphony = 8
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

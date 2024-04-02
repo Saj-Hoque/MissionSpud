@@ -7,12 +7,12 @@ var first_name = Global.names.pick_random()
 var status = "Idle"
 
 @export var max_steering = 2.5
-@export var speed = 30
+@export var speed = 50
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
 @export var upkeep = 5
-@export var capacity = 1
+@export var capacity = 2
 
 var carrying = 0
 

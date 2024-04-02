@@ -7,12 +7,12 @@ var first_name = Global.names.pick_random()
 var status = "Idle"
 
 @export var max_steering = 2.5
-@export var speed = 20
+@export var speed = 10
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
 @export var upkeep = 5
-@export var capacity = 64
+@export var capacity = 256
 @export var range = 1
 
 var carrying = 0
@@ -31,6 +31,7 @@ var plot_group
 
 @onready var gather_noise = $gather_noise
 
+var stuck: bool = false
 var right_click: bool = false
 var selected: bool = false
 
@@ -56,6 +57,15 @@ func instantiate():
 	range = Global.collectorRange
 	pickup_range.apply_scale(Vector2(range,range))
 
+func _process(delta):
+
+	if carrying >= capacity:
+		if get_collision_layer_value(7) == true:
+			set_collision_layer_value(7, false)
+	else:
+		if get_collision_layer_value(7) == false:
+			set_collision_layer_value(7, true)
+	
 # Movement related methods
 
 func _physics_process(delta):
@@ -184,6 +194,7 @@ func unoccupy_potato():
 	
 func add_to_capacity():
 	carrying += 1
+	$Timer.start()
 
 func pick_up():
 	gather_noise.play(0.4)
@@ -202,3 +213,5 @@ func self_destruct():
 	remove_from_group("robots")
 	queue_free()
 
+func _on_timer_timeout():
+	stuck = true
