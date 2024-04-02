@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://nvdo6erlwj2v"]
+[gd_scene load_steps=17 format=3 uid="uid://nvdo6erlwj2v"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_mta53"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_wl74q"]
@@ -13,12 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bv812bg8ve5lg" path="res://ai/is_already_idle.tscn" id="9_ww7ci"]
 [ext_resource type="PackedScene" uid="uid://dd7gxqjhbb1ig" path="res://ai/reset_harvesting_status.tscn" id="10_bgt3e"]
 [ext_resource type="PackedScene" uid="uid://ukdred3qo85i" path="res://ai/find_next_fully_grown_plot.tscn" id="11_eul78"]
+[ext_resource type="Script" path="res://ai/exceeded_max_potato_limit.gd" id="11_lop0y"]
 [ext_resource type="PackedScene" uid="uid://1ihuvq2sk2jl" path="res://ai/go_to_growing_plot.tscn" id="12_1ibmu"]
 [ext_resource type="PackedScene" uid="uid://bblib8g2nlcvq" path="res://ai/harvest_on_grown_plot.tscn" id="13_qgutg"]
 
 [node name="harvester_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_mta53")
-blackboard = NodePath("@Node@17517")
+blackboard = NodePath("@Node@96507")
 actor = NodePath("")
 
 [node name="Either" type="Node" parent="."]
@@ -47,6 +48,9 @@ script = ExtResource("2_wl74q")
 script = ExtResource("7_fiqpg")
 
 [node name="full_growing_plot" parent="Either/wait/needs_to_wait/no_full_growing_plot" instance=ExtResource("8_5emka")]
+
+[node name="exceeded_max_potato_limit" type="Node" parent="Either/wait/needs_to_wait"]
+script = ExtResource("11_lop0y")
 
 [node name="rest" type="Node" parent="Either/wait"]
 script = ExtResource("2_wl74q")

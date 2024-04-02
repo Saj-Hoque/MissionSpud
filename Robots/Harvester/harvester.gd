@@ -22,6 +22,7 @@ var status = "Idle"
 
 @onready var idle_area = get_node("/root/world/roomMain/idleArea")
 @onready var plot = idle_area.plot
+var plot_group
 
 @onready var progress = $ProgressBar
 var percentage_of_time
@@ -140,6 +141,8 @@ func assign_to_new_idle_area(new_idle_area):
 	idle_area.refresh_capacity()
 	idle_area = new_idle_area
 	plot = idle_area.plot
+	if not plot == null:
+		plot_group = plot.get_groups()[0]
 	if self not in idle_area.robots:
 		idle_area.robots.push_back(self)
 	idle_area.refresh_capacity()
@@ -158,6 +161,12 @@ func is_in_idle_area():
 		idle = false
 
 # Plot related methods
+
+func plot_potato_count():
+	if not plot == null:
+		return get_tree().get_nodes_in_group(plot_group).size()
+	return 0
+	
 
 func unoccupy_plot():
 	plot.change_plot_status_unoccupied(plot_num)
