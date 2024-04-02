@@ -86,7 +86,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="pricePanel/Price"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
-text = "10,000"
+text = "20,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -99,7 +99,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="pricePanel/Price"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 3
-text = "10,000"
+text = "20,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 

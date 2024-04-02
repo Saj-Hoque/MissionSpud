@@ -4,8 +4,8 @@ var running = false
 
 const max_scraps = 100
 
-const potatoWin = 10000
-const scrapWin = 10000
+const potatoWin = 25000
+const scrapWin = 25000
 
 var totalPotato = 0
 var totalScrap = 0
@@ -60,11 +60,11 @@ func reset():
 	
 	potatoQuantity = 2
 	potatoValue = 1
-	potatoTimer = 5
+	potatoTimer = 3
 
 	scrapQuantity = 1
 	scrapValue = 1
-	scrapTimer = 8
+	scrapTimer = 6
 
 	planterSpeed = 30
 	planterProductivity = 5

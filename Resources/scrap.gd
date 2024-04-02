@@ -31,7 +31,11 @@ func _physics_process(delta):
 			speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
 			velocity = global_position.direction_to(player.global_position) * speed
 		else:
-			if robot.carrying >= robot.capacity:
+			if not is_instance_valid(robot):
+				is_being_picked_up_by_robot = false
+				speed = 0.0
+				velocity = Vector2(0, 0)
+			elif robot.carrying >= robot.capacity:
 				is_being_picked_up_by_robot = false
 				speed = 0.0
 				velocity = Vector2(0, 0)
@@ -49,7 +53,11 @@ func _physics_process(delta):
 					play_pick_up_noise(collision.get_collider())
 					_handle_picked_up_by_player()
 				else:
-					if robot.carrying >= robot.capacity:
+					if not is_instance_valid(collision.get_collider()):
+						is_being_picked_up_by_robot = false
+						speed = 0.0
+						velocity = Vector2(0, 0)
+					elif robot.carrying >= robot.capacity:
 						is_being_picked_up_by_robot = false
 						speed = 0.0
 						velocity = Vector2(0, 0)

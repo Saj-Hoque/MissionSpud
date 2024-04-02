@@ -48,21 +48,23 @@ func _physics_process(delta):
 	
 	
 	if collision:
-		if collision.get_collider() is player_character:
-			play_pick_up_noise(collision.get_collider())
-			_handle_picked_up_by_player()
-		elif collision.get_collider() is collector_robot:
-			if not is_instance_valid(collision.get_collider()):
-				is_being_picked_up_by_robot = false
-				speed = 0.0
-				velocity = Vector2(0, 0)
-			if robot.carrying >= robot.capacity:
-				is_being_picked_up_by_robot = false
-				speed = 0.0
-				velocity = Vector2(0, 0)
-			else:
-				play_pick_up_noise(collision.get_collider())
-				_handle_picked_up_by_robot()
+		if is_being_picked_up_by_player or is_being_picked_up_by_robot:
+			if collision.get_collider() is player_character or collision.get_collider() is collector_robot:
+				if is_being_picked_up_by_player:
+					play_pick_up_noise(collision.get_collider())
+					_handle_picked_up_by_player()
+				else:
+					if not is_instance_valid(collision.get_collider()):
+						is_being_picked_up_by_robot = false
+						speed = 0.0
+						velocity = Vector2(0, 0)
+					elif robot.carrying >= robot.capacity:
+						is_being_picked_up_by_robot = false
+						speed = 0.0
+						velocity = Vector2(0, 0)
+					else:
+						play_pick_up_noise(collision.get_collider())
+						_handle_picked_up_by_robot()
 			
 func play_pick_up_noise(collider):
 	if !played:

@@ -203,10 +203,10 @@ var planterPowerPrice = { 0 : {"potato" : 30,
 							   "scrap"  : 600 }
 						}
 var planterPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var planterPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var planterPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
 var planterPowerUpkeep = { 0 : "Upkeep	    -3",
 						   1 : "Upkeep	    -5",
@@ -285,10 +285,10 @@ var harvesterPowerPrice = { 0 : {"potato" : 30,
 							   "scrap"  : 600 }
 						}
 var harvesterPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var harvesterPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var harvesterPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
 var harvesterPowerUpkeep = { 0 : "Upkeep	    -3",
 						   1 : "Upkeep	    -5",
@@ -368,10 +368,10 @@ var collectorPowerPrice = { 0 : {"potato" : 60,
 							   "scrap"  : 600 }
 						}
 var collectorPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var collectorPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var collectorPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
 var collectorPowerUpkeep = { 0 : "Upkeep	    -3",
 						   1 : "Upkeep	    -5",
@@ -450,10 +450,10 @@ var scavengerPowerPrice = { 0 : {"potato" : 30,
 							   "scrap"  : 600 }
 						}
 var scavengerPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var scavengerPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var scavengerPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
 var scavengerPowerUpkeep = { 0 : "Upkeep	    -3",
 						   1 : "Upkeep	    -5",
