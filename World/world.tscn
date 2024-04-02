@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://6ry0faxenna3"]
+[gd_scene load_steps=52 format=3 uid="uid://6ry0faxenna3"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_2hjtr"]
 [ext_resource type="PackedScene" uid="uid://cwjgbr46fplpk" path="res://Player/player.tscn" id="2_3crqb"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://lj0orhl3dn2u" path="res://Robots/Scavenger/scavenger.tscn" id="15_pl3ab"]
 [ext_resource type="PackedScene" uid="uid://bwj2mfj27tyoh" path="res://ai/Behavior_Trees/scavenger_ai.tscn" id="16_lr2pf"]
 [ext_resource type="PackedScene" uid="uid://dvxd414fn2c67" path="res://Resources/scrap.tscn" id="19_uva7d"]
+[ext_resource type="AudioStream" uid="uid://bbr3jmr0sbv25" path="res://SFX/background.mp3" id="29_gt3yc"]
 
 [sub_resource type="Theme" id="Theme_g8i20"]
 default_font = ExtResource("3_sjlme")
@@ -697,6 +698,16 @@ offset_bottom = 70.0
 theme_override_font_sizes/font_size = 24
 text = "info"
 
+[node name="music" type="Button" parent="UI"]
+process_mode = 3
+custom_minimum_size = Vector2(170, 0)
+offset_left = 1200.0
+offset_top = 31.0
+offset_right = 1370.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 24
+text = "Music :  on"
+
 [node name="background" type="TileMap" parent="." groups=["navigation"]]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_gwf26")
@@ -829,7 +840,7 @@ polygon = PackedVector2Array(5, -368, 5, -528, 512, -528, 512, 1072, 66.3937, 10
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-122, 144)
-total_docks = 64
+total_docks = 32
 docks_per_row = 16
 
 [node name="scrapSpawnZone" type="Area2D" parent="outside/idleArea"]
@@ -936,14 +947,14 @@ position = Vector2(-54, 11)
 position = Vector2(-32, 11)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@195828")
+blackboard = NodePath("@Node@52359")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-8, 11)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@195829")
+blackboard = NodePath("@Node@52360")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]
@@ -953,7 +964,14 @@ position = Vector2(-15, 54)
 collision_mask = 313
 platform_floor_layers = 4294967277
 
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("29_gt3yc")
+volume_db = -35.0
+autoplay = true
+
 [connection signal="pressed" from="UI/info" to="UI" method="_on_info_pressed"]
+[connection signal="pressed" from="UI/music" to="UI" method="_on_music_pressed"]
 [connection signal="timeout" from="scrapSpawnTimer" to="outside/idleArea/scrapSpawnZone" method="_on_scrap_spawn_timer_timeout"]
 [connection signal="input_event" from="roomMain/roomArea" to="roomMain" method="_on_room_area_input_event"]
 [connection signal="mouse_entered" from="roomMain/roomArea" to="roomMain" method="_on_room_area_mouse_entered"]

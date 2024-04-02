@@ -6,7 +6,7 @@ var hour = 0
 var day = 0
 
 const FINAL_DAY = 21
-const DEFAULT_TIME_SPEED = 720 # 4 minute day
+const DEFAULT_TIME_SPEED = 720 # 2 minute day
 var time_speed = 720
 
 var day_processed = false
@@ -33,8 +33,8 @@ func _process(delta):
 			day_processed = false
 
 		
-		upkeep_alert = true if hour == 22 and minute <= 30 else false
-		upkeep_message = true if ((hour == 22 and minute > 30) or hour == 23) else false
+		upkeep_alert = true if hour == 21 else false
+		upkeep_message = true if hour == 22  or hour == 23 else false
 		
 
 		if time_speed > 0:

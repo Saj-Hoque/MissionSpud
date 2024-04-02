@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcsbgd438vgr1"]
+[gd_scene load_steps=25 format=3 uid="uid://bcsbgd438vgr1"]
 
 [ext_resource type="Script" path="res://UI/loseScreen2.gd" id="1_toaqx"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_r5fr1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://Assets/Robots/scavenger.png" id="15_6ucdl"]
 [ext_resource type="Texture2D" uid="uid://bal8n0is5gcql" path="res://Assets/Robots/harvester.png" id="16_wy2re"]
 [ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://Assets/Robots/collector.png" id="17_6cmam"]
+[ext_resource type="AudioStream" uid="uid://bclvuqf3m3q3u" path="res://SFX/storm_siren.mp3" id="18_ok7dk"]
 
 [sub_resource type="Theme" id="Theme_4mlvu"]
 default_font = ExtResource("2_r5fr1")
@@ -130,6 +131,7 @@ scale = Vector2(6, 6)
 texture = ExtResource("3_0av5x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.364706, 0.176471, 0, 1)
 position = Vector2(333, 482)
 scale = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_g7eul")
@@ -232,5 +234,11 @@ modulate = Color(0.776471, 0.462745, 0.894118, 1)
 position = Vector2(1523, 884)
 scale = Vector2(10, 10)
 texture = ExtResource("17_6cmam")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ok7dk")
+volume_db = -35.0
+pitch_scale = 0.7
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]

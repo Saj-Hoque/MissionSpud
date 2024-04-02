@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@onready var backgroundMusic = $"../backgroundMusic"
+@onready var musicButton = $music
+
 @onready var potatoCounter = $resourceMargin/resourceContainer/potatoPanel/potatoMargin/potato/potatoCounter
 @onready var scrapCounter = $resourceMargin/resourceContainer/scrapPanel/scrapMargin/scrap/scrapCounter
 @onready var upkeepCounter = $upkeepMargin/upkeepPanel/margin/upkeep/upkeepCounter
@@ -32,3 +35,13 @@ func _on_info_pressed():
 	else:
 		Info.hide_panel()
 		Global.menu_active = false
+
+
+func _on_music_pressed():
+	if backgroundMusic.is_playing():
+		backgroundMusic.stop()
+		musicButton.text = "Music :  off"
+	else:
+		backgroundMusic.play()
+		musicButton.text = "Music :  on"
+		

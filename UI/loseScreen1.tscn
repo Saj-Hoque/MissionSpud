@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctgqqvtwd8pt6"]
+[gd_scene load_steps=11 format=3 uid="uid://ctgqqvtwd8pt6"]
 
 [ext_resource type="Script" path="res://UI/loseScreen1.gd" id="1_jtrox"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_q725t"]
 [ext_resource type="Texture2D" uid="uid://desaiymp8br2y" path="res://Assets/Player/spaceman_sprite.png" id="3_uadpd"]
+[ext_resource type="AudioStream" uid="uid://n53sr7f8d8yw" path="res://SFX/fail.mp3" id="4_xb58j"]
 
 [sub_resource type="Theme" id="Theme_6e4n2"]
 default_font = ExtResource("2_q725t")
@@ -103,9 +104,15 @@ text = "Return to Main Menu"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.2, 0.305882, 0.0980392, 1)
-position = Vector2(910, 966)
+position = Vector2(960, 966)
 scale = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_cypdh")
 frame_progress = 0.988134
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xb58j")
+volume_db = -35.0
+pitch_scale = 0.75
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]
