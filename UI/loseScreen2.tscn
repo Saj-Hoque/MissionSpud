@@ -1,0 +1,244 @@
+[gd_scene load_steps=25 format=3 uid="uid://bcsbgd438vgr1"]
+
+[ext_resource type="Script" path="res://UI/loseScreen2.gd" id="1_toaqx"]
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_r5fr1"]
+[ext_resource type="Texture2D" uid="uid://cj1u8oyklmiga" path="res://Assets/Workbenches/launchpad.png" id="3_0av5x"]
+[ext_resource type="Texture2D" uid="uid://desaiymp8br2y" path="res://Assets/Player/spaceman_sprite.png" id="4_kbfm0"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="5_uvs7l"]
+[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="6_e1jgt"]
+[ext_resource type="Texture2D" uid="uid://2rec27tf5b3u" path="res://Assets/Resources/Potato/potato3.png" id="7_3o3be"]
+[ext_resource type="Texture2D" uid="uid://tev1rbu2wvxq" path="res://Assets/Resources/Scrap/scrap3.png" id="8_ld4ly"]
+[ext_resource type="Texture2D" uid="uid://cb1kn1b1kqt5k" path="res://Assets/Resources/Scrap/scrap2.png" id="9_cah7h"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="10_ho0yi"]
+[ext_resource type="Texture2D" uid="uid://cri30htj6hay0" path="res://Assets/Resources/Scrap/scrap4.png" id="11_s1eq2"]
+[ext_resource type="Texture2D" uid="uid://p5g2vh5133ne" path="res://Assets/Resources/Scrap/scrap5.png" id="12_klyqt"]
+[ext_resource type="Texture2D" uid="uid://tafi788kdc3o" path="res://Assets/Resources/Scrap/scrap6.png" id="13_idhoq"]
+[ext_resource type="Texture2D" uid="uid://ct7g8dtxrc235" path="res://Assets/Robots/planter.png" id="14_4a6s3"]
+[ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://Assets/Robots/scavenger.png" id="15_6ucdl"]
+[ext_resource type="Texture2D" uid="uid://bal8n0is5gcql" path="res://Assets/Robots/harvester.png" id="16_wy2re"]
+[ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://Assets/Robots/collector.png" id="17_6cmam"]
+[ext_resource type="AudioStream" uid="uid://bclvuqf3m3q3u" path="res://SFX/storm_siren.mp3" id="18_ok7dk"]
+
+[sub_resource type="Theme" id="Theme_4mlvu"]
+default_font = ExtResource("2_r5fr1")
+default_font_size = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5keq"]
+atlas = ExtResource("4_kbfm0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b5bd"]
+atlas = ExtResource("4_kbfm0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7khwy"]
+atlas = ExtResource("4_kbfm0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ebav"]
+atlas = ExtResource("4_kbfm0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7eul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5keq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b5bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7khwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ebav")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="loseScreen2" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_toaqx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_4mlvu")
+theme_override_constants/separation = 100
+
+[node name="loseMessage" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="loseMessage" type="Label" parent="VBoxContainer/loseMessage"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "MISSION FAILED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="loseMessage2" type="Label" parent="VBoxContainer/loseMessage"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "The Storm consumed your Hub!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="accumulationMessage" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "In 20 Sols, you accumulated:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="potato" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3000 Potatoes "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrap" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3000 Scrap"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="robots" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "58 Robots"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return to Main Menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(334, 738)
+scale = Vector2(6, 6)
+texture = ExtResource("3_0av5x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.364706, 0.176471, 0, 1)
+position = Vector2(333, 482)
+scale = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_g7eul")
+frame_progress = 0.79349
+
+[node name="Potato2" type="Sprite2D" parent="."]
+position = Vector2(1054, 578)
+scale = Vector2(5, 5)
+texture = ExtResource("5_uvs7l")
+
+[node name="Potato1" type="Sprite2D" parent="."]
+position = Vector2(816, 490)
+scale = Vector2(5, 5)
+texture = ExtResource("6_e1jgt")
+
+[node name="Potato3" type="Sprite2D" parent="."]
+position = Vector2(986, 493)
+scale = Vector2(5, 5)
+texture = ExtResource("7_3o3be")
+
+[node name="Scrap3" type="Sprite2D" parent="."]
+position = Vector2(1650, 572)
+scale = Vector2(5, 5)
+texture = ExtResource("8_ld4ly")
+
+[node name="Scrap12" type="Sprite2D" parent="."]
+position = Vector2(1559, 798)
+scale = Vector2(5, 5)
+texture = ExtResource("8_ld4ly")
+
+[node name="Scrap11" type="Sprite2D" parent="."]
+position = Vector2(1378, 750)
+scale = Vector2(5, 5)
+texture = ExtResource("8_ld4ly")
+
+[node name="Scrap2" type="Sprite2D" parent="."]
+position = Vector2(1543, 523)
+scale = Vector2(5, 5)
+texture = ExtResource("9_cah7h")
+
+[node name="Scrap1" type="Sprite2D" parent="."]
+position = Vector2(779, 760)
+scale = Vector2(5, 5)
+texture = ExtResource("10_ho0yi")
+
+[node name="Scrap4" type="Sprite2D" parent="."]
+position = Vector2(1523, 587)
+scale = Vector2(5, 5)
+texture = ExtResource("11_s1eq2")
+
+[node name="Scrap9" type="Sprite2D" parent="."]
+position = Vector2(1580, 932)
+scale = Vector2(5, 5)
+texture = ExtResource("11_s1eq2")
+
+[node name="Scrap10" type="Sprite2D" parent="."]
+position = Vector2(1713, 658)
+scale = Vector2(5, 5)
+texture = ExtResource("11_s1eq2")
+
+[node name="Scrap5" type="Sprite2D" parent="."]
+position = Vector2(1070, 748)
+scale = Vector2(5, 5)
+texture = ExtResource("12_klyqt")
+
+[node name="Scrap6" type="Sprite2D" parent="."]
+position = Vector2(1625, 432)
+scale = Vector2(5, 5)
+texture = ExtResource("13_idhoq")
+
+[node name="Scrap8" type="Sprite2D" parent="."]
+position = Vector2(1271, 703)
+scale = Vector2(5, 5)
+texture = ExtResource("13_idhoq")
+
+[node name="Scrap7" type="Sprite2D" parent="."]
+position = Vector2(1469, 872)
+scale = Vector2(5, 5)
+texture = ExtResource("8_ld4ly")
+
+[node name="Planter" type="Sprite2D" parent="."]
+position = Vector2(1571, 508)
+scale = Vector2(10, 10)
+texture = ExtResource("14_4a6s3")
+
+[node name="Scavenger" type="Sprite2D" parent="."]
+modulate = Color(0.313726, 0.223529, 0, 1)
+position = Vector2(1744, 672)
+scale = Vector2(10, 10)
+texture = ExtResource("15_6ucdl")
+
+[node name="Harvester" type="Sprite2D" parent="."]
+modulate = Color(0.290196, 0.427451, 0.886275, 1)
+position = Vector2(1330, 717)
+scale = Vector2(10, 10)
+texture = ExtResource("16_wy2re")
+
+[node name="Collector" type="Sprite2D" parent="."]
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
+position = Vector2(1523, 884)
+scale = Vector2(10, 10)
+texture = ExtResource("17_6cmam")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ok7dk")
+volume_db = -35.0
+pitch_scale = 0.7
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]

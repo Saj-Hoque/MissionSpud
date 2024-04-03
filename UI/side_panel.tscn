@@ -1,6 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bk7u2h1p7hx1h"]
 
 [ext_resource type="Script" path="res://UI/side_panel.gd" id="1_e3yo3"]
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_bqdw4"]
 [ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_mwljx"]
 
 [sub_resource type="Animation" id="Animation_gxssy"]
@@ -55,11 +56,8 @@ _data = {
 "TransOut": SubResource("Animation_vdeb8")
 }
 
-[sub_resource type="SystemFont" id="SystemFont_8v60m"]
-font_names = PackedStringArray("Impact")
-
 [sub_resource type="Theme" id="Theme_02stf"]
-default_font = SubResource("SystemFont_8v60m")
+default_font = ExtResource("2_bqdw4")
 default_font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y1ti"]
@@ -99,10 +97,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8y1ti")
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 29.0
-offset_top = 30.0
-offset_right = 172.0
-offset_bottom = 68.0
+offset_left = 44.0
+offset_top = 34.0
+offset_right = 168.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 25
 text = "Geoffry"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -123,7 +122,27 @@ offset_left = 170.0
 offset_top = 38.0
 offset_right = 439.0
 offset_bottom = 134.0
+theme_override_font_sizes/font_size = 20
 text = "Idle"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Panel"]
+modulate = Color(0.643137, 0, 0.0588235, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -44.0
+offset_right = -144.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Destroy"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

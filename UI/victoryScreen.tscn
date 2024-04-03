@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=3 uid="uid://quqrv8u810yp"]
+
+[ext_resource type="Script" path="res://UI/victoryScreen.gd" id="1_swffo"]
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_fgy31"]
+[ext_resource type="Texture2D" uid="uid://c7p5ieiwn70ni" path="res://Assets/Objects/rocket.png" id="3_hqmp8"]
+[ext_resource type="Texture2D" uid="uid://desaiymp8br2y" path="res://Assets/Player/spaceman_sprite.png" id="3_jg7qc"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="4_al3h0"]
+
+[sub_resource type="Theme" id="Theme_1pea7"]
+default_font = ExtResource("2_fgy31")
+default_font_size = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul4yg"]
+atlas = ExtResource("3_jg7qc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rcfs"]
+atlas = ExtResource("3_jg7qc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu7kf"]
+atlas = ExtResource("3_jg7qc")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3jro"]
+atlas = ExtResource("3_jg7qc")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04vlu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul4yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rcfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu7kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3jro")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="victoryScreen" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swffo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_1pea7")
+theme_override_constants/separation = 100
+
+[node name="escapeMessage" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="escapeMessage" type="Label" parent="VBoxContainer/escapeMessage"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "MISSION ACCOMPLISHED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="escapeMessage2" type="Label" parent="VBoxContainer/escapeMessage"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "You've Escaped the Planet!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sols" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "10 Sols"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="potato" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3000 Potatoes "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrap" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3000 Scrap"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="robots" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "58 Robots"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return to Main Menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1578, 646)
+scale = Vector2(10, 10)
+texture = ExtResource("3_hqmp8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1627, 812)
+rotation = 1.77151
+scale = Vector2(2.2671, 1.83415)
+texture = ExtResource("4_al3h0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1579, 826)
+scale = Vector2(2, 2)
+texture = ExtResource("4_al3h0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1540, 832)
+rotation = -0.806342
+scale = Vector2(2, 2)
+texture = ExtResource("4_al3h0")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(1613, 862)
+scale = Vector2(1.875, 2)
+texture = ExtResource("4_al3h0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(367, 649)
+scale = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_04vlu")
+frame_progress = 0.404438
+
+[connection signal="pressed" from="VBoxContainer/menuButton" to="." method="_on_menu_button_pressed"]

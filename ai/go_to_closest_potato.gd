@@ -19,6 +19,9 @@ func tick(actor, blackboard: Blackboard):
 	if actor.carrying >= actor.capacity:
 		actor.reset_collecting_status()
 		return FAILURE
+	if actor.stuck:
+		actor.reset_collecting_status()
+		return FAILURE
 	actor.enable_movement()
 	actor.status = "Finding nearest potato"
 	return RUNNING

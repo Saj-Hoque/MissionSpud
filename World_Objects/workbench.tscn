@@ -1,26 +1,64 @@
-[gd_scene load_steps=8 format=3 uid="uid://drf4le7he70xx"]
+[gd_scene load_steps=13 format=3 uid="uid://drf4le7he70xx"]
 
 [ext_resource type="Script" path="res://World_Objects/workbench.gd" id="1_3w5g3"]
-[ext_resource type="Texture2D" uid="uid://c6r5s3ier17mg" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_nipau"]
+[ext_resource type="Texture2D" uid="uid://c5uq7e2on88aw" path="res://Assets/Workbenches/robot_upgrade.png" id="2_b4562"]
+[ext_resource type="Texture2D" uid="uid://ccatgodhcj31l" path="res://Assets/Workbenches/resource_upgrade.png" id="3_b7lpi"]
 [ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="3_grh7k"]
+[ext_resource type="Texture2D" uid="uid://eoxvft6op5cg" path="res://Assets/Workbenches/robot_buy.png" id="4_wsoew"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kquu0"]
-atlas = ExtResource("1_nipau")
-region = Rect2(64, 128, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nblja"]
+atlas = ExtResource("2_b4562")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iecdt"]
+atlas = ExtResource("3_b7lpi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3xt2"]
+atlas = ExtResource("4_wsoew")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kii56"]
+atlas = ExtResource("2_b4562")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wo6k7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kquu0")
+"texture": SubResource("AtlasTexture_nblja")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iecdt")
+}],
+"loop": true,
+"name": &"resource_upgrade",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3xt2")
+}],
+"loop": true,
+"name": &"robot_shop",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kii56")
+}],
+"loop": true,
+"name": &"robot_upgrade",
+"speed": 0.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmwg3"]
-size = Vector2(12, 6)
+size = Vector2(30, 9)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2fyy"]
 radius = 39.0
@@ -32,12 +70,14 @@ script = ExtResource("1_3w5g3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wo6k7")
+animation = &"resource_upgrade"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_hmwg3")
 
 [node name="interactionArea" parent="." instance=ExtResource("3_grh7k")]
+y_offset = -30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
 shape = SubResource("CircleShape2D_i2fyy")

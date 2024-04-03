@@ -9,7 +9,6 @@ func register_area(area: Area2D):
 	active_areas.push_back(area)
 		
 func _process(delta):
-
 	if active_areas.size() > 0:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		var selected_unit = active_areas[0].get_parent()
@@ -34,3 +33,11 @@ func _sort_by_distance_to_player(area1, area2):
 func _update_current_selection():
 	current_selection[0].toggle_select()
 	current_selection.remove_at(0)
+
+func reset():
+	if current_selection:
+		if current_selection[0].selected:
+			current_selection[0].toggle_select()
+	selection_mode = false
+	active_areas = []
+	current_selection = []

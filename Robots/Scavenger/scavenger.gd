@@ -7,12 +7,12 @@ var first_name = Global.names.pick_random()
 var status = "Idle"
 
 @export var max_steering = 2.5
-@export var speed = 30
+@export var speed = 50
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
 @export var upkeep = 5
-@export var capacity = 1
+@export var capacity = 2
 
 var carrying = 0
 
@@ -21,8 +21,12 @@ var carrying = 0
 @onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
 
-@onready var idle_area = get_node("/root/world/MainHub")
+@onready var idle_area = get_node("/root/world/roomMain/idleArea")
 @onready var plot = idle_area.plot
+
+@onready var gatherNumbersOrigin = $gatherNumbersOrigin
+
+@onready var gather_noise = $gather_noise
 
 var right_click: bool = false
 var selected: bool = false
@@ -38,10 +42,14 @@ var closest_scrap = null
 var target_position = global_position
 
 func _ready():
+	instantiate()
+	idle_area.robots.push_back(self)
+	idle_area.refresh_capacity()
+
+func instantiate():
 	speed = Global.scavengerSpeed
 	capacity = Global.scavengerCapacity
 	upkeep = Global.scavengerUpkeep
-	idle_area.robots.push_back(self)
 
 # Movement related methods
 
@@ -113,11 +121,13 @@ func assign_to_new_idle_area(new_idle_area):
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
+	idle_area.refresh_capacity()
 	idle_area = new_idle_area
 	plot = idle_area.plot
 	if self not in idle_area.robots:
 		idle_area.robots.push_back(self)
-
+	idle_area.refresh_capacity()
+	
 # Dock related methods
 		
 func undock():
@@ -163,5 +173,19 @@ func unoccupy_scrap():
 func add_to_capacity():
 	carrying += 1
 
+func pick_up():
+	gather_noise.play(0.4)
+
 func reset_collecting_status():
 	unoccupy_scrap()
+	
+func self_destruct():
+	reset_collecting_status()
+	if docking:
+		undock()
+	var index = idle_area.robots.find(self)
+	if index != -1:
+		idle_area.robots.remove_at(index)
+	idle_area.refresh_capacity()
+	remove_from_group("robots")
+	queue_free()

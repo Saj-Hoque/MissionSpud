@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://keeavkauuufy"]
+[gd_scene load_steps=11 format=3 uid="uid://keeavkauuufy"]
 
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="1_ceor2"]
 [ext_resource type="Script" path="res://Robots/Planter/planter.gd" id="1_rs33c"]
+[ext_resource type="Texture2D" uid="uid://ct7g8dtxrc235" path="res://Assets/Robots/planter.png" id="2_qn4il"]
+[ext_resource type="AudioStream" uid="uid://ceeiamqoawmur" path="res://SFX/dig_ground.mp3" id="3_yjwv4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i0y1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vivhh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ceor2")
+"texture": ExtResource("2_qn4il")
 }],
 "loop": true,
 "name": &"default",
@@ -32,14 +35,35 @@ size = Vector2(6, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yjavj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etkqf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g246"]
+bg_color = Color(0.419608, 0.223529, 0.0980392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.101961, 0.027451, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
 [node name="planter" type="CharacterBody2D" groups=["robots"]]
-z_index = 4
-y_sort_enabled = true
 collision_layer = 16
 collision_mask = 11
 motion_mode = 1
 platform_floor_layers = 4294967277
 script = ExtResource("1_rs33c")
+
+[node name="interactRange" type="Area2D" parent="." groups=["robots_range"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactRange"]
+shape = SubResource("CircleShape2D_1i0y1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
@@ -47,19 +71,21 @@ target_desired_distance = 1.0
 path_max_distance = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_vivhh")
+frame_progress = 0.265014
 
 [node name="highlight_box" type="Panel" parent="."]
 visible = false
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 2.0
+offset_bottom = 2.0
+scale = Vector2(1.6, 1.6)
 theme_override_styles/panel = SubResource("StyleBoxFlat_muuij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_gldqo")
 
 [node name="SelectionArea2D" type="Area2D" parent="."]
@@ -70,32 +96,50 @@ shape = SubResource("CircleShape2D_yjavj")
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+position = Vector2(3, 0)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 6)
+position = Vector2(3, 6)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 3)
+position = Vector2(3, 3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -3)
+position = Vector2(3, -3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -6)
+position = Vector2(3, -6)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="PlantingTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 15.0
+offset_bottom = -2.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_etkqf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1g246")
+show_percentage = false
+
+[node name="planting_noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yjwv4")
+volume_db = -15.0
+max_distance = 500.0
+attenuation = 5.09823
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]

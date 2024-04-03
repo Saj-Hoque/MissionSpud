@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var all_robots = get_tree().get_nodes_in_group("robots")
 
 var greenStyleBox = load("res://UI/green_style_box_flat.tres")
+var grayStyleBox = load("res://UI/gray_style_box_flat.tres")
 
 @onready var potatoButton = $potatoButton
 @onready var scrapButton = $scrapButton
@@ -138,12 +139,12 @@ var greenStyleBox = load("res://UI/green_style_box_flat.tres")
 @onready var scavengerPowerResources = $scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep
 
 var planterSpeedLevel = 0
-var planterSpeedPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var planterSpeedPrice = { 0 : {"potato" : 5,
+							   "scrap"  : 5 },
+						  1 : {"potato" : 25,
+							   "scrap"  : 25 },
+						  2 : {"potato" : 125,
+							   "scrap"  : 125 }
 						}
 var planterSpeedImprovementPrompt = "Enhance robots mobility.    "
 var planterSpeedImprovements = { 0 : "30   ->   40 m/s",
@@ -156,146 +157,146 @@ var planterSpeedImprovementValues = { 0 : 30,
 							   		  2 : 50,
 							   		  3 : 60	
 									}
-var planterSpeedUpkeep = { 0 : "Upkeep	    +3",
-						   1 : "Upkeep	    +6",
-						   2 : "Upkeep	    +10"
+var planterSpeedUpkeep = { 0 : "Upkeep	    +1",
+						   1 : "Upkeep	    +3",
+						   2 : "Upkeep	    +9"
 						 }
-var planterSpeedUpkeepValues = { 0 : 3,
-								 1 : 6, 
-								 2 : 10
+var planterSpeedUpkeepValues = { 0 : 1,
+								 1 : 3, 
+								 2 : 9
 							   }
 
 var planterProductivityLevel = 0
-var planterProductivityPrice = { 0 : {"potato" : 40,
-							   		  "scrap"  : 40 },
-						  		 1 : {"potato" : 160,
-							   		  "scrap"  : 160 },
+var planterProductivityPrice = { 0 : {"potato" : 10,
+							   		  "scrap"  : 10 },
+						  		 1 : {"potato" : 100,
+							   		  "scrap"  : 100 },
 						  		 2 : {"potato" : 500,
 									  "scrap"  : 500 }
 							   }
 var planterProductivityImprovementPrompt = "Reduce potato planting time.    "
-var planterProductivityImprovements = { 0 : "10   ->   5 s",
-								 		1 : "5   ->   2.5 s",
-								 		2 : "2.5   ->   1 s",
-								 		3 : "1 s"
+var planterProductivityImprovements = { 0 : "5   ->   2.5 s",
+								 		1 : "2.5   ->   1.25 s",
+								 		2 : "1.25   ->   0.625 s",
+								 		3 : "0.625 s"
 							   		  }
-var planterProductivityImprovementValues = { 0 : 10,
-							   		  		 1 : 5,
-							   		  		 2 : 2.5,
-							   		  		 3 : 1
+var planterProductivityImprovementValues = { 0 : 5,
+							   		  		 1 : 2.5,
+							   		  		 2 : 1.25,
+							   		  		 3 : 0.625
 										   }
 var planterProductivityUpkeep = { 0 : "Upkeep	    +3",
-						   		  1 : "Upkeep	    +6",
-								  2 : "Upkeep	    +10"
+						   		  1 : "Upkeep	    +9",
+								  2 : "Upkeep	    +27"
 								}
 var planterProductivityUpkeepValues = { 0 : 3,
-										1 : 6, 
-										2 : 10
+										1 : 9, 
+										2 : 27
 									  }
 									
 var planterPowerLevel = 0
-var planterPowerPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var planterPowerPrice = { 0 : {"potato" : 30,
+							   "scrap"  : 30 },
+						  1 : {"potato" : 200,
+							   "scrap"  : 200 },
+						  2 : {"potato" : 600,
+							   "scrap"  : 600 }
 						}
 var planterPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var planterPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var planterPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
-var planterPowerUpkeep = { 0 : "Upkeep	    -5",
-						   1 : "Upkeep	    -8",
-						   2 : "Upkeep	    -13"
+var planterPowerUpkeep = { 0 : "Upkeep	    -3",
+						   1 : "Upkeep	    -5",
+						   2 : "Upkeep	    -9"
 						 }
-var planterPowerUpkeepValues = { 0 : -5,
-								 1 : -8, 
-								 2 : -13
+var planterPowerUpkeepValues = { 0 : -3,
+								 1 : -5, 
+								 2 : -9
 							   }
 
 
 
 
 var harvesterSpeedLevel = 0
-var harvesterSpeedPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var harvesterSpeedPrice = { 0 : {"potato" : 5,
+							   "scrap"  : 5 },
+						  1 : {"potato" : 25,
+							   "scrap"  : 25 },
+						  2 : {"potato" : 125,
+							   "scrap"  : 125 }
 						}
 var harvesterSpeedImprovementPrompt = "Enhance robots mobility.    "
-var harvesterSpeedImprovements = { 0 : "30   ->   40 m/s",
-								 1 : "40   ->   50 m/s",
-								 2 : "50   ->   60 m/s",
-								 3 : "60 m/s"
+var harvesterSpeedImprovements = { 0 : "20   ->   30 m/s",
+								 1 : "30   ->   40 m/s",
+								 2 : "40   ->   50 m/s",
+								 3 : "50 m/s"
 							   }
-var harvesterSpeedImprovementValues = { 0 : 30,
-							   		  1 : 40,
-							   		  2 : 50,
-							   		  3 : 60	
+var harvesterSpeedImprovementValues = { 0 : 20,
+							   		  1 : 30,
+							   		  2 : 40,
+							   		  3 : 50	
 									}
-var harvesterSpeedUpkeep = { 0 : "Upkeep	    +3",
-						   1 : "Upkeep	    +6",
-						   2 : "Upkeep	    +10"
+var harvesterSpeedUpkeep = { 0 : "Upkeep	    +1",
+						   1 : "Upkeep	    +3",
+						   2 : "Upkeep	    +9"
 						 }
-var harvesterSpeedUpkeepValues = { 0 : 3,
-								 1 : 6, 
-								 2 : 10
+var harvesterSpeedUpkeepValues = { 0 : 1,
+								 1 : 3, 
+								 2 : 9
 							   }
 
 var harvesterProductivityLevel = 0
-var harvesterProductivityPrice = { 0 : {"potato" : 40,
-							   		  "scrap"  : 40 },
+var harvesterProductivityPrice = { 0 : {"potato" : 10,
+							   		  "scrap"  : 10 },
 						  		 1 : {"potato" : 160,
 							   		  "scrap"  : 160 },
-						  		 2 : {"potato" : 500,
-									  "scrap"  : 500 }
+						  		 2 : {"potato" : 700,
+									  "scrap"  : 700 }
 							   }
 var harvesterProductivityImprovementPrompt = "Reduce potato harvesting time.    "
-var harvesterProductivityImprovements = { 0 : "10   ->   5 s",
-								 		1 : "5   ->   2.5 s",
-								 		2 : "2.5   ->   1 s",
-								 		3 : "1 s"
+var harvesterProductivityImprovements = { 0 : "2.5   ->   1.25 s",
+								 		1 : "1.25   ->   0.625 s",
+								 		2 : "0.625   ->   0.3125 s",
+								 		3 : "0.3125 s"
 							   		  }
-var harvesterProductivityImprovementValues = { 0 : 10,
-							   		  		 1 : 5,
-							   		  		 2 : 2.5,
-							   		  		 3 : 1
+var harvesterProductivityImprovementValues = { 0 : 2.5,
+							   		  		 1 : 1.25,
+							   		  		 2 : 0.625,
+							   		  		 3 : 0.3125
 										   }
 var harvesterProductivityUpkeep = { 0 : "Upkeep	    +3",
-						   		  1 : "Upkeep	    +6",
-								  2 : "Upkeep	    +10"
+						   		  1 : "Upkeep	    +9",
+								  2 : "Upkeep	    +27"
 								}
 var harvesterProductivityUpkeepValues = { 0 : 3,
-										1 : 6, 
-										2 : 10
+										1 : 9, 
+										2 : 27
 									  }
 									
 var harvesterPowerLevel = 0
-var harvesterPowerPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var harvesterPowerPrice = { 0 : {"potato" : 30,
+							   "scrap"  : 30 },
+						  1 : {"potato" : 250,
+							   "scrap"  : 250 },
+						  2 : {"potato" : 600,
+							   "scrap"  : 600 }
 						}
 var harvesterPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var harvesterPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var harvesterPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
-var harvesterPowerUpkeep = { 0 : "Upkeep	    -5",
-						   1 : "Upkeep	    -8",
-						   2 : "Upkeep	    -13"
+var harvesterPowerUpkeep = { 0 : "Upkeep	    -3",
+						   1 : "Upkeep	    -5",
+						   2 : "Upkeep	    -9"
 						 }
-var harvesterPowerUpkeepValues = { 0 : -5,
-								 1 : -8, 
-								 2 : -13
+var harvesterPowerUpkeepValues = { 0 : -3,
+								 1 : -5, 
+								 2 : -9
 							   }
 
 
@@ -303,12 +304,12 @@ var harvesterPowerUpkeepValues = { 0 : -5,
 
 
 var collectorSpeedLevel = 0
-var collectorSpeedPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var collectorSpeedPrice = { 0 : {"potato" : 5,
+							   "scrap"  : 5 },
+						  1 : {"potato" : 25,
+							   "scrap"  : 25 },
+						  2 : {"potato" : 125,
+							   "scrap"  : 125 }
 						}
 var collectorSpeedImprovementPrompt = "Enhance robots mobility.    "
 var collectorSpeedImprovements = { 0 : "10   ->   20 m/s",
@@ -321,20 +322,20 @@ var collectorSpeedImprovementValues = { 0 : 10,
 							   		  2 : 30,
 							   		  3 : 40	
 									}
-var collectorSpeedUpkeep = { 0 : "Upkeep	    +3",
-						   1 : "Upkeep	    +6",
-						   2 : "Upkeep	    +10"
+var collectorSpeedUpkeep = { 0 : "Upkeep	    +1",
+						   1 : "Upkeep	    +3",
+						   2 : "Upkeep	    +9"
 						 }
-var collectorSpeedUpkeepValues = { 0 : 3,
-								 1 : 6, 
-								 2 : 10
+var collectorSpeedUpkeepValues = { 0 : 1,
+								 1 : 3, 
+								 2 : 9
 							   }
 
 var collectorRangeLevel = 0
 var collectorRangePrice = { 0 : {"potato" : 40,
 							   		  "scrap"  : 40 },
-						  		 1 : {"potato" : 160,
-							   		  "scrap"  : 160 },
+						  		 1 : {"potato" : 200,
+							   		  "scrap"  : 200 },
 						  		 2 : {"potato" : 500,
 									  "scrap"  : 500 }
 							   }
@@ -349,48 +350,48 @@ var collectorRangeImprovementValues = { 0 : 1,
 							   		  		 2 : 3,
 							   		  		 3 : 4
 										   }
-var collectorRangeUpkeep = { 0 : "Upkeep	    +3",
-						   		  1 : "Upkeep	    +6",
-								  2 : "Upkeep	    +10"
+var collectorRangeUpkeep = { 0 : "Upkeep	    +4",
+						   		  1 : "Upkeep	    +16",
+								  2 : "Upkeep	    +64"
 								}
-var collectorRangeUpkeepValues = { 0 : 3,
-										1 : 6, 
-										2 : 10
+var collectorRangeUpkeepValues = { 0 : 4,
+										1 : 16, 
+										2 : 64
 									  }
 									
 var collectorPowerLevel = 0
-var collectorPowerPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var collectorPowerPrice = { 0 : {"potato" : 60,
+							   "scrap"  : 60 },
+						  1 : {"potato" : 250,
+							   "scrap"  : 250 },
+						  2 : {"potato" : 600,
+							   "scrap"  : 600 }
 						}
 var collectorPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var collectorPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var collectorPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
-var collectorPowerUpkeep = { 0 : "Upkeep	    -5",
-						   1 : "Upkeep	    -8",
-						   2 : "Upkeep	    -13"
+var collectorPowerUpkeep = { 0 : "Upkeep	    -3",
+						   1 : "Upkeep	    -5",
+						   2 : "Upkeep	    -9"
 						 }
-var collectorPowerUpkeepValues = { 0 : -5,
-								 1 : -8, 
-								 2 : -13
+var collectorPowerUpkeepValues = { 0 : -3,
+								 1 : -5, 
+								 2 : -9
 							   }
 
 
 
 
 var scavengerSpeedLevel = 0
-var scavengerSpeedPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var scavengerSpeedPrice = { 0 : {"potato" : 5,
+							   "scrap"  : 5 },
+						  1 : {"potato" : 25,
+							   "scrap"  : 25 },
+						  2 : {"potato" : 125,
+							   "scrap"  : 125 }
 						}
 var scavengerSpeedImprovementPrompt = "Enhance robots mobility.    "
 var scavengerSpeedImprovements = { 0 : "50   ->   60 m/s",
@@ -403,64 +404,64 @@ var scavengerSpeedImprovementValues = { 0 : 50,
 							   		  2 : 70,
 							   		  3 : 80	
 									}
-var scavengerSpeedUpkeep = { 0 : "Upkeep	    +3",
-						   1 : "Upkeep	    +6",
-						   2 : "Upkeep	    +10"
+var scavengerSpeedUpkeep = { 0 : "Upkeep	    +1",
+						   1 : "Upkeep	    +3",
+						   2 : "Upkeep	    +9"
 						 }
-var scavengerSpeedUpkeepValues = { 0 : 3,
-								 1 : 6, 
-								 2 : 10
+var scavengerSpeedUpkeepValues = { 0 : 1,
+								 1 : 3, 
+								 2 : 9
 							   }
 
 var scavengerCapacityLevel = 0
-var scavengerCapacityPrice = { 0 : {"potato" : 40,
-							   		  "scrap"  : 40 },
+var scavengerCapacityPrice = { 0 : {"potato" : 10,
+							   		  "scrap"  : 10 },
 						  		 1 : {"potato" : 160,
 							   		  "scrap"  : 160 },
-						  		 2 : {"potato" : 500,
-									  "scrap"  : 500 }
+						  		 2 : {"potato" : 750,
+									  "scrap"  : 750 }
 							   }
 var scavengerCapacityImprovementPrompt = "Increase carrying capacity.    "
-var scavengerCapacityImprovements = { 0 : "1   ->   2",
-								 		1 : "2   ->   4",
-								 		2 : "4   ->   8",
-								 		3 : "8"
+var scavengerCapacityImprovements = { 0 : "2   ->   4",
+								 		1 : "4   ->   8",
+								 		2 : "8   ->   16",
+								 		3 : "16"
 							   		  }
-var scavengerCapacityImprovementValues = { 0 : 1,
-							   		  		 1 : 2,
-							   		  		 2 : 4,
-							   		  		 3 : 8
+var scavengerCapacityImprovementValues = { 0 : 2,
+							   		  		 1 : 4,
+							   		  		 2 : 8,
+							   		  		 3 : 16
 										   }
-var scavengerCapacityUpkeep = { 0 : "Upkeep	    +3",
-						   		  1 : "Upkeep	    +6",
-								  2 : "Upkeep	    +10"
+var scavengerCapacityUpkeep = { 0 : "Upkeep	    +6",
+						   		  1 : "Upkeep	    +9",
+								  2 : "Upkeep	    +12"
 								}
 var scavengerCapacityUpkeepValues = { 0 : 3,
-										1 : 6, 
-										2 : 10
+										1 : 9, 
+										2 : 27
 									  }
 									
 var scavengerPowerLevel = 0
-var scavengerPowerPrice = { 0 : {"potato" : 40,
-							   "scrap"  : 40 },
-						  1 : {"potato" : 160,
-							   "scrap"  : 160 },
-						  2 : {"potato" : 500,
-							   "scrap"  : 500 }
+var scavengerPowerPrice = { 0 : {"potato" : 30,
+							   "scrap"  : 30 },
+						  1 : {"potato" : 250,
+							   "scrap"  : 250 },
+						  2 : {"potato" : 600,
+							   "scrap"  : 600 }
 						}
 var scavengerPowerImprovementPrompt = "Optimize power usage. Reduce upkeep by up to "
-var scavengerPowerImprovements = { 0 : "5 per robot",
-								 1 : "8 per robot",
-								 2 : "13 per robot",
-								 3 : "Up to -26 per robot"
+var scavengerPowerImprovements = { 0 : "3 per robot",
+								 1 : "5 per robot",
+								 2 : "9 per robot",
+								 3 : "Up to -17 per robot"
 							   }
-var scavengerPowerUpkeep = { 0 : "Upkeep	    -5",
-						   1 : "Upkeep	    -8",
-						   2 : "Upkeep	    -13"
+var scavengerPowerUpkeep = { 0 : "Upkeep	    -3",
+						   1 : "Upkeep	    -5",
+						   2 : "Upkeep	    -9"
 						 }
-var scavengerPowerUpkeepValues = { 0 : -5,
-								 1 : -8, 
-								 2 : -13
+var scavengerPowerUpkeepValues = { 0 : -3,
+								 1 : -5, 
+								 2 : -9
 							   }
 
 
@@ -471,12 +472,15 @@ func _ready():
 func open_shop():
 	visible = true
 	_update()
+	RobotShop.close_shop()
+	ResourceResearchStation.close_shop()
 	
 func close_shop():
 	visible = false
 
 func _on_close_button_pressed():
 	close_shop()
+	Global.menu_active = false
 	
 	
 	
@@ -613,11 +617,8 @@ func update_robot_speed(robots, improvementValues, level):
 		robot.speed = speed
 	return speed
 
-func update_robot_productivity(robots, improvementValues, level):
+func update_robot_productivity(improvementValues, level):
 	var productivity = improvementValues[level]
-	for robot in robots:
-		robot.productivity = productivity
-		robot.timer.wait_time = productivity
 	return productivity
 
 func update_robot_capacity(robots, improvementValues, level):
@@ -668,7 +669,7 @@ func _on_planter_productivity_button_pressed():
 	var planters = list_of_robot_type(planter_robot)
 	Global.planterUpkeep += update_robot_upkeep(planters, planterProductivityUpkeepValues, planterProductivityLevel)
 	planterProductivityLevel = _update_global_values(planterProductivityPrice, planterProductivityLevel)
-	Global.planterProductivity = update_robot_productivity(planters, planterProductivityImprovementValues, planterProductivityLevel)
+	Global.planterProductivity = update_robot_productivity(planterProductivityImprovementValues, planterProductivityLevel)
 	
 	var levelBox
 	if planterProductivityLevel == 1:
@@ -742,7 +743,7 @@ func _on_harvester_productivity_button_pressed():
 	var harvesters = list_of_robot_type(harvester_robot)
 	Global.harvesterUpkeep += update_robot_upkeep(harvesters, harvesterProductivityUpkeepValues, harvesterProductivityLevel)
 	harvesterProductivityLevel = _update_global_values(harvesterProductivityPrice, harvesterProductivityLevel)
-	Global.harvesterProductivity = update_robot_productivity(harvesters, harvesterProductivityImprovementValues, harvesterProductivityLevel)
+	Global.harvesterProductivity = update_robot_productivity(harvesterProductivityImprovementValues, harvesterProductivityLevel)
 	
 	var levelBox
 	if harvesterProductivityLevel == 1:
@@ -945,9 +946,6 @@ func _on_scavenger_power_button_mouse_exited():
 	totalUpkeep.visible = false
 
 
-
-
-
 func _on_potato_button_pressed():
 	scrapButton.button_pressed = false
 	scrapSection.visible = false
@@ -959,3 +957,41 @@ func _on_scrap_button_pressed():
 	scrapSection.visible = true
 
 
+func reset_feature(level, button, resources, upkeepLabel, box1, box2, box3):
+	level = 0
+	button.text = "Upgrade"
+	button.disabled = false
+	resources.visible = true
+	upkeepLabel.visible = true
+
+	box1.add_theme_stylebox_override("normal", grayStyleBox)
+	box2.add_theme_stylebox_override("normal", grayStyleBox)
+	box3.add_theme_stylebox_override("normal", grayStyleBox)
+	
+	return level
+	
+func reset():
+	planterSpeedLevel = reset_feature(planterSpeedLevel, planterSpeedButton, planterSpeedResources, planterSpeedUpkeepLabel, planterSpeedLevel1, planterSpeedLevel2, planterSpeedLevel3)
+	planterProductivityLevel = reset_feature(planterProductivityLevel, planterProductivityButton, planterProductivityResources, planterProductivityUpkeepLabel, planterProductivityLevel1, planterProductivityLevel2, planterProductivityLevel3)
+	planterPowerLevel = reset_feature(planterPowerLevel, planterPowerButton, planterPowerResources, planterPowerUpkeepLabel, planterPowerLevel1, planterPowerLevel2, planterPowerLevel3)
+	
+	harvesterSpeedLevel = reset_feature(harvesterSpeedLevel, harvesterSpeedButton, harvesterSpeedResources, harvesterSpeedUpkeepLabel, harvesterSpeedLevel1, harvesterSpeedLevel2, harvesterSpeedLevel3)
+	harvesterProductivityLevel = reset_feature(harvesterProductivityLevel, harvesterProductivityButton, harvesterProductivityResources, harvesterProductivityUpkeepLabel, harvesterProductivityLevel1, harvesterProductivityLevel2, harvesterProductivityLevel3)
+	harvesterPowerLevel = reset_feature(harvesterPowerLevel, harvesterPowerButton, harvesterPowerResources, harvesterPowerUpkeepLabel, harvesterPowerLevel1, harvesterPowerLevel2, harvesterPowerLevel3)
+		
+	collectorSpeedLevel = reset_feature(collectorSpeedLevel, collectorSpeedButton, collectorSpeedResources, collectorSpeedUpkeepLabel, collectorSpeedLevel1, collectorSpeedLevel2, collectorSpeedLevel3)
+	collectorRangeLevel = reset_feature(collectorRangeLevel, collectorRangeButton, collectorRangeResources, collectorRangeUpkeepLabel, collectorRangeLevel1, collectorRangeLevel2, collectorRangeLevel3)
+	collectorPowerLevel = reset_feature(collectorPowerLevel, collectorPowerButton, collectorPowerResources, collectorPowerUpkeepLabel, collectorPowerLevel1, collectorPowerLevel2, collectorPowerLevel3)
+	
+	scavengerSpeedLevel = reset_feature(scavengerSpeedLevel, scavengerSpeedButton, scavengerSpeedResources, scavengerSpeedUpkeepLabel, scavengerSpeedLevel1, scavengerSpeedLevel2, scavengerSpeedLevel3)
+	scavengerCapacityLevel = reset_feature(scavengerCapacityLevel, scavengerCapacityButton, scavengerCapacityResources, scavengerCapacityUpkeepLabel, scavengerCapacityLevel1, scavengerCapacityLevel2, scavengerCapacityLevel3)
+	scavengerPowerLevel = reset_feature(scavengerPowerLevel, scavengerPowerButton, scavengerPowerResources, scavengerPowerUpkeepLabel, scavengerPowerLevel1, scavengerPowerLevel2, scavengerPowerLevel3)
+
+	_update()
+
+	potatoButton.button_pressed = true
+	scrapButton.button_pressed = false
+	scrapSection.visible = false
+	potatoSection.visible = true
+
+	recalibrate_robot_upkeep()

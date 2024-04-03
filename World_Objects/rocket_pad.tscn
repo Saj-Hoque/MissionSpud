@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://breysoa8t4hpl"]
+
+[ext_resource type="Script" path="res://World_Objects/rocket_pad.gd" id="1_t55on"]
+[ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="2_4hikg"]
+[ext_resource type="Texture2D" uid="uid://cj1u8oyklmiga" path="res://Assets/Workbenches/launchpad.png" id="2_mqjcn"]
+[ext_resource type="FontFile" uid="uid://d3on2b22dyyp1" path="res://font/Bungee-MSDF.ttf" id="4_b31e3"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="4_e46yv"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="5_td0ji"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyl2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mqjcn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dtx44"]
+radius = 95.0474
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_505le"]
+bg_color = Color(0, 0, 0, 0.588235)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_66qe7"]
+default_font = ExtResource("4_b31e3")
+
+[node name="rocketPad" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_t55on")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wyl2n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -38, 15, -38, 39, -41, 37, -19, 36, 4, 38, 24, 40, 40, 25, 44, 4, 45, -17, 43, -35, 41, -39, 40, -39, 31, -36, 11, -36, -9, -38, -30, -41, -40, -27, -40)
+
+[node name="interactionArea" parent="." instance=ExtResource("2_4hikg")]
+visible = false
+y_offset = -38
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
+shape = SubResource("CircleShape2D_dtx44")
+
+[node name="pricePanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 29.0
+offset_right = 24.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_505le")
+
+[node name="Price" type="HBoxContainer" parent="pricePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -3.0
+offset_right = 19.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_66qe7")
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="pricePanel/Price"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "20,000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="pricePanel/Price"]
+layout_mode = 2
+texture = ExtResource("4_e46yv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="pricePanel/Price"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "20,000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="pricePanel/Price"]
+layout_mode = 2
+texture = ExtResource("5_td0ji")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="body_entered" from="interactionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interactionArea" to="." method="_on_interaction_area_body_exited"]

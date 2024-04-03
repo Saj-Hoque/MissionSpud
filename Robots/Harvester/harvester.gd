@@ -7,12 +7,12 @@ var first_name = Global.names.pick_random()
 var status = "Idle"
 
 @export var max_steering = 2.5
-@export var speed = 30
+@export var speed = 20
 @export var accel = 5
 @export var avoid_force = 1000
 @export var slow_down_radius = 10
 @export var upkeep = 5
-@export var productivity = 10
+@export var productivity = 2.5
 
 @onready var timer = $HarvestingTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -20,8 +20,14 @@ var status = "Idle"
 @onready var highlight_box: Panel = $highlight_box
 @onready var raycasts = get_node("Raycasts")
 
-@onready var idle_area = get_node("/root/world/MainHub")
+@onready var idle_area = get_node("/root/world/roomMain/idleArea")
 @onready var plot = idle_area.plot
+var plot_group
+
+@onready var progress = $ProgressBar
+var percentage_of_time
+
+@onready var harvesting_noise = $harvesting_noise
 
 var right_click: bool = false
 var selected: bool = false
@@ -40,11 +46,27 @@ var harvested: bool = false
 var target_position = global_position
 
 func _ready():
+	instantiate()
+	idle_area.robots.push_back(self)
+	idle_area.refresh_capacity()
+
+func instantiate():
 	speed = Global.harvesterSpeed
 	productivity = Global.harvesterProductivity
 	timer.wait_time = productivity
 	upkeep = Global.harvesterUpkeep
-	idle_area.robots.push_back(self)
+
+func _process(delta):
+	if Global.harvesterProductivity < timer.wait_time:
+		if timer.get_time_left() > 0:
+			timer.start((timer.get_time_left() / timer.wait_time) * Global.harvesterProductivity)
+		else:
+			productivity = Global.harvesterProductivity
+			timer.wait_time = productivity
+			
+	if timer.get_time_left() > 0:
+		percentage_of_time = ((1 - timer.get_time_left() / timer.get_wait_time()) * 100)
+		progress.value = percentage_of_time
 
 # Movement related methods
 
@@ -116,10 +138,14 @@ func assign_to_new_idle_area(new_idle_area):
 	var index = idle_area.robots.find(self)
 	if index != -1:
 		idle_area.robots.remove_at(index)
+	idle_area.refresh_capacity()
 	idle_area = new_idle_area
 	plot = idle_area.plot
+	if not plot == null:
+		plot_group = plot.get_groups()[0]
 	if self not in idle_area.robots:
 		idle_area.robots.push_back(self)
+	idle_area.refresh_capacity()
 
 # Dock related methods
 		
@@ -136,6 +162,12 @@ func is_in_idle_area():
 
 # Plot related methods
 
+func plot_potato_count():
+	if not plot == null:
+		return get_tree().get_nodes_in_group(plot_group).size()
+	return 0
+	
+
 func unoccupy_plot():
 	plot.change_plot_status_unoccupied(plot_num)
 	plotting = false
@@ -143,13 +175,33 @@ func unoccupy_plot():
 func start_harvesting():
 	harvesting = true
 	$HarvestingTimer.start()
+	progress.visible = true
 
 func reset_harvesting_status():
 	$HarvestingTimer.stop()
+	progress.visible = false
 	harvesting = false
 	harvested = false
 	if plotting:
 		unoccupy_plot()
 
 func _on_harvesting_timer_timeout():
+	if timer.wait_time != Global.harvesterProductivity:
+		productivity = Global.harvesterProductivity
+		timer.wait_time = productivity
+
 	harvested = true
+	harvesting_noise.play()
+	progress.visible = false
+
+func self_destruct():
+	if plotting:
+		reset_harvesting_status()
+	if docking:
+		undock()
+	var index = idle_area.robots.find(self)
+	if index != -1:
+		idle_area.robots.remove_at(index)
+	idle_area.refresh_capacity()
+	remove_from_group("robots")
+	queue_free()

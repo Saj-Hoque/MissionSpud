@@ -4,12 +4,14 @@ class_name scrap_resource
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var world = get_node("/root/world")
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var gather_noise = load("res://SFX/plop.mp3")
 
 const MAX_SPEED = 15.0
 const ACCELERATION = 0.15
 
 var speed = 0.0
 var taken = false
+var played = false
 var is_being_picked_up_by_player = false
 var robot = null
 var is_being_picked_up_by_robot = false
@@ -18,7 +20,7 @@ func _ready():
 	randomize()
 	var type = randi() % 6
 	var scraptype = "idle" + str(type)
-	var scale_xy = randf_range(0.6, 0.8)
+	var scale_xy = randf_range(0.4, 0.6)
 	anim_sprite.scale = Vector2(scale_xy, scale_xy)
 	anim_sprite.rotation_degrees = randf_range(-15, 15)
 	anim_sprite.play(scraptype)
@@ -29,7 +31,11 @@ func _physics_process(delta):
 			speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
 			velocity = global_position.direction_to(player.global_position) * speed
 		else:
-			if robot.carrying >= robot.capacity:
+			if not is_instance_valid(robot):
+				is_being_picked_up_by_robot = false
+				speed = 0.0
+				velocity = Vector2(0, 0)
+			elif robot.carrying >= robot.capacity:
 				is_being_picked_up_by_robot = false
 				speed = 0.0
 				velocity = Vector2(0, 0)
@@ -44,14 +50,25 @@ func _physics_process(delta):
 		if is_being_picked_up_by_player or is_being_picked_up_by_robot:
 			if collision.get_collider() is player_character or collision.get_collider() is scavenger_robot:
 				if is_being_picked_up_by_player:
+					play_pick_up_noise(collision.get_collider())
 					_handle_picked_up_by_player()
 				else:
-					if robot.carrying >= robot.capacity:
+					if not is_instance_valid(collision.get_collider()):
+						is_being_picked_up_by_robot = false
+						speed = 0.0
+						velocity = Vector2(0, 0)
+					elif robot.carrying >= robot.capacity:
 						is_being_picked_up_by_robot = false
 						speed = 0.0
 						velocity = Vector2(0, 0)
 					else:
+						play_pick_up_noise(collision.get_collider())
 						_handle_picked_up_by_robot()
+
+func play_pick_up_noise(collider):
+	if !played:
+		collider.pick_up()
+		played = true
 
 func occupied():
 	taken = true

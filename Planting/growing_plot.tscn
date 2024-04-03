@@ -1,41 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://didne6k2t8m24"]
+[gd_scene load_steps=14 format=3 uid="uid://didne6k2t8m24"]
 
 [ext_resource type="Script" path="res://Planting/growing_plot.gd" id="1_pm2gc"]
-[ext_resource type="Texture2D" uid="uid://de8l32i6b372a" path="res://Planting/farmingTilesheetComplete.png" id="2_7o4a8"]
+[ext_resource type="Texture2D" uid="uid://4f4g4n1h385e" path="res://Assets/Planting/farmland.png" id="2_3oj7b"]
+[ext_resource type="Texture2D" uid="uid://b3hdi7qf6kb82" path="res://Assets/Planting/potato_growth.png" id="3_ub46w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sospt"]
-atlas = ExtResource("2_7o4a8")
-region = Rect2(64, 112, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_84kvr"]
+atlas = ExtResource("2_3oj7b")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qrksc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sospt")
+"texture": SubResource("AtlasTexture_84kvr")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r0d8"]
-size = Vector2(12, 12)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74dbg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qok2"]
-atlas = ExtResource("2_7o4a8")
+atlas = SubResource("CompressedTexture2D_74dbg")
 region = Rect2(160, 176, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4y00x"]
-atlas = ExtResource("2_7o4a8")
-region = Rect2(128, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rff75"]
+atlas = ExtResource("3_ub46w")
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2kri"]
-atlas = ExtResource("2_7o4a8")
-region = Rect2(112, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbqui"]
+atlas = ExtResource("3_ub46w")
+region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mglxd"]
-atlas = ExtResource("2_7o4a8")
-region = Rect2(96, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgcfl"]
+atlas = ExtResource("3_ub46w")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ni43"]
 animations = [{
@@ -49,36 +49,61 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4y00x")
+"texture": SubResource("AtlasTexture_rff75")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c2kri")
+"texture": SubResource("AtlasTexture_lbqui")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mglxd")
+"texture": SubResource("AtlasTexture_tgcfl")
 }],
 "loop": true,
 "name": &"potato",
 "speed": 0.0
 }]
 
-[node name="plotArea" type="StaticBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36s52"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wftnv"]
+bg_color = Color(0.342997, 0.478701, 0.238565, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.156863, 0.298039, 0.137255, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="plotArea" type="StaticBody2D" groups=["growingPlots"]]
 script = ExtResource("1_pm2gc")
 
 [node name="hoedLand" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qrksc")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_2r0d8")
-
 [node name="plant" type="AnimatedSprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_1ni43")
 animation = &"none"
 
 [node name="potatoTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 2
+y_sort_enabled = true
+offset_left = -5.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 7.0
+scale = Vector2(0.25, 0.25)
+theme_override_styles/background = SubResource("StyleBoxFlat_36s52")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wftnv")
+show_percentage = false
 
 [connection signal="timeout" from="potatoTimer" to="." method="_on_potato_timer_timeout"]

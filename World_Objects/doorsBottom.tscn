@@ -1,0 +1,148 @@
+[gd_scene load_steps=15 format=3 uid="uid://21uid1tv0m2d"]
+
+[ext_resource type="Script" path="res://World_Objects/door.gd" id="1_vqsse"]
+[ext_resource type="Texture2D" uid="uid://mf1f4po7x2x" path="res://Assets/Tiles/tilemap.png" id="2_6ay8w"]
+[ext_resource type="PackedScene" uid="uid://dyt4xmt2ro7n2" path="res://Interaction/Interaction_Area/interactionArea.tscn" id="3_r0j6r"]
+[ext_resource type="FontFile" uid="uid://d3on2b22dyyp1" path="res://font/Bungee-MSDF.ttf" id="4_2kjbm"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="5_vvhwo"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="6_1qgwd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bak52"]
+atlas = ExtResource("2_6ay8w")
+region = Rect2(16, 96, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqaj6"]
+atlas = ExtResource("2_6ay8w")
+region = Rect2(16, 80, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20bga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bak52")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqaj6")
+}],
+"loop": true,
+"name": &"open",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5kha"]
+size = Vector2(64, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ng1pi"]
+radius = 21.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g3ylj"]
+radius = 21.0
+height = 68.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap3m5"]
+bg_color = Color(0, 0, 0, 0.588235)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_4hnkc"]
+default_font = ExtResource("4_2kjbm")
+
+[node name="doorsBottom" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("1_vqsse")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_20bga")
+animation = &"closed"
+
+[node name="locked" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_o5kha")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ng1pi")
+
+[node name="interactionArea" parent="." instance=ExtResource("3_r0j6r")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_g3ylj")
+
+[node name="pricePanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+offset_bottom = -13.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ap3m5")
+
+[node name="Price" type="HBoxContainer" parent="pricePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -3.0
+offset_right = 19.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4hnkc")
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="potatoPrice" type="Label" parent="pricePanel/Price"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "10,000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="potatoIcon" type="TextureRect" parent="pricePanel/Price"]
+layout_mode = 2
+texture = ExtResource("5_vvhwo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="scrapPrice" type="Label" parent="pricePanel/Price"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 3
+text = "10,000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="scrapIcon" type="TextureRect" parent="pricePanel/Price"]
+layout_mode = 2
+texture = ExtResource("6_1qgwd")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="interactionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interactionArea" to="." method="_on_interaction_area_body_exited"]

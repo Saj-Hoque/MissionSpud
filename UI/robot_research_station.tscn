@@ -1,10 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://db8oemq5j8qg5"]
+[gd_scene load_steps=17 format=3 uid="uid://db8oemq5j8qg5"]
 
 [ext_resource type="Script" path="res://UI/robot_research_station.gd" id="1_dcfpf"]
-[ext_resource type="Texture2D" uid="uid://dxdnhlubw1igl" path="res://Assets/Resources/Potato/potato1.png" id="2_45nwv"]
+[ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_45v6x"]
 [ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_5saav"]
 [ext_resource type="StyleBox" uid="uid://bipa2xq5vsx12" path="res://UI/gray_style_box_flat.tres" id="3_dg1jv"]
+[ext_resource type="Texture2D" uid="uid://ct7g8dtxrc235" path="res://Assets/Robots/planter.png" id="3_yin62"]
 [ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_7sbpb"]
+[ext_resource type="Texture2D" uid="uid://bal8n0is5gcql" path="res://Assets/Robots/harvester.png" id="7_0gc5e"]
+[ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://Assets/Robots/collector.png" id="8_12e8r"]
+[ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://Assets/Robots/scavenger.png" id="9_h00fn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nomaj"]
 bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)
@@ -19,16 +23,11 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_wh834"]
-
 [sub_resource type="Theme" id="Theme_akjxa"]
-default_font = SubResource("SystemFont_wh834")
-
-[sub_resource type="SystemFont" id="SystemFont_r73fu"]
-font_names = PackedStringArray("Impact")
+default_font = ExtResource("2_45v6x")
 
 [sub_resource type="Theme" id="Theme_slhwj"]
-default_font = SubResource("SystemFont_r73fu")
+default_font = ExtResource("2_45v6x")
 default_font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8rl4"]
@@ -44,11 +43,8 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="SystemFont" id="SystemFont_swktf"]
-font_names = PackedStringArray("Impact")
-
 [sub_resource type="Theme" id="Theme_jw0fo"]
-default_font = SubResource("SystemFont_swktf")
+default_font = ExtResource("2_45v6x")
 
 [sub_resource type="SystemFont" id="SystemFont_db7wg"]
 font_names = PackedStringArray("Impact")
@@ -116,7 +112,7 @@ layout_mode = 2
 
 [node name="robotName" type="Label" parent="potato/BUY/robots/Planter/Name"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "Planter"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -138,8 +134,8 @@ theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Planter/icon"]
 layout_mode = 2
-texture = ExtResource("2_45nwv")
-expand_mode = 3
+texture = ExtResource("3_yin62")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="empty2" type="Label" parent="potato/BUY/robots/Planter/icon"]
@@ -158,7 +154,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Planter/Speed/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -197,7 +193,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Planter/Speed/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Enhance robots mobility.    20 -> 30 m/s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -215,7 +211,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Planter/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -229,7 +225,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Planter/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -247,7 +243,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -260,15 +256,15 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Planter/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("3_yin62")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Productivity" type="VBoxContainer" parent="potato/BUY/robots/Planter"]
@@ -283,7 +279,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Planter/Productivity/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Productivity"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -322,7 +318,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Planter/Productivity/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Reduce potato planting time.    20 -> 10 s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -340,7 +336,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Planter/Productivity/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -354,7 +350,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Planter/Productivity/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -372,7 +368,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -385,15 +381,15 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Planter/Productivity/price_and_upkeep/upkeep"]
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("3_yin62")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Power_Efficiency" type="VBoxContainer" parent="potato/BUY/robots/Planter"]
@@ -408,8 +404,10 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Power Efficiency"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="box" type="HBoxContainer" parent="potato/BUY/robots/Planter/Power_Efficiency/label_and_build"]
 layout_mode = 2
@@ -445,7 +443,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Optimize power usage. Reduce upkeep by up to 5 per robot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -464,7 +462,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -478,7 +476,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -496,7 +494,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -509,15 +507,15 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Planter/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("3_yin62")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Harvester" type="VBoxContainer" parent="potato/BUY/robots"]
@@ -530,7 +528,7 @@ layout_mode = 2
 
 [node name="robotName" type="Label" parent="potato/BUY/robots/Harvester/Name"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "Harvester"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -551,9 +549,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Harvester/icon"]
+modulate = Color(0.290196, 0.427451, 0.886275, 1)
 layout_mode = 2
-texture = ExtResource("2_45nwv")
-expand_mode = 3
+texture = ExtResource("7_0gc5e")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="empty2" type="Label" parent="potato/BUY/robots/Harvester/icon"]
@@ -572,7 +571,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Harvester/Speed/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -611,7 +610,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Harvester/Speed/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Enhance robots mobility.    20 -> 30 m/s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -629,7 +628,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Harvester/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -643,7 +642,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Harvester/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -661,7 +660,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -674,15 +673,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Harvester/Speed/price_and_upkeep/upkeep"]
+modulate = Color(0.290196, 0.427451, 0.886275, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("7_0gc5e")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Productivity" type="VBoxContainer" parent="potato/BUY/robots/Harvester"]
@@ -697,7 +697,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Harvester/Productivity/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Productivity"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -736,7 +736,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Harvester/Productivity/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Reduce potato harvesting time.    20 -> 10 s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -754,7 +754,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Harvester/Productivity/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -768,7 +768,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Harvester/Productivity/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -786,7 +786,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -799,15 +799,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Harvester/Productivity/price_and_upkeep/upkeep"]
+modulate = Color(0.290196, 0.427451, 0.886275, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("7_0gc5e")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Power_Efficiency" type="VBoxContainer" parent="potato/BUY/robots/Harvester"]
@@ -822,7 +823,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Power Efficiency"
 
 [node name="box" type="HBoxContainer" parent="potato/BUY/robots/Harvester/Power_Efficiency/label_and_build"]
@@ -859,7 +860,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Optimize power usage. Reduce upkeep by up to 5 per robot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -878,7 +879,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -892,7 +893,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -910,7 +911,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -923,15 +924,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Harvester/Power_Efficiency/price_and_upkeep/upkeep"]
+modulate = Color(0.290196, 0.427451, 0.886275, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("7_0gc5e")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Collector" type="VBoxContainer" parent="potato/BUY/robots"]
@@ -944,7 +946,7 @@ layout_mode = 2
 
 [node name="robotName" type="Label" parent="potato/BUY/robots/Collector/Name"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "Collector"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -965,9 +967,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Collector/icon"]
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
 layout_mode = 2
-texture = ExtResource("2_45nwv")
-expand_mode = 3
+texture = ExtResource("8_12e8r")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="empty2" type="Label" parent="potato/BUY/robots/Collector/icon"]
@@ -986,7 +989,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Collector/Speed/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1025,7 +1028,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Collector/Speed/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Enhance robots mobility.    20 -> 30 m/s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1043,7 +1046,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Collector/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1057,7 +1060,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Collector/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1075,7 +1078,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Collector/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1088,15 +1091,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Collector/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Speed/price_and_upkeep/upkeep"]
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("8_12e8r")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Range" type="VBoxContainer" parent="potato/BUY/robots/Collector"]
@@ -1111,7 +1115,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Collector/Range/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Range"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1150,7 +1154,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Collector/Range/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Reduce potato harvesting time.    20 -> 10 s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1168,7 +1172,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1182,7 +1186,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1200,7 +1204,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1213,15 +1217,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Range/price_and_upkeep/upkeep"]
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("8_12e8r")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Power_Efficiency" type="VBoxContainer" parent="potato/BUY/robots/Collector"]
@@ -1236,7 +1241,7 @@ alignment = 1
 [node name="label" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Power Efficiency"
 
 [node name="box" type="HBoxContainer" parent="potato/BUY/robots/Collector/Power_Efficiency/label_and_build"]
@@ -1273,7 +1278,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Optimize power usage. Reduce upkeep by up to 5 per robot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1292,7 +1297,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1306,7 +1311,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1324,7 +1329,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1337,15 +1342,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="potato/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="potato/BUY/robots/Collector/Power_Efficiency/price_and_upkeep/upkeep"]
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("8_12e8r")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="scrap" type="Panel" parent="."]
@@ -1398,7 +1404,7 @@ layout_mode = 2
 
 [node name="robotName" type="Label" parent="scrap/BUY/robots/Scavenger/Name"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "Scavenger"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1419,9 +1425,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="scrap/BUY/robots/Scavenger/icon"]
+modulate = Color(0.313726, 0.223529, 0, 1)
 layout_mode = 2
-texture = ExtResource("2_45nwv")
-expand_mode = 3
+texture = ExtResource("9_h00fn")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="empty2" type="Label" parent="scrap/BUY/robots/Scavenger/icon"]
@@ -1440,7 +1447,7 @@ alignment = 1
 [node name="label" type="Label" parent="scrap/BUY/robots/Scavenger/Speed/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1479,7 +1486,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="scrap/BUY/robots/Scavenger/Speed/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Enhance robots mobility.    20 -> 30 m/s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1497,7 +1504,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1511,7 +1518,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1529,7 +1536,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1542,15 +1549,16 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="scrap/BUY/robots/Scavenger/Speed/price_and_upkeep/upkeep"]
+modulate = Color(0.313726, 0.223529, 0, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
-expand_mode = 3
+texture = ExtResource("9_h00fn")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="Capacity" type="VBoxContainer" parent="scrap/BUY/robots/Scavenger"]
@@ -1565,7 +1573,7 @@ alignment = 1
 [node name="label" type="Label" parent="scrap/BUY/robots/Scavenger/Capacity/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Capacity"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1604,7 +1612,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="scrap/BUY/robots/Scavenger/Capacity/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Reduce potato harvesting time.    20 -> 10 s"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1622,7 +1630,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1636,7 +1644,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1654,7 +1662,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1667,14 +1675,15 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="scrap/BUY/robots/Scavenger/Capacity/price_and_upkeep/upkeep"]
+modulate = Color(0.313726, 0.223529, 0, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
+texture = ExtResource("9_h00fn")
 expand_mode = 3
 stretch_mode = 5
 
@@ -1690,7 +1699,7 @@ alignment = 1
 [node name="label" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build"]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Power Efficiency"
 
 [node name="box" type="HBoxContainer" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build"]
@@ -1727,7 +1736,7 @@ alignment = 1
 [node name="improvement" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/description"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Optimize power usage. Reduce upkeep by up to 5 per robot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1746,7 +1755,7 @@ alignment = 1
 [node name="potatoPrice" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1760,7 +1769,7 @@ stretch_mode = 5
 [node name="scrapPrice" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/Price"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "200"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -1778,7 +1787,7 @@ alignment = 1
 
 [node name="upkeepLabel" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Upkeep	    60"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1791,14 +1800,15 @@ stretch_mode = 5
 
 [node name="filler" type="Label" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/upkeep"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="robotIcon" type="TextureRect" parent="scrap/BUY/robots/Scavenger/Power_Efficiency/price_and_upkeep/upkeep"]
+modulate = Color(0.313726, 0.223529, 0, 1)
 layout_mode = 2
-texture = ExtResource("3_5saav")
+texture = ExtResource("9_h00fn")
 expand_mode = 3
 stretch_mode = 5
 

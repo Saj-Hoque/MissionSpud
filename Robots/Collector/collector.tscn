@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://f6qdqic4rt1u"]
+[gd_scene load_steps=10 format=3 uid="uid://f6qdqic4rt1u"]
 
 [ext_resource type="Script" path="res://Robots/Collector/collector.gd" id="1_kxb6b"]
-[ext_resource type="Texture2D" uid="uid://daypfjk1qk35d" path="res://icon.svg" id="2_14ip4"]
+[ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://Assets/Robots/collector.png" id="2_g41og"]
+[ext_resource type="AudioStream" uid="uid://crrwawegmydx5" path="res://SFX/plop.mp3" id="3_0wsgd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1nwn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wj5hv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_14ip4")
+"texture": ExtResource("2_g41og")
 }],
 "loop": true,
 "name": &"default",
@@ -36,13 +39,18 @@ size = Vector2(6, 3)
 radius = 6.0
 
 [node name="collector" type="CharacterBody2D" groups=["robots"]]
-z_index = 4
-y_sort_enabled = true
 collision_layer = 80
 collision_mask = 11
 motion_mode = 1
 platform_floor_layers = 4294967277
 script = ExtResource("1_kxb6b")
+
+[node name="interactRange" type="Area2D" parent="." groups=["robots_range"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactRange"]
+shape = SubResource("CircleShape2D_r1nwn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
@@ -50,20 +58,21 @@ target_desired_distance = 1.0
 path_max_distance = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.74902, 0.415686, 0.0666667, 1)
-scale = Vector2(0.05, 0.05)
+modulate = Color(0.776471, 0.462745, 0.894118, 1)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wj5hv")
 
 [node name="highlight_box" type="Panel" parent="."]
 visible = false
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 2.0
+offset_bottom = 2.0
+scale = Vector2(1.6, 1.6)
 theme_override_styles/panel = SubResource("StyleBoxFlat_dt6up")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_mpyln")
 
 [node name="SelectionArea2D" type="Area2D" parent="."]
@@ -72,7 +81,7 @@ shape = SubResource("RectangleShape2D_mpyln")
 shape = SubResource("CircleShape2D_8wq5q")
 
 [node name="pickup_range" type="Area2D" parent="." groups=["collectors"]]
-collision_layer = 16
+collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
@@ -81,28 +90,45 @@ shape = SubResource("CircleShape2D_umsrc")
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+position = Vector2(3, 0)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 6)
+position = Vector2(3, 6)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 3)
+position = Vector2(3, 3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -3)
+position = Vector2(3, -3)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
 
 [node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -6)
+position = Vector2(3, -6)
 target_position = Vector2(32, 0)
-collision_mask = 26
+collision_mask = 10
+
+[node name="gatherNumbersOrigin" type="Node2D" parent="."]
+position = Vector2(-3, -6)
+
+[node name="gather_noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0wsgd")
+volume_db = -15.0
+pitch_scale = 2.0
+max_distance = 500.0
+attenuation = 5.09824
+max_polyphony = 8
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="input_event" from="SelectionArea2D" to="." method="_on_selection_area_2d_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

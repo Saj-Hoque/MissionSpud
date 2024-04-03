@@ -1,6 +1,16 @@
 extends Node
 
-var max_scraps = 100
+var running = false
+
+const max_scraps = 200
+const max_potatoes = 200
+
+const potatoWin = 25000
+const scrapWin = 25000
+
+var totalPotato = 0
+var totalScrap = 0
+var totalRobots = 0
 
 var upkeep = 0
 var robot_upkeep = 0
@@ -12,26 +22,67 @@ var names = ["Bolt", "Circuit", "Nova", "Titan", "Spark", "Electron", "Nexus", "
 
 var potatoQuantity = 2
 var potatoValue = 1
-var potatoTimer = 10
+var potatoTimer = 5
 
 var scrapQuantity = 1
 var scrapValue = 1
 var scrapTimer = 8
 
 var planterSpeed = 30
-var planterProductivity = 10
-var planterUpkeep = 5
+var planterProductivity = 5
+var planterUpkeep = 1
 
-var harvesterSpeed = 30
-var harvesterProductivity = 10
-var harvesterUpkeep = 5
+var harvesterSpeed = 20
+var harvesterProductivity = 2.5
+var harvesterUpkeep = 1
 
-var collectorSpeed = 20
+var collectorSpeed = 10
 var collectorCapacity = 256
 var collectorRange = 1
-var collectorUpkeep = 5
+var collectorUpkeep = 1
 
-var scavengerSpeed = 50
-var scavengerCapacity = 1
-var scavengerUpkeep = 5
+var scavengerSpeed = 40
+var scavengerCapacity = 2
+var scavengerUpkeep = 1
 
+var menu_active = false
+
+func reset():
+	running = true
+	
+	totalPotato = 0
+	totalScrap = 0
+	totalRobots = 0
+	potatoCount = 0
+	scrapCount = 0
+	
+	upkeep = 0
+	robot_upkeep = 0
+	
+	potatoQuantity = 2
+	potatoValue = 1
+	potatoTimer = 3
+
+	scrapQuantity = 1
+	scrapValue = 1
+	scrapTimer = 6
+
+	planterSpeed = 30
+	planterProductivity = 5
+	planterUpkeep = 1
+
+	harvesterSpeed = 20
+	harvesterProductivity = 2.5
+	harvesterUpkeep = 1
+
+	collectorSpeed = 10
+	collectorCapacity = 256
+	collectorRange = 1
+	collectorUpkeep = 1
+
+	scavengerSpeed = 40
+	scavengerCapacity = 2
+	scavengerUpkeep = 1
+	
+	menu_active = false
+	

@@ -56,45 +56,45 @@ extends CanvasLayer
 @onready var turbineCurrentUpkeepLabel = $scrap/research/fields/Labels/turbine/currentUpkeep
 
 var fertilizerLevel = 0
-var fertilizerPrice = { 0 : {"potato" : 40,
-							 "scrap"  : 40 },
-						1 : {"potato" : 160,
-							 "scrap"  : 160 },
-						2 : {"potato" : 500,
-							 "scrap"  : 500 }
+var fertilizerPrice = { 0 : {"potato" : 35,
+							 "scrap"  : 35 },
+						1 : {"potato" : 350,
+							 "scrap"  : 350 },
+						2 : {"potato" : 3500,
+							 "scrap"  : 3500 }
 					  }
-var fertilizerImprovements = { 0 : "x 2   ->   x 4",
-							   1 : "x 4   ->   x 8",
-							   2 : "x 8   ->   x 16",
-							   3 : "x 16"
+var fertilizerImprovements = { 0 : "x 2   ->   x 3",
+							   1 : "x 3   ->   x 4",
+							   2 : "x 4   ->   x 5",
+							   3 : "x 5"
 							 }
 var fertilizerImprovementValues = { 0 : 2,
-							   		1 : 4,
-							   		2 : 8,
-							   		3 : 16	
+							   		1 : 3,
+							   		2 : 4,
+							   		3 : 5	
 								  }
-var fertilizerUpkeep = { 0 : "Upkeep	    +30",
+var fertilizerUpkeep = { 0 : "Upkeep	    +6",
 						 1 : "Upkeep	    +60",
-						 2 : "Upkeep	    +120"
+						 2 : "Upkeep	    +600"
 					   }
-var fertilizerUpkeepValues = { 0 : 30,
-							   1 : 60, 
-							   2 : 120
+var fertilizerUpkeepValues = { 0 : 6,
+							   1 : 70, 
+							   2 : 500
 							 }
 var fertilizerCurrentUpkeep = { 0 : "+0",
-								1 : "+30", 
-								2 : "+90",
-								3 : "+210"
+								1 : "+6", 
+								2 : "+66",
+								3 : "+666"
 							  }
 
 
 var qualityLevel = 0
-var qualityPrice = { 0 : {"potato" : 40,
-						  "scrap"  : 40 },
-					 1 : {"potato" : 160,
-						  "scrap"  : 160 },
-					 2 : {"potato" : 500,
-						  "scrap"  : 500 }
+var qualityPrice = { 0 : {"potato" : 50,
+						  "scrap"  : 50 },
+					 1 : {"potato" : 500,
+						  "scrap"  : 500 },
+					 2 : {"potato" : 5000,
+						  "scrap"  : 5000 }
 				   }
 var qualityImprovements = { 0 : "1   ->   2",
 							1 : "2   ->   4",
@@ -106,59 +106,59 @@ var qualityImprovementValues = { 0 : 1,
 						   		 2 : 4,
 						   		 3 : 8	
 							   }					
-var qualityUpkeep = { 0 : "Upkeep	    +30",
-					  1 : "Upkeep	    +60",
-					  2 : "Upkeep	    +120"
+var qualityUpkeep = { 0 : "Upkeep	    +8",
+					  1 : "Upkeep	    +80",
+					  2 : "Upkeep	    +800"
 					}
-var qualityUpkeepValues = { 0 : 30,
-							1 : 60, 
-							2 : 120
+var qualityUpkeepValues = { 0 : 8,
+							1 : 80, 
+							2 : 800
 						  }
 var qualityCurrentUpkeep = { 0 : "+0",
-							 1 : "+30", 
-							 2 : "+90",
-							 3 : "+210"
+							 1 : "+8", 
+							 2 : "+88",
+							 3 : "+888"
 						   }
 
 var growthLevel = 0
-var growthPrice = { 0 : {"potato" : 40,
-						 "scrap"  : 40 },
-					1 : {"potato" : 160,
-						 "scrap"  : 160 },
-					2 : {"potato" : 500,
-						 "scrap"  : 500 }
+var growthPrice = { 0 : {"potato" : 25,
+						 "scrap"  : 25 },
+					1 : {"potato" : 175,
+						 "scrap"  : 175 },
+					2 : {"potato" : 1225,
+						 "scrap"  : 1225 }
 				  }
-var growthImprovements = { 0 : "20s   ->   10s",
-						   1 : "10s   ->   5s",
-						   2 : "5s   ->   2.5s",
-						   3 : "2.5s"
+var growthImprovements = { 0 : "6s   ->   3s",
+						   1 : "3s   ->   1.5s",
+						   2 : "1.5s   ->   0.75s",
+						   3 : "0.75s"
 						 }
-var growthImprovementValues = { 0 : 10,				# Divided by 2 because plant growth is 2 sprites
-						   		1 : 5,
-						   		2 : 2.5,
-						   		3 : 1.25	
-							  }						
-var growthUpkeep = { 0 : "Upkeep	    +30",
-					 1 : "Upkeep	    +60",
-					 2 : "Upkeep	    +120"
+var growthImprovementValues = { 0 : 6,				# Divided by 2 because plant growth is 2 sprites
+						   		1 : 3,
+						   		2 : 1.5,
+						   		3 : 0.75	
+							  }
+var growthUpkeep = { 0 : "Upkeep	    +5",
+					 1 : "Upkeep	    +25",
+					 2 : "Upkeep	    +250"
 				   }
-var growthUpkeepValues = { 0 : 30,
-						   1 : 60, 
-						   2 : 120
+var growthUpkeepValues = { 0 : 5,
+						   1 : 25, 
+						   2 : 250
 						 }
 var growthCurrentUpkeep = { 0 : "+0",
-							1 : "+30", 
-							2 : "+90",
-							3 : "+210"
+							1 : "+5", 
+							2 : "+30",
+							3 : "+280"
 						  }
 
 var boostLevel = 0
-var boostPrice = { 0 : {"potato" : 40,
-							 "scrap"  : 40 },
-						1 : {"potato" : 160,
-							 "scrap"  : 160 },
-						2 : {"potato" : 500,
-							 "scrap"  : 500 }
+var boostPrice = { 0 : {"potato" : 25,
+							 "scrap"  : 25 },
+						1 : {"potato" : 175,
+							 "scrap"  : 175 },
+						2 : {"potato" : 1300,
+							 "scrap"  : 1300 }
 					  }
 var boostImprovements = { 0 : "x 1   ->   x 2",
 						  1 : "x 2   ->   x 4",
@@ -170,82 +170,82 @@ var boostImprovementValues = { 0 : 1,
 					   		   2 : 4,
 					   		   3 : 8	
 							 }						
-var boostUpkeep = { 0 : "Upkeep	    +30",
+var boostUpkeep = { 0 : "Upkeep	    +6",
 					1 : "Upkeep	    +60",
-					2 : "Upkeep	    +120"
+					2 : "Upkeep	    +600"
 				  }
-var boostUpkeepValues = { 0 : 30,
+var boostUpkeepValues = { 0 : 6,
 						  1 : 60, 
-						  2 : 120
+						  2 : 600
 						}
 var boostCurrentUpkeep = { 0 : "+0",
-						   1 : "+30", 
-						   2 : "+90",
-						   3 : "+210"
+						   1 : "+6", 
+						   2 : "+66",
+						   3 : "+666"
 						 }
 
 var forgeLevel = 0
-var forgePrice = { 0 : {"potato" : 40,
-						"scrap"  : 40 },
-				   1 : {"potato" : 160,
-						"scrap"  : 160 },
-				   2 : {"potato" : 500,
-						"scrap"  : 500 }
+var forgePrice = { 0 : {"potato" : 35,
+						"scrap"  : 35 },
+				   1 : {"potato" : 350,
+						"scrap"  : 350 },
+				   2 : {"potato" : 3500,
+						"scrap"  : 3500 }
 				 }
 var forgeImprovements = { 0 : "1   ->   2",
 						  1 : "2   ->   4",
-						  2 : "4   ->   8",
-						  3 : "8"
+						  2 : "4   ->   16",
+						  3 : "16"
 						  }
 var forgeImprovementValues = { 0 : 1,
 					   		   1 : 2,
 					   		   2 : 4,
-					   		   3 : 8	
+					   		   3 : 16	
 							 }						
-var forgeUpkeep = { 0 : "Upkeep	    +30",
-					1 : "Upkeep	    +60",
-					2 : "Upkeep	    +120"
+var forgeUpkeep = { 0 : "Upkeep	    +8",
+					1 : "Upkeep	    +80",
+					2 : "Upkeep	    +800"
 				  }
-var forgeUpkeepValues = { 0 : 30,
-						  1 : 60, 
-						  2 : 120
+var forgeUpkeepValues = { 0 : 8,
+						  1 : 80, 
+						  2 : 800
 						}
 var forgeCurrentUpkeep = { 0 : "+0",
-						   1 : "+30", 
-						   2 : "+90",
-						   3 : "+210"
+						   1 : "+8", 
+						   2 : "+88",
+						   3 : "+888"
 						 }
 
 var turbineLevel = 0
-var turbinePrice = { 0 : {"potato" : 40,
-						 "scrap"  : 40 },
-					1 : {"potato" : 160,
-						 "scrap"  : 160 },
-					2 : {"potato" : 500,
-						 "scrap"  : 500 }
+var turbinePrice = { 0 : {"potato" : 20,
+						 "scrap"  : 20 },
+					1 : {"potato" : 140,
+						 "scrap"  : 140 },
+					2 : {"potato" : 1600,
+						 "scrap"  : 1600 }
 				   }
-var turbineImprovements = { 0 : "8s   ->   4s",
-							1 : "4s   ->   2s",
+var turbineImprovements = { 0 : "6s   ->   3s",
+							1 : "3s   ->   2s",
 							2 : "2s   ->   1s",
 							3 : "1s"
 						  }
-var turbineImprovementValues = { 0 : 8,
-						   		 1 : 4,
+var turbineImprovementValues = { 0 : 6,
+						   		 1 : 3,
 						   		 2 : 2,
 						   		 3 : 1	
 							   }						
-var turbineUpkeep = { 0 : "Upkeep	    +30",
-					  1 : "Upkeep	    +60",
-					  2 : "Upkeep	    +120"
+var turbineUpkeep = { 0 : "Upkeep	    +5",
+					  1 : "Upkeep	    +25",
+					  2 : "Upkeep	    +250"
 					}
-var turbineUpkeepValues = { 0 : 30,
-							1 : 60, 
-							2 : 120
+var turbineUpkeepValues = { 0 : 5,
+							1 : 25, 
+							2 : 250
 						  }
 var turbineCurrentUpkeep = { 0 : "+0",
-							 1 : "+30", 
-							 2 : "+90",
-							 3 : "+210"
+							 1 : "+5", 
+							 2 : "+30",
+							 3 : "+280"
 						   }
 
 
@@ -277,12 +277,15 @@ func _process(delta):
 func open_shop():
 	visible = true
 	_update()
+	RobotShop.close_shop()
+	RobotResearchStation.close_shop()
 	
 func close_shop():
 	visible = false
 	
 func _on_close_button_pressed():
 	close_shop()
+	Global.menu_active = false
 
 
 func _update_values(prices, level, potatoPrice, scrapPrice, impovementLabel, improvement, upkeepLabel, upkeep, currentUpkeepLabel, currentUpkeep):
@@ -363,8 +366,8 @@ func _on_scrap_button_pressed():
 	potatoButton.button_pressed = false
 	potatoSection.visible = false
 	scrapSection.visible = true
-
-
+	
+	
 
 func _refresh_upkeep(upkeepValues, level):
 	totalUpkeep.text = "Upkeep:\n" + str(Global.upkeep + Global.robot_upkeep) + "   ->   " + str(Global.upkeep + Global.robot_upkeep + upkeepValues[level])
@@ -410,3 +413,20 @@ func _on_turbine_button_mouse_entered():
 
 func _on_turbine_button_mouse_exited():
 	totalUpkeep.visible = false
+
+func reset_feature(level, button, resources, upkeepLabel):
+	level = 0
+	button.text = "Research"
+	button.disabled = false
+	resources.visible = true
+	upkeepLabel.visible = true
+	return level
+	
+func reset():
+	fertilizerLevel = reset_feature(fertilizerLevel, fertilizerButton, fertilizerResources, fertilizerUpkeepLabel)
+	qualityLevel = reset_feature(qualityLevel, qualityButton, qualityResources, qualityUpkeepLabel)
+	growthLevel = reset_feature(growthLevel, growthButton, growthResources, growthUpkeepLabel)
+	boostLevel = reset_feature(boostLevel, boostButton, boostResources, boostUpkeepLabel)
+	forgeLevel = reset_feature(forgeLevel, forgeButton, forgeResources, forgeUpkeepLabel)
+	turbineLevel = reset_feature(turbineLevel, turbineButton, turbineResources, turbineUpkeepLabel)
+	_update()

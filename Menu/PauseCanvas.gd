@@ -1,8 +1,11 @@
 extends CanvasLayer
 
+var paused = false
+
 func _input(event):
-	if event.is_action_pressed("escape") and get_tree().current_scene.name != "menu":
+	if event.is_action_pressed("escape") and get_tree().current_scene.name != "menu" and not Global.menu_active:
 		get_tree().paused = !get_tree().paused
+		paused = !paused
 		visible = not visible
 		
 		#if visible:
@@ -10,14 +13,14 @@ func _input(event):
 
 func _on_resume_pressed():
 	get_tree().paused = false
+	paused = false
 	visible = false
 
-func _on_save_pressed():
-	print("Save is yet to be implemented")
-	pass # Replace with function body.
-
 func _on_exit_pressed():
-	get_tree().paused = !get_tree().paused
+	Global.running = false
+	SelectionManager.reset()
 	visible = not visible
-	SidePanel.visible = false
-	get_tree().change_scene_to_file("res://Menu/menu.tscn")
+	paused = false
+	get_tree().paused = !get_tree().paused
+	SceneTransition.change_scene("res://Menu/menu.tscn")
+	
