@@ -129,7 +129,7 @@ func _enable_all_buttons():
 	scavengerButton.disabled = false
 
 
-func _buy_robot(price, scene, ai_scene):
+func _buy_robot(price, scene, ai_scene, all_robots):
 	Global.potatoCount -= price["potato"]
 	Global.scrapCount -= price["scrap"]
 	var robot = scene.instantiate()
@@ -137,7 +137,7 @@ func _buy_robot(price, scene, ai_scene):
 	robot.idle_area = main_hub
 	robot.add_child(robot_ai)
 	#robot.position = global_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
-	robots.add_child(robot)
+	all_robots.add_child(robot)
 	var upkeep = 0 if robot.upkeep < 0 else robot.upkeep
 	Global.robot_upkeep += upkeep
 
@@ -146,19 +146,19 @@ func _on_close_button_pressed():
 	Global.menu_active = false
 
 func _on_planter_buy_button_pressed():
-	_buy_robot(planterPrice, planter_scene, planter_ai_scene)
+	_buy_robot(planterPrice, planter_scene, planter_ai_scene, robots)
 	_refresh_upkeep_button(planterButton, Global.planterUpkeep)
 
 func _on_harvester_buy_button_pressed():
-	_buy_robot(harvesterPrice, harvester_scene, harvester_ai_scene)
+	_buy_robot(harvesterPrice, harvester_scene, harvester_ai_scene, robots)
 	_refresh_upkeep_button(harvesterButton, Global.harvesterUpkeep)
 
 func _on_collector_buy_button_pressed():
-	_buy_robot(collectorPrice, collector_scene, collector_ai_scene)
+	_buy_robot(collectorPrice, collector_scene, collector_ai_scene, robots)
 	_refresh_upkeep_button(collectorButton, Global.collectorUpkeep)
 
 func _on_scavenger_buy_button_pressed():
-	_buy_robot(scavengerPrice, scavenger_scene, scavenger_ai_scene)
+	_buy_robot(scavengerPrice, scavenger_scene, scavenger_ai_scene, robots)
 	_refresh_upkeep_button(scavengerButton, Global.scavengerUpkeep)
 
 

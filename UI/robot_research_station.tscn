@@ -1856,6 +1856,7 @@ scale = Vector2(4, 4)
 theme_override_styles/panel = SubResource("StyleBoxFlat_80cnr")
 
 [node name="potatoButton" type="Button" parent="potatoSwitch"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 keep_pressed_outside = true
@@ -1875,6 +1876,7 @@ scale = Vector2(4, 4)
 theme_override_styles/panel = SubResource("StyleBoxFlat_h5wkj")
 
 [node name="scrapButton" type="Button" parent="scrapSwitch"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 keep_pressed_outside = true

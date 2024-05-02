@@ -23,7 +23,7 @@ func update_potato_counter(value):
 func update_scrap_counter(value):
 		Global.scrapCount += value
 		Global.totalScrap += value
-		
+
 func reset_robots(): 
 	var all_robots = get_tree().get_nodes_in_group("robots")
 	for robot in all_robots:
