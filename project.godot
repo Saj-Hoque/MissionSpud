@@ -13,7 +13,6 @@ config_version=5
 config/name="Mission Spud"
 run/main_scene="res://Menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
 
 [autoload]
 
@@ -41,7 +40,11 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/test/test_lookup_folder="Unit_Tests"
 
 [gui]
 
