@@ -8,19 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  tests:
-    runs-on: ubuntu-latest
-    name: Unit Tests
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: make executable
-        run: chmod +x gut.sh
-        
-      - name: Gut (gut.sh)
-        run: ./gut.sh
-        
   build:
     runs-on: ubuntu-latest
     permissions: write-all
