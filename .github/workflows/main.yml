@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: make executable
+        run: chmod +x gut.sh
+        
       - name: Gut (gut.sh)
         run: ./gut.sh
         
