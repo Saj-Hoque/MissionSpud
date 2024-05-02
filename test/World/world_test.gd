@@ -9,5 +9,7 @@ const __source = 'res://World/world.gd'
 
 
 func test_testing() -> void:
-	var world = load("res://World/world.gd")
 	assert_bool(true).is_true()
+
+func test_testing2():
+	assert_bool(false).is_true()
