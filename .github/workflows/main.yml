@@ -13,13 +13,9 @@ jobs:
     name: Unit Tests
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Docker test
-        uses: ceceppa/godot-gut-ci@main
+        uses: yeslayla/run-gut-tests-action@v1.1.0
         with:
-          godot_version: 4.2.1
-          gut_params: gdir=res://Unit_Tests -gexit -gprefix=test_ 
-          
+          containerImage: barichello/godot-ci:4.2.1-stable
   build:
     runs-on: ubuntu-latest
     permissions: write-all
