@@ -13,9 +13,7 @@ jobs:
     name: Unit Tests
     steps:
       - name: Checkout
-        uses: yeslayla/run-gut-tests-action@v1.1.0
-        with:
-          containerImage: barichello/godot-ci:4.2.1-stable
+        uses: yeslayla/run-gut-tests-action@v1.0.1
   build:
     runs-on: ubuntu-latest
     permissions: write-all
