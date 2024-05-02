@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://mw0ybdw4wsr8"]
+[gd_scene load_steps=9 format=3 uid="uid://mw0ybdw4wsr8"]
 
 [ext_resource type="Script" path="res://UI/Info.gd" id="1_8kntn"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_c50mm"]
+[ext_resource type="Texture2D" uid="uid://cupr5eff6dofj" path="res://Assets/Tutorial/buttons.png" id="2_pw0dc"]
+[ext_resource type="Texture2D" uid="uid://cj1u8oyklmiga" path="res://Assets/Workbenches/launchpad.png" id="3_ge300"]
+[ext_resource type="Texture2D" uid="uid://b7qtqdv2qri0g" path="res://Assets/Tutorial/selected_robot.png" id="4_4l3kg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdae2"]
 bg_color = Color(0.380392, 0.352941, 0.345098, 0.941176)
@@ -300,7 +303,7 @@ layout_mode = 2
 text = "Maintain robots fuel upkeep - costing potatoes.   
 This is deducted at 0:00 every sol   ensure you have enough resources to survive till the next day
 
-Utilize acqired potatoes and scrap for researching resource or robot upgrades to improve your production.
+Utilize acquired potatoes and scrap for researching resource or robot upgrades to improve your production.
 These upgrades can adjust your upkeep,   but are necessary to reach your end goal "
 horizontal_alignment = 1
 
@@ -309,6 +312,96 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.160784, 0.184314, 0.32549, 1)
 text = "Dismantle unwanted robots if you've reached the threshold or need to reduce current upkeep       ( NO Refunds )"
 horizontal_alignment = 1
+
+[node name="visual_tips" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -400.0
+offset_right = 800.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rdae2")
+
+[node name="TextureRect" type="TextureRect" parent="visual_tips"]
+layout_mode = 2
+offset_left = -4.0
+offset_top = 273.0
+offset_right = 480.0
+offset_bottom = 460.0
+texture = ExtResource("2_pw0dc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="visual_tips"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_top = 316.0
+offset_right = 425.0
+offset_bottom = 403.0
+grow_horizontal = 2
+text = "Each workbench features two menus
+Click on each button to switch between Potato and Scrap related Purchases"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="visual_tips"]
+layout_mode = 0
+offset_left = 1139.0
+offset_top = 374.0
+offset_right = 1568.0
+offset_bottom = 680.0
+texture = ExtResource("3_ge300")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="visual_tips"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_top = 476.0
+offset_right = 425.0
+offset_bottom = 563.0
+grow_horizontal = 2
+text = "Locate the Rocket Pad Outside the HUB
+This will give you more information on what you need for your journey home"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="visual_tips"]
+layout_mode = 0
+offset_left = 1215.0
+offset_top = 142.0
+offset_right = 1496.0
+offset_bottom = 258.0
+texture = ExtResource("4_4l3kg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="visual_tips"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_top = 155.0
+offset_right = 425.0
+offset_bottom = 242.0
+grow_horizontal = 2
+text = "Selected Robots will have a highlighted circle around them
+Left click anywhere outside of their vicinity to unselect"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="play" type="Panel" parent="."]
 visible = false
@@ -353,9 +446,23 @@ layout_mode = 2
 text = "Now equipped with  all the essential information,    you're ready to embark on your journey  to survival and escape."
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="play/margin/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="play/margin/VBoxContainer"]
 layout_mode = 2
-text = " accumulate the necessary resources within the next 20 sols to construct the rocket located outside the hub."
+
+[node name="Label3" type="Label" parent="play/margin/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = " accumulate the necessary resources within the next "
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="play/margin/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34902, 0.0823529, 0.0588235, 1)
+text = "20 sols"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="play/margin/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = " to construct the rocket located outside the hub."
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="play/margin/VBoxContainer"]

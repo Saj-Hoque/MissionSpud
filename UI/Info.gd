@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var intro = $intro
 @onready var instructions = $instructions
+@onready var visual_tips = $visual_tips
 @onready var play = $play
 
 @onready var previous = $previous
@@ -18,6 +19,7 @@ func reset():
 	current_page = intro
 	intro.visible = true
 	instructions.visible = false
+	visual_tips.visible = false
 	play.visible = false
 
 func _process(delta):
@@ -60,22 +62,38 @@ func _on_previous_pressed():
 		current_page = intro
 		intro.visible = true
 		instructions.visible = false
+		visual_tips.visible = false
 		play.visible = false
-	elif current_page == play:
+	elif current_page == visual_tips:
 		current_page = instructions
 		intro.visible = false
 		instructions.visible = true
+		visual_tips.visible = false
 		play.visible = false
-
+	elif current_page == play:
+		current_page = visual_tips
+		intro.visible = false
+		instructions.visible = false
+		visual_tips.visible = true
+		play.visible = false
+	
 
 func _on_next_pressed():
 	if current_page == intro:
 		current_page = instructions
 		intro.visible = false
 		instructions.visible = true
+		visual_tips.visible = false
 		play.visible = false
 	elif current_page == instructions:
+		current_page = visual_tips
+		intro.visible = false
+		instructions.visible = false
+		visual_tips.visible = true
+		play.visible = false
+	elif current_page == visual_tips:
 		current_page = play
 		intro.visible = false
 		instructions.visible = false
+		visual_tips.visible = false
 		play.visible = true

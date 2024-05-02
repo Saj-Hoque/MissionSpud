@@ -5,8 +5,8 @@ extends CanvasLayer
 var greenStyleBox = load("res://UI/green_style_box_flat.tres")
 var grayStyleBox = load("res://UI/gray_style_box_flat.tres")
 
-@onready var potatoButton = $potatoButton
-@onready var scrapButton = $scrapButton
+@onready var potatoButton = $potatoSwitch/potatoButton
+@onready var scrapButton = $scrapSwitch/scrapButton
 @onready var potatoSection = $potato
 @onready var scrapSection = $scrap
 
@@ -472,6 +472,10 @@ func _ready():
 func open_shop():
 	visible = true
 	_update()
+	if potatoSection.visible:
+		potatoButton.grab_focus()
+	if scrapSection.visible:
+		scrapButton.grab_focus()
 	RobotShop.close_shop()
 	ResourceResearchStation.close_shop()
 	

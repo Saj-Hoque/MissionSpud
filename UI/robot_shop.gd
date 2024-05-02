@@ -14,8 +14,8 @@ var scavenger_ai_scene = preload("res://ai/Behavior_Trees/scavenger_ai.tscn")
 @onready var timer = $buyTimer
 @onready var totalUpkeep = $totalUpkeep
 
-@onready var potatoButton = $potatoButton
-@onready var scrapButton = $scrapButton
+@onready var potatoButton = $potatoSwitch/potatoButton
+@onready var scrapButton = $scrapSwitch/scrapButton
 @onready var potatoSection = $potato
 @onready var scrapSection = $scrap
 
@@ -51,7 +51,7 @@ var collectorPrice = { "potato" : 100,
 var scavengerPrice = { "potato" : 5,
 					   "scrap"  : 5 }
 
-var disabled = false
+
 var disable_override = false
 
 func _ready():
@@ -67,7 +67,7 @@ func _process(delta):
 			main_hub.areaFull.connect(blocked)
 			main_hub.areaFree.connect(unblocked)
 
-	if visible and not disabled and not disable_override:
+	if visible and not disable_override:
 		_check_if_enough(planterPrice, planterButton)
 		_check_if_enough(harvesterPrice, harvesterButton)
 		_check_if_enough(collectorPrice, collectorButton)
@@ -77,6 +77,10 @@ func _process(delta):
 func open_shop():
 	visible = true
 	_update()
+	if potatoSection.visible:
+		potatoButton.grab_focus()
+	if scrapSection.visible:
+		scrapButton.grab_focus()
 	RobotResearchStation.close_shop()
 	ResourceResearchStation.close_shop()
 	
@@ -101,7 +105,6 @@ func _update():
 	_update_robot_details(collectorPrice, collectorPotatoLabel, collectorScrapLabel, Global.collectorUpkeep, collectorUpkeepLabel)
 	
 	_update_robot_details(scavengerPrice, scavengerPotatoLabel, scavengerScrapLabel, Global.scavengerUpkeep, scavengerUpkeepLabel)
-
 
 func blocked():
 	_disable_all_buttons()
@@ -137,14 +140,6 @@ func _buy_robot(price, scene, ai_scene):
 	robots.add_child(robot)
 	var upkeep = 0 if robot.upkeep < 0 else robot.upkeep
 	Global.robot_upkeep += upkeep
-	timer.start()
-	_disable_all_buttons()
-	disabled = true
-
-func _on_buy_timer_timeout():
-	if not disable_override:
-		_enable_all_buttons()
-	disabled = false
 
 func _on_close_button_pressed():
 	close_shop()

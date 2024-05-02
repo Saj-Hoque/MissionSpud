@@ -947,14 +947,14 @@ position = Vector2(-54, 11)
 position = Vector2(-32, 11)
 
 [node name="harvester_ai" parent="robots/harvester" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("13_ll7b2")]
-blackboard = NodePath("@Node@52359")
+blackboard = NodePath("@Node@777170")
 actor = NodePath("..")
 
 [node name="scavenger" parent="robots" instance=ExtResource("15_pl3ab")]
 position = Vector2(-8, 11)
 
 [node name="scavenger_ai" parent="robots/scavenger" node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("16_lr2pf")]
-blackboard = NodePath("@Node@52360")
+blackboard = NodePath("@Node@777171")
 actor = NodePath("..")
 
 [node name="player" parent="." instance=ExtResource("2_3crqb")]

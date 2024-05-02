@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://db8oemq5j8qg5"]
+[gd_scene load_steps=19 format=3 uid="uid://db8oemq5j8qg5"]
 
 [ext_resource type="Script" path="res://UI/robot_research_station.gd" id="1_dcfpf"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_45v6x"]
@@ -42,6 +42,32 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80cnr"]
+bg_color = Color(0.611765, 0.611765, 0.611765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5wkj"]
+bg_color = Color(0.611765, 0.611765, 0.611765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="Theme" id="Theme_jw0fo"]
 default_font = ExtResource("2_45v6x")
@@ -133,6 +159,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Planter/icon"]
+custom_minimum_size = Vector2(80, 160)
 layout_mode = 2
 texture = ExtResource("3_yin62")
 expand_mode = 2
@@ -550,6 +577,7 @@ theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Harvester/icon"]
 modulate = Color(0.290196, 0.427451, 0.886275, 1)
+custom_minimum_size = Vector2(80, 160)
 layout_mode = 2
 texture = ExtResource("7_0gc5e")
 expand_mode = 2
@@ -968,6 +996,7 @@ theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="potato/BUY/robots/Collector/icon"]
 modulate = Color(0.776471, 0.462745, 0.894118, 1)
+custom_minimum_size = Vector2(80, 160)
 layout_mode = 2
 texture = ExtResource("8_12e8r")
 expand_mode = 2
@@ -1426,6 +1455,7 @@ theme_override_font_sizes/font_size = 60
 
 [node name="TextureRect" type="TextureRect" parent="scrap/BUY/robots/Scavenger/icon"]
 modulate = Color(0.313726, 0.223529, 0, 1)
+custom_minimum_size = Vector2(80, 160)
 layout_mode = 2
 texture = ExtResource("9_h00fn")
 expand_mode = 2
@@ -1812,21 +1842,41 @@ texture = ExtResource("9_h00fn")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="potatoButton" type="Button" parent="."]
+[node name="potatoSwitch" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 57.0
 offset_top = 418.0
-offset_right = 81.0
-offset_bottom = 442.0
+offset_right = -1839.0
+offset_bottom = -638.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxFlat_80cnr")
+
+[node name="potatoButton" type="Button" parent="potatoSwitch"]
+offset_right = 24.0
+offset_bottom = 24.0
 keep_pressed_outside = true
 icon = ExtResource("3_5saav")
 
-[node name="scrapButton" type="Button" parent="."]
+[node name="scrapSwitch" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 57.0
-offset_top = 520.0
-offset_right = 81.0
-offset_bottom = 544.0
+offset_top = 526.0
+offset_right = -1839.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxFlat_h5wkj")
+
+[node name="scrapButton" type="Button" parent="scrapSwitch"]
+offset_right = 24.0
+offset_bottom = 24.0
 keep_pressed_outside = true
 icon = ExtResource("4_7sbpb")
 
@@ -1900,6 +1950,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/scavengerPowerButton" to="." method="_on_scavenger_power_button_mouse_entered"]
 [connection signal="mouse_exited" from="scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/scavengerPowerButton" to="." method="_on_scavenger_power_button_mouse_exited"]
 [connection signal="pressed" from="scrap/BUY/robots/Scavenger/Power_Efficiency/label_and_build/scavengerPowerButton" to="." method="_on_scavenger_power_button_pressed"]
-[connection signal="pressed" from="potatoButton" to="." method="_on_potato_button_pressed"]
-[connection signal="pressed" from="scrapButton" to="." method="_on_scrap_button_pressed"]
+[connection signal="pressed" from="potatoSwitch/potatoButton" to="." method="_on_potato_button_pressed"]
+[connection signal="pressed" from="scrapSwitch/scrapButton" to="." method="_on_scrap_button_pressed"]
 [connection signal="pressed" from="CLOSE/close_button" to="." method="_on_close_button_pressed"]

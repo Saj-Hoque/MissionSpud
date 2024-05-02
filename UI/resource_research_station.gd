@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var potatoButton = $potatoButton
-@onready var scrapButton = $scrapButton
+@onready var potatoButton = $potatoSwitch/potatoButton
+@onready var scrapButton = $scrapSwitch/scrapButton
 @onready var potatoSection = $potato
 @onready var scrapSection = $scrap
 
@@ -277,6 +277,10 @@ func _process(delta):
 func open_shop():
 	visible = true
 	_update()
+	if potatoSection.visible:
+		potatoButton.grab_focus()
+	if scrapSection.visible:
+		scrapButton.grab_focus()
 	RobotShop.close_shop()
 	RobotResearchStation.close_shop()
 	
