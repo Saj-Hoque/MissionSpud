@@ -12,11 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Unit Tests
     steps:
-      - name: Run Tests
-        uses: yeslayla/run-gut-tests-action@v1.1.0
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Docker test
+        uses: ceceppa/godot-gut-ci@main
         with:
-          containerImage: barichello/godot-ci:4.2.1-stable
-          directory: res://Unit_Tests/
+          godot_version: 4.2.1
+          gut_params: -gdir=res://Unit_Tests -gsuffix=.test.gd -gprefix=
       
   build:
     runs-on: ubuntu-latest
