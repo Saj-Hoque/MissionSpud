@@ -30,6 +30,8 @@ SelectionManager="*res://Selection/selection_manager.tscn"
 SidePanel="*res://UI/side_panel.tscn"
 GatherNumbers="*res://UI/gatherNumbers.gd"
 Info="*res://UI/info.tscn"
+Upkeep="*res://Resources/upkeep.gd"
+WinLoseScenario="*res://World/win_lose_scenario.gd"
 
 [display]
 

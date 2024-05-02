@@ -12,12 +12,15 @@ func _ready():
 	interactionArea.y_offset = y_offset
 	interactionArea.interact = Callable(self, "_on_interact")
 
-func _on_interact():
+func can_buy():
 	if Global.potatoCount >= Global.potatoWin and Global.scrapCount >= Global.scrapWin:
-		Global.totalRobots = (get_tree().get_nodes_in_group("robots")).size()
-		Global.running = false
-		SelectionManager.reset()
-		SceneTransition.change_scene("res://UI/victoryScreen.tscn")
+		return true
+	else:
+		return false
+
+func _on_interact():
+	var bought = can_buy()
+	WinLoseScenario.check_if_won_game(bought)
 
 func _on_interaction_area_body_entered(body):
 	if Global.potatoCount < Global.potatoWin:

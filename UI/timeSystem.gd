@@ -23,24 +23,31 @@ func reset():
 	day = 1
 	day_processed = true
 
+
 func _process(delta):
 	if Global.running:
-		if hour == 0 and day_processed == false and time_speed > 0:
+		if is_new_day():
 			start_new_day()
-			apply_upkeep()
-			check_day()
+			Upkeep.update()
+			# Check Lose Scenario 1 - Upkeep (Out of Potatoes)
+			WinLoseScenario.check_if_lose_game_upkeep()
+			# Check Lose Scenario 2 - Out of Time
+			WinLoseScenario.check_if_lose_game_time()
 		if hour > 0:
 			day_processed = false
 
-		
 		upkeep_alert = true if hour == 22 else false
 		upkeep_message = true if hour == 23 else false
 		
+		second += (delta * time_speed)
+		minute = (int(second) / 60) % 60
+		hour = (int(second) / (60*60)) % 24
 
-		if time_speed > 0:
-			second += (delta * time_speed)
-			minute = (int(second) / 60) % 60
-			hour = (int(second) / (60*60)) % 24
+func is_new_day():
+	if hour == 0 and day_processed == false:
+		return true
+	else:
+		return false
 
 func start_new_day():
 	second = 0
@@ -48,17 +55,9 @@ func start_new_day():
 	hour = 0
 	day +=1 
 	day_processed = true
-	
-func apply_upkeep():
-	Global.potatoCount -= (Global.upkeep + Global.robot_upkeep)
-	if Global.potatoCount < 0:
-		Global.running = false
-		SelectionManager.reset()
-		SceneTransition.change_scene("res://UI/loseScreen1.tscn")
 
-func check_day():
+func is_final_day():
 	if day == FINAL_DAY:
-		Global.totalRobots = (get_tree().get_nodes_in_group("robots")).size()
-		Global.running = false
-		SelectionManager.reset()
-		SceneTransition.change_scene("res://UI/loseScreen2.tscn")
+		return true
+	else:
+		return false
