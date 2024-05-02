@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Unit Tests
-        run: godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://Unit_Tests -gexit -gprefix=test_
+        run: godot --rendering-driver opengl3 -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://Unit_Tests -gexit -gprefix=test_
       
   build:
     runs-on: ubuntu-latest
