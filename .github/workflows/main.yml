@@ -8,14 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  tests:
+  Unit_Tests:
     runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2.1
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set up Godot
-        uses: abarichello/godot-ci@4.2.1
 
       - name: Run Unit Tests
         run: godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://Unit_Tests -gexit -gprefix=test_
