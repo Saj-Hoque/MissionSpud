@@ -8,6 +8,18 @@ on:
   workflow_dispatch:
 
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Godot
+        uses: abarichello/godot-ci@4.2.1
+
+      - name: Run Unit Tests
+        run: godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://Unit_Tests -gexit -gprefix=test_
+      
   build:
     runs-on: ubuntu-latest
     permissions: write-all
