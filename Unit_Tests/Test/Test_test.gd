@@ -8,4 +8,4 @@ func test_testtrue():
 	assert_bool(true).is_true()
 
 func test_testfalse():
-	assert_bool(false).is_false()
+	assert_bool(true).is_false()
