@@ -2,7 +2,7 @@
 
 LANG="en_US.utf8"
 GODOT_VERSION=4.2.1
-GODOT_BIN=Godot_v${GODOT_VERSION}-stable_linux_headless.64
+GODOT_BIN=Godot_v${GODOT_VERSION}-stable_linux.x86_64
 GODOT_ZIP=${GODOT_BIN}.zip
 GODOT_URL=https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/${GODOT_ZIP}
 
