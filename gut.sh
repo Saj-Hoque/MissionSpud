@@ -13,4 +13,4 @@ fi
 curl -s -S ${GODOT_URL} --output ${GODOT_ZIP}
 unzip -q ${GODOT_ZIP}
 chmod +x ${GODOT_BIN}
-./${GODOT_BIN} -d -s --path $GITHUB_WORKSPACE addons/gut/gut_cmdln.gd -gdir=res://Unit_Tests -ginclude_subdirs -gexit
+./${GODOT_BIN} --rendering-driver opengl3 -d -s --path $GITHUB_WORKSPACE addons/gut/gut_cmdln.gd -gdir=res://Unit_Tests -ginclude_subdirs -gexit
