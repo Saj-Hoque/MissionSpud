@@ -18,8 +18,8 @@ jobs:
         uses: ceceppa/godot-gut-ci@main
         with:
           godot_version: 4.2.1
-          gut_params: -gdir=res://Unit_Tests -gsuffix=.test.gd -gprefix=
-      
+          gut_params: gdir=res://Unit_Tests -gexit -gprefix=test_ 
+          
   build:
     runs-on: ubuntu-latest
     permissions: write-all
