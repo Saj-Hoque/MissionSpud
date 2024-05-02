@@ -33,8 +33,8 @@ func _process(delta):
 			day_processed = false
 
 		
-		upkeep_alert = true if hour == 21 else false
-		upkeep_message = true if hour == 22  or hour == 23 else false
+		upkeep_alert = true if hour == 22 else false
+		upkeep_message = true if hour == 23 else false
 		
 
 		if time_speed > 0:
