@@ -1,18 +1,10 @@
 name: Unit-Tests
-run-name: ${{ github.head_ref || github.ref_name }}
-
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    paths-ignore:
-      - '**.yml'
-      - '**.md'
+    branches: '*'
   workflow_dispatch:
-
-
-concurrency:
-  group: Unit-Tests${{ github.event.number }}
-  cancel-in-progress: true
-
 
 jobs:
   unit-test:
