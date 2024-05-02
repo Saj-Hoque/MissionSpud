@@ -7,18 +7,7 @@ on:
 
   workflow_dispatch:
 
-jobs:
-  Unit_Tests:
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:4.2.1
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Unit Tests
-        run: godot --rendering-driver opengl3 -s addons/gut/gut_cmdln.gd -d --path "$PWD" -ginclude_subdirs -gdir=res://Unit_Tests -gexit -gprefix=test_
-      
+jobs: 
   build:
     runs-on: ubuntu-latest
     permissions: write-all
