@@ -13,8 +13,10 @@ jobs:
     name: Unit Tests
     steps:
       - name: Run Tests
-        run: godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://Unit_Tests -gexit -gprefix=test_
-        shell: bash
+        uses: yeslayla/run-gut-tests-action@v1.0.1
+        with:
+          containerImage: barichello/godot-ci:4.2.1-stable
+          directory: Unit_Tests
       
   build:
     runs-on: ubuntu-latest
