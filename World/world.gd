@@ -42,3 +42,6 @@ func _input(event):
 		SelectionManager.target_pos = get_global_mouse_position()
 		SelectionManager.selection_mode = true
 
+func testing():
+	return true
+
