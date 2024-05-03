@@ -80,20 +80,24 @@ func unoccupied():
 func is_available():
 	return not taken
 	
-		
+func collect_by_player(world):
+	world.update_potato_counter(Global.potatoValue)
+
+func collect_by_robot(robot):
+	if is_instance_of(robot, collector_robot):
+		robot.add_to_capacity()
+
 func _handle_picked_up_by_player():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.1)
-	tween.tween_callback(world.update_potato_counter.bind(Global.potatoValue))
+	tween.tween_callback(collect_by_player.bind(world))
 	tween.tween_callback(queue_free)
-
-
 
 func _handle_picked_up_by_robot():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.1)
 	tween.tween_callback(queue_free)
-	tween.tween_callback(robot.add_to_capacity)
+	tween.tween_callback(collect_by_robot.bind(robot))
 
 
 func _on_pickup_range_area_entered(area):

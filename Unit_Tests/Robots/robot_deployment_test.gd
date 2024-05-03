@@ -10,9 +10,9 @@ func test_buy_planter():
 	
 	var world = world_scene.instantiate()
 	# Starts with 3 robots, 1 planter, 1 harvester, 1 scavenger, 0 collectors
-	var all_robots = world.get_node("robots")
+	var starting_robots = world.get_node("robots")
 	
-	RobotShop._buy_robot(RobotShop.planterPrice, RobotShop.planter_scene,RobotShop.planter_ai_scene,all_robots)
+	RobotShop._buy_robot(RobotShop.planterPrice, RobotShop.planter_scene,RobotShop.planter_ai_scene,starting_robots)
 	
 	var robots = world.find_child("robots").get_children()
 	var planters = 0
@@ -43,9 +43,9 @@ func test_buy_harvester():
 	
 	var world = world_scene.instantiate()
 	# Starts with 3 robots, 1 planter, 1 harvester, 1 scavenger, 0 collectors
-	var all_robots = world.get_node("robots")
+	var starting_robots = world.get_node("robots")
 	
-	RobotShop._buy_robot(RobotShop.harvesterPrice, RobotShop.harvester_scene,RobotShop.harvester_ai_scene,all_robots)
+	RobotShop._buy_robot(RobotShop.harvesterPrice, RobotShop.harvester_scene,RobotShop.harvester_ai_scene,starting_robots)
 	
 	var robots = world.find_child("robots").get_children()
 	var planters = 0
@@ -76,9 +76,9 @@ func test_buy_scavenger():
 	
 	var world = world_scene.instantiate()
 	# Starts with 3 robots, 1 planter, 1 harvester, 1 scavenger, 0 collectors
-	var all_robots = world.get_node("robots")
+	var starting_robots = world.get_node("robots")
 	
-	RobotShop._buy_robot(RobotShop.scavengerPrice, RobotShop.scavenger_scene,RobotShop.scavenger_ai_scene,all_robots)
+	RobotShop._buy_robot(RobotShop.scavengerPrice, RobotShop.scavenger_scene,RobotShop.scavenger_ai_scene,starting_robots)
 	
 	var robots = world.find_child("robots").get_children()
 	var planters = 0
@@ -109,9 +109,9 @@ func test_buy_collector():
 	
 	var world = world_scene.instantiate()
 	# Starts with 3 robots, 1 planter, 1 harvester, 1 scavenger, 0 collectors
-	var all_robots = world.get_node("robots")
+	var starting_robots = world.get_node("robots")
 	
-	RobotShop._buy_robot(RobotShop.collectorPrice, RobotShop.collector_scene,RobotShop.collector_ai_scene,all_robots)
+	RobotShop._buy_robot(RobotShop.collectorPrice, RobotShop.collector_scene,RobotShop.collector_ai_scene,starting_robots)
 	
 	var robots = world.find_child("robots").get_children()
 	var planters = 0
