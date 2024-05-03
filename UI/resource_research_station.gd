@@ -157,8 +157,8 @@ var boostPrice = { 0 : {"potato" : 25,
 							 "scrap"  : 25 },
 						1 : {"potato" : 175,
 							 "scrap"  : 175 },
-						2 : {"potato" : 1300,
-							 "scrap"  : 1300 }
+						2 : {"potato" : 1225,
+							 "scrap"  : 1225 }
 					  }
 var boostImprovements = { 0 : "x 1   ->   x 2",
 						  1 : "x 2   ->   x 4",
@@ -307,7 +307,7 @@ func _update():
 	_update_values(growthPrice, growthLevel, growthPotatoPrice, growthScrapPrice, growthImprovementLabel, growthImprovements, growthUpkeepLabel, growthUpkeep, growthCurrentUpkeepLabel, growthCurrentUpkeep)
 	_update_values(boostPrice, boostLevel, boostPotatoPrice, boostScrapPrice, boostImprovementLabel, boostImprovements, boostUpkeepLabel, boostUpkeep, boostCurrentUpkeepLabel, boostCurrentUpkeep)
 	_update_values(forgePrice, forgeLevel, forgePotatoPrice, forgeScrapPrice, forgeImprovementLabel, forgeImprovements, forgeUpkeepLabel, forgeUpkeep, forgeCurrentUpkeepLabel, forgeCurrentUpkeep)
-	_update_values(turbinePrice, turbineLevel, turbinePotatoPrice, turbineScrapPrice, turbineImprovementLabel, turbineImprovements, turbineUpkeepLabel, turbineUpkeep, turbineCurrentUpkeepLabel, fertilizerCurrentUpkeep)
+	_update_values(turbinePrice, turbineLevel, turbinePotatoPrice, turbineScrapPrice, turbineImprovementLabel, turbineImprovements, turbineUpkeepLabel, turbineUpkeep, turbineCurrentUpkeepLabel, turbineCurrentUpkeep)
 
 
 func _update_global_values(prices, level, upkeepValues, improvementValues):

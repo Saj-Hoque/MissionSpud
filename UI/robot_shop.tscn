@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://UI/robot_shop.gd" id="1_2yh61"]
 [ext_resource type="FontFile" uid="uid://wkorqfm7fonm" path="res://font/Bungee-Regular.ttf" id="2_j2y6y"]
-[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://Assets/Resources/Potato/potato2.png" id="3_054f0"]
-[ext_resource type="Texture2D" uid="uid://ct7g8dtxrc235" path="res://Assets/Robots/planter.png" id="3_ux3oh"]
-[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://Assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
-[ext_resource type="Texture2D" uid="uid://bal8n0is5gcql" path="res://Assets/Robots/harvester.png" id="6_b13q0"]
-[ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://Assets/Robots/collector.png" id="7_wa0y2"]
-[ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://Assets/Robots/scavenger.png" id="8_yhyt8"]
+[ext_resource type="Texture2D" uid="uid://bj4opvhpaxg1o" path="res://assets/Resources/Potato/potato2.png" id="3_054f0"]
+[ext_resource type="Texture2D" uid="uid://ct7g8dtxrc235" path="res://assets/Robots/planter.png" id="3_ux3oh"]
+[ext_resource type="Texture2D" uid="uid://b0umr7umgmxnd" path="res://assets/Resources/Scrap/scrap1.png" id="4_8jj0w"]
+[ext_resource type="Texture2D" uid="uid://bal8n0is5gcql" path="res://assets/Robots/harvester.png" id="6_b13q0"]
+[ext_resource type="Texture2D" uid="uid://dw1yxfyh0olx8" path="res://assets/Robots/collector.png" id="7_wa0y2"]
+[ext_resource type="Texture2D" uid="uid://ceaadsd8bpaj8" path="res://assets/Robots/scavenger.png" id="8_yhyt8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju33a"]
 bg_color = Color(0.141176, 0.0901961, 0.00392157, 0.980392)

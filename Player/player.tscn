@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_76ck6"]
 [ext_resource type="AudioStream" uid="uid://crrwawegmydx5" path="res://SFX/plop.mp3" id="3_ma05c"]
-[ext_resource type="Texture2D" uid="uid://desaiymp8br2y" path="res://Assets/Player/spaceman_sprite.png" id="3_ohn57"]
+[ext_resource type="Texture2D" uid="uid://desaiymp8br2y" path="res://assets/Player/spaceman_sprite.png" id="3_ohn57"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q48k4"]
 atlas = ExtResource("3_ohn57")

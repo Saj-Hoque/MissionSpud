@@ -187,5 +187,14 @@ func test_fertilizer_button_pressed():
 	assert_int(Global.potatoQuantity).is_equal(5)
 
 
-
-
+func test_reset_fertilizer_values():
+	Global.reset()
+	
+	ResourceResearchStation.fertilizerLevel = ResourceResearchStation.reset_feature(ResourceResearchStation.fertilizerLevel, ResourceResearchStation.fertilizerButton, ResourceResearchStation.fertilizerResources, ResourceResearchStation.fertilizerUpkeepLabel)
+	
+	assert_int(ResourceResearchStation.fertilizerLevel).is_equal(0)
+	assert_str(ResourceResearchStation.fertilizerButton.text).is_equal("Research")
+	assert_bool(ResourceResearchStation.fertilizerButton.disabled).is_false()
+	assert_bool(ResourceResearchStation.fertilizerResources.visible).is_true()
+	assert_bool(ResourceResearchStation.fertilizerUpkeepLabel.visible).is_true()
+	

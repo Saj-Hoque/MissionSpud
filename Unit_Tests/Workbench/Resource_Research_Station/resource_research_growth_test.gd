@@ -187,4 +187,14 @@ func test_growth_button_pressed():
 	assert_float(Global.potatoTimer).is_equal(0.75)
 
 
+func test_reset_growth_values():
+	Global.reset()
+	
+	ResourceResearchStation.growthLevel = ResourceResearchStation.reset_feature(ResourceResearchStation.growthLevel, ResourceResearchStation.growthButton, ResourceResearchStation.growthResources, ResourceResearchStation.growthUpkeepLabel)
+	
+	assert_int(ResourceResearchStation.growthLevel).is_equal(0)
+	assert_str(ResourceResearchStation.growthButton.text).is_equal("Research")
+	assert_bool(ResourceResearchStation.growthButton.disabled).is_false()
+	assert_bool(ResourceResearchStation.growthResources.visible).is_true()
+	assert_bool(ResourceResearchStation.growthUpkeepLabel.visible).is_true()
 

@@ -187,5 +187,15 @@ func test_quality_button_pressed():
 	assert_int(Global.potatoValue).is_equal(8)
 
 
+func test_reset_quality_values():
+	Global.reset()
+	
+	ResourceResearchStation.qualityLevel = ResourceResearchStation.reset_feature(ResourceResearchStation.qualityLevel, ResourceResearchStation.qualityButton, ResourceResearchStation.qualityResources, ResourceResearchStation.qualityUpkeepLabel)
+	
+	assert_int(ResourceResearchStation.qualityLevel).is_equal(0)
+	assert_str(ResourceResearchStation.qualityButton.text).is_equal("Research")
+	assert_bool(ResourceResearchStation.qualityButton.disabled).is_false()
+	assert_bool(ResourceResearchStation.qualityResources.visible).is_true()
+	assert_bool(ResourceResearchStation.qualityUpkeepLabel.visible).is_true()
 
 

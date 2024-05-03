@@ -432,9 +432,9 @@ var scavengerCapacityImprovementValues = { 0 : 2,
 							   		  		 2 : 8,
 							   		  		 3 : 16
 										   }
-var scavengerCapacityUpkeep = { 0 : "Upkeep	    +6",
+var scavengerCapacityUpkeep = { 0 : "Upkeep	    +3",
 						   		  1 : "Upkeep	    +9",
-								  2 : "Upkeep	    +12"
+								  2 : "Upkeep	    +27"
 								}
 var scavengerCapacityUpkeepValues = { 0 : 3,
 										1 : 9, 
