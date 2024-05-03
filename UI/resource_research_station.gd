@@ -78,8 +78,8 @@ var fertilizerUpkeep = { 0 : "Upkeep	    +6",
 						 2 : "Upkeep	    +600"
 					   }
 var fertilizerUpkeepValues = { 0 : 6,
-							   1 : 70, 
-							   2 : 500
+							   1 : 60, 
+							   2 : 600
 							 }
 var fertilizerCurrentUpkeep = { 0 : "+0",
 								1 : "+6", 
@@ -133,7 +133,7 @@ var growthImprovements = { 0 : "6s   ->   3s",
 						   2 : "1.5s   ->   0.75s",
 						   3 : "0.75s"
 						 }
-var growthImprovementValues = { 0 : 6,				# Divided by 2 because plant growth is 2 sprites
+var growthImprovementValues = { 0 : 6,
 						   		1 : 3,
 						   		2 : 1.5,
 						   		3 : 0.75	

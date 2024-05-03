@@ -4,7 +4,6 @@ extends GdUnitTestSuite
 @warning_ignore('unused_parameter')
 @warning_ignore('return_value_discarded')
 
-
 func test_update_upkeep_true():
 	Global.reset()
 	Global.potatoCount = 100
@@ -63,5 +62,3 @@ func test_update_upkeep_false_negative():
 	assert_int(updated_upkeep).is_not_equal(-21)
 	assert_int(updated_upkeep).is_not_equal(-19)
 
-
-#

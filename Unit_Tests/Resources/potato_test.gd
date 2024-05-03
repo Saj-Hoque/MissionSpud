@@ -52,8 +52,6 @@ func test_potato_collected_by_invalid_robot():
 	Global.potatoValue = 1
 	
 	var scavenger = null
-	var starting_robots = world.get_node("robots")
-	RobotShop._buy_robot(RobotShop.scavengerPrice, RobotShop.scavenger_scene,RobotShop.scavenger_ai_scene, starting_robots)
 	var robots = world.find_child("robots").get_children()
 	for robot in robots:
 		if is_instance_of(robot, scavenger_robot):
@@ -69,3 +67,4 @@ func test_potato_collected_by_invalid_robot():
 	potato.queue_free()
 	
 	assert_int(carrying).is_not_equal(1)
+
