@@ -34,8 +34,6 @@ func reset_plots():
 	for plot in growing_plots:
 		plot.instantiate()
 		
-func reset_scrapZone():
-	$idleArea3/scrapSpawnZone.instantiate()
 
 func _input(event):
 	if event.is_action_pressed("leftClick"):

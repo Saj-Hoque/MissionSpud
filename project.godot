@@ -13,6 +13,7 @@ config_version=5
 config/name="Mission Spud"
 run/main_scene="res://Menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://icon.svg"
 
 [autoload]
 
@@ -32,6 +33,7 @@ GatherNumbers="*res://UI/gatherNumbers.gd"
 Info="*res://UI/info.tscn"
 Upkeep="*res://Resources/upkeep.gd"
 WinLoseScenario="*res://World/win_lose_scenario.gd"
+Credits="*res://UI/credits.tscn"
 
 [display]
 

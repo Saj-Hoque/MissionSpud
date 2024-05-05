@@ -162,6 +162,17 @@ size_flags_horizontal = 4
 focus_neighbor_bottom = NodePath("../start")
 text = "Quit"
 
+[node name="credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1695.0
+offset_top = 54.0
+offset_right = 1810.0
+offset_bottom = 96.0
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../quit")
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+
 [node name="potato" type="Sprite2D" parent="."]
 position = Vector2(960, 580)
 scale = Vector2(10, 10)
@@ -189,3 +200,4 @@ autoplay = true
 
 [connection signal="pressed" from="buttonsMargin/buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="buttonsMargin/buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
