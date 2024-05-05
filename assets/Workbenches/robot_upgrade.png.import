@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5uq7e2on88aw"
-path="res://.godot/imported/robot_upgrade.png-c3bae19eb0a29ce00374531e6264a9ec.ctex"
+path="res://.godot/imported/robot_upgrade.png-6115ab594b733cf7d34c431285acf71a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Workbenches/robot_upgrade.png"
-dest_files=["res://.godot/imported/robot_upgrade.png-c3bae19eb0a29ce00374531e6264a9ec.ctex"]
+source_file="res://Assets/Workbenches/robot_upgrade.png"
+dest_files=["res://.godot/imported/robot_upgrade.png-6115ab594b733cf7d34c431285acf71a.ctex"]
 
 [params]
 

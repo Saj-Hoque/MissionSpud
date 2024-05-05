@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ceaadsd8bpaj8"
-path="res://.godot/imported/scavenger.png-9d2103276be8cfa783eefda974644c54.ctex"
+path="res://.godot/imported/scavenger.png-42d809edfe3c8988cb818105e91cc0a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Robots/scavenger.png"
-dest_files=["res://.godot/imported/scavenger.png-9d2103276be8cfa783eefda974644c54.ctex"]
+source_file="res://Assets/Robots/scavenger.png"
+dest_files=["res://.godot/imported/scavenger.png-42d809edfe3c8988cb818105e91cc0a1.ctex"]
 
 [params]
 

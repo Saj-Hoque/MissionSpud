@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eoxvft6op5cg"
-path="res://.godot/imported/robot_buy.png-562da0149004b4d07db8380975d797c1.ctex"
+path="res://.godot/imported/robot_buy.png-204756084990cccc79bc08e55e1330e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Workbenches/robot_buy.png"
-dest_files=["res://.godot/imported/robot_buy.png-562da0149004b4d07db8380975d797c1.ctex"]
+source_file="res://Assets/Workbenches/robot_buy.png"
+dest_files=["res://.godot/imported/robot_buy.png-204756084990cccc79bc08e55e1330e2.ctex"]
 
 [params]
 
