@@ -20,11 +20,13 @@ jobs:
       statuses: write
     steps:
       # checkout your repository
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           lfs: true
       # run tests by using the gdUnit4-action with Godot version 4.2.1 and the latest GdUnit4 release 
-      - uses: MikeSchulze/gdUnit4-action@v1.0.2
+      - name: Run Unit Tests
+        uses: MikeSchulze/gdUnit4-action@v1.0.2
         with:
           godot-version: '4.2.1'
           paths: |
@@ -37,7 +39,7 @@ jobs:
     permissions: write-all
     name: Export Game
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
         
       - name: Export Game
