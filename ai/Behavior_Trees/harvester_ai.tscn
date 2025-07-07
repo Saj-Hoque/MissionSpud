@@ -19,8 +19,8 @@
 
 [node name="harvester_ai" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_mta53")
-blackboard = NodePath("@Node@96507")
-actor = NodePath("")
+blackboard = NodePath("@Node@22600")
+actor = NodePath("..")
 
 [node name="Either" type="Node" parent="."]
 script = ExtResource("2_wl74q")

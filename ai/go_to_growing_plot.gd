@@ -14,7 +14,7 @@ func tick(actor, blackboard: Blackboard):
 		actor.disconnect("target_reached", Callable(self, "_target_reached"))
 		return FAILURE
 	actor.enable_movement()
-	actor.status = "Travelling to empty plot"
+	actor.status = "Travelling to fully grown plot"
 	return RUNNING
 
 func _target_reached():
