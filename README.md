@@ -1,5 +1,5 @@
-﻿# Mission Spudnik:22
-Welcome to **Mission Spudnik:22**, a resouce management simulation game developed in **Godot** as part of my university dissertation on **agent-based AI** and **automation**.
+﻿# Mission Spudnik 22
+Welcome to **Mission Spudnik 22**, a resouce management simulation game developed in **Godot** as part of my university dissertation on **agent-based AI** and **automation**.
 
 In this simulation, you’ll oversee a colony of robots tasked with managing potato production, distribution, and survival — all powered by autonomous decision-making and emergent AI behaviors.
 
